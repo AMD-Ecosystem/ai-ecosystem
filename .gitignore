@@ -1,0 +1,17 @@
+.venv
+.vscode
+build
+__pycache__
+
+.claude/settings.local.json
+
+# documentation artifacts
+_build/
+_images/
+_static/
+_templates/
+_toc.yml
+docBin/
+_doxygen/
+_readthedocs/
+
