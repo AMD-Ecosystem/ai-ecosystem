@@ -11,9 +11,10 @@ page walks through installing and running ComfyUI on AMD GPUs.
 Prerequisites
 =============
 
-Ensure your working environment is running ROCm-enabled PyTorch on
-a :ref:`supported system <compat-matrix>`. See :ref:`pytorch-install` for
-instructions.
+Ensure your working environment is running ROCm-enabled PyTorch on a `supported
+system
+<https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__.
+See :ref:`pytorch-install` for instructions.
 
 .. important::
 

@@ -3,16 +3,20 @@
 
 .. _jax-install:
 
-********************
-Install JAX for ROCm
-********************
+***************************
+Install JAX for ROCm 7.14.0
+***************************
 
-This topic guides you through installing JAX with ROCm support on AMD hardware.
-It applies to :ref:`supported AMD GPUs and platforms
-<rocm:release-ai-ecosystem>`.
+This page guides you through installing JAX with ROCm support on AMD hardware.
+It applies to `supported AMD GPUs and platforms
+<https://rocm.docs.amd.com/en/docs-7.14.0/about/release-notes.html#ai-ecosystem-support>`__.
 
 .. selector:: Device family
    :key: fam
+
+   .. selector-option:: All
+      :value: all w=compute
+      :width: 4
 
    .. selector-option:: AMD Instinct™
       :value: instinct w=compute
@@ -24,12 +28,7 @@ It applies to :ref:`supported AMD GPUs and platforms
       :width: 4
       :toc-label: AMD Radeon
 
-   .. selector-option:: AMD Ryzen™
-      :value: ryzen w=compute
-      :width: 4
-      :toc-label: AMD Ryzen
-
-.. include:: /install/include/gpu-selector.rst
+.. include:: /frameworks/include/gpu-selector-jax.rst
 
 .. selector:: Operating system
    :key: os
@@ -41,12 +40,12 @@ It applies to :ref:`supported AMD GPUs and platforms
 .. selector:: JAX version
    :key: jax-ver
 
-   .. selector-option:: 0.9.1
-      :value: 0.9.1
+   .. selector-option:: 0.10.0
+      :value: 0.10.0
       :width: 6
 
-   .. selector-option:: 0.8.2
-      :value: 0.8.2
+   .. selector-option:: 0.9.1
+      :value: 0.9.1
       :width: 6
 
 Prerequisites
@@ -55,375 +54,178 @@ Prerequisites
 .. selected:: fam=instinct fam=radeon
 
    - Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
-     :ref:`compat-matrix` for driver support information. For installation
-     instructions, see the `AMD GPU Driver documentation
-     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/31.30.0-preview/index.html>`__.
+     `ROCm compatibility matrix
+     <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
+     for driver support information. For installation instructions, see the
+     `AMD GPU Driver documentation
+     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
 
 - Ensure your system has a :ref:`supported Python version
   <rocm-compat-python>` installed and accessible: 3.11, 3.12, 3.13, or 3.14.
 
-- :doc:`Install the ROCm Core SDK </install/rocm>` -- it's recommended to use
-  pip to install JAX and the ROCm Core SDK in the same Python virtual
-  environment.
+- Complete the ROCm Core SDK installation prerequisites. See `Prerequisites
+  (Install ROCm)
+  <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html#prerequisites>`__ for
+  instructions.
 
   .. important::
 
-     Unlike PyTorch, the JAX packages do not automatically install
-     ``rocm[libraries]`` as a dependency.
+     Unlike :doc:`PyTorch </frameworks/pytorch/install>`, the JAX packages
+     don't automatically install ROCm library and device packages as
+     dependencies. The following section includes recommended instructions to
+     install ROCm in a Python virtual environment alongside JAX. See `Install
+     ROCm <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html>`__ for other
+     installation methods.
 
 .. _pip-install-jax:
 
 Install JAX using pip
 =====================
 
-For prerequisite steps and post-installation recommendations, see the
-:doc:`ROCm installation instructions </install/rocm>`.
+For prerequisite steps and post-installation recommendations, see the `ROCm
+installation instructions <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html>`__.
 
 .. _pip-install-jax-venv:
 
-1. Set up your Python virtual environment. For example, run the following
-   command to create one with Python 3.13:
+1. Set up your Python virtual environment.
+
+   .. tab-set::
+
+      .. tab-item:: Python 3.14
+
+         .. code-block:: bash
+
+            python3.14 -m venv .venv
+
+      .. tab-item:: Python 3.13
+
+         .. code-block:: bash
+
+            python3.13 -m venv .venv
+
+      .. tab-item:: Python 3.12
+
+         .. code-block:: bash
+
+            python3.12 -m venv .venv
+
+      .. tab-item:: Python 3.11
+
+         .. code-block:: bash
+
+            python3.11 -m venv .venv
+
+2. Activate your Python virtual environment.
 
    .. code-block:: shell
 
-      python3.13 -m venv .venv
+      source .venv/bin/activate
 
-2. Activate your Python virtual environment. For example:
+3. Install ROCm in your virtual environment
 
-   .. selected:: os=linux
+   .. selected:: fam=all
 
-      .. code-block:: shell
+      .. code-block:: bash
 
-         source .venv/bin/activate
+         python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
+             "rocm[libraries,device-all]"
 
-3. Install the appropriate ROCm-enabled JAX libraries for your operating system
-   and AMD hardware architecture.
+   .. selected:: gfx=gfx950
+
+      .. code-block:: bash
+
+         python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
+             "rocm[libraries,device-gfx950]"
+
+   .. selected:: gfx=gfx942
+
+      .. code-block:: bash
+
+         python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
+             "rocm[libraries,device-gfx942]"
+
+   .. selected:: gfx=gfx90a
+
+      .. code-block:: bash
+
+         python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
+             "rocm[libraries,device-gfx90a]"
+
+   .. selected:: gfx=gfx1200
+
+      .. code-block:: bash
+
+         python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
+             "rocm[libraries,device-gfx1200]"
+
+   .. selected:: gfx=gfx1201
+
+      .. code-block:: bash
+
+         python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
+             "rocm[libraries,device-gfx1201]"
+
+   .. selected:: gfx=gfx1100
+
+      .. code-block:: bash
+
+         python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
+             "rocm[libraries,device-gfx1100]"
+
+   .. selected:: gfx=gfx1101
+
+      .. code-block:: bash
+
+         python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
+             "rocm[libraries,device-gfx1101]"
+
+   .. selected:: gfx=gfx1102
+
+      .. code-block:: bash
+
+         python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
+             "rocm[libraries,device-gfx1102]"
+
+4. Install the ROCm-enabled JAX libraries.
+
+   .. note::
+
+      The ``jax`` and ``jaxlib`` packages are not published to the AMD package
+      repository. After installing GFX architecture-based ``jax_rocm7_plugin``
+      and ``jax_rocm7_pjrt`` packages from the AMD repository, install
+      ``jax`` and ``jaxlib`` from `PyPI <https://pypi.org/project/jax>`__.
+
+   .. selected:: jax-ver=0.10.0
+
+      .. code-block:: bash
+
+         python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
+             "jax_rocm7_plugin==0.10.0+rocm7.14.0" \
+             "jax_rocm7_pjrt==0.10.0+rocm7.14.0"
+
+         # Install jax from PyPI
+         python -m pip install \
+             "jax==0.10.0" \
+             "jaxlib==0.10.0"
 
    .. selected:: jax-ver=0.9.1
 
-      .. note::
+      .. code-block:: bash
 
-         The ``jax`` and ``jaxlib`` packages are not published to the AMD package
-         repository. After installing GFX architecture-based ``jax_rocm7_plugin``
-         and ``jax_rocm7_pjrt`` packages from the AMD repository, install
-         ``jax`` and ``jaxlib`` from `PyPI <https://pypi.org/project/jax>`__.
+         python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
+             "jax_rocm7_plugin==0.9.1+rocm7.14.0" \
+             "jax_rocm7_pjrt==0.9.1+rocm7.14.0"
 
-   .. selected:: jax-ver=0.8.2
+         # Install jax from PyPI
+         python -m pip install \
+             "jax==0.9.1" \
+             "jaxlib==0.9.1"
 
-      .. note::
-
-         The ``jax`` package is not published to the AMD package repository.
-         After installing GFX architecture-based ``jaxlib``,
-         ``jax_rocm7_plugin`` and ``jax_rocm7_pjrt`` packages from the AMD
-         repository, install ``jax`` from `PyPI
-         <https://pypi.org/project/jax>`__.
-
-   .. selected:: jax-ver=0.9.1
-
-      .. selected:: gfx=gfx950
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx950-dcgpu/ \
-              "jax_rocm7_plugin==0.9.1+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.9.1+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install \
-              "jax==0.9.1" \
-              "jaxlib==0.9.1"
-
-      .. selected:: gfx=gfx942
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx94X-dcgpu/ \
-              "jax_rocm7_plugin==0.9.1+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.9.1+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install \
-              "jax==0.9.1" \
-              "jaxlib==0.9.1"
-
-      .. selected:: gfx=gfx90a
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx90a/ \
-              "jax_rocm7_plugin==0.9.1+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.9.1+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install \
-              "jax==0.9.1" \
-              "jaxlib==0.9.1"
-
-      .. selected:: gfx=gfx908
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx908/ \
-              "jax_rocm7_plugin==0.9.1+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.9.1+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install \
-              "jax==0.9.1" \
-              "jaxlib==0.9.1"
-
-      .. selected:: gfx=gfx1201 gfx=gfx1200
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx120X-all/ \
-              "jax_rocm7_plugin==0.9.1+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.9.1+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install \
-              "jax==0.9.1" \
-              "jaxlib==0.9.1"
-
-      .. selected:: gfx=gfx1100 gfx=gfx1101 gfx=gfx1102 gfx=gfx1103
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx110X-all/ \
-              "jax_rocm7_plugin==0.9.1+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.9.1+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install \
-              "jax==0.9.1" \
-              "jaxlib==0.9.1"
-
-      .. selected:: gfx=gfx1030
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx103X-all/ \
-              "jax_rocm7_plugin==0.9.1+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.9.1+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install \
-              "jax==0.9.1" \
-              "jaxlib==0.9.1"
-
-      .. selected:: gfx=gfx1151
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ \
-              "jax_rocm7_plugin==0.9.1+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.9.1+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install \
-              "jax==0.9.1" \
-              "jaxlib==0.9.1"
-
-      .. selected:: gfx=gfx1150
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx1150/ \
-              "jax_rocm7_plugin==0.9.1+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.9.1+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install \
-              "jax==0.9.1" \
-              "jaxlib==0.9.1"
-
-      .. selected:: gfx=gfx1152
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx1152/ \
-              "jax_rocm7_plugin==0.9.1+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.9.1+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install \
-              "jax==0.9.1" \
-              "jaxlib==0.9.1"
-
-   .. selected:: jax-ver=0.8.2
-
-      .. selected:: gfx=gfx950
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx950-dcgpu/ \
-              "jaxlib==0.8.2" \
-              "jax_rocm7_plugin==0.8.2+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.8.2+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install "jax==0.8.2"
-
-      .. selected:: gfx=gfx942
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx94X-dcgpu/ \
-              "jaxlib==0.8.2" \
-              "jax_rocm7_plugin==0.8.2+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.8.2+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install "jax==0.8.2"
-
-      .. selected:: gfx=gfx90a
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx90a/ \
-              "jaxlib==0.8.2" \
-              "jax_rocm7_plugin==0.8.2+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.8.2+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install "jax==0.8.2"
-
-      .. selected:: gfx=gfx908
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx908/ \
-              "jaxlib==0.8.2" \
-              "jax_rocm7_plugin==0.8.2+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.8.2+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install "jax==0.8.2"
-
-      .. selected:: gfx=gfx1201 gfx=gfx1200
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx120X-all/ \
-              "jaxlib==0.8.2" \
-              "jax_rocm7_plugin==0.8.2+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.8.2+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install "jax==0.8.2"
-
-      .. selected:: gfx=gfx1100 gfx=gfx1101 gfx=gfx1102 gfx=gfx1103
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx110X-all/ \
-              "jaxlib==0.8.2" \
-              "jax_rocm7_plugin==0.8.2+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.8.2+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install "jax==0.8.2"
-
-      .. selected:: gfx=gfx1030
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx103X-all/ \
-              "jaxlib==0.8.2" \
-              "jax_rocm7_plugin==0.8.2+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.8.2+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install "jax==0.8.2"
-
-      .. selected:: gfx=gfx1151
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ \
-              "jaxlib==0.8.2" \
-              "jax_rocm7_plugin==0.8.2+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.8.2+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install "jax==0.8.2"
-
-      .. selected:: gfx=gfx1150
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx1150/ \
-              "jaxlib==0.8.2" \
-              "jax_rocm7_plugin==0.8.2+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.8.2+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install "jax==0.8.2"
-
-      .. selected:: gfx=gfx1152
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl/gfx1152/ \
-              "jaxlib==0.8.2" \
-              "jax_rocm7_plugin==0.8.2+rocm7.13.0" \
-              "jax_rocm7_pjrt==0.8.2+rocm7.13.0"
-
-            # Install jax from PyPI
-            python -m pip install "jax==0.8.2"
-
-.. _install-jax-env-vars:
-
-4. Set the following environment variable before running JAX as a workaround
-   for a :ref:`known issue <jax-install-known-issues>`.
-
-   .. code-block:: shell
-
-      export XLA_FLAGS="--xla_gpu_enable_command_buffer="
-
-5. Check your JAX installation.
+4. Verify your JAX installation.
 
    .. code-block:: shell
 
       python -c "import jax; print(jax.devices())"
 
-   This prints something like ``[RocmDevice(id=0)]`` if JAX and ROCm are installed properly.
-
-.. _jax-install-known-issues:
-
-Known issues
-============
-
-These are known issues related to JAX installation on ROCm
-|ROCM_VERSION| and their workarounds.
-
-Segfaults with JAX 0.9.1
--------------------------
-
-JAX 0.9.1 might segfault during execution. To work around this, disable XLA
-command buffers by setting the following flag before running your script:
-
-.. code-block:: shell
-
-   export XLA_FLAGS="--xla_gpu_enable_command_buffer="
-
+   This prints something like ``[RocmDevice(id=0)]`` if JAX and ROCm are
+   installed properly and your AMD GPUs are detected.

@@ -20,7 +20,7 @@ Attention (GQA), and Multi-Query Attention (MQA). This reduction in memory movem
 time-to-first-token (TTFT) latency for large batch sizes and long prompt sequences, thereby enhancing overall
 performance.
 
-.. image:: ../../../data/how-to/llm-fine-tuning-optimization/attention-module.png
+.. image:: ./images/model-acceleration-libs/attention-module.png
    :alt: Attention module of a large language module utilizing tiling
    :align: center
 
@@ -253,7 +253,7 @@ page describes the options.
    Validator,ROCBLAS_VERSION,4.1.0-cefa4a9b-dirty
    GemmTunableOp_float_TN,tn_200_100_20,Gemm_Rocblas_32323,0.00669595
 
-.. image:: ../../../data/how-to/llm-fine-tuning-optimization/tunableop.png
+.. image:: ./images/model-acceleration-libs/tunableop.png
    :alt: GEMM and TunableOp
    :align: center
 

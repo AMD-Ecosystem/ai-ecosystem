@@ -390,7 +390,7 @@ execution.
 
 .. seealso::
 
-   See :doc:`vllm-optimization` to learn more about vLLM performance
+   See :doc:`vllm-v1-optimization` to learn more about vLLM performance
    optimization techniques for MI300X, MI325X, MI350X, and MI355X.
 
 .. _mi300x-auto-tune:
@@ -515,7 +515,7 @@ You can then visualize and view these metrics using an open-source profile visua
    shows transactions denoting the CPU activities that launch GPU kernels while the lower section shows the actual GPU
    activities where it processes the ``resnet18`` inferences layer by layer.
 
-   .. figure:: ../../../data/how-to/tuning-guides/perfetto-trace.svg
+   .. figure:: ./images/workload-optimization/perfetto-trace.svg
       :width: 800
 
       Perfetto trace visualization example.
@@ -582,7 +582,7 @@ analyze bottlenecks and stressors for their computational workloads on AMD Insti
    ROCm Compute Profiler collects hardware counters in multiple passes, and will therefore re-run the application during each pass
    to collect different sets of metrics.
 
-.. figure:: ../../../data/how-to/tuning-guides/rocprof-compute-analysis.png
+.. figure:: ./images/workload-optimization/rocprof-compute-analysis.png
    :width: 800
 
    ROCm Compute Profiler memory chart analysis panel.
@@ -613,7 +613,7 @@ hardware counters are also included.
    have the greatest impact on the end-to-end execution of the application and to discover what else is happening on the
    system during a performance bottleneck.
 
-.. figure:: ../../../data/how-to/tuning-guides/rocprof-systems-timeline.png
+.. figure:: ./images/workload-optimization/rocprof-systems-timeline.png
    :width: 800
 
    ROCm Systems Profiler timeline trace example.
@@ -623,7 +623,7 @@ vLLM performance optimization
 
 vLLM is a high-throughput and memory efficient inference and serving engine for
 large language models that has gained traction in the AI community for its
-performance and ease of use. See :doc:`vllm-optimization`, where you'll learn
+performance and ease of use. See :doc:`vllm-v1-optimization`, where you'll learn
 how to:
 
 * Enable AITER (AI Tensor Engine for ROCm) to speed up on LLM models.
@@ -781,12 +781,12 @@ This tuning will select the best Triton ``gemm`` configurations according to til
 
   ``torch._inductor.config.max_autotune_gemm = True`` or
   ``TORCHINDUCTOR_MAX_AUTOTUNE_GEMM=1``
-     To enable tuning for ``gemm`` kernels only.
+   To enable tuning for ``gemm`` kernels only.
 
   ``torch._inductor.config.max_autotune_pointwise = True`` or
   ``TORCHINDUCTOR_MAX_AUTOTUNE_POINTWISE=1``
-     To enable tuning for ``pointwise``, ``reduction``, ``persistent
-     reduction``, and ``foreach`` kernels.
+   To enable tuning for ``pointwise``, ``reduction``, ``persistent
+   reduction``, and ``foreach`` kernels.
 
   ``torch._inductor.config.max_autotune_gemm_backends`` or ``TORCHINDUCTOR_MAX_AUTOTUNE_GEMM_BACKENDS``
      Selects the candidate backends for ``mm`` auto-tuning. Defaults to
@@ -938,7 +938,7 @@ Create a working folder for the auto-tuning tool, for example, ``tuning/``.
 
 1. Set the ``ProblemType``, ``TestConfig``, and ``TuningParameters`` in the YAML file. You can modify the template YAML file in ``hipblaslt/utilities``.
 
-.. figure:: ../../../data/how-to/tuning-guides/hipblaslt_yaml_template.png
+.. figure:: ./images/workload-optimization/hipblaslt_yaml_template.png
    :align: center
    :alt: HipBLASLt auto-tuning yaml file template
 
@@ -959,7 +959,7 @@ the second one is the generated equality kernels. If ``SplitK`` is used, the sol
 also change if the winner is using a different ``SplitK`` from the solution. The YAML files generated inside the
 folder ``1_LogicYaml`` are logic ones. These YAML files are just like those generated from TensileLite.
 
-.. figure:: ../../../data/how-to/tuning-guides/hipblaslt_auto_tuning_output_files.png
+.. figure:: ./images/workload-optimization/hipblaslt_auto_tuning_output_files.png
    :align: center
    :alt: HipBLASLt auto-tuning output folder
 
@@ -1099,7 +1099,7 @@ of problem sizes.
 
 .. _tensilelite-tuning-flow-fig:
 
-.. figure:: ../../../data/how-to/tuning-guides/tensilelite-tuning-flow.png
+.. figure:: ./images/workload-optimization/tensilelite-tuning-flow.png
    :align: center
    :alt: TensileLite tuning flow
 
@@ -1266,7 +1266,7 @@ performance (reduce latency) and improve benchmarking stability.
 CK provides a rich set of template parameters for generating flexible accelerated
 computing kernels for difference application scenarios.
 
-See :doc:`optimizing-with-composable-kernel`
+See :doc:`optimize-with-composable-kernel`
 for an overview of Composable Kernel GEMM kernels, information on tunable
 parameters, and examples.
 
@@ -1427,7 +1427,7 @@ low-latency AMD Infinity Fabric™ links (red lines) to form a fully connected
 
 .. _mi300x-node-level-arch-fig:
 
-.. figure:: ../../../data/shared/mi300-node-level-arch.png
+.. figure:: ../images/mi300-node-level-arch.png
 
    MI300 Series node-level architecture showing 8 fully interconnected MI300X
    OAM modules connected to (optional) PCIe switches via re-timers and HGX
@@ -1594,7 +1594,7 @@ Register access is the fastest yet smallest among the three.
 
 .. _mi300x-cu-fig:
 
-.. figure:: ../../../data/shared/compute-unit.png
+.. figure:: ../images/compute-unit.png
 
    Schematic representation of a CU in CDNA2 / CDNA3 / CDNA4 architectures.
    Each CU has 4 SIMDs, which are grouped into 2 SIMD pairs (SP).
@@ -1643,7 +1643,7 @@ efficiency and throughput of various computational kernels.
 
 .. _mi300x-occupancy-vgpr-table:
 
-.. figure:: ../../../data/shared/occupancy-vgpr.png
+.. figure:: ../images/occupancy-vgpr.png
    :alt: Occupancy related to VGPR usage in an Instinct MI300X GPU.
    :align: center
 
@@ -1697,7 +1697,7 @@ the number of CUs a kernel can distribute its task across.
 
    MI350X has 36 CUs per XCD (32 active), for a total of 256 active CUs.
 
-.. figure:: ../../../data/shared/xcd-sys-arch.png
+.. figure:: ../images/xcd-sys-arch.png
 
    XCD-level system architecture showing 40 compute units,
    each with 32 KB L1 cache, a unified compute system with 4 ACE compute
@@ -2260,4 +2260,4 @@ relying on FP64 matrix operations should benchmark and account for this change.
 Further reading
 ===============
 
-* :doc:`vllm-optimization`
+* :doc:`vllm-v1-optimization`

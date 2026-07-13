@@ -1045,7 +1045,7 @@ Deprecated terms
 Further reading
 ===============
 
-* :doc:`workload`
+* :doc:`workload-optimization`
 * :doc:`/how-to/rocm-for-ai/inference/benchmark-docker/vllm`
 * `ROCm Attention Backend deep-dive <https://vllm.ai/blog/rocm-attention-backend>`_ — architecture and benchmarks for all 7 backends
 * `vLLM MoE Playbook - A Practical Guide to TP, DP, PP and Expert Parallelism <https://rocm.blogs.amd.com/software-tools-optimization/vllm-moe-guide/README.html>`_ — DP+EP tuning for MoE models

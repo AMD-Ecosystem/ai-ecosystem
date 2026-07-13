@@ -48,10 +48,11 @@ extensions = [
     # "rocm_docs_custom.remote_yaml",
     # "rocm_docs_custom.version_ref",
     "sphinxcontrib.datatemplates",
+    "sphinx_substitution_extensions",
 ]
-html_static_path = ["static"]
-html_js_files = ["legacy/vllm-benchmark.js"]
-html_css_files = ["legacy/vllm-benchmark.css"]
+html_static_path = ["sphinx/static"]
+html_js_files = ["legacy/vllm-model-select.js"]
+html_css_files = ["legacy/vllm-model-select.css"]
 
 external_projects_current_project = "rocm"
 html_theme = "rocm_docs_theme"
@@ -62,9 +63,9 @@ templates_path = [
 html_theme_options = {
     "flavor": "ai-ecosystem",
     "link_main_doc": False,
-    "repository_url": "https://github.com/AMD-Ecosystem/ai-ecosystem",
-    "use_repository_button": True,
-    "use_issues_button": True,
+    # "repository_url": "https://github.com/AMD-Ecosystem/ai-ecosystem",
+    # "use_repository_button": True,
+    # "use_issues_button": True,
 }
 html_title = f"AMD ROCm AI Ecosystem"
 html_context = {}

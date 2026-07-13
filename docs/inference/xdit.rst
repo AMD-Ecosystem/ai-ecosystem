@@ -300,5 +300,7 @@ Run inference
 Previous versions
 =================
 
-See :doc:`/ai-inference/archive/xdit-history` to find documentation for previous
-releases of xDiT diffusion inference performance testing.
+See `xDiT diffusion inference performance testing version history
+<https://rocm.docs.amd.com/en/latest/how-to/rocm-for-ai/inference/benchmark-docker/previous-versions/xdit-history.html>`__
+to find documentation for previous releases of the Primus with Megatron-LM
+training recipe.
