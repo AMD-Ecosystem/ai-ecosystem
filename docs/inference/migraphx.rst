@@ -10,8 +10,7 @@ Install MIGraphX for ROCm
 
 MIGraphX is AMD's graph inference engine for optimizing and executing ONNX
 models on AMD GPUs using ROCm. This page describes how to install MIGraphX
-|MIGRAPHX_VERSION| and run its test suite using either system packages
-(``.deb``/``.rpm``) or Python wheels.
+|MIGRAPHX_VERSION|.
 
 MIGraphX is currently supported on ``gfx950`` AMD Instinct MI355X and MI350X
 data center GPUs and ``gfx942`` MI325X and MI300X GPUs. See the `ROCm

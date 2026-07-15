@@ -62,14 +62,12 @@ It applies to `supported AMD GPUs and platforms
 Prerequisites
 =============
 
-.. selected:: fam=instinct fam=radeon
-
-   * Ensure your host system has the AMD GPU Driver (amdgpu) installed. See the
-     `ROCm compatibility matrix
-     <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
-     for driver support information. For installation instructions, see the
-     `AMD GPU Driver documentation
-     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
+* Ensure your host system has the AMD GPU Driver (amdgpu) installed. See the
+  `ROCm compatibility matrix
+  <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
+  for driver support information. For installation instructions, see the
+  `AMD GPU Driver documentation
+  <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
 
 .. selected:: i=docker
 
@@ -85,14 +83,14 @@ Prerequisites
      <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html#prerequisites>`__ for
      instructions.
 
-  .. important::
+   .. important::
 
-     Unlike :doc:`PyTorch </frameworks/pytorch/install>`, the JAX packages
-     don't automatically install ROCm library and device packages as
-     dependencies. The following section includes recommended instructions to
-     install ROCm in a Python virtual environment alongside JAX. See `Install
-     ROCm <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html>`__ for other
-     installation methods.
+      Unlike :doc:`PyTorch </frameworks/pytorch/install>`, the JAX packages
+      don't automatically install ROCm library and device packages as
+      dependencies. The following section includes recommended instructions to
+      install ROCm in a Python virtual environment alongside JAX. See `Install
+      ROCm <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html>`__ for other
+      installation methods.
 
 .. selected:: i=docker
    :heading: Get started
