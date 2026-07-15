@@ -517,13 +517,13 @@ Prerequisites
 
          .. code-block:: bash
 
-            python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/amd-aiter/amd_aiter-0.1.13.post2%2Bgb32deb267-cp314-cp314-linux_x86_64.whl
+            python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/amd-aiter/amd_aiter-0.1.13.post2.dev1%2Bgb32deb267-cp314-cp314-linux_x86_64.whl
 
       6. Install the vLLM |VLLM_VERSION| wheel using ``uv pip``.
 
          .. code-block:: bash
 
-            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/vllm/vllm-0.23.1%2Brocm7.14.0-cp314-cp314-linux_x86_64.whl
+            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.0.g9ddef7117.d20260715-cp314-cp314-linux_x86_64.whl
 
       7. Upgrade the ``tensorizer`` dependency to version 2.12.1 as a workaround for a :ref:`known issue <vllm-tensorizer-ki>`.
 
