@@ -525,12 +525,6 @@ Prerequisites
 
             uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.0.g9ddef7117.d20260715-cp314-cp314-linux_x86_64.whl
 
-      7. Upgrade the ``tensorizer`` dependency to version 2.12.1 as a workaround for a :ref:`known issue <vllm-tensorizer-ki>`.
-
-         .. code-block:: bash
-
-            python -m pip install --upgrade tensorizer==2.12.1
-
    .. selected:: fam=all fam=instinct
 
       8. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
@@ -556,20 +550,14 @@ Prerequisites
 
             uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-rdna/vllm/vllm-0.23.1%2Brocm7.14.0-cp314-cp314-linux_x86_64.whl
 
-      6. Upgrade the ``tensorizer`` dependency to version 2.12.1 as a workaround for a :ref:`known issue <vllm-tensorizer-ki>`.
-
-         .. code-block:: bash
-
-            python -m pip install --upgrade tensorizer==2.12.1
-
-      7. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
+      6. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
 
          .. code-block:: bash
 
             export PYTHONPATH=$VIRTUAL_ENV/lib/python3.14/site-packages/_rocm_sdk_core/share/amd_smi
             export FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE
 
-      8. Check your installation.
+      7. Check your installation.
 
          .. code-block:: bash
 
@@ -584,33 +572,10 @@ Prerequisites
    8. After setting up your environment, follow the vLLM |VLLM_VERSION| usage
       documentation to get started: |VLLM_USAGE_DOC|.
 
-.. selected:: i=pip
+.. selected:: fam=radeon fam=ryzen
    :heading: Known issues
 
-   .. _vllm-tensorizer-ki:
-
-   * An incompatibility issue with the ``tensorizer`` dependency results in
-     errors when running ``vllm``. As a workaround, manually upgrade
-     ``tensorizer`` to version
-     2.12.1.
-
-     .. code-block:: bash
-
-        python -m pip install --upgrade tensorizer==2.12.1
-
-   .. selected:: fam=radeon fam=ryzen
-
-      * Significantly longer warmup times might be observed in some large language
-        model inference workloads on AMD Radeon GPUs using vLLM versions v0.21.0
-        through v0.25.0. As a workaround, use a vLLM release earlier than v0.21.0
-        or upgrade to vLLM v0.26.0 or later, which includes a fix for this issue.
-
-.. selected:: i=docker
-
-   .. selected:: fam=radeon fam=ryzen
-      :heading: Known issues
-
-      * Significantly longer warmup times might be observed in some large language
-        model inference workloads on AMD Radeon GPUs using vLLM versions v0.21.0
-        through v0.25.0. As a workaround, use a vLLM release earlier than v0.21.0
-        or upgrade to vLLM v0.26.0 or later, which includes a fix for this issue.
+   * Significantly longer warmup times might be observed in some large language
+     model inference workloads on AMD Radeon GPUs using vLLM versions v0.21.0
+     through v0.25.0. As a workaround, use a vLLM release earlier than v0.21.0
+     or upgrade to vLLM v0.26.0 or later, which includes a fix for this issue.
