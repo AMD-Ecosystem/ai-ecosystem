@@ -255,8 +255,7 @@ Prerequisites
         <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
 
       - Ensure the host system has `Docker Engine
-        <https://docs.docker.com/engine/install/>`__ and the AMD GPU Driver
-        (amdgpu) installed.
+        <https://docs.docker.com/engine/install/>`__ installed.
 
    .. selected:: fam=ryzen
 
