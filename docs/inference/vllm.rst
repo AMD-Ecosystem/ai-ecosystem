@@ -3,9 +3,8 @@
 
 .. |VLLM_VERSION| replace:: 0.23.0
 
-.. |VLLM_DOCKER_TAG_ALL| replace:: rocm/vllm:rocm7.14.0_device-all_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
-.. |VLLM_DOCKER_TAG_CDNA| replace:: rocm/vllm:rocm7.14.0_device-all-cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
-.. |VLLM_DOCKER_TAG_RDNA| replace:: rocm/vllm:rocm7.14.0_device-all-rdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
+.. |VLLM_DOCKER_TAG_CDNA| replace:: docker pull rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
+.. |VLLM_DOCKER_TAG_RDNA| replace:: rocm/vllm:rocm7.14.0_rdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
 
 .. |VLLM_DOC| replace:: `vLLM <https://docs.vllm.ai/en/v0.23.0/>`__
 .. |VLLM_USAGE_DOC| replace:: `Using vLLM <https://docs.vllm.ai/en/v0.23.0/usage/>`__
@@ -290,33 +289,6 @@ Prerequisites
 
 .. selected:: i=docker
    :heading: Get started
-
-   .. selected:: fam=all
-
-      1. Pull the ROCm vLLM |VLLM_VERSION| Docker image.
-
-         .. code-block:: bash
-            :substitutions:
-
-            docker pull |VLLM_DOCKER_TAG_ALL|
-
-      2. Start the Docker container.
-
-         .. code-block:: bash
-            :substitutions:
-
-            docker run -it --rm \
-               --device /dev/kfd \
-               --device /dev/dri \
-               --network=host \
-               --ipc=host \
-               --group-add=video \
-               --cap-add=SYS_PTRACE \
-               --security-opt seccomp=unconfined \
-               -v <path/to/your/models>:/app/models \
-               -e HF_HOME="/app/models" \
-               |VLLM_DOCKER_TAG_ALL| \
-               bash
 
    .. selected:: fam=instinct
 
