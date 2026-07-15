@@ -398,15 +398,6 @@ Prerequisites
    3. Install PyTorch 2.11 in your virtual environment. This should also
       install the ROCm core libraries as a dependency.
 
-      .. selected:: fam=all
-
-         .. code-block:: bash
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "torch[device-all]==2.11.0+rocm7.14.0" \
-                "torchvision[device-all]==0.26.0+rocm7.14.0" \
-                "torchaudio==2.11.0+rocm7.14.0"
-
       .. selected:: gfx=gfx950
 
          .. code-block:: bash
@@ -508,12 +499,6 @@ Prerequisites
 
    4. Install Flash Attention.
 
-      .. selected:: fam=all
-
-         .. code-block:: bash
-
-            python -m pip install https://rocm.frameworks-prereleases.amd.com/whl/device-all/flash_attn-2.8.3-cp314-cp314-linux_x86_64.whl
-
       .. selected:: fam=instinct
 
          .. code-block:: bash
@@ -525,28 +510,6 @@ Prerequisites
          .. code-block:: bash
 
             python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-rdna/flash-attn/flash_attn-2.8.3-py3-none-any.whl
-
-   .. selected:: fam=all
-
-      5. Install `AITER <https://github.com/rocm/aiter>`__.
-
-         .. code-block:: bash
-
-            python -m pip install https://rocm.frameworks-prereleases.amd.com/whl/device-all/amd_aiter-0.1.13.post1-cp314-cp314-linux_x86_64.whl
-
-      6. Install the vLLM |VLLM_VERSION| wheel using ``uv pip``.
-
-         .. selected:: fam=all
-
-            .. code-block:: bash
-
-               uv pip install https://rocm.frameworks-prereleases.amd.com/whl/device-all/vllm-0.23.1.dev0%2Brocm7.14.0rc2.g0fc695fc6.d20260709-cp314-cp314-linux_x86_64.whl
-
-      7. Upgrade the ``tensorizer`` dependency to version 2.12.1 as a workaround for a :ref:`known issue <vllm-tensorizer-ki>`.
-
-         .. code-block:: bash
-
-            python -m pip install --upgrade tensorizer==2.12.1
 
    .. selected:: fam=instinct
 
