@@ -21,7 +21,6 @@ pip.
 Scale model training across multiple AMD GPUs using PyTorch distributed primitives
 (DDP, RPC, collective communication) for large models that exceed single-GPU memory.
 
-- [Primus](https://rocm.docs.amd.com/projects/primus)
 - [Scale model training](training/scale-model-training)
 :::
 
@@ -31,7 +30,6 @@ Covers single-node and distributed multi-GPU deployments.
 
 - [vLLM](inference/vllm)
 - [SGLang](inference/sglang)
-<!-- - [ATOM](https://rocm.docs.amd.com/projects/atom) -->
 - [MIGraphX](inference/migraphx)
 - [ONNX Runtime](inference/onnxruntime)
 - [xDiT](inference/xdit)

@@ -145,28 +145,28 @@ Prerequisites
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.10.0-py3.14
+                  docker pull rocm/pytorch:rocm7.14_ubuntu26.04_py3.14_pytorch_release_2.12.0
 
             .. tab-item:: Python 3.13
                :sync: py313
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.10.0-py3.13
+                  docker pull rocm/pytorch:rocm7.14_ubuntu24.04_py3.13_pytorch_release_2.12.0
 
             .. tab-item:: Python 3.12
                :sync: py312
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.10.0-py3.12
+                  docker pull rocm/pytorch:rocm7.14_ubuntu24.04_py3.12_pytorch_release_2.12.0
 
             .. tab-item:: Python 3.11
                :sync: py311
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.10.0-py3.11
+                  docker pull rocm/pytorch:rocm7.14_ubuntu24.04_py3.11_pytorch_release_2.12.0
 
    .. selected:: pytorch-ver=2.11.0
 
@@ -179,28 +179,28 @@ Prerequisites
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.14
+                  docker pull rocm/pytorch:rocm7.14_ubuntu26.04_py3.14_pytorch_release_2.11.0
 
             .. tab-item:: Python 3.13
                :sync: py313
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.13
+                  docker pull rocm/pytorch:rocm7.14_ubuntu24.04_py3.13_pytorch_release_2.11.0
 
             .. tab-item:: Python 3.12
                :sync: py312
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.12
+                  docker pull rocm/pytorch:rocm7.14_ubuntu24.04_py3.12_pytorch_release_2.11.0
 
             .. tab-item:: Python 3.11
                :sync: py311
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.11
+                  docker pull rocm/pytorch:rocm7.14_ubuntu24.04_py3.11_pytorch_release_2.11.0
 
    .. selected:: pytorch-ver=2.10.0
 
@@ -213,32 +213,32 @@ Prerequisites
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.14
+                  docker pull rocm/pytorch:rocm7.14_ubuntu26.04_py3.14_pytorch_release_2.10.0
 
             .. tab-item:: Python 3.13
                :sync: py313
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.13
+                  docker pull rocm/pytorch:rocm7.14_ubuntu24.04_py3.13_pytorch_release_2.10.0
 
             .. tab-item:: Python 3.12
                :sync: py312
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.12
+                  docker pull rocm/pytorch:rocm7.14_ubuntu24.04_py3.12_pytorch_release_2.10.0
 
             .. tab-item:: Python 3.11
                :sync: py311
 
                .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.11
+                  docker pull rocm/pytorch:rocm7.14_ubuntu24.04_py3.11_pytorch_release_2.10.0
 
    2. Start the Docker container.
 
-      .. selected:: jax-ver=0.10.0
+      .. selected:: pytorch-ver=2.12.0
 
          .. tab-set::
 
@@ -255,7 +255,7 @@ Prerequisites
                      --group-add=video \
                      --cap-add=SYS_PTRACE \
                      --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.10.0-py3.14 \
+                     rocm/pytorch:rocm7.14_ubuntu26.04_py3.14_pytorch_release_2.12.0 \
                      bash
 
             .. tab-item:: Python 3.13
@@ -271,7 +271,7 @@ Prerequisites
                      --group-add=video \
                      --cap-add=SYS_PTRACE \
                      --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.10.0-py3.13 \
+                     rocm/pytorch:rocm7.14_ubuntu24.04_py3.13_pytorch_release_2.12.0 \
                      bash
 
             .. tab-item:: Python 3.12
@@ -287,7 +287,7 @@ Prerequisites
                      --group-add=video \
                      --cap-add=SYS_PTRACE \
                      --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.10.0-py3.12 \
+                     rocm/pytorch:rocm7.14_ubuntu24.04_py3.12_pytorch_release_2.12.0 \
                      bash
 
             .. tab-item:: Python 3.11
@@ -303,10 +303,10 @@ Prerequisites
                      --group-add=video \
                      --cap-add=SYS_PTRACE \
                      --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.10.0-py3.11 \
+                     rocm/pytorch:rocm7.14_ubuntu24.04_py3.11_pytorch_release_2.12.0 \
                      bash
 
-      .. selected:: jax-ver=0.9.1
+      .. selected:: pytorch-ver=2.11.0
 
          .. tab-set::
 
@@ -323,7 +323,7 @@ Prerequisites
                      --group-add=video \
                      --cap-add=SYS_PTRACE \
                      --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.9.1-py3.14 \
+                     rocm/pytorch:rocm7.14_ubuntu26.04_py3.14_pytorch_release_2.11.0 \
                      bash
 
             .. tab-item:: Python 3.13
@@ -339,7 +339,7 @@ Prerequisites
                      --group-add=video \
                      --cap-add=SYS_PTRACE \
                      --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.9.1-py3.13 \
+                     rocm/pytorch:rocm7.14_ubuntu24.04_py3.13_pytorch_release_2.11.0 \
                      bash
 
             .. tab-item:: Python 3.12
@@ -355,7 +355,7 @@ Prerequisites
                      --group-add=video \
                      --cap-add=SYS_PTRACE \
                      --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.9.1-py3.12 \
+                     rocm/pytorch:rocm7.14_ubuntu24.04_py3.12_pytorch_release_2.11.0 \
                      bash
 
             .. tab-item:: Python 3.11
@@ -371,7 +371,75 @@ Prerequisites
                      --group-add=video \
                      --cap-add=SYS_PTRACE \
                      --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.9.1-py3.11 \
+                     rocm/pytorch:rocm7.14_ubuntu24.04_py3.11_pytorch_release_2.11.0 \
+                     bash
+
+      .. selected:: pytorch-ver=2.10.0
+
+         .. tab-set::
+
+            .. tab-item:: Python 3.14
+               :sync: py314
+
+               .. code-block:: bash
+
+                  docker run -it --rm \
+                     --device /dev/kfd \
+                     --device /dev/dri \
+                     --network=host \
+                     --ipc=host \
+                     --group-add=video \
+                     --cap-add=SYS_PTRACE \
+                     --security-opt seccomp=unconfined \
+                     rocm/pytorch:rocm7.14_ubuntu26.04_py3.14_pytorch_release_2.10.0 \
+                     bash
+
+            .. tab-item:: Python 3.13
+               :sync: py313
+
+               .. code-block:: bash
+
+                  docker run -it --rm \
+                     --device /dev/kfd \
+                     --device /dev/dri \
+                     --network=host \
+                     --ipc=host \
+                     --group-add=video \
+                     --cap-add=SYS_PTRACE \
+                     --security-opt seccomp=unconfined \
+                     rocm/pytorch:rocm7.14_ubuntu24.04_py3.13_pytorch_release_2.10.0 \
+                     bash
+
+            .. tab-item:: Python 3.12
+               :sync: py312
+
+               .. code-block:: bash
+
+                  docker run -it --rm \
+                     --device /dev/kfd \
+                     --device /dev/dri \
+                     --network=host \
+                     --ipc=host \
+                     --group-add=video \
+                     --cap-add=SYS_PTRACE \
+                     --security-opt seccomp=unconfined \
+                     rocm/pytorch:rocm7.14_ubuntu24.04_py3.12_pytorch_release_2.10.0 \
+                     bash
+
+            .. tab-item:: Python 3.11
+               :sync: py311
+
+               .. code-block:: bash
+
+                  docker run -it --rm \
+                     --device /dev/kfd \
+                     --device /dev/dri \
+                     --network=host \
+                     --ipc=host \
+                     --group-add=video \
+                     --cap-add=SYS_PTRACE \
+                     --security-opt seccomp=unconfined \
+                     rocm/pytorch:rocm7.14_ubuntu24.04_py3.11_pytorch_release_2.10.0 \
                      bash
 
 .. selected:: i=pip
@@ -974,7 +1042,7 @@ Prerequisites
       This prints ``True`` if PyTorch and ROCm are installed properly and your AMD
       GPUs are detected.
 
-.. selected:: fam=radeon
+.. selected:: fam=radeon fam=ryzen
    :heading: Known issues
 
    * PyTorch might display a warning when importing on Linux if the system
