@@ -3,7 +3,7 @@
 
 .. |VLLM_VERSION| replace:: 0.23
 
-.. |VLLM_DOCKER_TAG_CDNA| replace:: docker pull rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
+.. |VLLM_DOCKER_TAG_CDNA| replace:: rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
 .. |VLLM_DOCKER_TAG_RDNA| replace:: rocm/vllm:rocm7.14.0_rdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
 
 .. |VLLM_DOC| replace:: `vLLM <https://docs.vllm.ai/en/v0.23.0/>`__
