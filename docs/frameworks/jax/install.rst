@@ -345,7 +345,8 @@ Prerequisites
 
          source .venv/bin/activate
 
-   3. Install ROCm in your virtual environment
+   3. If you don't have an existing ROCm installation, install ROCm using the
+      following command; otherwise, proceed to installing JAX libraries.
 
       .. selected:: fam=all
 
@@ -445,7 +446,7 @@ Prerequisites
                 "jax==0.9.1" \
                 "jaxlib==0.9.1"
 
-   4. Verify your JAX installation.
+   5. Verify your JAX installation.
 
       .. code-block:: shell
 
