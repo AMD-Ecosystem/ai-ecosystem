@@ -568,7 +568,7 @@ Prerequisites
 
          .. code-block:: bash
 
-            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-rdna/vllm/vllm-0.23.1%2Brocm7.14.0-cp314-cp314-linux_x86_64.whl
+            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-rdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.0.g9ddef7117.d20260715-cp314-cp314-linux_x86_64.whl
 
       6. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
 
