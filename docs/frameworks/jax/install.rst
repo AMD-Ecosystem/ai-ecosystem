@@ -62,12 +62,14 @@ It applies to `supported AMD GPUs and platforms
 Prerequisites
 =============
 
-* Ensure your host system has the AMD GPU Driver (amdgpu) installed. See the
-  `ROCm compatibility matrix
-  <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
-  for driver support information. For installation instructions, see the
-  `AMD GPU Driver documentation
-  <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
+.. selected:: fam=instinct fam=radeon
+
+   * Ensure your host system has the AMD GPU Driver (amdgpu) installed. See the
+     `ROCm compatibility matrix
+     <https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>`__
+     for driver support information. For installation instructions, see the
+     `AMD GPU Driver documentation
+     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
 
 .. selected:: i=docker
 
@@ -76,7 +78,9 @@ Prerequisites
 
 .. selected:: i=pip
 
-   * Ensure your system has a :ref:`supported Python version <rocm-compat-python>` installed and accessible: 3.11, 3.12, 3.13, or 3.14.
+   * Ensure your system has a `supported Python version
+     <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+     installed and accessible: 3.11, 3.12, 3.13, or 3.14.
 
    * Complete the ROCm Core SDK installation prerequisites. See `Prerequisites
      (Install ROCm)

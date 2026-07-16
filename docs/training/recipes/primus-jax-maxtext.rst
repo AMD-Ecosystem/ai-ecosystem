@@ -139,7 +139,7 @@ Use the following command to pull the Docker image from Docker Hub.
 Multi-node configuration
 ------------------------
 
-See :doc:`/how-to/rocm-for-ai/system-setup/multi-node-setup` to configure your
+See :doc:`/system-setup/multi-node-setup` to configure your
 environment for multi-node training.
 
 .. _amd-maxtext-get-started-v26.4:
@@ -668,7 +668,7 @@ Further reading
 
 - To learn more about system settings and management practices to configure your system for
   AMD Instinct MI300X Series GPUs, see `AMD Instinct MI300X Customer Acceptance Guide <https://instinct.docs.amd.com/projects/system-acceptance/en/latest/gpus/mi300x.html>`_.
- `AMD Infinity Hub <https://www.amd.com/en/developer/resources/infinity-hub.html#f-amd_hub_category=AI%20%26%20ML%20Models>`_.
+  `AMD Infinity Hub <https://www.amd.com/en/developer/resources/infinity-hub.html#f-amd_hub_category=AI%20%26%20ML%20Models>`_.
 
 Previous versions
 =================

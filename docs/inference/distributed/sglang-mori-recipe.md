@@ -818,7 +818,7 @@ the prefill service crashes at startup:
   inference. Set this to `16G` (MoRI's own inter-node test default).
 
 These values are set in the preceding [Configure InfiniBand
-devices](#configure-infiniBand-devices) step.
+devices](#configure-infiniband-devices) step.
 ```
 
 1. To set the required configuration parameters, update the following

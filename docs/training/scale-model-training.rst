@@ -102,10 +102,8 @@ for more information about running AMP on an AMD Instinct-Series GPU.
 Fine-tuning your model
 ======================
 
-ROCm supports multiple techniques for :ref:`optimizing fine-tuning <fine-tuning-llms-concept-optimizations>`, for
-example, LoRA, QLoRA, PEFT, and FSDP.
-
-Learn more about challenges and solutions for model fine-tuning in :doc:`../fine-tuning/index`.
+ROCm supports multiple techniques for optimizing fine-tuning, for example,
+LoRA, QLoRA, PEFT, and FSDP.
 
 The following developer blogs showcase examples of fine-tuning a model on an AMD GPU.
 

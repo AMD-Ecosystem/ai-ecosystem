@@ -32,7 +32,7 @@ The following variables are generally useful for Instinct MI300X/MI325X/MI350X/M
   * ``export HIP_FORCE_DEV_KERNARG=1`` — improves kernel launch performance by
     forcing device kernel arguments. This is already set by default in
     :doc:`vLLM ROCm Docker images
-    </how-to/rocm-for-ai/inference/benchmark-docker/vllm>`. Bare-metal users
+    </inference/vllm>`. Bare-metal users
     should set this manually.
   * ``export SAFETENSORS_FAST_GPU=1`` — enables GPU-accelerated safetensors
     loading, significantly reducing model load time for large models. Already
@@ -1046,7 +1046,7 @@ Further reading
 ===============
 
 * :doc:`workload-optimization`
-* :doc:`/how-to/rocm-for-ai/inference/benchmark-docker/vllm`
+* :doc:`/inference/vllm`
 * `ROCm Attention Backend deep-dive <https://vllm.ai/blog/rocm-attention-backend>`_ — architecture and benchmarks for all 7 backends
 * `vLLM MoE Playbook - A Practical Guide to TP, DP, PP and Expert Parallelism <https://rocm.blogs.amd.com/software-tools-optimization/vllm-moe-guide/README.html>`_ — DP+EP tuning for MoE models
 * `Multimodal DP optimization <https://rocm.blogs.amd.com/software-tools-optimization/vllm-dp-vision/README.html>`_ — batch-level DP for vision encoders

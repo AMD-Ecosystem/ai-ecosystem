@@ -265,27 +265,25 @@ Prerequisites
 
    .. selected:: fam=all fam=instinct fam=radeon
 
-      - For Instinct and Radeon devices, ensure your system has the AMD GPU
+      * For Instinct and Radeon devices, ensure your system has the AMD GPU
         Driver (amdgpu) installed. See the `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for driver
         support information. For installation instructions, see the `AMD GPU
         Driver documentation
         <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
 
-   - Ensure your system has :ref:`Python 3.14 <rocm-compat-python>` installed and
-     accessible. Review the `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for more support details.
+   * Ensure your system has `Python 3.14
+     <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+     installed and accessible.
 
-   - Install `uv <https://docs.astral.sh/uv/getting-started/installation/>`__,
-     a drop-in replacement for pip that handles custom package indexes more
-     predictably.
+   * Install `uv <https://docs.astral.sh/uv/getting-started/installation/>`__.
 
      .. note::
 
         It's recommended to use `uv <https://docs.astral.sh/uv/pip/>`__ to install
-        the vLLM wheel. Installing from custom package indexes with pip can be
-        cumbersome because pip resolves packages from both ``--extra-index-url`` and
-        the default index, then selects the highest available version. This makes it
-        difficult to install a wheel from a custom index when all dependency
-        versions are pinned exactly.
+        the vLLM wheel. vLLM has many transitive dependencies, and pip may
+        silently pull incompatible versions from PyPI when installing from a
+        direct wheel URL. ``uv pip`` resolves dependencies more predictably,
+        respecting the exact versions bundled with or required by the wheel.
 
 .. selected:: i=docker
    :heading: Get started
@@ -496,22 +494,25 @@ Prerequisites
 
             uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.0.g9ddef7117.d20260715-cp314-cp314-linux_x86_64.whl
 
-   .. selected:: fam=all fam=instinct
+   .. selected:: fam=instinct
 
-      8. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
+      7. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
 
          .. code-block:: bash
 
             export PYTHONPATH=$VIRTUAL_ENV/lib/python3.14/site-packages/_rocm_sdk_core/share/amd_smi
             export FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE
 
-      9. Check your installation.
+      8. Check your installation.
 
          .. code-block:: bash
 
             python -c "import vllm; print('vLLM version:', vllm.__version__)"
             python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
             python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
+
+      9. After setting up your environment, follow the vLLM |VLLM_VERSION| usage
+         documentation to get started: |VLLM_USAGE_DOC|.
 
    .. selected:: fam=radeon fam=ryzen
 
@@ -536,12 +537,12 @@ Prerequisites
             python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
             python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
 
+      8. After setting up your environment, follow the vLLM |VLLM_VERSION| usage
+         documentation to get started: |VLLM_USAGE_DOC|.
+
    .. seealso::
 
       |VLLM_PIP_INSTALL_DOC|
-
-   8. After setting up your environment, follow the vLLM |VLLM_VERSION| usage
-      documentation to get started: |VLLM_USAGE_DOC|.
 
 .. selected:: fam=radeon fam=ryzen
    :heading: Known issues

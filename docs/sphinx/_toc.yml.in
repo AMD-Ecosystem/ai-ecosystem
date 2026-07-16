@@ -10,8 +10,9 @@ defaults:
     maxdepth: 6
 root: index.md
 subtrees:
-    - url: https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html
-      title: ROCm compatibility matrix
+    - entries:
+          - url: https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html
+            title: ROCm compatibility matrix
     - caption: Deep learning frameworks
       entries:
           - file: frameworks/pytorch/install.rst

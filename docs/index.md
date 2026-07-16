@@ -1,9 +1,9 @@
 # AMD ROCm AI ecosystem
 
 [ROCm](https://rocm.docs.amd.com/en/latest/) is AMD's open software platform
-for GPU computing. This documentation covers the full AI ecosystem built on
-ROCm — from framework setup and training to inference serving and performance
-optimization.
+for GPU computing. This documentation covers the AI ecosystem built on ROCm
+  — from framework setup and training to inference serving and performance
+  optimization.
 
 ::::{grid} 1 2 2 2
 :gutter: 3
