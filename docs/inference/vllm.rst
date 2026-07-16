@@ -1,7 +1,7 @@
 :selector-toc2: Installation environment
 :selector-toc2-icon: fa-solid fa-computer
 
-.. |VLLM_VERSION| replace:: 0.23.0
+.. |VLLM_VERSION| replace:: 0.23
 
 .. |VLLM_DOCKER_TAG_CDNA| replace:: docker pull rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
 .. |VLLM_DOCKER_TAG_RDNA| replace:: rocm/vllm:rocm7.14.0_rdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
@@ -225,8 +225,8 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
 .. selector:: vLLM version
    :key: vllm-ver
 
-   .. selector-option:: 0.23.0
-      :value: 0.23.0
+   .. selector-option:: 0.23
+      :value: 0.23
       :width: 12
 
 .. selector:: Installation method
@@ -488,7 +488,7 @@ Prerequisites
 
             python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/amd-aiter/amd_aiter-0.1.13.post2.dev1%2Bgb32deb267-cp314-cp314-linux_x86_64.whl
 
-      6. Install the vLLM |VLLM_VERSION| wheel using ``uv pip``.
+      6. Install the vLLM 0.23.1 wheel using ``uv pip``.
 
          .. code-block:: bash
 
@@ -511,12 +511,12 @@ Prerequisites
             python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
             python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
 
-      9. After setting up your environment, follow the vLLM |VLLM_VERSION| usage
+      9. After setting up your environment, follow the vLLM 0.23.1 usage
          documentation to get started: |VLLM_USAGE_DOC|.
 
    .. selected:: fam=radeon fam=ryzen
 
-      5. Install the vLLM |VLLM_VERSION| wheel using ``uv pip``.
+      5. Install the vLLM 0.23.1 wheel using ``uv pip``.
 
          .. code-block:: bash
 
