@@ -1135,7 +1135,7 @@ Multi-node training examples
 
 .. container:: model-doc primus_pyt_megatron_lm_train_llama-3.3-70b primus_pyt_megatron_lm_train_llama-3.1-8b primus_pyt_megatron_lm_train_llama-3.1-70b primus_pyt_megatron_lm_train_llama-2-7b primus_pyt_megatron_lm_train_llama-2-70b primus_pyt_megatron_lm_train_llama-3.1-405b primus_pyt_megatron_lm_train_mixtral-8x7b primus_pyt_megatron_lm_train_mixtral-8x22b primus_pyt_megatron_lm_train_qwen2.5-72b
 
-   Refer to :doc:`/how-to/rocm-for-ai/system-setup/multi-node-setup` to configure your environment for multi-node
+   Refer to :doc:`/system-setup/multi-node-setup` to configure your environment for multi-node
    training.
 
    To run training on multiple nodes, you can use ``primus-cli`` (recommended) or the

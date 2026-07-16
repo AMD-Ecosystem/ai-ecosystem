@@ -1,11 +1,10 @@
 :selector-toc2: Installation environment
 :selector-toc2-icon: fa-solid fa-computer
 
-.. |VLLM_VERSION| replace:: 0.23.0
+.. |VLLM_VERSION| replace:: 0.23
 
-.. |VLLM_DOCKER_TAG_ALL| replace:: rocm/vllm:rocm7.14.0_device-all_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
-.. |VLLM_DOCKER_TAG_CDNA| replace:: rocm/vllm:rocm7.14.0_device-all-cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
-.. |VLLM_DOCKER_TAG_RDNA| replace:: rocm/vllm:rocm7.14.0_device-all-rdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
+.. |VLLM_DOCKER_TAG_CDNA| replace:: docker pull rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
+.. |VLLM_DOCKER_TAG_RDNA| replace:: rocm/vllm:rocm7.14.0_rdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
 
 .. |VLLM_DOC| replace:: `vLLM <https://docs.vllm.ai/en/v0.23.0/>`__
 .. |VLLM_USAGE_DOC| replace:: `Using vLLM <https://docs.vllm.ai/en/v0.23.0/usage/>`__
@@ -68,6 +67,9 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
    .. selector-dropdown:: Radeon GPU
       :key: gpu
       :show-cond: fam=radeon
+
+      .. selector-option:: AMD Radeon AI PRO R9700S (gfx1201)
+         :value: ai-r9700s gfx=gfx1201
 
       .. selector-option:: AMD Radeon AI PRO R9700 (gfx1201)
          :value: ai-r9700 gfx=gfx1201
@@ -136,6 +138,15 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       :key: gpu
       :show-cond: fam=ryzen
 
+      .. selector-option:: AMD Ryzen AI Max+ PRO 495 (gfx1151)
+         :value: max-plus-pro-495 gfx=gfx1151
+
+      .. selector-option:: AMD Ryzen AI Max PRO 490 (gfx1151)
+         :value: max-pro-490 gfx=gfx1151
+
+      .. selector-option:: AMD Ryzen AI Max PRO 485 (gfx1151)
+         :value: max-pro-485 gfx=gfx1151
+
       .. selector-option:: AMD Ryzen AI Max+ PRO 395 (gfx1151)
          :value: max-pro-395 gfx=gfx1151
 
@@ -163,11 +174,11 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Ryzen AI Max 385 (gfx1151)
          :value: max-385 gfx=gfx1151
 
-      .. selector-option:: AMD Ryzen AI 9 PRO HX 475 (gfx1150)
-         :value: ai-9-pro-hx-475 gfx=gfx1150
+      .. selector-option:: AMD Ryzen AI 9 HX PRO 475 (gfx1150)
+         :value: ai-9-hx-pro-475 gfx=gfx1150
 
-      .. selector-option:: AMD Ryzen AI 9 PRO HX 470 (gfx1150)
-         :value: ai-9-pro-hx-470 gfx=gfx1150
+      .. selector-option:: AMD Ryzen AI 9 HX PRO 470 (gfx1150)
+         :value: ai-9-hx-pro-470 gfx=gfx1150
 
       .. selector-option:: AMD Ryzen AI 9 PRO 465 (gfx1150)
          :value: ai-9-pro-465 gfx=gfx1150
@@ -223,11 +234,47 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Ryzen AI 5 330 (gfx1152)
          :value: ai-5-330 gfx=gfx1152
 
+      .. selector-option:: AMD Ryzen 7 PRO 250 (gfx1103)
+         :value: 7-pro-250 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 PRO 230 (gfx1103)
+         :value: 5-pro-230 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 PRO 220 (gfx1103)
+         :value: 5-pro-220 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 PRO 215 (gfx1103)
+         :value: 5-pro-215 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 3 PRO 210 (gfx1103)
+         :value: 3-pro-210 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 9 270 (gfx1103)
+         :value: 9-270 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 260 (gfx1103)
+         :value: 7-260 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 250 (gfx1103)
+         :value: 7-250 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 240 (gfx1103)
+         :value: 5-240 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 230 (gfx1103)
+         :value: 5-230 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 220 (gfx1103)
+         :value: 5-220 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 3 210 (gfx1103)
+         :value: 3-210 gfx=gfx1103
+
 .. selector:: vLLM version
    :key: vllm-ver
 
-   .. selector-option:: 0.23.0
-      :value: 0.23.0
+   .. selector-option:: 0.23
+      :value: 0.23
       :width: 12
 
 .. selector:: Installation method
@@ -255,8 +302,7 @@ Prerequisites
         <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
 
       - Ensure the host system has `Docker Engine
-        <https://docs.docker.com/engine/install/>`__ and the AMD GPU Driver
-        (amdgpu) installed.
+        <https://docs.docker.com/engine/install/>`__ installed.
 
    .. selected:: fam=ryzen
 
@@ -267,57 +313,28 @@ Prerequisites
 
    .. selected:: fam=all fam=instinct fam=radeon
 
-      - For Instinct and Radeon devices, ensure your system has the AMD GPU
+      * For Instinct and Radeon devices, ensure your system has the AMD GPU
         Driver (amdgpu) installed. See the `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for driver
         support information. For installation instructions, see the `AMD GPU
         Driver documentation
         <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
 
-   - Ensure your system has :ref:`Python 3.14 <rocm-compat-python>` installed and
-     accessible. Review the `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for more support details.
+   * Ensure your system has `Python 3.14
+     <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+     installed and accessible.
 
-   - Install `uv <https://docs.astral.sh/uv/getting-started/installation/>`__,
-     a drop-in replacement for pip that handles custom package indexes more
-     predictably.
+   * Install `uv <https://docs.astral.sh/uv/getting-started/installation/>`__.
 
      .. note::
 
         It's recommended to use `uv <https://docs.astral.sh/uv/pip/>`__ to install
-        the vLLM wheel. Installing from custom package indexes with pip can be
-        cumbersome because pip resolves packages from both ``--extra-index-url`` and
-        the default index, then selects the highest available version. This makes it
-        difficult to install a wheel from a custom index when all dependency
-        versions are pinned exactly.
+        the vLLM wheel. vLLM has many transitive dependencies, and pip may
+        silently pull incompatible versions from PyPI when installing from a
+        direct wheel URL. ``uv pip`` resolves dependencies more predictably,
+        respecting the exact versions bundled with or required by the wheel.
 
 .. selected:: i=docker
    :heading: Get started
-
-   .. selected:: fam=all
-
-      1. Pull the ROCm vLLM |VLLM_VERSION| Docker image.
-
-         .. code-block:: bash
-            :substitutions:
-
-            docker pull |VLLM_DOCKER_TAG_ALL|
-
-      2. Start the Docker container.
-
-         .. code-block:: bash
-            :substitutions:
-
-            docker run -it --rm \
-               --device /dev/kfd \
-               --device /dev/dri \
-               --network=host \
-               --ipc=host \
-               --group-add=video \
-               --cap-add=SYS_PTRACE \
-               --security-opt seccomp=unconfined \
-               -v <path/to/your/models>:/app/models \
-               -e HF_HOME="/app/models" \
-               |VLLM_DOCKER_TAG_ALL| \
-               bash
 
    .. selected:: fam=instinct
 
@@ -517,50 +534,15 @@ Prerequisites
 
          .. code-block:: bash
 
-            python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/amd-aiter/amd_aiter-0.1.13.post2%2Bgb32deb267-cp314-cp314-linux_x86_64.whl
+            python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/amd-aiter/amd_aiter-0.1.13.post2.dev1%2Bgb32deb267-cp314-cp314-linux_x86_64.whl
 
-      6. Install the vLLM |VLLM_VERSION| wheel using ``uv pip``.
-
-         .. code-block:: bash
-
-            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/vllm/vllm-0.23.1%2Brocm7.14.0-cp314-cp314-linux_x86_64.whl
-
-      7. Upgrade the ``tensorizer`` dependency to version 2.12.1 as a workaround for a :ref:`known issue <vllm-tensorizer-ki>`.
+      6. Install the vLLM 0.23.1 wheel using ``uv pip``.
 
          .. code-block:: bash
 
-            python -m pip install --upgrade tensorizer==2.12.1
+            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.0.g9ddef7117.d20260715-cp314-cp314-linux_x86_64.whl
 
-   .. selected:: fam=all fam=instinct
-
-      8. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
-
-         .. code-block:: bash
-
-            export PYTHONPATH=$VIRTUAL_ENV/lib/python3.14/site-packages/_rocm_sdk_core/share/amd_smi
-            export FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE
-
-      9. Check your installation.
-
-         .. code-block:: bash
-
-            python -c "import vllm; print('vLLM version:', vllm.__version__)"
-            python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
-            python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
-
-   .. selected:: fam=radeon fam=ryzen
-
-      5. Install the vLLM |VLLM_VERSION| wheel using ``uv pip``.
-
-         .. code-block:: bash
-
-            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-rdna/vllm/vllm-0.23.1%2Brocm7.14.0-cp314-cp314-linux_x86_64.whl
-
-      6. Upgrade the ``tensorizer`` dependency to version 2.12.1 as a workaround for a :ref:`known issue <vllm-tensorizer-ki>`.
-
-         .. code-block:: bash
-
-            python -m pip install --upgrade tensorizer==2.12.1
+   .. selected:: fam=instinct
 
       7. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
 
@@ -577,40 +559,43 @@ Prerequisites
             python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
             python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
 
+      9. After setting up your environment, follow the vLLM 0.23.1 usage
+         documentation to get started: |VLLM_USAGE_DOC|.
+
+   .. selected:: fam=radeon fam=ryzen
+
+      5. Install the vLLM 0.23.1 wheel using ``uv pip``.
+
+         .. code-block:: bash
+
+            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-rdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.0.g9ddef7117.d20260715-cp314-cp314-linux_x86_64.whl
+
+      6. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
+
+         .. code-block:: bash
+
+            export PYTHONPATH=$VIRTUAL_ENV/lib/python3.14/site-packages/_rocm_sdk_core/share/amd_smi
+            export FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE
+
+      7. Check your installation.
+
+         .. code-block:: bash
+
+            python -c "import vllm; print('vLLM version:', vllm.__version__)"
+            python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
+            python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
+
+      8. After setting up your environment, follow the vLLM |VLLM_VERSION| usage
+         documentation to get started: |VLLM_USAGE_DOC|.
+
    .. seealso::
 
       |VLLM_PIP_INSTALL_DOC|
 
-   8. After setting up your environment, follow the vLLM |VLLM_VERSION| usage
-      documentation to get started: |VLLM_USAGE_DOC|.
-
-.. selected:: i=pip
+.. selected:: fam=radeon fam=ryzen
    :heading: Known issues
 
-   .. _vllm-tensorizer-ki:
-
-   * An incompatibility issue with the ``tensorizer`` dependency results in
-     errors when running ``vllm``. As a workaround, manually upgrade
-     ``tensorizer`` to version
-     2.12.1.
-
-     .. code-block:: bash
-
-        python -m pip install --upgrade tensorizer==2.12.1
-
-   .. selected:: fam=radeon fam=ryzen
-
-      * Significantly longer warmup times might be observed in some large language
-        model inference workloads on AMD Radeon GPUs using vLLM versions v0.21.0
-        through v0.25.0. As a workaround, use a vLLM release earlier than v0.21.0
-        or upgrade to vLLM v0.26.0 or later, which includes a fix for this issue.
-
-.. selected:: i=docker
-
-   .. selected:: fam=radeon fam=ryzen
-      :heading: Known issues
-
-      * Significantly longer warmup times might be observed in some large language
-        model inference workloads on AMD Radeon GPUs using vLLM versions v0.21.0
-        through v0.25.0. As a workaround, use a vLLM release earlier than v0.21.0
-        or upgrade to vLLM v0.26.0 or later, which includes a fix for this issue.
+   * Significantly longer warmup times might be observed in some large language
+     model inference workloads on AMD Radeon GPUs using vLLM versions v0.21.0
+     through v0.25.0. As a workaround, use a vLLM release earlier than v0.21.0
+     or upgrade to vLLM v0.26.0 or later, which includes a fix for this issue.

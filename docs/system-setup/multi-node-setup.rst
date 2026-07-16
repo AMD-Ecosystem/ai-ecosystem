@@ -27,11 +27,11 @@ Before starting, ensure your environment meets the following requirements:
 
 * ROCm Docker container to simplify environment setup for AI workloads. See the following resources to get started:
 
-  * :doc:`Training a model with Megatron-LM and ROCm <../training/benchmark-docker/megatron-lm>`
+  * :doc:`Training a model with Megatron-LM and ROCm </training/recipes/primus-megatron>`
 
-  * :doc:`Training a model with PyTorch and ROCm <../training/benchmark-docker/pytorch-training>`
+  * :doc:`Training a model with PyTorch and ROCm </training/recipes/primus-torch>`
 
-  * :doc:`Training a model with JAX MaxText and ROCm <../training/benchmark-docker/jax-maxtext>`
+  * :doc:`Training a model with JAX MaxText and ROCm </training/recipes/primus-jax-maxtext>`
 
 * Slurm workload manager to run the :ref:`provided examples <multi-node-setup-training-examples>`.
 
@@ -203,114 +203,6 @@ Update the global ID index if you're using RoCE.
 .. code-block:: bash
 
    export NCCL_IB_GID_INDEX=3
-
-.. _multi-node-setup-training-examples:
-
-Multi-node training examples
-============================
-
-The following examples use the Slurm workload manager to launch jobs on
-multiple nodes. To run these scripts as-is, you must have a Slurm environment
-configured. The scripts are designed to work with both Broadcom Thor 2 and
-Mellanox NICs by automatically installing the required libraries and setting
-the necessary environment variables. For systems with Broadcom NICs, the
-scripts assume the host's RoCE library is located in the ``/opt`` directory.
-
-The following benchmarking examples demonstrate the training of a Llama 3 8B model
-across multiple 8-GPU nodes, using FSDP for intra-node parallelism and DP for
-inter-node parallelism.
-
-.. _rocm-for-ai-multi-node-setup-jax-train-example:
-
-JAX MaxText
------------
-
-1. Download the desired multi-node benchmarking script from `<https://github.com/ROCm/MAD/tree/develop/scripts/jax-maxtext/gpu-rocm>`__.
-
-   .. code-block:: shell
-
-      wget https://raw.githubusercontent.com/ROCm/MAD/refs/heads/develop/scripts/jax-maxtext/gpu-rocm/llama3_8b_multinode.sh
-
-   Or clone the `<https://github.com/ROCm/MAD>`__ repository.
-
-   .. code-block:: shell
-
-      git clone https://github.com/ROCm/MAD
-      cd scripts/jax-maxtext/gpu-rocm
-
-2. Run the benchmark for multi-node training.
-
-   .. code-block:: shell
-
-      sbatch -N <num_nodes> llama3_8b_multinode.sh
-
-.. _rocm-for-ai-multi-node-setup-pyt-train-example:
-
-PyTorch training
-----------------
-
-.. note::
-
-   The ROCm PyTorch Training Docker image now focuses on :doc:`Training a model
-   with Primus and PyTorch <../training/benchmark-docker/primus-pytorch>`. The
-   following example refers to the legacy workflow :ref:`Training a
-   model with PyTorch <amd-pytorch-training-multinode-examples-v259>`.
-
-1. Download the ``run_multinode_train.sh`` benchmarking script from `<https://github.com/ROCm/MAD/tree/develop/scripts/pytorch_train>`__.
-
-   .. code-block:: shell
-
-      wget https://raw.githubusercontent.com/ROCm/MAD/refs/heads/develop/scripts/pytorch_train/run_multinode_train.sh
-
-   Or clone the `<https://github.com/ROCm/MAD>`__ repository.
-
-   .. code-block:: shell
-
-      git clone https://github.com/ROCm/MAD
-      cd scripts/pytorch_train
-
-2. Run the benchmark for multi-node training.
-
-   .. code-block:: shell
-
-      sbatch -N <num_nodes> run_multinode_train.sh
-
-.. seealso::
-
-   See :ref:`Training a model with PyTorch <amd-pytorch-training-multinode-examples-v259>` for more examples and information.
-
-Megatron-LM
------------
-
-.. note::
-
-   The Megatron-LM Docker image now focuses on :ref:`Training a model with
-   Primus and Megatron <amd-primus-megatron-multi-node-examples>`. The
-   following example refers to the legacy Megatron-LM :ref:`Training a model
-   with Megatron-LM <amd-megatron-lm-multi-node-examples>` and might have
-   limited support.
-
-1. Download the ``train_llama_slurm.sh`` benchmarking script from
-   `<https://github.com/ROCm/Megatron-LM/blob/rocm_dev/examples/llama/train_llama_slurm.sh>`__.
-
-2. Set the network interface parameters as per the above guidelines and run the script.
-
-   .. code-block:: shell
-
-      cd </path/to/your/Megatron-LM>
-      export NETWORK_INTERFACE=$NCCL_SOCKET_IFNAME
-      export NCCL_IB_HCA=$NCCL_IB_HCA
-      export IMAGE=docker.io/rocm/megatron-lm:latest OR your preferred image
-      export DATA_CACHE_PATH=/nfs/mounted/repo
-
-      sbatch –N <num_nodes> examples/llama/train_llama_slurm.sh <MODEL_SIZE> <MBS> <GBS> <SEQ_LENGTH> <FSDP> <RECOMPUTE>
-
-2. For example, to run a Llama 3 8B workload in BF16 precision, use the following command.
-
-   .. code-block:: shell
-
-      MODEL_NAME=llama3 sbatch –N 8 examples/llama/train_llama_slurm.sh 8 2 128 8192 0 0
-      # Other parameters, such as TP, FP8 datatype, can be adjusted in the script.
 
 Further reading
 ===============

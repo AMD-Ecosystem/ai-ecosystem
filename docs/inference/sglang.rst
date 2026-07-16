@@ -3,9 +3,7 @@
 
 .. |SGLANG_VERSION| replace:: 0.15.3post1
 
-.. |SGLANG_DOCKER_TAG_ALL| replace:: rocm/sglang:rocm7.14.0_device-all_ubuntu24.04_py3.14_pytorch_2.11.0_sglang_0.15.3post1
-.. |SGLANG_DOCKER_TAG_CDNA| replace:: rocm/sglang:rocm7.14.0_device-all-cdna_ubuntu24.04_py3.14_pytorch_2.11.0_sglang_0.15.3post1
-.. |SGLANG_DOCKER_TAG_RDNA| replace:: rocm/sglang:rocm7.14.0_device-all-rdna_ubuntu24.04_py3.14_pytorch_2.11.0_sglang_0.15.3post1
+.. |SGLANG_DOCKER_TAG_ALL| replace:: rocm/sgl-dev:v0.5.13.post1-ubuntu24.04-py3.14-rocm7.14
 
 .. |SGLANG_DOC| replace:: `SGLang <https://docs.sglang.io/>`__
 .. |SGLANG_USAGE_DOC| replace:: `Basic usage (SGLang docs) <https://docs.sglang.io/docs/basic_usage/overview>`__
@@ -24,18 +22,14 @@ using either a prebuilt Docker image (recommended) or pip. It applies to
 .. selector:: Device family
    :key: fam
 
-   .. selector-option:: All
-      :value: all w=compute
-      :width: 4
-
    .. selector-option:: AMD Instinct™
       :value: instinct w=compute
-      :width: 4
+      :width: 6
       :toc-label: AMD Instinct
 
    .. selector-option:: AMD Radeon™
       :value: radeon w=compute
-      :width: 4
+      :width: 6
       :toc-label: AMD Radeon
 
 .. ================================================================ GPU / APU ==
@@ -194,7 +188,7 @@ Prerequisites
          .. code-block:: bash
             :substitutions:
 
-            docker pull |SGLANG_DOCKER_TAG_CDNA|
+            docker pull |SGLANG_DOCKER_TAG_ALL|
 
       2. Start the Docker container.
 
@@ -211,7 +205,7 @@ Prerequisites
                --security-opt seccomp=unconfined \
                -v <path/to/your/models>:/app/models \
                -e HF_HOME="/app/models" \
-               |SGLANG_DOCKER_TAG_CDNA| \
+               |SGLANG_DOCKER_TAG_ALL| \
                bash
 
    .. selected:: fam=radeon fam=ryzen
@@ -221,7 +215,7 @@ Prerequisites
          .. code-block:: bash
             :substitutions:
 
-            docker pull |SGLANG_DOCKER_TAG_RDNA|
+            docker pull |SGLANG_DOCKER_TAG_ALL|
 
       2. Start the Docker container. On Radeon GPUs, disable AITER by unsetting
          ``SGLANG_USE_AITER`` and ``SGLANG_ROCM_FUSED_DECODE_MLA``. See the
@@ -242,7 +236,7 @@ Prerequisites
                -e HF_HOME="/app/models" \
                -e SGLANG_USE_AITER=false \
                -e SGLANG_ROCM_FUSED_DECODE_MLA=false \
-               |SGLANG_DOCKER_TAG_RDNA| \
+               |SGLANG_DOCKER_TAG_ALL| \
                bash
 
    .. seealso::

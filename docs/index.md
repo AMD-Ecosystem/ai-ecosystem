@@ -1,9 +1,9 @@
 # AMD ROCm AI ecosystem
 
 [ROCm](https://rocm.docs.amd.com/en/latest/) is AMD's open software platform
-for GPU computing. This documentation covers the full AI ecosystem built on
-ROCm — from framework setup and training to inference serving and performance
-optimization.
+for GPU computing. This documentation covers the AI ecosystem built on ROCm
+  — from framework setup and training to inference serving and performance
+  optimization.
 
 ::::{grid} 1 2 2 2
 :gutter: 3
@@ -21,7 +21,6 @@ pip.
 Scale model training across multiple AMD GPUs using PyTorch distributed primitives
 (DDP, RPC, collective communication) for large models that exceed single-GPU memory.
 
-- [Primus](https://rocm.docs.amd.com/projects/primus)
 - [Scale model training](training/scale-model-training)
 :::
 
@@ -31,7 +30,6 @@ Covers single-node and distributed multi-GPU deployments.
 
 - [vLLM](inference/vllm)
 - [SGLang](inference/sglang)
-<!-- - [ATOM](https://rocm.docs.amd.com/projects/atom) -->
 - [MIGraphX](inference/migraphx)
 - [ONNX Runtime](inference/onnxruntime)
 - [xDiT](inference/xdit)

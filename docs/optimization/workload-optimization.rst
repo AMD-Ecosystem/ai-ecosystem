@@ -442,7 +442,7 @@ address any new bottlenecks that may emerge.
 
 ROCm provides a prebuilt optimized Docker image that has everything required to implement
 the LLM inference tips in this section. It includes ROCm, PyTorch, and vLLM.
-For more information, see :doc:`/how-to/rocm-for-ai/inference/benchmark-docker/vllm`.
+For more information, see :doc:`/inference/vllm`.
 
 .. _mi300x-profiling-tools:
 
@@ -462,9 +462,6 @@ tools available depending on their specific profiling needs.
 * ROCm Compute Profiler builds upon ROCProfiler but provides more guided analysis.
   For more information, see
   :doc:`ROCm Compute Profiler documentation <rocprofiler-compute:index>`.
-
-Refer to :doc:`profiling-and-debugging`
-to explore commonly used profiling tools and their usage patterns.
 
 Once performance bottlenecks are identified, you can implement an informed workload
 tuning strategy. If kernels are the bottleneck, consider:
@@ -781,12 +778,12 @@ This tuning will select the best Triton ``gemm`` configurations according to til
 
   ``torch._inductor.config.max_autotune_gemm = True`` or
   ``TORCHINDUCTOR_MAX_AUTOTUNE_GEMM=1``
-   To enable tuning for ``gemm`` kernels only.
+  To enable tuning for ``gemm`` kernels only.
 
   ``torch._inductor.config.max_autotune_pointwise = True`` or
   ``TORCHINDUCTOR_MAX_AUTOTUNE_POINTWISE=1``
-   To enable tuning for ``pointwise``, ``reduction``, ``persistent
-   reduction``, and ``foreach`` kernels.
+  To enable tuning for ``pointwise``, ``reduction``, ``persistent
+  reduction``, and ``foreach`` kernels.
 
   ``torch._inductor.config.max_autotune_gemm_backends`` or ``TORCHINDUCTOR_MAX_AUTOTUNE_GEMM_BACKENDS``
      Selects the candidate backends for ``mm`` auto-tuning. Defaults to
@@ -1418,7 +1415,7 @@ you can only use a fraction of the potential bandwidth on the node.
    higher.
 
 The following figure shows an
-:doc:`MI300X node-level architecture </conceptual/gpu-arch/mi300>` of a
+`MI300X node-level architecture <https://rocm.docs.amd.com/en/latest/reference/gpu-arch/mi300.html>`__ of a
 system with AMD EPYC processors in a dual-socket configuration and eight
 AMD Instinct MI300X GPUs. The MI300X OAMs attach to the host system via
 PCIe Gen 5 x16 links (yellow lines). The GPUs use seven high-bandwidth,
@@ -1688,7 +1685,7 @@ Overall GPU resource utilization
 --------------------------------
 
 As depicted in the following figure, each XCD in
-:doc:`MI300X </conceptual/gpu-arch/mi300>` contains 40 compute units (CUs),
+`MI300X <https://rocm.docs.amd.com/en/latest/reference/gpu-arch/mi300.html>`__ contains 40 compute units (CUs),
 with 38 active. Each MI300X contains eight vertical XCDs, and a total of 304
 active compute units capable of parallel computation. The first consideration is
 the number of CUs a kernel can distribute its task across.

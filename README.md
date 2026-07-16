@@ -33,7 +33,7 @@ guides covering framework installation and setup, large-scale model training,
 LLM and diffusion inference serving, and AI workload performance optimization
 on AMD GPUs. The ROCm AI ecosystem lives on top of the [ROCm Core
 SDK](https://rocm.docs.amd.com/en/latest/), which provides the underlying GPU
-runtimes (HIP), compilers, and math libraries.
+runtimes (HIP), compilers, and math libraries for ROCm-accelerated workloads.
 
 >[!IMPORTANT]
 >To learn about supported AMD GPUs and operating systems, see the latest [ROCm

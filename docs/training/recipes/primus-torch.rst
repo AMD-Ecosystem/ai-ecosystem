@@ -361,14 +361,14 @@ tweak some configurations (such as batch sizes).
       {% endfor %}
    {% endfor %}
 
-.. _amd-primus-pytorch-multi-node-examples-v26.4:
+.. _amd-primus-pytorch-multi-node-examples:
 
 Multi-node training examples
 ============================
 
 .. container:: model-doc primus_pyt_train_llama-3.1-8b primus_pyt_train_llama-3.1-70b primus_pyt_train_llama-3.1-405b primus_pyt_train_deepseek-v3-16b
 
-   Refer to :doc:`/how-to/rocm-for-ai/system-setup/multi-node-setup` to configure your environment for multi-node
+   Refer to :doc:`/system-setup/multi-node-setup` to configure your environment for multi-node
    training.
 
    To run training on multiple nodes, use ``primus-cli`` to launch multi-node workloads. Use the following steps to set up your environment:
