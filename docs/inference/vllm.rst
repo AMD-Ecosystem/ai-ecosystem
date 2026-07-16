@@ -68,6 +68,9 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       :key: gpu
       :show-cond: fam=radeon
 
+      .. selector-option:: AMD Radeon AI PRO R9700S (gfx1201)
+         :value: ai-r9700s gfx=gfx1201
+
       .. selector-option:: AMD Radeon AI PRO R9700 (gfx1201)
          :value: ai-r9700 gfx=gfx1201
 
@@ -135,6 +138,15 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       :key: gpu
       :show-cond: fam=ryzen
 
+      .. selector-option:: AMD Ryzen AI Max+ PRO 495 (gfx1151)
+         :value: max-plus-pro-495 gfx=gfx1151
+
+      .. selector-option:: AMD Ryzen AI Max PRO 490 (gfx1151)
+         :value: max-pro-490 gfx=gfx1151
+
+      .. selector-option:: AMD Ryzen AI Max PRO 485 (gfx1151)
+         :value: max-pro-485 gfx=gfx1151
+
       .. selector-option:: AMD Ryzen AI Max+ PRO 395 (gfx1151)
          :value: max-pro-395 gfx=gfx1151
 
@@ -162,11 +174,11 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Ryzen AI Max 385 (gfx1151)
          :value: max-385 gfx=gfx1151
 
-      .. selector-option:: AMD Ryzen AI 9 PRO HX 475 (gfx1150)
-         :value: ai-9-pro-hx-475 gfx=gfx1150
+      .. selector-option:: AMD Ryzen AI 9 HX PRO 475 (gfx1150)
+         :value: ai-9-hx-pro-475 gfx=gfx1150
 
-      .. selector-option:: AMD Ryzen AI 9 PRO HX 470 (gfx1150)
-         :value: ai-9-pro-hx-470 gfx=gfx1150
+      .. selector-option:: AMD Ryzen AI 9 HX PRO 470 (gfx1150)
+         :value: ai-9-hx-pro-470 gfx=gfx1150
 
       .. selector-option:: AMD Ryzen AI 9 PRO 465 (gfx1150)
          :value: ai-9-pro-465 gfx=gfx1150
@@ -221,6 +233,42 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
 
       .. selector-option:: AMD Ryzen AI 5 330 (gfx1152)
          :value: ai-5-330 gfx=gfx1152
+
+      .. selector-option:: AMD Ryzen 7 PRO 250 (gfx1103)
+         :value: 7-pro-250 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 PRO 230 (gfx1103)
+         :value: 5-pro-230 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 PRO 220 (gfx1103)
+         :value: 5-pro-220 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 PRO 215 (gfx1103)
+         :value: 5-pro-215 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 3 PRO 210 (gfx1103)
+         :value: 3-pro-210 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 9 270 (gfx1103)
+         :value: 9-270 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 260 (gfx1103)
+         :value: 7-260 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 250 (gfx1103)
+         :value: 7-250 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 240 (gfx1103)
+         :value: 5-240 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 230 (gfx1103)
+         :value: 5-230 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 220 (gfx1103)
+         :value: 5-220 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 3 210 (gfx1103)
+         :value: 3-210 gfx=gfx1103
 
 .. selector:: vLLM version
    :key: vllm-ver
