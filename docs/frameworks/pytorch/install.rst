@@ -533,13 +533,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-all]==2.12.0+rocm7.14.0" \
                       "torchvision[device-all]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-all]==2.12.0+rocm7.14.0" "torchvision[device-all]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-all]==2.12.0+rocm7.14.0" "torchvision[device-all]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -574,7 +574,7 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx950]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx950]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -609,7 +609,7 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx942]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx942]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -644,7 +644,7 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx90a]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx90a]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -679,7 +679,7 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx908]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx908]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -714,13 +714,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx1200]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx1200]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1200]==2.12.0+rocm7.14.0" "torchvision[device-gfx1200]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1200]==2.12.0+rocm7.14.0" "torchvision[device-gfx1200]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -744,13 +744,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx1201]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx1201]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1201]==2.12.0+rocm7.14.0" "torchvision[device-gfx1201]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1201]==2.12.0+rocm7.14.0" "torchvision[device-gfx1201]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -774,13 +774,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx1100]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx1100]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1100]==2.12.0+rocm7.14.0" "torchvision[device-gfx1100]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1100]==2.12.0+rocm7.14.0" "torchvision[device-gfx1100]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -804,13 +804,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx1101]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx1101]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1101]==2.12.0+rocm7.14.0" "torchvision[device-gfx1101]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1101]==2.12.0+rocm7.14.0" "torchvision[device-gfx1101]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -834,13 +834,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx1102]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx1102]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1102]==2.12.0+rocm7.14.0" "torchvision[device-gfx1102]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1102]==2.12.0+rocm7.14.0" "torchvision[device-gfx1102]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -864,13 +864,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx1103]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx1103]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1103]==2.12.0+rocm7.14.0" "torchvision[device-gfx1103]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1103]==2.12.0+rocm7.14.0" "torchvision[device-gfx1103]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -894,13 +894,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx1030]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx1030]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1030]==2.12.0+rocm7.14.0" "torchvision[device-gfx1030]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1030]==2.12.0+rocm7.14.0" "torchvision[device-gfx1030]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -924,13 +924,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx1151]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx1151]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1151]==2.12.0+rocm7.14.0" "torchvision[device-gfx1151]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1151]==2.12.0+rocm7.14.0" "torchvision[device-gfx1151]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -954,13 +954,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx1150]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx1150]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1150]==2.12.0+rocm7.14.0" "torchvision[device-gfx1150]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1150]==2.12.0+rocm7.14.0" "torchvision[device-gfx1150]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -984,13 +984,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx1152]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx1152]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1152]==2.12.0+rocm7.14.0" "torchvision[device-gfx1152]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1152]==2.12.0+rocm7.14.0" "torchvision[device-gfx1152]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -1014,13 +1014,13 @@ Prerequisites
                   python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                       "torch[device-gfx1153]==2.12.0+rocm7.14.0" \
                       "torchvision[device-gfx1153]==0.27.0+rocm7.14.0" \
-                      "torchaudio==2.12.0+rocm7.14.0"
+                      "torchaudio==2.11.0+rocm7.14.0"
 
             .. selected:: os=windows
 
                .. code-block:: bat
 
-                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1153]==2.12.0+rocm7.14.0" "torchvision[device-gfx1153]==0.27.0+rocm7.14.0" "torchaudio==2.12.0+rocm7.14.0"
+                  python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1153]==2.12.0+rocm7.14.0" "torchvision[device-gfx1153]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
 
          .. selected:: pytorch-ver=2.11.0
 
