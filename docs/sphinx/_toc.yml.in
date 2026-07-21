@@ -37,6 +37,8 @@ subtrees:
             title: ComfyUI image generation
     - caption: Distributed inference
       entries:
+          - url: https://rocm.docs.amd.com/projects/infera
+            title: Infera
           - file: inference/distributed/vllm-mori-recipe.md
             title: vLLM with MoRI recipe
           - file: inference/distributed/sglang-mori-recipe.md
