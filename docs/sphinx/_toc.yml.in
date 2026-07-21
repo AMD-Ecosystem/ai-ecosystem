@@ -37,25 +37,20 @@ subtrees:
             title: ComfyUI image generation
     - caption: Distributed inference
       entries:
-          - url: https://rocm.docs.amd.com/projects/infera
-            title: Infera
           - file: inference/distributed/vllm-mori-recipe.md
             title: vLLM with MoRI recipe
           - file: inference/distributed/sglang-mori-recipe.md
             title: SGLang with MoRI recipe
     - caption: Training
       entries:
-          - url: https://rocm.docs.amd.com/projects/primus
-            title: Primus
-          - file: training/recipes/index.md
-            title: Recipes
-            entries:
-                - file: training/recipes/primus-megatron.rst
-                  title: Training with Primus and Megatron
-                - file: training/recipes/primus-torch.rst
-                  title: Training with Primus and PyTorch
-                - file: training/recipes/primus-jax-maxtext.rst
-                  title: Training with Primus and JAX MaxText
+          # - url: https://rocm.docs.amd.com/projects/primus
+          #   title: Primus
+          - file: training/recipes/primus-megatron.rst
+            title: Training with Primus and Megatron
+          - file: training/recipes/primus-torch.rst
+            title: Training with Primus and PyTorch
+          - file: training/recipes/primus-jax-maxtext.rst
+            title: Training with Primus and JAX MaxText
           - file: training/scale-model-training.rst
             title: Scale model training
     - caption: Optimization

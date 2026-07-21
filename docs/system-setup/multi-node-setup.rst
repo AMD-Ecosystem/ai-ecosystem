@@ -33,7 +33,7 @@ Before starting, ensure your environment meets the following requirements:
 
   * :doc:`Training a model with JAX MaxText and ROCm </training/recipes/primus-jax-maxtext>`
 
-* Slurm workload manager to run the :ref:`provided examples <amd-primus-pytorch-multi-node-examples>`.
+* Slurm workload manager to run the :ref:`provided examples <multi-node-setup-training-examples>`.
 
 Install required packages
 =========================
