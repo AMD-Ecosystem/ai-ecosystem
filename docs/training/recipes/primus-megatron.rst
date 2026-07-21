@@ -171,7 +171,7 @@ Primus defines a training configuration in YAML for each model in
 
 .. note::
 
-   See :ref:`Key options <amd-primus-megatron-lm-benchmark-test-vars>` for more information on configuration options.
+   See :ref:`Key options <amd-primus-megatron-lm-benchmark-test-vars-v26.4>` for more information on configuration options.
 
 Dataset options
 ---------------
@@ -213,7 +213,7 @@ Run training
 ============
 
 Use the following example commands to set up the environment, configure
-:ref:`key options <amd-primus-megatron-lm-benchmark-test-vars>`, and run training on
+:ref:`key options <amd-primus-megatron-lm-benchmark-test-vars-v26.4>`, and run training on
 AMD Instinct GPUs using Primus with the Megatron backend.
 
 Single node training
