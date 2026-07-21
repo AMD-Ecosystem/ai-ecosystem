@@ -39,6 +39,7 @@ IB
 IFWI
 ITL
 Inductor
+Infera
 InternVL
 KV
 Kimi
