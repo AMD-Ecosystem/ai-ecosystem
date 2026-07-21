@@ -86,6 +86,7 @@ TPS
 Tagram
 TensileLite
 TheRock
+TorchTitan
 UI
 UX
 Unittests

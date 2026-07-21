@@ -18,9 +18,11 @@ pip.
 :::
 
 :::{grid-item-card} Training
-Scale model training across multiple AMD GPUs using PyTorch distributed primitives
-(DDP, RPC, collective communication) for large models that exceed single-GPU memory.
+Train and scale models on AMD GPUs. Primus provides end-to-end training
+infrastructure for multiple popular backend frameworks, including Megatron,
+TorchTitan, and MaxText.
 
+- [Primus](https://rocm.docs.amd.com/projects/primus)
 - [Scale model training](training/scale-model-training)
 :::
 

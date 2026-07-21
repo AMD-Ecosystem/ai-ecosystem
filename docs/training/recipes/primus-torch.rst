@@ -292,7 +292,7 @@ tweak some configurations (such as batch sizes).
 
                Only multi-node training configurations are currently available for Llama 3.1 405B.
                See the
-               :ref:`multi-node training examples <amd-primus-pytorch-multi-node-examples-v26.4>`
+               :ref:`multi-node training examples <amd-primus-pytorch-multi-node-examples>`
                for training instructions.
 
             .. container:: model-doc primus_pyt_train_deepseek-v3-16b
