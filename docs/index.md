@@ -18,9 +18,11 @@ pip.
 :::
 
 :::{grid-item-card} Training
-Scale model training across multiple AMD GPUs using PyTorch distributed primitives
-(DDP, RPC, collective communication) for large models that exceed single-GPU memory.
+Train and scale models on AMD GPUs. Primus provides end-to-end training
+infrastructure for multiple popular backend frameworks, including Megatron,
+TorchTitan, and MaxText.
 
+- [Primus](https://rocm.docs.amd.com/projects/primus)
 - [Scale model training](training/scale-model-training)
 :::
 
@@ -38,9 +40,11 @@ Covers single-node and distributed multi-GPU deployments.
 :::
 
 :::{grid-item-card} Distributed inference
-Multi-node prefill-decode disaggregated serving over RDMA networking
-using MoRI (Modular RDMA Interface) on MI355X clusters.
+Infera orchestrates vLLM, SGLang, or ATOM workers and adds AMD-native tiered KV
+cache. The MoRI recipes cover prefill-decode disaggregated serving over RDMA
+networking on MI355X clusters.
 
+- [Infera](https://rocm.docs.amd.com/projects/infera)
 - [vLLM with MoRI recipe](inference/distributed/vllm-mori-recipe)
 - [SGLang with MoRI recipe](inference/distributed/sglang-mori-recipe)
 :::
