@@ -68,34 +68,29 @@ started.
 .. datatemplate:yaml:: ./data/primus-jax-maxtext.yaml
 
    {% set model_groups = data.model_groups %}
-   .. raw:: html
 
-      <div id="vllm-benchmark-ud-params-picker" class="container-fluid">
-         <div class="row gx-0">
-            <div class="col-2 me-1 px-2 model-param-head">Model</div>
-            <div class="row col-10 pe-0">
-      {% for model_group in model_groups %}
-               <div class="col-3 px-2 model-param" data-param-k="model-group" data-param-v="{{ model_group.tag }}" tabindex="0">{{ model_group.group }}</div>
-      {% endfor %}
-            </div>
-         </div>
+   .. selector:: Model
+      :key: model-group
 
-         <div class="row gx-0 pt-1">
-            <div class="col-2 me-1 px-2 model-param-head">Variant</div>
-            <div class="row col-10 pe-0">
-      {% for model_group in model_groups %}
-         {% set models = model_group.models %}
-         {% for model in models %}
-            {% if models|length % 3 == 0 %}
-               <div class="col-4 px-2 model-param" data-param-k="model" data-param-v="{{ model.mad_tag }}" data-param-group="{{ model_group.tag }}" tabindex="0">{{ model.model }}</div>
-            {% else %}
-               <div class="col-6 px-2 model-param" data-param-k="model" data-param-v="{{ model.mad_tag }}" data-param-group="{{ model_group.tag }}" tabindex="0">{{ model.model }}</div>
-            {% endif %}
-         {% endfor %}
+   {% for model_group in model_groups %}
+      .. selector-option:: {{ model_group.group }}
+         :value: {{ model_group.tag }}
+         :width: 25%
+
+   {% endfor %}
+
+   {% for model_group in model_groups %}
+   .. selector:: Variant
+      :key: model
+      :show-cond: model-group={{ model_group.tag }}
+
+      {% set models = model_group.models %}
+      {% for model in models %}
+      .. selector-option:: {{ model.model }}
+         :value: {{ model.mad_tag }}
+
       {% endfor %}
-            </div>
-         </div>
-      </div>
+   {% endfor %}
 
 .. note::
 
@@ -162,14 +157,14 @@ benchmark results:
    {% for model_group in model_groups %}
       {% for model in model_group.models %}
 
-   .. container:: model-doc {{model.mad_tag}}
+   .. selected:: model={{ model.mad_tag }}
 
       .. tab-set::
 
          {% if model.primus_config_name %}
          .. tab-item:: Primus benchmarking
 
-            .. container:: model-doc {{ model.mad_tag }}
+            .. selected:: model={{ model.mad_tag }}
 
                The following run commands are tailored to {{ model.model }}.
                See :ref:`amd-maxtext-model-support-v26.5` to switch to another available model.
