@@ -1,13 +1,19 @@
-:selector-toc2: Model
-:selector-toc2-icon: fa-solid fa-robot
+:no-search:
+:orphan:
 
 .. meta::
    :description: How to train a model using JAX MaxText for ROCm.
    :keywords: ROCm, AI, LLM, train, jax, torch, Llama, flux, tutorial, docker
 
-********************************************
-Training a model with Primus and JAX MaxText
-********************************************
+****************************************************
+Training a model with Primus and JAX MaxText (v26.4)
+****************************************************
+
+.. caution::
+
+   This documentation does not reflect the latest version of ROCm JAX MaxText
+   training performance documentation. See :doc:`../primus-jax-maxtext` for the
+   latest version.
 
 The JAX MaxText for ROCm training Docker image provides a prebuilt environment
 for training on AMD Instinct MI355X, MI350X, MI325X, and MI300X GPUs, with
@@ -19,7 +25,7 @@ the unified ``primus-cli`` to run training jobs using the JAX MaxText backend.
 
 It includes the following software components:
 
-.. datatemplate:yaml:: ./data/primus-jax-maxtext.yaml
+.. datatemplate:yaml:: ./data/primus-jax-maxtext-v26-4.yaml
 
    {% set dockers = data.dockers %}
    .. tab-set::
@@ -55,7 +61,7 @@ MaxText with on ROCm provides the following key features to train large language
 
 - NANOO FP8 (for MI300X series GPUs) and FP8 (for MI355X and MI350X) quantization support
 
-.. _amd-maxtext-model-support-v26.5:
+.. _amd-maxtext-model-support-v26.4:
 
 Supported models
 ================
@@ -68,29 +74,34 @@ started.
 .. datatemplate:yaml:: ./data/primus-jax-maxtext.yaml
 
    {% set model_groups = data.model_groups %}
+   .. raw:: html
 
-   .. selector:: Model
-      :key: model-group
-
-   {% for model_group in model_groups %}
-      .. selector-option:: {{ model_group.group }}
-         :value: {{ model_group.tag }}
-         :width: 25%
-
-   {% endfor %}
-
-   {% for model_group in model_groups %}
-   .. selector:: Variant
-      :key: model
-      :show-cond: model-group={{ model_group.tag }}
-
-      {% set models = model_group.models %}
-      {% for model in models %}
-      .. selector-option:: {{ model.model }}
-         :value: {{ model.mad_tag }}
-
+      <div id="vllm-benchmark-ud-params-picker" class="container-fluid">
+         <div class="row gx-0">
+            <div class="col-2 me-1 px-2 model-param-head">Model</div>
+            <div class="row col-10 pe-0">
+      {% for model_group in model_groups %}
+               <div class="col-3 px-2 model-param" data-param-k="model-group" data-param-v="{{ model_group.tag }}" tabindex="0">{{ model_group.group }}</div>
       {% endfor %}
-   {% endfor %}
+            </div>
+         </div>
+
+         <div class="row gx-0 pt-1">
+            <div class="col-2 me-1 px-2 model-param-head">Variant</div>
+            <div class="row col-10 pe-0">
+      {% for model_group in model_groups %}
+         {% set models = model_group.models %}
+         {% for model in models %}
+            {% if models|length % 3 == 0 %}
+               <div class="col-4 px-2 model-param" data-param-k="model" data-param-v="{{ model.mad_tag }}" data-param-group="{{ model_group.tag }}" tabindex="0">{{ model.model }}</div>
+            {% else %}
+               <div class="col-6 px-2 model-param" data-param-k="model" data-param-v="{{ model.mad_tag }}" data-param-group="{{ model_group.tag }}" tabindex="0">{{ model.model }}</div>
+            {% endif %}
+         {% endfor %}
+      {% endfor %}
+            </div>
+         </div>
+      </div>
 
 .. note::
 
@@ -132,7 +143,7 @@ Use the following command to pull the Docker image from Docker Hub.
 
       docker pull {{ docker.pull_tag }}
 
-.. _amd-maxtext-multi-node-setup-v26.5:
+.. _amd-maxtext-multi-node-setup-v26.4:
 
 Multi-node configuration
 ------------------------
@@ -140,7 +151,7 @@ Multi-node configuration
 See :doc:`/system-setup/multi-node-setup` to configure your
 environment for multi-node training.
 
-.. _amd-maxtext-get-started-v26.5:
+.. _amd-maxtext-get-started-v26.4:
 
 Benchmarking
 ============
@@ -157,17 +168,17 @@ benchmark results:
    {% for model_group in model_groups %}
       {% for model in model_group.models %}
 
-   .. selected:: model={{ model.mad_tag }}
+   .. container:: model-doc {{model.mad_tag}}
 
       .. tab-set::
 
          {% if model.primus_config_name %}
          .. tab-item:: Primus benchmarking
 
-            .. selected:: model={{ model.mad_tag }}
+            .. container:: model-doc {{ model.mad_tag }}
 
                The following run commands are tailored to {{ model.model }}.
-               See :ref:`amd-maxtext-model-support-v26.5` to switch to another available model.
+               See :ref:`amd-maxtext-model-support-v26.4` to switch to another available model.
 
                .. rubric:: Download the Docker image and required packages
 
@@ -232,8 +243,6 @@ benchmark results:
 
                        .. code-block:: shell
 
-                          # Disable RCCL WarpSpeed to avoid NaN losses on MI355X (no-op on MI300X)
-                          export RCCL_WARP_SPEED_AUTO=0
                           ./primus-cli direct \
                             -- train pretrain \
                             --config examples/maxtext/configs/MI355X/{{ model.primus_config_name }}
@@ -256,8 +265,6 @@ benchmark results:
 
                        .. code-block:: shell
 
-                          # Disable RCCL WarpSpeed to avoid NaN losses on MI355X (no-op on MI300X)
-                          export RCCL_WARP_SPEED_AUTO=0
                           ./primus-cli container --image {{ docker.pull_tag }} \
                             -- train pretrain \
                             --config examples/maxtext/configs/MI355X/{{ model.primus_config_name }}
@@ -281,8 +288,6 @@ benchmark results:
 
                        .. code-block:: shell
 
-                          # Disable RCCL WarpSpeed to avoid NaN losses on MI355X (no-op on MI300X)
-                          export RCCL_WARP_SPEED_AUTO=0
                           # Use a custom config file, where you can specify
                           # the Docker image and set environment variables.
                           ./primus-cli --config my_maxtext_config.yaml slurm srun -N 8 \
@@ -305,7 +310,7 @@ benchmark results:
          .. tab-item:: MAD-integrated benchmarking
 
             The following run command is tailored to {{ model.model }}.
-            See :ref:`amd-maxtext-model-support-v26.5` to switch to another available model.
+            See :ref:`amd-maxtext-model-support-v26.4` to switch to another available model.
 
             1. Clone the ROCm Model Automation and Dashboarding (`<https://github.com/ROCm/MAD>`__) repository to a local
                directory and install the required packages on the host machine.
@@ -336,7 +341,7 @@ benchmark results:
          .. tab-item:: Standalone benchmarking
 
             The following commands are optimized for {{ model.model }}. See
-            :ref:`amd-maxtext-model-support-v26.5` to switch to another
+            :ref:`amd-maxtext-model-support-v26.4` to switch to another
             available model. Some instructions and resources might not be
             available for all models and configurations.
 
@@ -456,7 +461,7 @@ benchmark results:
 
             [docker_image] (optional)
                The Docker image to use. If not specified, it defaults to
-               ``rocm/jax-training:maxtext-v26.5``.
+               ``rocm/jax-training:maxtext-v26.4-jax0.9.1-te2.12.0``.
 
             For example, to run a multi-node training benchmark on {{ model.model }}:
 
@@ -481,7 +486,7 @@ benchmark results:
          {% else %}
             .. rubric:: Multi-node training
 
-            For multi-node training examples, choose a model from :ref:`amd-maxtext-model-support-v26.5`
+            For multi-node training examples, choose a model from :ref:`amd-maxtext-model-support-v26.4`
             with an available `multi-node training script <https://github.com/ROCm/MAD/tree/develop/scripts/jax-maxtext/env_scripts>`__.
          {% endif %}
       {% endfor %}
@@ -553,8 +558,8 @@ Example: Profile a model standalone in Docker
    #!/bin/bash
    set -e
 
-   IMAGE="$1"       # Docker image, e.g. rocm/jax-training:maxtext-v26.5
-   TAG="$2"         # Short tag for output folder, e.g. v26.5_llama2_7b
+   IMAGE="$1"       # Docker image, e.g. rocm/jax-training:maxtext-v26.4-jax0.9.1-te2.12.0
+   TAG="$2"         # Short tag for output folder, e.g. v26.4_llama2_7b
    PROFILE_DIR="/path/to/profiles/${TAG}"
 
    mkdir -p "${PROFILE_DIR}"
@@ -567,8 +572,6 @@ Example: Profile a model standalone in Docker
    export LD_LIBRARY_PATH=/usr/local/lib/:/opt/rocm/lib:$LD_LIBRARY_PATH
    export XLA_FLAGS="--xla_gpu_enable_latency_hiding_scheduler=True --xla_gpu_enable_command_buffer= <your other XLA flags>"
    export GPU_MAX_HW_QUEUES=2
-   # On MI355X (gfx950), disable RCCL WarpSpeed to avoid NaN losses (no-op on MI300X)
-   export RCCL_WARP_SPEED_AUTO=0
 
    cd /workspace/maxtext
 
@@ -632,7 +635,7 @@ and ``dataset_type=synthetic`` to eliminate data loading variability.
 Profiling with rocprofv3
 ========================
 
-If you need to collect a trace and the JAX profiler isn't working, you can use ``rocprofv3`` as a temporary workaround:
+If you need to collect a trace without the JAX profiler, use ``rocprofv3``:
 
 .. code-block:: shell
 
@@ -647,7 +650,12 @@ resulting traces can be opened in `Perfetto <https://ui.perfetto.dev/>`__.
 Known issues
 ============
 
-- There is a known performance regression for Mixtral-8x7B in v26.5.
+- You might see NaNs in the losses while using real data (not synthetic
+  data) when setting ``packing=True`` and ``NVTE_CK_IS_V3_ATOMIC_FP32=0``.
+  Set ``NVTE_CK_IS_V3_ATOMIC_FP32=1`` for production training when using
+  real data and input sequence packing (``packing=True``).
+
+- There is a known performance regression for Mixtral-8x7B in v26.4.
   This is being tracked and will be addressed in a future release.
 
 - There is a discrepancy in the loss curve when setting ``packing=False``.
@@ -656,21 +664,11 @@ Known issues
   ``NVTE_CK_USES_FWD_V3=0`` (using FA v2 for forward instead of FA v3).
   This is being tracked and will be addressed in a future release.
 
-- On MI355X (gfx950), RCCL's WarpSpeed feature (``RCCL_WARP_SPEED_AUTO``) —
-  a gfx950-only optimization enabled by default in gfx950 builds — can cause
-  NaN losses during training. To avoid this, set ``RCCL_WARP_SPEED_AUTO=0``.
-  For MAD-integrated benchmarking, this is already applied automatically in
-  the gfx950 environment scripts under ``scripts/jax-maxtext/env_scripts/``
-  (for example, ``gfx950_llama3_8b_env.sh``).
-  If you launch training manually on MI355X, export ``RCCL_WARP_SPEED_AUTO=0``
-  yourself. This variable is a no-op on MI300X (gfx942).
-
-- The v26.5 Docker image ships JAX 0.10.0, which requires Shardy (the JAX
-  partitioning system) to be enabled. Set ``shardy=True`` during the training
-  run. You might get related errors if it's not configured correctly. See the
-  `Shardy migration guide
-  <https://docs.jax.dev/en/latest/shardy_jax_migration.html>`__ for more
-  details.
+- Shardy is a new config in JAX 0.6.0. You might get related errors if
+  it's not configured correctly. To disable it, set ``shardy=False``
+  during the training run. See the `Shardy migration guide
+  <https://docs.jax.dev/en/latest/shardy_jax_migration.html>`__ to
+  enable it.
 
 Further reading
 ===============
