@@ -1,10 +1,19 @@
+:no-search:
+:orphan:
+
 .. meta::
    :description: How to train a model using JAX MaxText for ROCm.
    :keywords: ROCm, AI, LLM, train, jax, torch, Llama, flux, tutorial, docker
 
-********************************************
-Training a model with Primus and JAX MaxText
-********************************************
+****************************************************
+Training a model with Primus and JAX MaxText (v26.4)
+****************************************************
+
+.. caution::
+
+   This documentation does not reflect the latest version of ROCm JAX MaxText
+   training performance documentation. See :doc:`../primus-jax-maxtext` for the
+   latest version.
 
 The JAX MaxText for ROCm training Docker image provides a prebuilt environment
 for training on AMD Instinct MI355X, MI350X, MI325X, and MI300X GPUs, with
@@ -673,7 +682,5 @@ Further reading
 Previous versions
 =================
 
-See `JAX MaxText training performance testing version history
-<https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/training/benchmark-docker/previous-versions/jax-maxtext-history.html>`__
-to find documentation for previous releases of the Primus with Megatron-LM
-training recipe.
+See :doc:`primus-jax-maxtext-history` to find documentation for previous
+releases of the Primus with MaxText training recipe.

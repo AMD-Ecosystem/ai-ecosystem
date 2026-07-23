@@ -1,6 +1,6 @@
 dockers:
   - pull_tag: rocm/jax-training:maxtext-v26.5
-    docker_hub_url: https://hub.docker.com/layers/rocm/jax-training/maxtext-v26.5/images/
+    docker_hub_url: https://hub.docker.com/layers/rocm/jax-training/maxtext-v26.5/images/sha256-21abbf2a142582ec62c53834b8679feb081eefaece75852d62a3575ab2636a18
     components:
       ROCm: 7.14.0
       JAX: 0.10.0
@@ -96,7 +96,7 @@ model_groups:
   - group: Qwen
     tag: qwen
     models:
-      - model: Qwen 14B
+      - model: Qwen3 14B
         mad_tag: jax_maxtext_train_qwen3-14b
         model_repo: Qwen3-14B
         precision: bf16
@@ -105,7 +105,7 @@ model_groups:
           gfx950: env_scripts/gfx950_qwen3_14b.yml
           gfx942: env_scripts/qwen3_14b.yml
         doc_options: ["single-node", "multi-node"]
-      - model: Qwen 30B A3B
+      - model: Qwen3 30B-A3B
         mad_tag: jax_maxtext_train_qwen3-30b-a3b
         model_repo: Qwen3-30B-A3B
         precision: bf16

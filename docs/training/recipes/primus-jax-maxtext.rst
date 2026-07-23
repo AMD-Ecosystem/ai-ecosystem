@@ -232,6 +232,8 @@ benchmark results:
 
                        .. code-block:: shell
 
+                          # Disable RCCL WarpSpeed to avoid NaN losses on MI355X (no-op on MI300X)
+                          export RCCL_WARP_SPEED_AUTO=0
                           ./primus-cli direct \
                             -- train pretrain \
                             --config examples/maxtext/configs/MI355X/{{ model.primus_config_name }}
@@ -254,6 +256,8 @@ benchmark results:
 
                        .. code-block:: shell
 
+                          # Disable RCCL WarpSpeed to avoid NaN losses on MI355X (no-op on MI300X)
+                          export RCCL_WARP_SPEED_AUTO=0
                           ./primus-cli container --image {{ docker.pull_tag }} \
                             -- train pretrain \
                             --config examples/maxtext/configs/MI355X/{{ model.primus_config_name }}
@@ -277,6 +281,8 @@ benchmark results:
 
                        .. code-block:: shell
 
+                          # Disable RCCL WarpSpeed to avoid NaN losses on MI355X (no-op on MI300X)
+                          export RCCL_WARP_SPEED_AUTO=0
                           # Use a custom config file, where you can specify
                           # the Docker image and set environment variables.
                           ./primus-cli --config my_maxtext_config.yaml slurm srun -N 8 \
@@ -626,7 +632,7 @@ and ``dataset_type=synthetic`` to eliminate data loading variability.
 Profiling with rocprofv3
 ========================
 
-If you need to collect a trace without the JAX profiler, use ``rocprofv3``:
+If you need to collect a trace and the JAX profiler isn't working, you can use ``rocprofv3`` as a temporary workaround:
 
 .. code-block:: shell
 
@@ -641,11 +647,6 @@ resulting traces can be opened in `Perfetto <https://ui.perfetto.dev/>`__.
 Known issues
 ============
 
-- You might see NaNs in the losses while using real data (not synthetic
-  data) when setting ``packing=True`` and ``NVTE_CK_IS_V3_ATOMIC_FP32=0``.
-  Set ``NVTE_CK_IS_V3_ATOMIC_FP32=1`` for production training when using
-  real data and input sequence packing (``packing=True``).
-
 - There is a known performance regression for Mixtral-8x7B in v26.5.
   This is being tracked and will be addressed in a future release.
 
@@ -659,7 +660,8 @@ Known issues
   a gfx950-only optimization enabled by default in gfx950 builds — can cause
   NaN losses during training. To avoid this, set ``RCCL_WARP_SPEED_AUTO=0``.
   For MAD-integrated benchmarking, this is already applied automatically in
-  the gfx950 environment scripts under ``scripts/jax-maxtext/env_scripts/``.
+  the gfx950 environment scripts under ``scripts/jax-maxtext/env_scripts/``
+  (for example, ``gfx950_llama3_8b_env.sh``).
   If you launch training manually on MI355X, export ``RCCL_WARP_SPEED_AUTO=0``
   yourself. This variable is a no-op on MI300X (gfx942).
 
