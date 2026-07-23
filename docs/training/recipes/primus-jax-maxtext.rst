@@ -684,7 +684,5 @@ Further reading
 Previous versions
 =================
 
-See `JAX MaxText training performance testing version history
-<https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/training/benchmark-docker/previous-versions/jax-maxtext-history.html>`__
-to find documentation for previous releases of the Primus with Megatron-LM
-training recipe.
+See :doc:`primus-jax-maxtext-history` to find documentation for previous
+releases of the Primus with MaxText training recipe.
