@@ -32,6 +32,7 @@ GPUDirect
 GRE
 Gbps
 HGX
+HLO
 HWS
 HX
 HunyuanVideo
@@ -58,6 +59,7 @@ NANOO
 NFS
 NPKit
 NVLink
+NaN
 NaNs
 OOM
 PCC
@@ -88,11 +90,14 @@ Tagram
 TensileLite
 TheRock
 TorchTitan
+TraceLens
 UI
 UX
 Unittests
+WarpSpeed
 XCD
 XCDs
+XPlane
 af
 ai
 aiter
@@ -105,6 +110,7 @@ benchmarked
 bottlenecked
 cond
 configs
+cooldown
 cp
 ctest
 datatemplate
@@ -146,6 +152,7 @@ libexec
 llm
 ln
 lp
+madengine
 manylinux
 maxtext
 megatron
