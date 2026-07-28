@@ -48,6 +48,7 @@ extensions = [
     # "rocm_docs_custom.remote_yaml",
     # "rocm_docs_custom.version_ref",
     "sphinxcontrib.datatemplates",
+    "sphinxcontrib.mermaid",
     "sphinx_substitution_extensions",
 ]
 html_static_path = ["sphinx/static"]
@@ -72,6 +73,7 @@ html_context = {}
 if os.environ.get("READTHEDOCS", "") == "True":
     html_context["READTHEDOCS"] = True
 
+myst_fence_as_directive = ["mermaid"]
 numfig = False
 
 exclude_patterns = [
@@ -80,3 +82,5 @@ exclude_patterns = [
     "**/extension/**",
     "**/images/**",
 ]
+
+external_projects_remote_repository = ""
