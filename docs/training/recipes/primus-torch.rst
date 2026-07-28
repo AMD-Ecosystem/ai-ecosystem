@@ -56,7 +56,8 @@ Environment setup
       python3 -m venv .venv
       source .venv/bin/activate
 
-      pip install git+https://github.com/ROCm/madengine.git
+      # Install madengine
+      pip install -r requirements.txt
 
 3. Initialize the Primus submodule:
 
