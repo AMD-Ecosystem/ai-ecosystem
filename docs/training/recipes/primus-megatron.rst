@@ -88,7 +88,7 @@ might vary by model. Select one to get started.
    {% for model_group in model_groups %}
       .. selector-option:: {{ model_group.group }}
          :value: {{ model_group.tag }}
-         :width: 4
+         :width: {{ 4 if loop.index <= 3 else 3 }}
 
    {% endfor %}
 
