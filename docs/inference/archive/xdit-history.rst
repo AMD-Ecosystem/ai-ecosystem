@@ -28,15 +28,15 @@ benchmarking, see the version-specific documentation.
        * ROCm 7.13.0
        * TheRock cbff3d1
      -
-       * :doc:`Documentation <xdit-26.5>`
+       * `Documentation <https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference/benchmark-docker/previous-versions/xdit-26.5.html>`__
        * `Docker Hub <https://hub.docker.com/layers/rocm/pytorch-xdit/v26.5/images/sha256-b8ad9fd4b41bc116ac2aff07c1066bf369cf7fc110b1a323f6302191985a51fd>`__
 
    * - ``rocm/pytorch-xdit:v26.4``
      -
-       * `ROCm 7.12.0 preview <https://rocm.docs.amd.com/en/7.12.0-preview/about/release-notes.html>`__
+       * `ROCm 7.12.0 preview <https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference/benchmark-docker/previous-versions/xdit-26.4.html>`__
        * TheRock 9b611c6
      -
-       * :doc:`Documentation <xdit-26.4>`
+       * `Documentation <https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference/benchmark-docker/previous-versions/xdit-26.4.html>`__
        * `Docker Hub <https://hub.docker.com/layers/rocm/pytorch-xdit/v26.4/images/sha256-b4296a638eb8dc7ebcafc808e180b78a3c44177580c21986082ec9539496067c>`__
 
    * - ``rocm/pytorch-xdit:v26.3``
@@ -44,7 +44,7 @@ benchmarking, see the version-specific documentation.
        * `ROCm 7.12.0 preview <https://rocm.docs.amd.com/en/7.12.0-preview/about/release-notes.html>`__
        * TheRock e40a6da
      -
-       * :doc:`Documentation <xdit-26.3>`
+       * `Documentation <https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference/benchmark-docker/previous-versions/xdit-26.3.html>`__
        * `Docker Hub <https://hub.docker.com/layers/rocm/pytorch-xdit/v26.3/images/sha256-ac78a03d2911bf1b49c001d3be2e8bd745c1bc455cb49ae972825a7986880902>`__
 
    * - ``rocm/pytorch-xdit:v26.2``
@@ -52,7 +52,7 @@ benchmarking, see the version-specific documentation.
        * `ROCm 7.11.0 preview <https://rocm.docs.amd.com/en/7.11.0-preview/about/release-notes.html>`__
        * TheRock 1728a81
      -
-       * :doc:`Documentation <xdit-26.2>`
+       * `Documentation <https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference/benchmark-docker/previous-versions/xdit-26.2.html>`__
        * `Docker Hub <https://hub.docker.com/layers/rocm/pytorch-xdit/v26.2/images/sha256-e2c504af438bb9cf60e3869c499baa5102b3d3f62141b99c49743e755ae44008>`__
 
    * - ``rocm/pytorch-xdit:v26.1``
@@ -60,7 +60,7 @@ benchmarking, see the version-specific documentation.
        * `ROCm 7.11.0 preview <https://rocm.docs.amd.com/en/7.11.0-preview/about/release-notes.html>`__
        * TheRock 1728a81
      -
-       * :doc:`Documentation <xdit-26.1>`
+       * `Documentation <https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference/benchmark-docker/previous-versions/xdit-26.1.html>`__
        * `Docker Hub <https://hub.docker.com/layers/rocm/pytorch-xdit/v26.1/images/sha256-4e35ebcad47042a41389b992ecb3489b3b0a922e4c34c7a0dd1098733a3db513>`__
 
    * - ``rocm/pytorch-xdit:v25.13``
@@ -68,7 +68,7 @@ benchmarking, see the version-specific documentation.
        * `ROCm 7.11.0 preview <https://rocm.docs.amd.com/en/7.11.0-preview/about/release-notes.html>`__
        * TheRock 1728a81
      -
-       * :doc:`Documentation <xdit-25.13>`
+       * `Documentation <https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference/benchmark-docker/previous-versions/xdit-25.13.html>`__
        * `Docker Hub <https://hub.docker.com/layers/rocm/pytorch-xdit/v25.13/images/sha256-81954713070d67bde08595e03f62110c8a3dd66a9ae17a77d611e01f83f0f4ef>`__
 
    * - ``rocm/pytorch-xdit:v25.12``
@@ -76,7 +76,7 @@ benchmarking, see the version-specific documentation.
        * `ROCm 7.10.0 preview <https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html>`__
        * TheRock 3e3f834
      -
-       * :doc:`Documentation <xdit-25.12>`
+       * `Documentation <https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference/benchmark-docker/previous-versions/xdit-25.12.html>`__
        * `Docker Hub <https://hub.docker.com/layers/rocm/pytorch-xdit/v25.12/images/sha256-e06895132316bf3c393366b70a91eaab6755902dad0100e6e2b38310547d9256>`__
 
    * - ``rocm/pytorch-xdit:v25.11``
@@ -84,7 +84,7 @@ benchmarking, see the version-specific documentation.
        * `ROCm 7.10.0 preview <https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html>`__
        * TheRock 3e3f834
      -
-       * :doc:`Documentation <xdit-25.11>`
+       * `Documentation <https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference/benchmark-docker/previous-versions/xdit-25.11.html>`__
        * `Docker Hub <https://hub.docker.com/layers/rocm/pytorch-xdit/v25.11/images/sha256-c9fa659439bb024f854b4d5eea598347251b02c341c55f66c98110832bde4216>`__
 
    * - ``rocm/pytorch-xdit:v25.10``
@@ -92,5 +92,5 @@ benchmarking, see the version-specific documentation.
        * `ROCm 7.9.0 preview <https://rocm.docs.amd.com/en/7.9.0-preview/about/release-notes.html>`__
        * TheRock 7afbe45
      -
-       * :doc:`Documentation <xdit-25.10>`
+       * `Documentation <https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference/benchmark-docker/previous-versions/xdit-25.10.html>`__
        * `Docker Hub <https://hub.docker.com/layers/rocm/pytorch-xdit/v25.10/images/sha256-d79715ff18a9470e3f907cec8a9654d6b783c63370b091446acffc0de4d7070e>`__
