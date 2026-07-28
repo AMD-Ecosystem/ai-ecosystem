@@ -19,16 +19,25 @@ model_groups:
         model_repo: Llama-3.1-8B
         url: https://huggingface.co/meta-llama/Llama-3.1-8B
         precision: BF16
+        train_tags:
+          MI300X:
+            - primus_train/torchtitan_MI300X_llama3.1_8B-BF16-pretrain
+            - primus_train/torchtitan_MI300X_llama3.1_8B-FP8-pretrain
+          MI355X:
+            - primus_train/torchtitan_MI355X_llama3.1_8B-BF16-pretrain
+            - primus_train/torchtitan_MI355X_llama3.1_8B-FP8-pretrain
       - model: Llama 3.1 70B
         mad_tag: primus_pyt_train_llama-3.1-70b
         model_repo: Llama-3.1-70B
         url: https://huggingface.co/meta-llama/Llama-3.1-70B
         precision: BF16
-      - model: Llama 3.1 405B
-        mad_tag: primus_pyt_train_llama-3.1-405b
-        model_repo: Llama-3.1-405B
-        url: https://huggingface.co/meta-llama/Llama-3.1-405B
-        precision: FP8
+        train_tags:
+          MI300X:
+            - primus_train/torchtitan_MI300X_llama3.1_70B-BF16-pretrain
+            - primus_train/torchtitan_MI300X_llama3.1_70B-FP8-pretrain
+          MI355X:
+            - primus_train/torchtitan_MI355X_llama3.1_70B-BF16-pretrain
+            - primus_train/torchtitan_MI355X_llama3.1_70B-FP8-pretrain
   - group: DeepSeek
     tag: deepseek
     models:
@@ -37,4 +46,8 @@ model_groups:
         model_repo: DeepSeek-V3
         url: https://huggingface.co/deepseek-ai/DeepSeek-V3
         precision: BF16
-
+        train_tags:
+          MI300X:
+            - primus_train/torchtitan_MI300X_deepseek_v3_16b-pretrain
+          MI355X:
+            - primus_train/torchtitan_MI355X_deepseek_v3_16b-pretrain
