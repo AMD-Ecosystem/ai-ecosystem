@@ -1,3 +1,6 @@
+:selector-toc2: Model
+:selector-toc2-icon: fa-solid fa-robot
+
 .. meta::
    :description: How to train a model using PyTorch for ROCm.
    :keywords: ROCm, AI, LLM, train, PyTorch, torch, Llama, flux, tutorial, docker
@@ -33,7 +36,7 @@ with Primus Turbo optimizations.
               - {{ component_version }}
             {% endfor %}
 
-.. _amd-primus-pytorch-model-support-v26.4:
+.. _amd-primus-pytorch-model-support-v26.5:
 
 Supported models
 ================
@@ -45,36 +48,31 @@ vary by model -- select one to get started.
 .. datatemplate:yaml:: ./data/primus-torch.yaml
 
    {% set model_groups = data.model_groups %}
-   .. raw:: html
 
-      <div id="vllm-benchmark-ud-params-picker" class="container-fluid">
-         <div class="row gx-0">
-            <div class="col-2 me-1 px-2 model-param-head">Model</div>
-            <div class="row col-10 pe-0">
-      {% for model_group in model_groups %}
-               <div class="col-6 px-2 model-param" data-param-k="model-group" data-param-v="{{ model_group.tag }}" tabindex="0">{{ model_group.group }}</div>
+   .. selector:: Model
+      :key: model-group
+
+   {% for model_group in model_groups %}
+      .. selector-option:: {{ model_group.group }}
+         :value: {{ model_group.tag }}
+         :width: 25%
+
+   {% endfor %}
+
+   {% for model_group in model_groups %}
+   .. selector:: Variant
+      :key: model
+      :show-cond: model-group={{ model_group.tag }}
+
+      {% set models = model_group.models %}
+      {% for model in models %}
+      .. selector-option:: {{ model.model }}
+         :value: {{ model.mad_tag }}
+
       {% endfor %}
-            </div>
-         </div>
+   {% endfor %}
 
-         <div class="row gx-0 pt-1">
-            <div class="col-2 me-1 px-2 model-param-head">Variant</div>
-            <div class="row col-10 pe-0">
-      {% for model_group in model_groups %}
-         {% set models = model_group.models %}
-         {% for model in models %}
-            {% if models|length % 3 == 0 %}
-               <div class="col-4 px-2 model-param" data-param-k="model" data-param-v="{{ model.mad_tag }}" data-param-group="{{ model_group.tag }}" tabindex="0">{{ model.model }}</div>
-            {% else %}
-               <div class="col-6 px-2 model-param" data-param-k="model" data-param-v="{{ model.mad_tag }}" data-param-group="{{ model_group.tag }}" tabindex="0">{{ model.model }}</div>
-            {% endif %}
-         {% endfor %}
-      {% endfor %}
-            </div>
-         </div>
-      </div>
-
-.. _amd-primus-pytorch-performance-measurements-v26.4:
+.. _amd-primus-pytorch-performance-measurements-v26.5:
 
 System validation
 =================
@@ -128,7 +126,7 @@ tweak some configurations (such as batch sizes).
          .. container:: model-doc {{ model.mad_tag }}
 
             The following run commands are tailored to {{ model.model }}.
-            See :ref:`amd-primus-pytorch-model-support-v26.4` to switch to another available model.
+            See :ref:`amd-primus-pytorch-model-support-v26.5` to switch to another available model.
 
             .. rubric:: Download the Docker image and required packages
 
@@ -331,7 +329,7 @@ tweak some configurations (such as batch sizes).
          .. container:: model-doc {{ model.mad_tag }}
 
             The following run command is tailored to {{ model.model }}.
-            See :ref:`amd-primus-pytorch-model-support-v26.4` to switch to another available model.
+            See :ref:`amd-primus-pytorch-model-support-v26.5` to switch to another available model.
 
             1. Clone the ROCm Model Automation and Dashboarding (`<https://github.com/ROCm/MAD>`__) repository to a local
                directory and install the required packages on the host machine.
@@ -418,7 +416,7 @@ Multi-node training examples
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 3.1 8B**.
-   See :ref:`amd-primus-pytorch-model-support-v26.4` to switch to another available model.
+   See :ref:`amd-primus-pytorch-model-support-v26.5` to switch to another available model.
 
    To train Llama 3.1 8B FP8 on 8 nodes, run:
 
@@ -438,7 +436,7 @@ Multi-node training examples
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 3.1 70B**.
-   See :ref:`amd-primus-pytorch-model-support-v26.4` to switch to another available model.
+   See :ref:`amd-primus-pytorch-model-support-v26.5` to switch to another available model.
 
    To train Llama 3.1 70B FP8 on 4 nodes using ``primus-cli`` (recommended), run:
 
@@ -465,7 +463,7 @@ Multi-node training examples
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **DeepSeek V3 16B**.
-   See :ref:`amd-primus-pytorch-model-support-v26.4` to switch to another available model.
+   See :ref:`amd-primus-pytorch-model-support-v26.5` to switch to another available model.
 
    To train DeepSeek V3 16B BF16 on 8 nodes, run:
 
@@ -478,7 +476,7 @@ Multi-node training examples
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to Llama 3.1 405B.
-   See :ref:`amd-primus-pytorch-model-support-v26.4` to switch to another available model.
+   See :ref:`amd-primus-pytorch-model-support-v26.5` to switch to another available model.
 
    To train Llama 3.1 405B FP8 on 8 nodes using ``primus-cli`` (recommended), run:
 

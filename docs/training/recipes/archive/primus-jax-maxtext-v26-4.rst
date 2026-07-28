@@ -71,7 +71,7 @@ GPUs. Some instructions, commands, and available training
 configurations in this documentation might vary by model -- select one to get
 started.
 
-.. datatemplate:yaml:: ./data/primus-jax-maxtext.yaml
+.. datatemplate:yaml:: ./data/primus-jax-maxtext-v26-4.yaml
 
    {% set model_groups = data.model_groups %}
    .. raw:: html
@@ -135,7 +135,7 @@ Pull the Docker image
 
 Use the following command to pull the Docker image from Docker Hub.
 
-.. datatemplate:yaml:: ./data/primus-jax-maxtext.yaml
+.. datatemplate:yaml:: ./data/primus-jax-maxtext-v26-4.yaml
 
    {% set docker = data.dockers[0] %}
 
@@ -159,7 +159,7 @@ Benchmarking
 Once the setup is complete, choose between two options to reproduce the
 benchmark results:
 
-.. datatemplate:yaml:: ./data/primus-jax-maxtext.yaml
+.. datatemplate:yaml:: ./data/primus-jax-maxtext-v26-4.yaml
 
    .. _vllm-benchmark-mad:
 
