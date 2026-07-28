@@ -123,7 +123,7 @@ tweak some configurations (such as batch sizes).
    {% for model_group in model_groups %}
       {% for model in model_group.models %}
 
-         .. container:: model-doc {{ model.mad_tag }}
+         .. selected:: model={{ model.mad_tag }}
 
             The following run commands are tailored to {{ model.model }}.
             See :ref:`amd-primus-pytorch-model-support-v26.5` to switch to another available model.
@@ -186,7 +186,7 @@ tweak some configurations (such as batch sizes).
 
             .. rubric:: Pretraining examples
 
-            .. container:: model-doc primus_pyt_train_llama-3.1-8b
+            .. selected:: model=primus_pyt_train_llama-3.1-8b
 
                Use the following command to run train Llama 3.1 8B with BF16 precision using Primus torchtitan.
 
@@ -236,7 +236,7 @@ tweak some configurations (such as batch sizes).
                           -- train pretrain \
                           --config examples/torchtitan/configs/MI300X/llama3.1_8B-FP8-pretrain.yaml
 
-            .. container:: model-doc primus_pyt_train_llama-3.1-70b
+            .. selected:: model=primus_pyt_train_llama-3.1-70b
 
                Use the following command to run train Llama 3.1 70B with BF16 precision using Primus torchtitan.
 
@@ -286,14 +286,14 @@ tweak some configurations (such as batch sizes).
                           -- train pretrain \
                           --config examples/torchtitan/configs/MI300X/llama3.1_70B-FP8-pretrain.yaml
 
-            .. container:: model-doc primus_pyt_train_llama-3.1-405b
+            .. selected:: model=primus_pyt_train_llama-3.1-405b
 
                Only multi-node training configurations are currently available for Llama 3.1 405B.
                See the
                :ref:`multi-node training examples <amd-primus-pytorch-multi-node-examples>`
                for training instructions.
 
-            .. container:: model-doc primus_pyt_train_deepseek-v3-16b
+            .. selected:: model=primus_pyt_train_deepseek-v3-16b
 
                Use the following command to run train DeepSeek V3 16B with BF16 precision using Primus torchtitan.
 
@@ -326,7 +326,7 @@ tweak some configurations (such as batch sizes).
    {% for model_group in model_groups %}
       {% for model in model_group.models %}
 
-         .. container:: model-doc {{ model.mad_tag }}
+         .. selected:: model={{ model.mad_tag }}
 
             The following run command is tailored to {{ model.model }}.
             See :ref:`amd-primus-pytorch-model-support-v26.5` to switch to another available model.
@@ -364,7 +364,7 @@ tweak some configurations (such as batch sizes).
 Multi-node training examples
 ============================
 
-.. container:: model-doc primus_pyt_train_llama-3.1-8b primus_pyt_train_llama-3.1-70b primus_pyt_train_llama-3.1-405b primus_pyt_train_deepseek-v3-16b
+.. selected:: model=primus_pyt_train_llama-3.1-8b primus_pyt_train_llama-3.1-70b primus_pyt_train_llama-3.1-405b primus_pyt_train_deepseek-v3-16b
 
    Refer to :doc:`/system-setup/multi-node-setup` to configure your environment for multi-node
    training.
@@ -412,7 +412,7 @@ Multi-node training examples
       * To find your network interface, you can use ``ip a``.
       * To find RDMA interfaces, you can use ``ibv_devices`` to get the list of all the RDMA/IB devices.
 
-.. container:: model-doc primus_pyt_train_llama-3.1-8b
+.. selected:: model=primus_pyt_train_llama-3.1-8b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 3.1 8B**.
@@ -432,7 +432,7 @@ Multi-node training examples
       ./primus-cli slurm srun -N 8 -- train pretrain \
           --config examples/torchtitan/configs/MI300X/llama3.1_8B-BF16-pretrain.yaml
 
-.. container:: model-doc primus_pyt_train_llama-3.1-70b
+.. selected:: model=primus_pyt_train_llama-3.1-70b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 3.1 70B**.
@@ -459,7 +459,7 @@ Multi-node training examples
           --training.global_batch_size 192 \
           --training.mock_data True
 
-.. container:: model-doc primus_pyt_train_deepseek-v3-16b
+.. selected:: model=primus_pyt_train_deepseek-v3-16b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **DeepSeek V3 16B**.
@@ -472,7 +472,7 @@ Multi-node training examples
       ./primus-cli slurm srun -N 8 -- train pretrain \
           --config examples/torchtitan/configs/MI300X/deepseek_v3_16b-pretrain.yaml
 
-.. container:: model-doc primus_pyt_train_llama-3.1-405b
+.. selected:: model=primus_pyt_train_llama-3.1-405b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to Llama 3.1 405B.

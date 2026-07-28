@@ -158,7 +158,7 @@ Primus defines a training configuration in YAML for each model in
    {% set model_groups = data.model_groups %}
    {% for model_group in model_groups %}
       {% for model in model_group.models %}
-   .. container:: model-doc {{ model.mad_tag }}
+   .. selected:: model={{ model.mad_tag }}
 
       For example, to update training parameters for {{ model.model }}, you can
       update ``examples/megatron/configs/{{ model.config_name }}``. Training
@@ -223,7 +223,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
 
    pip install -r requirements.txt
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-3.3-70b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-3.3-70b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 3.3 70B**.
@@ -259,7 +259,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/llama3.3_70B-BF16-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-3.1-8b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-3.1-8b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 3.1 8B**.
@@ -343,7 +343,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
         -- train pretrain \
         --config examples/megatron/configs/MI355X/llama3.1_8B-MXFP4-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-3.1-70b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-3.1-70b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 3.1 70B**.
@@ -421,7 +421,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               --fp8 hybrid \
               --no_fp8_weight_transpose_cache true
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-2-7b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-2-7b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 2 7B**.
@@ -487,7 +487,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/llama2_7B-BF16-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-2-70b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-2-70b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 2 70B**.
@@ -523,14 +523,14 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/llama2_70B-BF16-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-3.1-405b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-3.1-405b
 
    Only multi-node training configurations are currently available for Llama 3.1 405B.
    See the
    :ref:`multi-node training examples <amd-primus-megatron-multi-node-examples-v26.5>`
    for training instructions.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_deepseek-v2-lite-16b
+.. selected:: model=primus_pyt_megatron_lm_train_deepseek-v2-lite-16b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **DeepSeek-V2-Lite**.
@@ -571,7 +571,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/deepseek_v2_lite-BF16-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_mixtral-8x7b
+.. selected:: model=primus_pyt_megatron_lm_train_mixtral-8x7b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Mixtral 8x7B**.
@@ -608,14 +608,14 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/mixtral_8x7B_v0.1-BF16-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_mixtral-8x22b
+.. selected:: model=primus_pyt_megatron_lm_train_mixtral-8x22b
 
    Only multi-node training configurations are currently available for Mixtral 8x22B.
    See the
    :ref:`multi-node training examples <amd-primus-megatron-multi-node-examples-v26.5>`
    for training instructions.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen3-32b-lora
+.. selected:: model=primus_pyt_megatron_lm_train_qwen3-32b-lora
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to post-training **Qwen 3 32B** (LoRA).
@@ -652,7 +652,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train posttrain \
               --config examples/megatron_bridge/configs/MI300X/qwen3_32b_lora_posttrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen3-32b-sft
+.. selected:: model=primus_pyt_megatron_lm_train_qwen3-32b-sft
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to post-training **Qwen 3 32B** (SFT).
@@ -689,7 +689,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train posttrain \
               --config examples/megatron_bridge/configs/MI300X/qwen3_32b_sft_posttrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen2.5-7b
+.. selected:: model=primus_pyt_megatron_lm_train_qwen2.5-7b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Qwen 2.5 7B**.
@@ -756,7 +756,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/qwen2.5_7B-FP8-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen2.5-72b
+.. selected:: model=primus_pyt_megatron_lm_train_qwen2.5-72b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Qwen 2.5 72B**.
@@ -792,7 +792,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/qwen2.5_72B-BF16-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_zebra-llama-1b
+.. selected:: model=primus_pyt_megatron_lm_train_zebra-llama-1b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Zebra-Llama 1B**.
@@ -828,7 +828,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/zebra_llama_1B-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_zebra-llama-3b
+.. selected:: model=primus_pyt_megatron_lm_train_zebra-llama-3b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Zebra-Llama 3B**.
@@ -864,7 +864,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/zebra_llama_3B-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_zebra-llama-8b
+.. selected:: model=primus_pyt_megatron_lm_train_zebra-llama-8b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Zebra Llama 8B**.
@@ -900,7 +900,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/zebra_llama_8B-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen3-30b-a3b
+.. selected:: model=primus_pyt_megatron_lm_train_qwen3-30b-a3b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Qwen 3 30B (A3B)**.
@@ -966,7 +966,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/qwen3_30B_A3B-FP8-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen-3-235b
+.. selected:: model=primus_pyt_megatron_lm_train_qwen-3-235b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Qwen3 235B (A22B)**.
@@ -1032,7 +1032,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/qwen3_235B_A22B-FP8-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_gpt-oss-20b
+.. selected:: model=primus_pyt_megatron_lm_train_gpt-oss-20b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **GPT-OSS-20B**.
@@ -1098,7 +1098,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
               -- train pretrain \
               --config examples/megatron/configs/MI300X/gpt_oss_20B-FP8-pretrain.yaml
 
-.. container:: model-doc primus_pyt_megatron_lm_train_gpt-oss-120b
+.. selected:: model=primus_pyt_megatron_lm_train_gpt-oss-120b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **GPT-OSS-120B**.
@@ -1131,7 +1131,7 @@ To run training on a single node, navigate to ``/workspace/Primus`` and use the 
 Multi-node training examples
 ----------------------------
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-3.3-70b primus_pyt_megatron_lm_train_llama-3.1-8b primus_pyt_megatron_lm_train_llama-3.1-70b primus_pyt_megatron_lm_train_llama-2-7b primus_pyt_megatron_lm_train_llama-2-70b primus_pyt_megatron_lm_train_llama-3.1-405b primus_pyt_megatron_lm_train_mixtral-8x7b primus_pyt_megatron_lm_train_mixtral-8x22b primus_pyt_megatron_lm_train_qwen2.5-72b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-3.3-70b model=primus_pyt_megatron_lm_train_llama-3.1-8b model=primus_pyt_megatron_lm_train_llama-3.1-70b model=primus_pyt_megatron_lm_train_llama-2-7b model=primus_pyt_megatron_lm_train_llama-2-70b model=primus_pyt_megatron_lm_train_llama-3.1-405b model=primus_pyt_megatron_lm_train_mixtral-8x7b model=primus_pyt_megatron_lm_train_mixtral-8x22b model=primus_pyt_megatron_lm_train_qwen2.5-72b
 
    Refer to :doc:`/system-setup/multi-node-setup` to configure your environment for multi-node
    training.
@@ -1182,7 +1182,7 @@ Multi-node training examples
       * To find your network interface, you can use ``ip a``.
       * To find RDMA interfaces, you can use ``ibv_devices`` to get the list of all the RDMA/IB devices.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-3.1-8b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-3.1-8b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 3.1 8B**.
@@ -1197,7 +1197,7 @@ Multi-node training examples
       NNODES=8 EXP=examples/megatron/configs/MI300X/llama3.1_8B-FP8-pretrain.yaml \
       bash ./examples/run_slurm_pretrain.sh --global_batch_size 1024
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-2-7b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-2-7b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 2 7B**.
@@ -1212,7 +1212,7 @@ Multi-node training examples
       NNODES=8 EXP=examples/megatron/configs/MI300X/llama2_7B-FP8-pretrain.yaml \
       bash ./examples/run_slurm_pretrain.sh --global_batch_size 2048
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-3.1-70b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-3.1-70b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 3.1 70B**.
@@ -1234,7 +1234,7 @@ Multi-node training examples
       bash examples/run_slurm_pretrain.sh \
           --micro_batch_size 1 --global_batch_size 256 --recompute_num_layers 12
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-2-70b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-2-70b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 2 70B**.
@@ -1256,7 +1256,7 @@ Multi-node training examples
       bash ./examples/run_slurm_pretrain.sh \
           --micro_batch_size 2 --global_batch_size 1536 --recompute_num_layers 12
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-3.3-70b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-3.3-70b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Llama 3.3 70B**.
@@ -1278,7 +1278,7 @@ Multi-node training examples
       bash examples/run_slurm_pretrain.sh \
           --micro_batch_size 1 --global_batch_size 256 --recompute_num_layers 12
 
-.. container:: model-doc primus_pyt_megatron_lm_train_mixtral-8x7b
+.. selected:: model=primus_pyt_megatron_lm_train_mixtral-8x7b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Mixtral 8x7B**.
@@ -1292,7 +1292,7 @@ Multi-node training examples
       bash examples/run_slurm_pretrain.sh \
           --micro_batch_size 2 --global_batch_size 256
 
-.. container:: model-doc primus_pyt_megatron_lm_train_mixtral-8x22b
+.. selected:: model=primus_pyt_megatron_lm_train_mixtral-8x22b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to Mixtral 8x22B.
@@ -1329,7 +1329,7 @@ Multi-node training examples
           --moe_use_legacy_grouped_gemm True \
           --gradient_accumulation_fusion True
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen2.5-72b
+.. selected:: model=primus_pyt_megatron_lm_train_qwen2.5-72b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to **Qwen 2.5 72B**.
@@ -1343,7 +1343,7 @@ Multi-node training examples
       bash examples/run_slurm_pretrain.sh \
           --micro_batch_size 8 --global_batch_size 512 --recompute_num_layers 80
 
-.. container:: model-doc primus_pyt_megatron_lm_train_llama-3.1-405b
+.. selected:: model=primus_pyt_megatron_lm_train_llama-3.1-405b
 
    Once setup is complete, run the appropriate training command.
    The following run commands are tailored to Llama 3.1 405B.
@@ -1375,47 +1375,47 @@ Multi-node training examples
           --decoder_first_pipeline_num_layers 15 \
           --decoder_last_pipeline_num_layers 15
 
-.. container:: model-doc primus_pyt_megatron_lm_train_deepseek-v2-lite-16b
+.. selected:: model=primus_pyt_megatron_lm_train_deepseek-v2-lite-16b
 
    Multi-node training instructions are not currently available for DeepSeek-V2-Lite.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_zebra-llama-1b
+.. selected:: model=primus_pyt_megatron_lm_train_zebra-llama-1b
 
    Multi-node training instructions are not currently available for Zebra-Llama 1B.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_zebra-llama-3b
+.. selected:: model=primus_pyt_megatron_lm_train_zebra-llama-3b
 
    Multi-node training instructions are not currently available for Zebra-Llama 3B.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_zebra-llama-8b
+.. selected:: model=primus_pyt_megatron_lm_train_zebra-llama-8b
 
    Multi-node training instructions are not currently available for Zebra-Llama 8B.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_gpt-oss-20b
+.. selected:: model=primus_pyt_megatron_lm_train_gpt-oss-20b
 
    Multi-node training instructions are not currently available for GPT-OSS-20B.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_gpt-oss-120b
+.. selected:: model=primus_pyt_megatron_lm_train_gpt-oss-120b
 
    Multi-node training instructions are not currently available for GPT-OSS-120B.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen3-32b-sft
+.. selected:: model=primus_pyt_megatron_lm_train_qwen3-32b-sft
 
    Multi-node training instructions are not currently available for Qwen 3 32B SFT.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen3-32b-lora
+.. selected:: model=primus_pyt_megatron_lm_train_qwen3-32b-lora
 
    Multi-node training instructions are not currently available for Qwen 3 32B LoRA.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen3-30b-a3b
+.. selected:: model=primus_pyt_megatron_lm_train_qwen3-30b-a3b
 
    Multi-node training instructions are not currently available for Qwen 3 30B A3B.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen2.5-7b
+.. selected:: model=primus_pyt_megatron_lm_train_qwen2.5-7b
 
    Multi-node training instructions are not currently available for Qwen 2.5 7B.
 
-.. container:: model-doc primus_pyt_megatron_lm_train_qwen-3-235b
+.. selected:: model=primus_pyt_megatron_lm_train_qwen-3-235b
 
    Multi-node training instructions are not currently available for Qwen3 235B (A22B).
 
