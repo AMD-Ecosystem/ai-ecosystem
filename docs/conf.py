@@ -79,5 +79,4 @@ exclude_patterns = [
     "**/include/**",
     "**/extension/**",
     "**/images/**",
-    "**/archive/**",
 ]

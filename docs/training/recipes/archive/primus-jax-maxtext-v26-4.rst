@@ -673,6 +673,9 @@ Known issues
 Further reading
 ===============
 
+- To learn more about the Primus framework, see the `AMD Primus documentation
+  <https://rocm.docs.amd.com/projects/primus/>`__.
+
 - To learn more about MAD and the ``madengine`` CLI, see the `MAD usage guide <https://github.com/ROCm/MAD?tab=readme-ov-file#usage-guide>`__.
 
 - To learn more about system settings and management practices to configure your system for
@@ -682,5 +685,5 @@ Further reading
 Previous versions
 =================
 
-See :doc:`primus-jax-maxtext-history` to find documentation for previous
+See :doc:`/training/recipes/archive/primus-jax-maxtext-history` to find documentation for previous
 releases of the Primus with MaxText training recipe.

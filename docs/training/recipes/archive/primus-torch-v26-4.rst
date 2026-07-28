@@ -1,10 +1,19 @@
+:no-search:
+:orphan:
+
 .. meta::
    :description: How to train a model using PyTorch for ROCm.
    :keywords: ROCm, AI, LLM, train, PyTorch, torch, Llama, flux, tutorial, docker
 
-****************************************
-Training a model with Primus and PyTorch
-****************************************
+************************************************
+Training a model with Primus and PyTorch (v26.4)
+************************************************
+
+.. caution::
+
+   This documentation does not reflect the latest version of ROCm JAX MaxText
+   training performance documentation. See :doc:`../primus-torch` for the
+   latest version.
 
 `Primus <https://github.com/AMD-AGI/Primus>`__ is a unified and flexible
 LLM training framework designed to streamline training. It streamlines LLM
@@ -15,7 +24,7 @@ AMD provides a ready-to-use Docker image for Instinct MI355X, MI350X, MI325X, an
 MI300X GPUs containing essential components for Primus and PyTorch training
 with Primus Turbo optimizations.
 
-.. datatemplate:yaml:: ./data/primus-torch.yaml
+.. datatemplate:yaml:: ./data/primus-torch-v26-4.yaml
 
    .. tab-set::
 
@@ -42,7 +51,7 @@ The following models are pre-optimized for performance on the AMD Instinct MI325
 Some instructions, commands, and training recommendations in this documentation might
 vary by model -- select one to get started.
 
-.. datatemplate:yaml:: ./data/primus-torch.yaml
+.. datatemplate:yaml:: ./data/primus-torch-v26-4.yaml
 
    {% set model_groups = data.model_groups %}
    .. raw:: html
@@ -98,7 +107,7 @@ doesn’t test configurations and run conditions outside those described.
 Pull the Docker image
 =====================
 
-.. datatemplate:yaml:: ./data/primus-torch.yaml
+.. datatemplate:yaml:: ./data/primus-torch-v26-4.yaml
 
    Use the following command to pull the Docker image from Docker Hub.
 
@@ -113,7 +122,7 @@ Once the setup is complete, choose between the following two workflows to start 
 For best performance on MI325X, MI350X, and MI355X GPUs, you might need to
 tweak some configurations (such as batch sizes).
 
-.. datatemplate:yaml:: ./data/primus-torch.yaml
+.. datatemplate:yaml:: ./data/primus-torch-v26-4.yaml
 
    {% set docker = data.docker %}
    {% set model_groups = data.model_groups %}
@@ -507,16 +516,15 @@ Further reading
 - To learn more about the Primus framework, see the `AMD Primus documentation
   <https://rocm.docs.amd.com/projects/primus/>`__.
 
-- To learn more about MAD and the ``madengine`` CLI, see the `MAD usage guide
-  <https://github.com/ROCm/MAD?tab=readme-ov-file#usage-guide>`__.
+- To learn more about MAD and the ``madengine`` CLI, see the `MAD usage guide <https://github.com/ROCm/MAD?tab=readme-ov-file#usage-guide>`__.
 
-- To learn more about system settings and management practices to configure
-  your system for AMD Instinct MI300X Series GPUs, see `AMD Instinct MI300X
-  Customer Acceptance Guide
-  <https://instinct.docs.amd.com/projects/system-acceptance/en/latest/gpus/mi300x.html>`_.
+- To learn more about system settings and management practices to configure your system for
+  AMD Instinct MI300X Series GPUs, see `AMD Instinct MI300X Customer Acceptance Guide <https://instinct.docs.amd.com/projects/system-acceptance/en/latest/gpus/mi300x.html>`_.
 
 Previous versions
 =================
 
-See :doc:`/training/recipes/archive/primus-torch-history`.
-
+See `PyTorch training performance testing version history
+<https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/training/benchmark-docker/previous-versions/pytorch-training-history.html>`__
+to find documentation for previous releases of the Primus with Megatron-LM
+training recipe.
