@@ -39,6 +39,7 @@ using either a prebuilt Docker image (recommended) or pip. It applies to
    .. selector-dropdown:: Instinct GPU
       :key: gpu
       :show-cond: fam=instinct
+      :sort: desc
 
       .. selector-option:: AMD Instinct MI355X (gfx950)
          :value: mi355x gfx=gfx950
@@ -61,6 +62,7 @@ using either a prebuilt Docker image (recommended) or pip. It applies to
    .. selector-dropdown:: Radeon GPU
       :key: gpu
       :show-cond: fam=radeon
+      :sort: desc
 
       .. selector-option:: AMD Radeon AI PRO R9700 (gfx1201)
          :value: ai-r9700 gfx=gfx1201
