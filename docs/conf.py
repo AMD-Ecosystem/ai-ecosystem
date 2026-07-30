@@ -63,9 +63,9 @@ templates_path = [
 html_theme_options = {
     "flavor": "ai-ecosystem",
     "link_main_doc": False,
-    # "repository_url": "https://github.com/AMD-Ecosystem/ai-ecosystem",
-    # "use_repository_button": True,
-    # "use_issues_button": True,
+    "repository_url": "https://github.com/AMD-Ecosystem/ai-ecosystem",
+    "use_repository_button": True,
+    "use_issues_button": True,
 }
 html_title = f"AMD ROCm AI Ecosystem"
 html_context = {}
