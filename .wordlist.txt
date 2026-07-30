@@ -102,6 +102,7 @@ af
 ai
 aiter
 amd
+asc
 async
 autotune
 autotuning
@@ -115,6 +116,7 @@ cp
 ctest
 datatemplate
 dequantized
+desc
 dir
 disagg
 disaggregated
