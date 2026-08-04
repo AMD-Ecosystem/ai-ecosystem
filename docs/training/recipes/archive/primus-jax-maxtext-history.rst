@@ -1,15 +1,15 @@
 :no-search:
 :orphan:
 
-********************************************************
-JAX MaxText training performance testing version history
-********************************************************
+***************************************************************
+Primus JAX MaxText training performance testing version history
+***************************************************************
 
-This table lists previous versions of the ROCm JAX MaxText training performance
-testing workflow. For detailed information about available models for
-benchmarking, see the version-specific documentation. You can find tagged
-previous releases of the ``ROCm/jax-training`` Docker image on `Docker Hub
-<https://hub.docker.com/r/rocm/jax-training/tags>`_.
+This table lists previous releases of the Primus JAX MaxText training Docker image. The
+following documentation archives use Primus with the MaxText backend and
+demonstrate training performance testing. You can find tagged previous releases
+of the ``ROCm/jax-training`` Docker image on `Docker Hub
+<https://hub.docker.com/r/rocm/jax-training/tags>`__.
 
 .. list-table::
    :header-rows: 1

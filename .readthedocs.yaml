@@ -19,6 +19,7 @@ build:
 
 search:
   ignore:
+    - "genindex.html"
     - "**/archive/**"
     - "**/include/**"
     - "**/redirect/**"
