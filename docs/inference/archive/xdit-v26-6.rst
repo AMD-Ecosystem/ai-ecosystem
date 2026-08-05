@@ -20,7 +20,7 @@ xDiT diffusion inference (v26.6)
 
 .. _xdit-video-diffusion-v26-6:
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-6.yaml
 
    {% set docker = data.docker %}
 
@@ -48,7 +48,7 @@ For preview and development releases, see `amdsiloai/pytorch-xdit <https://hub.d
 What's new
 ==========
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-6.yaml
 
    {% set docker = data.docker %}
 
@@ -65,7 +65,7 @@ The following models are supported for inference performance benchmarking.
 Some instructions, commands, and recommendations in this documentation might
 vary by model -- select one to get started.
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-6.yaml
 
    {% set docker = data.docker %}
 
@@ -124,7 +124,7 @@ system's configuration.
 Pull the Docker image
 =====================
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-6.yaml
 
    {% set docker = data.docker %}
 
@@ -138,7 +138,7 @@ Pull the Docker image
 Validate and benchmark
 ======================
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-6.yaml
 
    {% set docker = data.docker %}
 
@@ -161,7 +161,7 @@ Choose your setup method
 
 You can either use an existing Hugging Face cache or download the model fresh inside the container.
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-6.yaml
 
    {% set docker = data.docker %}
 
@@ -251,7 +251,7 @@ You can either use an existing Hugging Face cache or download the model fresh in
 Run inference
 =============
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-6.yaml
 
    {% set docker = data.docker %}
 
