@@ -1,20 +1,19 @@
 docker:
-  pull_tag: rocm/pytorch-xdit:v26.7
-  docker_hub_url: https://hub.docker.com/layers/rocm/pytorch-xdit/v26.7
-  ROCm: 7.14.0
+  pull_tag: rocm/pytorch-xdit:v26.6
+  docker_hub_url: https://hub.docker.com/layers/rocm/pytorch-xdit/v26.6/images/sha256-ef858f07767cd64f995380a5c339c7834cbdc5a022d913e4c2640133fa0c383b
+  ROCm: 7.13.0
   whats_new:
-    - ROCm 7.14.0 bump
-    - LTX2.3 support
-    - Sparge head balancing
+    - Parallel VAE encoder support for Wan2.x
+    - Aiter graph-break fixes
   components:
     TheRock:
-      version: 9100ec6
+      version: 64b9f0aeb
       url: https://github.com/ROCm/TheRock
     rocm-libraries:
-      version: 9d056e8
+      version: 2384d1b1
       url: https://github.com/ROCm/rocm-libraries
     rocm-systems:
-      version: 1b2a555
+      version: 986a18c9
       url: https://github.com/ROCm/rocm-systems
     torch:
       version: ff65f5b
@@ -38,7 +37,7 @@ docker:
       version: 6d8025c9
       url: https://github.com/xdit-project/DistVAE
     xfuser:
-      version: c302663
+      version: 0cf94215
       url: https://github.com/xdit-project/xDiT
     yunchang:
       version: 631bdfd
@@ -71,7 +70,7 @@ docker:
             - '--guidance_scale 6.0 \'
             - '--use_torch_compile \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
         - model: Hunyuan Video 1.5
           model_repo: hunyuanvideo-community/HunyuanVideo-1.5-Diffusers-720p_t2v
           url: https://huggingface.co/hunyuanvideo-community/HunyuanVideo-1.5-Diffusers-720p_t2v
@@ -93,7 +92,7 @@ docker:
             - '--enable_tiling --enable_slicing \'
             - '--use_torch_compile \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
     - group: Wan-AI
       js_tag: wan
       models:
@@ -120,7 +119,7 @@ docker:
             - '--num_inference_steps 40 \'
             - '--use_torch_compile \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
         - model: Wan2.2
           model_repo: Wan-AI/Wan2.2-I2V-A14B-Diffusers
           url: https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B-Diffusers
@@ -143,7 +142,7 @@ docker:
             - '--num_inference_steps 40 \'
             - '--use_torch_compile \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
     - group: FLUX
       js_tag: flux
       models:
@@ -169,7 +168,7 @@ docker:
             - '--guidance_scale 0.0 \'
             - '--num_iterations 50 \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
         - model: FLUX.1 Kontext
           model_repo: black-forest-labs/FLUX.1-Kontext-dev
           url: https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev
@@ -193,7 +192,7 @@ docker:
             - '--guidance_scale 2.5 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
         - model: FLUX.2
           model_repo: black-forest-labs/FLUX.2-dev
           url: https://huggingface.co/black-forest-labs/FLUX.2-dev
@@ -217,7 +216,7 @@ docker:
             - '--guidance_scale 4.0 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
         - model: FLUX.2 Klein
           model_repo: black-forest-labs/FLUX.2-klein-9B
           url: https://huggingface.co/black-forest-labs/FLUX.2-klein-9B
@@ -239,7 +238,7 @@ docker:
             - '--guidance_scale 1.0 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
     - group: StableDiffusion
       js_tag: stablediffusion
       models:
@@ -260,7 +259,7 @@ docker:
             - '--use_cfg_parallel \'
             - '--use_torch_compile \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
     - group: Z-Image
       js_tag: z_image
       models:
@@ -284,7 +283,7 @@ docker:
             - '--guidance_scale 4.0 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
     - group: LTX
       js_tag: ltx
       models:
@@ -308,28 +307,7 @@ docker:
             - '--guidance_scale 4.0 \'
             - '--num_iterations 1 \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
-        - model: LTX-2.3
-          model_repo: dg845/LTX-2.3-Diffusers
-          url: https://huggingface.co/dg845/LTX-2.3-Diffusers
-          github: https://github.com/Lightricks/LTX-2
-          mad_tag: pyt_xdit_ltx_2_3
-          js_tag: ltx2_3_tag
-          benchmark_command:
-            - mkdir results
-            - 'xdit \'
-            - '--model {model_repo} \'
-            - '--seed 42 \'
-            - '--prompt "A tight medium close-up opens on a man in his mid-thirties pressed flat against a cracked concrete wall in a narrow alley at blue dusk, his dark hair matted with sweat against his forehead, a torn olive utility jacket smudged with grit and ash, and a fresh cut along his temple bleeding down into his stubble. Sodium streetlights spill amber rim light across one side of his face while the other half stays buried in deep chiaroscuro shadow, volumetric haze drifting through the cold air behind him and dust motes catching the practical glow. He leans an inch toward the lens, his eyes darting once off-frame, and says in a strained, breathless whisper barely louder than the wind, \"We need to run.\" His chest rises and falls in shallow, rapid pulls as the camera executes an aggressive snap zoom directly to his mouth, holding one beat on the tremor of his cracked lower lip and the flash of clenched teeth. He erupts in a raw, throat-tearing scream, \"NOW!\", a fleck of spittle catching the amber light as the camera snaps back out in a violent rack-out pull, restoring the wide framing in a single jolt. He pivots sharply on his heel, his boots scraping wet asphalt, and bolts away from the lens in a low-shouldered sprint, his jacket whipping behind him as the camera transitions into a handheld tracking shot that surges after him with jittery momentum, dust and damp debris kicking up in his wake. The audio bed layers distant sirens, a low pulsing sub-drone, crisp foley of pounding footsteps and ragged breathing, the wet scrape of pivoting boots, and a faint metallic clang receding far behind." \'
-            - '--height 1088 \'
-            - '--width 1920 \'
-            - '--num_inference_steps 30 \'
-            - '--ulysses_degree 8 \'
-            - '--use_torch_compile \'
-            - '--guidance_scale 3.0 \'
-            - '--num_iterations 1 \'
-            - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
     - group: Qwen-Image
       js_tag: qwen_image
       models:
@@ -353,7 +331,7 @@ docker:
             - '--guidance_scale 0.0 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
         - model: Qwen-Image-Edit
           model_repo: Qwen/Qwen-Image-Edit
           url: https://huggingface.co/Qwen/Qwen-Image-Edit
@@ -376,4 +354,5 @@ docker:
             - '--guidance_scale 4.0 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
-            - "--output_directory results"
+            - '--output_directory results'
+
