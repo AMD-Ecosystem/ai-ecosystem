@@ -27,6 +27,11 @@ subtrees:
             title: SGLang
           - url: https://rocm.docs.amd.com/projects/atom
             title: ATOM
+          - file: inference/model-recipes/index.md
+            title: Model recipes
+            entries:
+                - file: inference/model-recipes/kimi-k3.md
+                  title: Kimi-K3
           - file: inference/migraphx.rst
             title: MIGraphX
           - file: inference/onnxruntime.rst
