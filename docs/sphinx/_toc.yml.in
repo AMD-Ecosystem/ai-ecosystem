@@ -56,8 +56,6 @@ subtrees:
                   title: Training with Primus and PyTorch
                 - file: training/recipes/primus-jax-maxtext.rst
                   title: Training with Primus and JAX MaxText
-          - file: training/scale-model-training.rst
-            title: Scale model training
     - caption: Optimization
       entries:
           - file: optimization/workload-optimization.rst
