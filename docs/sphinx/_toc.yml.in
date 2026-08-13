@@ -43,6 +43,14 @@ subtrees:
             title: vLLM with MoRI recipe
           - file: inference/distributed/sglang-mori-recipe.md
             title: SGLang with MoRI recipe
+    - caption: GPU kernel development
+      entries:
+          - url: https://rocm.docs.amd.com/projects/FlyDSL
+            title: FlyDSL
+          - file: optimization/optimize-triton-kernels.rst
+            title: Optimize Triton kernels
+          - file: optimization/optimize-with-composable-kernel.md
+            title: Optimize with Composable Kernel
     - caption: Training
       entries:
           - url: https://rocm.docs.amd.com/projects/primus
@@ -68,10 +76,6 @@ subtrees:
             title: Model quantization techniques
           - file: optimization/model-acceleration-libs.rst
             title: Model acceleration libraries
-          - file: optimization/optimize-triton-kernels.rst
-            title: Optimize Triton kernels
-          - file: optimization/optimize-with-composable-kernel.md
-            title: Optimize with Composable Kernel
     - caption: Tutorials
       entries:
           - url: https://developer.amd.com/playbooks
