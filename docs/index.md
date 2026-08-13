@@ -17,6 +17,14 @@ pip.
 - [Install JAX](frameworks/jax/install)
 :::
 
+:::{grid-item-card} GPU kernel development
+Write and optimize high-performance GPU kernels for AMD hardware using Python DSLs, MLIR compiler stacks, and C++ template libraries.
+
+- [FlyDSL](https://rocm.docs.amd.com/projects/FlyDSL)
+- [Optimize Triton kernels](optimization/optimize-triton-kernels)
+- [Optimize with Composable Kernel](optimization/optimize-with-composable-kernel)
+:::
+
 :::{grid-item-card} Training
 Train and scale models on AMD GPUs. Primus provides end-to-end training
 infrastructure for multiple popular backend frameworks, including Megatron,
@@ -56,8 +64,6 @@ Improve throughput, latency, and memory efficiency for AI workloads on AMD Insti
 - [vLLM V1 performance](optimization/vllm-v1-optimization)
 - [Model quantization](optimization/model-quantization)
 - [Model acceleration libraries](optimization/model-acceleration-libs)
-- [Triton kernels](optimization/optimize-triton-kernels)
-- [Composable Kernel](optimization/optimize-with-composable-kernel)
 :::
 
 :::{grid-item-card} Tutorials
