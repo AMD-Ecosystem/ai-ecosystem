@@ -52,7 +52,7 @@ BabelStream test
 BabelStream is a synthetic GPU benchmark based on the STREAM benchmark for
 CPUs, measuring memory transfer rates to and from global device memory.
 BabelStream tests are included with the RVS package as part of the `BABEL module
-<https://rocm.docs.amd.com/projects/ROCmValidationSuite/en/latest/conceptual/rvs-modules.html#babel-benchmark-test-babel-module>`_.
+<https://rocm.docs.amd.com/projects/ROCmValidationSuite/en/latest/ug1main.html#babel-module>`_.
 
 For more information, see `Performance benchmarking
 <https://instinct.docs.amd.com/projects/system-acceptance/en/latest/common/system-validation.html#babelstream>`_
@@ -92,7 +92,7 @@ GPUs, which can impact end-to-end latency.
 .. _healthcheck-install-transferbench:
 
 1. To get started, use the instructions in the `TransferBench documentation
-   <https://rocm.docs.amd.com/projects/TransferBench/en/latest/install/install.html#install-transferbench>`__
+   <https://rocm.docs.amd.com/projects/TransferBench/en/latest/index.html>`__
    or use the following commands:
 
    .. code:: shell
