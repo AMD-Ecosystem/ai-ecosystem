@@ -243,7 +243,7 @@ sphinx-multitoc-numbering==0.1.3
     # via sphinx-external-toc
 sphinx-notfound-page==1.1.0
     # via rocm-docs-core
-sphinx-substitution-extensions==2026.6.17
+sphinx-substitution-extensions==2026.8.13.1
     # via -r requirements.in
 sphinxcontrib-applehelp==2.0.0
     # via sphinx
