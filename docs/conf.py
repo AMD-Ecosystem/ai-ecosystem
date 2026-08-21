@@ -40,13 +40,9 @@ external_toc_path = "./sphinx/_toc.yml"
 sys.path.append(str(DOCS_DIR / "extension"))
 extensions = [
     "rocm_docs",
-    "rocm_docs_custom.selector",
+    "rocm_docs.selector",
     "rocm_docs_custom.matrix",
     "rocm_docs_custom.icon",
-    # "rocm_docs_custom.csv_list_to_table",
-    # "rocm_docs_custom.remote_content",
-    # "rocm_docs_custom.remote_yaml",
-    # "rocm_docs_custom.version_ref",
     "sphinxcontrib.datatemplates",
     "sphinxcontrib.mermaid",
     "sphinx_substitution_extensions",
@@ -83,4 +79,4 @@ exclude_patterns = [
     "**/images/**",
 ]
 
-external_projects_remote_repository = ""
+# external_projects_remote_repository = ""
