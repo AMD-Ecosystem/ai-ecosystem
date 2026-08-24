@@ -834,7 +834,7 @@ llama-cli
 
 3. To exit, enter ``/exit`` or press ``Ctrl+C``.
 
-To send a single prompt and exit instead of starting an interactive session, add the ``-p`` and ``-st``:
+To send a single prompt and exit instead of starting an interactive session, add the ``-p`` and ``-st`` flags:
 
 .. selected:: os=ubuntu
 
@@ -850,14 +850,22 @@ To send a single prompt and exit instead of starting an interactive session, add
 
 .. note::
 
-   Without ``-st``, ``llama-cli`` answers the prompt supplied by ``-p`` and
-   then continues waiting for further input. Use ``llama-completion.exe`` for
-   non-interactive generation.
+   .. selected:: os=linux
+
+      Without ``-st``, ``llama-cli`` answers the prompt supplied by ``-p`` and
+      then continues waiting for further input. Use ``./llama-completion`` for
+      non-interactive generation.
+
+   .. selected:: os=windows
+
+      Without ``-st``, ``llama-cli`` answers the prompt supplied by ``-p`` and
+      then continues waiting for further input. Use ``llama-completion.exe`` for
+      non-interactive generation.
 
 llama-bench
 -----------
 
-1. Use the CLI tool to start the application:
+1. Use the CLI tool to start the application, replacing ``<model>.gguf`` with the path to a model on your system:
 
    .. selected:: os=ubuntu
 
@@ -894,9 +902,9 @@ llama-bench
 
       build: 78ec4c378 (10539)
 
-3. The ``backend`` column shows ``ROCm`` when the GPU is in use. If it shows ``CPU``,
-   the ROCm libraries were not found. Review the environment configuration
-   steps on the installation page.
+3. The ``backend`` column shows ``ROCm`` when the GPU is in use. If it shows
+   ``CPU``, the ROCm libraries were not found. Review the :ref:`environment
+   configuration steps <llamacpp-install>` to troubleshoot.
 
 Flash Attention is enabled with ``-fa 1`` and is supported on Radeon GPUs through rocWMMA:
 
