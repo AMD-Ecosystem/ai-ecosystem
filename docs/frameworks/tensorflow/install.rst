@@ -1,34 +1,55 @@
 :selector-toc2: Installation environment
 :selector-toc2-icon: fa-solid fa-computer
 
-.. _jax-install:
+.. _tensorflow-install:
 
-**********************************
-Install TensorFlow for ROCm 7.14.0
-**********************************
+***************************
+Install TensorFlow for ROCm
+***************************
 
-This page guides you through installing JAX with ROCm support on AMD hardware.
+This page guides you through installing TensorFlow with ROCm support on AMD hardware.
 It applies to `supported AMD GPUs and platforms
-<https://rocm.docs.amd.com/en/docs-7.14.0/about/release-notes.html#ai-ecosystem-support>`__.
+<https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
 .. selector:: Device family
    :key: fam
 
-   .. selector-option:: All
-      :value: all w=compute
-      :width: 4
-
    .. selector-option:: AMD Instinct™
-      :value: instinct w=compute
-      :width: 4
+      :value: instinct
+      :width: 12
       :toc-label: AMD Instinct
 
-   .. selector-option:: AMD Radeon™
-      :value: radeon w=compute
-      :width: 4
-      :toc-label: AMD Radeon
+.. selector-dropdown:: Instinct GPU
+   :key: gpu
+   :show-cond: fam=instinct
+   :sort: desc
 
-.. include:: /frameworks/include/gpu-selector-jax.rst
+   .. selector-option:: AMD Instinct MI355X (gfx950)
+      :value: mi355x gfx=gfx950
+
+   .. selector-option:: AMD Instinct MI350X (gfx950)
+      :value: mi350x gfx=gfx950
+
+   .. selector-option:: AMD Instinct MI350P (gfx950)
+      :value: mi350p gfx=gfx950
+
+   .. selector-option:: AMD Instinct MI325X (gfx942)
+      :value: mi325x gfx=gfx942
+
+   .. selector-option:: AMD Instinct MI300X (gfx942)
+      :value: mi300x gfx=gfx942
+
+   .. selector-option:: AMD Instinct MI300A (gfx942)
+      :value: mi300a gfx=gfx942
+
+   .. selector-option:: AMD Instinct MI250X (gfx90a)
+      :value: mi250x gfx=gfx90a
+
+   .. selector-option:: AMD Instinct MI250 (gfx90a)
+      :value: mi250 gfx=gfx90a
+
+   .. selector-option:: AMD Instinct MI210 (gfx90a)
+      :value: mi210 gfx=gfx90a
 
 .. selector:: Operating system
    :key: os
@@ -41,21 +62,22 @@ It applies to `supported AMD GPUs and platforms
    :key: rocm-ver
 
    .. selector-option:: 10.0.0
-      :width: 6
+      :width: 12
 
-   .. selector-option:: 7.14.0
-      :width: 6
+.. selector:: TensorFlow version
+   :key: tensorflow-ver
 
-.. selector:: JAX version
-   :key: jax-ver
+   .. selector-option:: 2.21
+      :value: 2.21
+      :width: 4
 
-   .. selector-option:: 0.10.0
-      :value: 0.10.0
-      :width: 6
+   .. selector-option:: 2.20
+      :value: 2.20
+      :width: 4
 
-   .. selector-option:: 0.9.1
-      :value: 0.9.1
-      :width: 6
+   .. selector-option:: 2.19.1
+      :value: 2.19
+      :width: 4
 
 .. selector:: Installation method
    :key: i
@@ -89,264 +111,100 @@ Prerequisites
 
    * Ensure your system has a `supported Python version
      <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
-     installed and accessible: 3.11, 3.12, 3.13, or 3.14.
+     installed and accessible: 3.12
 
    * Complete the ROCm Core SDK installation prerequisites. See `Prerequisites
      (Install ROCm)
-     <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html#prerequisites>`__ for
+     <https://rocm.docs.amd.com/en/latest/install/rocm.html#prerequisites>`__ for
      instructions.
-
-   .. important::
-
-      Unlike :doc:`PyTorch </frameworks/pytorch/install>`, the JAX packages
-      don't automatically install ROCm library and device packages as
-      dependencies. The following section includes recommended instructions to
-      install ROCm in a Python virtual environment alongside JAX. See `Install
-      ROCm <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html>`__ for other
-      installation methods.
 
 .. selected:: i=docker
    :heading: Get started
 
-   .. selected:: jax-ver=0.10.0
+   .. selected:: tensorflow-ver=2.21
 
-      1. Pull the ROCm JAX 0.10.0 Docker image.
+      1. Pull the ROCm TensorFlow 2.21 Docker image.
 
-         .. tab-set::
+         .. code-block:: bash
 
-            .. tab-item:: Python 3.14
-               :sync: py314
+            docker pull rocm/tensorflow:rocm10.0-ubuntu22.04-py3.12-tf2.21
 
-               .. code-block:: bash
+   .. selected:: tensorflow-ver=2.20
 
-                  docker pull rocm/jax:rocm7.14-jax0.10.0-py3.14
+      1. Pull the ROCm TensorFlow 2.20 Docker image.
 
-            .. tab-item:: Python 3.13
-               :sync: py313
+         .. code-block:: bash
 
-               .. code-block:: bash
+            docker pull rocm/tensorflow:rocm10.0-ubuntu22.04-py3.12-tf2.20
 
-                  docker pull rocm/jax:rocm7.14-jax0.10.0-py3.13
+   .. selected:: tensorflow-ver=2.19
 
-            .. tab-item:: Python 3.12
-               :sync: py312
+      1. Pull the ROCm TensorFlow 2.19.1 Docker image.
 
-               .. code-block:: bash
+         .. code-block:: bash
 
-                  docker pull rocm/jax:rocm7.14-jax0.10.0-py3.12
-
-            .. tab-item:: Python 3.11
-               :sync: py311
-
-               .. code-block:: bash
-
-                  docker pull rocm/jax:rocm7.14-jax0.10.0-py3.11
-
-   .. selected:: jax-ver=0.9.1
-
-      1. Pull the ROCm JAX 0.9.1 Docker image.
-
-         .. tab-set::
-
-            .. tab-item:: Python 3.14
-               :sync: py314
-
-               .. code-block:: bash
-
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.14
-
-            .. tab-item:: Python 3.13
-               :sync: py313
-
-               .. code-block:: bash
-
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.13
-
-            .. tab-item:: Python 3.12
-               :sync: py312
-
-               .. code-block:: bash
-
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.12
-
-            .. tab-item:: Python 3.11
-               :sync: py311
-
-               .. code-block:: bash
-
-                  docker pull rocm/jax:rocm7.14-jax0.9.1-py3.11
+            docker pull rocm/tensorflow:rocm10.0-ubuntu22.04-py3.12-tf2.19.1
 
    2. Start the Docker container.
 
-      .. selected:: jax-ver=0.10.0
+      .. selected:: tensorflow-ver=2.21
 
-         .. tab-set::
+         .. code-block:: bash
 
-            .. tab-item:: Python 3.14
-               :sync: py314
+            docker run -it --rm \
+               --device /dev/kfd \
+               --device /dev/dri \
+               --network=host \
+               --ipc=host \
+               --group-add=video \
+               --cap-add=SYS_PTRACE \
+               --security-opt seccomp=unconfined \
+               rocm/tensorflow:rocm10.0-ubuntu22.04-py3.12-tf2.21 \
+               bash
 
-               .. code-block:: bash
+      .. selected:: tensorflow-ver=2.20
 
-                  docker run -it --rm \
-                     --device /dev/kfd \
-                     --device /dev/dri \
-                     --network=host \
-                     --ipc=host \
-                     --group-add=video \
-                     --cap-add=SYS_PTRACE \
-                     --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.10.0-py3.14 \
-                     bash
+         .. code-block:: bash
 
-            .. tab-item:: Python 3.13
-               :sync: py313
+            docker run -it --rm \
+               --device /dev/kfd \
+               --device /dev/dri \
+               --network=host \
+               --ipc=host \
+               --group-add=video \
+               --cap-add=SYS_PTRACE \
+               --security-opt seccomp=unconfined \
+               rocm/tensorflow:rocm10.0-ubuntu22.04-py3.12-tf2.20 \
+               bash
 
-               .. code-block:: bash
+      .. selected:: tensorflow-ver=2.19.1
 
-                  docker run -it --rm \
-                     --device /dev/kfd \
-                     --device /dev/dri \
-                     --network=host \
-                     --ipc=host \
-                     --group-add=video \
-                     --cap-add=SYS_PTRACE \
-                     --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.10.0-py3.13 \
-                     bash
+         .. code-block:: bash
 
-            .. tab-item:: Python 3.12
-               :sync: py312
-
-               .. code-block:: bash
-
-                  docker run -it --rm \
-                     --device /dev/kfd \
-                     --device /dev/dri \
-                     --network=host \
-                     --ipc=host \
-                     --group-add=video \
-                     --cap-add=SYS_PTRACE \
-                     --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.10.0-py3.12 \
-                     bash
-
-            .. tab-item:: Python 3.11
-               :sync: py311
-
-               .. code-block:: bash
-
-                  docker run -it --rm \
-                     --device /dev/kfd \
-                     --device /dev/dri \
-                     --network=host \
-                     --ipc=host \
-                     --group-add=video \
-                     --cap-add=SYS_PTRACE \
-                     --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.10.0-py3.11 \
-                     bash
-
-      .. selected:: jax-ver=0.9.1
-
-         .. tab-set::
-
-            .. tab-item:: Python 3.14
-               :sync: py314
-
-               .. code-block:: bash
-
-                  docker run -it --rm \
-                     --device /dev/kfd \
-                     --device /dev/dri \
-                     --network=host \
-                     --ipc=host \
-                     --group-add=video \
-                     --cap-add=SYS_PTRACE \
-                     --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.9.1-py3.14 \
-                     bash
-
-            .. tab-item:: Python 3.13
-               :sync: py313
-
-               .. code-block:: bash
-
-                  docker run -it --rm \
-                     --device /dev/kfd \
-                     --device /dev/dri \
-                     --network=host \
-                     --ipc=host \
-                     --group-add=video \
-                     --cap-add=SYS_PTRACE \
-                     --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.9.1-py3.13 \
-                     bash
-
-            .. tab-item:: Python 3.12
-               :sync: py312
-
-               .. code-block:: bash
-
-                  docker run -it --rm \
-                     --device /dev/kfd \
-                     --device /dev/dri \
-                     --network=host \
-                     --ipc=host \
-                     --group-add=video \
-                     --cap-add=SYS_PTRACE \
-                     --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.9.1-py3.12 \
-                     bash
-
-            .. tab-item:: Python 3.11
-               :sync: py311
-
-               .. code-block:: bash
-
-                  docker run -it --rm \
-                     --device /dev/kfd \
-                     --device /dev/dri \
-                     --network=host \
-                     --ipc=host \
-                     --group-add=video \
-                     --cap-add=SYS_PTRACE \
-                     --security-opt seccomp=unconfined \
-                     rocm/jax:rocm7.14-jax0.9.1-py3.11 \
-                     bash
+            docker run -it --rm \
+               --device /dev/kfd \
+               --device /dev/dri \
+               --network=host \
+               --ipc=host \
+               --group-add=video \
+               --cap-add=SYS_PTRACE \
+               --security-opt seccomp=unconfined \
+               rocm/tensorflow:rocm10.0-ubuntu22.04-py3.12-tf2.19.1 \
+               bash
 
 .. selected:: i=pip
    :heading: Install JAX using pip
 
    For prerequisite steps and post-installation recommendations, see the `ROCm
-   installation instructions <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html>`__.
+   installation instructions <https://rocm.docs.amd.com/en/latest/install/rocm.html>`__.
 
    1. Set up your Python virtual environment.
 
-      .. tab-set::
+      .. tab-item:: Python 3.12
 
-         .. tab-item:: Python 3.14
+         .. code-block:: bash
 
-            .. code-block:: bash
-
-               python3.14 -m venv .venv
-
-         .. tab-item:: Python 3.13
-
-            .. code-block:: bash
-
-               python3.13 -m venv .venv
-
-         .. tab-item:: Python 3.12
-
-            .. code-block:: bash
-
-               python3.12 -m venv .venv
-
-         .. tab-item:: Python 3.11
-
-            .. code-block:: bash
-
-               python3.11 -m venv .venv
+            python3.12 -m venv .venv
 
    2. Activate your Python virtual environment.
 
@@ -357,110 +215,77 @@ Prerequisites
    3. If you don't have an existing ROCm installation, install ROCm using the
       following command; otherwise, proceed to installing JAX libraries.
 
-      .. selected:: fam=all
-
-         .. code-block:: bash
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "rocm[libraries,device-all]"
-
       .. selected:: gfx=gfx950
 
          .. code-block:: bash
 
             python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "rocm[libraries,device-gfx950]"
+                "rocm[libraries,device-gfx950]==10.0.0rc4"
 
       .. selected:: gfx=gfx942
 
          .. code-block:: bash
 
             python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "rocm[libraries,device-gfx942]"
+                "rocm[libraries,device-gfx942]==10.0.0rc4"
 
       .. selected:: gfx=gfx90a
 
          .. code-block:: bash
 
             python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "rocm[libraries,device-gfx90a]"
+                "rocm[libraries,device-gfx90a]==10.0.0rc4"
 
-      .. selected:: gfx=gfx1200
+   4. Install the ROCm-enabled TensorFlow libraries.
 
-         .. code-block:: bash
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "rocm[libraries,device-gfx1200]"
-
-      .. selected:: gfx=gfx1201
+      .. selected:: tensorflow-ver=2.21
 
          .. code-block:: bash
 
-            python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "rocm[libraries,device-gfx1201]"
+            python -m pip install https://rocm.frameworks-prereleases.amd.com/whl-multi-arch-staging/tensorflow-rocm/tensorflow_rocm-2.21.0.dev0%2Bselfbuilt.rocm10.0.0rc4-cp312-cp312-linux_x86_64.whl
 
-      .. selected:: gfx=gfx1100
-
-         .. code-block:: bash
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "rocm[libraries,device-gfx1100]"
-
-      .. selected:: gfx=gfx1101
+      .. selected:: tensorflow-ver=2.20
 
          .. code-block:: bash
 
-            python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "rocm[libraries,device-gfx1101]"
+            python -m pip install https://rocm.frameworks-prereleases.amd.com/whl-multi-arch-staging/tensorflow-rocm/tensorflow_rocm-2.20.0.dev0%2Bselfbuilt.rocm10.0.0rc4-cp312-cp312-linux_x86_64.whl
 
-      .. selected:: gfx=gfx1102
-
-         .. code-block:: bash
-
-            python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "rocm[libraries,device-gfx1102]"
-
-   4. Install the ROCm-enabled JAX libraries.
-
-      .. note::
-
-         The ``jax`` and ``jaxlib`` packages are not published to the AMD package
-         repository. After installing GFX architecture-based ``jax_rocm7_plugin``
-         and ``jax_rocm7_pjrt`` packages from the AMD repository, install
-         ``jax`` and ``jaxlib`` from `PyPI <https://pypi.org/project/jax>`__.
-
-      .. selected:: jax-ver=0.10.0
+      .. selected:: tensorflow-ver=2.19
 
          .. code-block:: bash
 
-            python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "jax_rocm7_plugin==0.10.0+rocm7.14.0" \
-                "jax_rocm7_pjrt==0.10.0+rocm7.14.0"
+            python -m pip install https://rocm.frameworks-prereleases.amd.com/whl-multi-arch-staging/tensorflow-rocm/tensorflow_rocm-2.19.1%2Brocm10.0.0rc4-cp312-cp312-linux_x86_64.whl
 
-            # Install jax from PyPI
-            python -m pip install \
-                "jax==0.10.0" \
-                "jaxlib==0.10.0"
+   5. Update ``LD_LIBRARY_PATH`` as a :ref:`workaround <>` so TensorFlow can discover ROCm libraries and system dependencies.
 
-      .. selected:: jax-ver=0.9.1
+      .. code-block:: bash
 
-         .. code-block:: bash
+         export LD_LIBRARY_PATH=$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib/rocm_sysdeps/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_libraries/lib:$LD_LIBRARY_PATH
 
-            python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
-                "jax_rocm7_plugin==0.9.1+rocm7.14.0" \
-                "jax_rocm7_pjrt==0.9.1+rocm7.14.0"
-
-            # Install jax from PyPI
-            python -m pip install \
-                "jax==0.9.1" \
-                "jaxlib==0.9.1"
-
-   5. Verify your JAX installation.
+   5. Verify your TensorFlow installation.
 
       .. code-block:: shell
 
-         python -c "import jax; print(jax.devices())"
+         python -c "import tensorflow as tf; print('TensorFlow version: ', tf.__version__)"
 
-      This prints something like ``[RocmDevice(id=0)]`` if JAX and ROCm are
-      installed properly and your AMD GPUs are detected.
+.. _tensorflow-known-issues:
 
+Known issues
+============
+
+After installing ``rocm_tensorflow`` using pip, attempting to run TensorFlow
+results in fatal ``ImportError``s.
+
+.. code-block::
+
+   ImportError: libhipsparse.so.4
+   ...
+   ImportError: librocm_sysdeps_asm.so.1
+   ...
+
+As a workaround, update ``LD_LIBRARY_PATH`` to link to the required ROCm
+libraries and system dependencies in your installation path:
+
+.. code-block:: bash
+
+   export LD_LIBRARY_PATH=$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib/rocm_sysdeps/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_libraries/lib:$LD_LIBRARY_PATH
