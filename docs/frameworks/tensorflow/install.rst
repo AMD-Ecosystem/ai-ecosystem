@@ -111,7 +111,7 @@ Prerequisites
 
    * Ensure your system has a `supported Python version
      <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
-     installed and accessible: 3.12
+     installed and accessible: **3.12**
 
    * Complete the ROCm Core SDK installation prerequisites. See `Prerequisites
      (Install ROCm)
@@ -200,11 +200,9 @@ Prerequisites
 
    1. Set up your Python virtual environment.
 
-      .. tab-item:: Python 3.12
+      .. code-block:: bash
 
-         .. code-block:: bash
-
-            python3.12 -m venv .venv
+         python3.12 -m venv .venv
 
    2. Activate your Python virtual environment.
 
@@ -274,7 +272,7 @@ Known issues
 ============
 
 After installing ``rocm_tensorflow`` using pip, attempting to run TensorFlow
-results in fatal ``ImportError``s.
+can result in multiple ``ImportError``.
 
 .. code-block::
 
