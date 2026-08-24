@@ -164,7 +164,7 @@ Prerequisites
                rocm/tensorflow:rocm10.0-ubuntu22.04-py3.12-tf2.20 \
                bash
 
-      .. selected:: tensorflow-ver=2.19.1
+      .. selected:: tensorflow-ver=2.19
 
          .. code-block:: bash
 
