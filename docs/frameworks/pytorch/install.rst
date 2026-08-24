@@ -55,6 +55,15 @@ hardware. It applies to `supported AMD GPUs and platforms
       :value: windows
       :width: 6
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.0.0
+      :width: 6
+
+   .. selector-option:: 7.14.0
+      :width: 6
+
 .. selector:: PyTorch version
    :key: pytorch-ver
    :show-cond: os=linux

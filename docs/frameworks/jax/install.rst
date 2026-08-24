@@ -37,6 +37,15 @@ It applies to `supported AMD GPUs and platforms
       :value: linux
       :width: 12
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.0.0
+      :width: 6
+
+   .. selector-option:: 7.14.0
+      :width: 6
+
 .. selector:: JAX version
    :key: jax-ver
 

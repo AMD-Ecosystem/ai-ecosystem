@@ -273,6 +273,15 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Ryzen 3 210 (gfx1103)
          :value: 3-210 gfx=gfx1103
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.0.0
+      :width: 6
+
+   .. selector-option:: 7.14.0
+      :width: 6
+
 .. selector:: vLLM version
    :key: vllm-ver
 

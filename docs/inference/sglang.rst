@@ -127,6 +127,15 @@ using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Radeon RX 7600 (gfx1102)
          :value: rx-7600 gfx=gfx1102
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.0.0
+      :width: 6
+
+   .. selector-option:: 7.14.0
+      :width: 6
+
 .. selector:: SGLang version
    :key: sgl-ver
 
