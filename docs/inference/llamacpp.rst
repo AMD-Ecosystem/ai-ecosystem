@@ -546,11 +546,13 @@ llama.cpp requires a ROCm installation on the host system.
             * Operating system: **Windows**
             * Installation method: **Tarball**
 
+.. _llamacpp-install:
+
 Install llama.cpp
 =================
 
-AMD does not publish Windows binaries for llama.cpp. Download a prebuilt
-Windows ROCm release from the `llama.cpp releases page
+AMD does not publish its own binaries for llama.cpp. Download a prebuilt
+ROCm-enabled release from the `llama.cpp releases page
 <https://github.com/ggml-org/llama.cpp/releases>`__. Release assets are named
 in the following format:
 
@@ -775,8 +777,8 @@ Run a llama.cpp example
 =======================
 
 Once your llama.cpp environment is set up, experiment with the following steps
-to run a model and benchmark your installation. The prebuilt Windows ROCm
-release includes the executables that exercise the functionality of your
+to run a model and benchmark your installation. The prebuilt llama.cpp
+release includes the executables to exercise the functionality of your
 installation.
 
 The two most popular use cases are:
@@ -784,15 +786,26 @@ The two most popular use cases are:
 * ``llama-cli``: The main executable to run the model interactively or get a response to a prompt.
 * ``llama-bench``: Run a benchmark of your model with different configurations.
 
-The following examples assume the llama.cpp executables are in ``C:\llamacpp``
-and a model in GGUF format has been downloaded. For a pip installation of ROCm,
-run the examples in the same command prompt in which you added the ROCm
-directories to ``PATH``.
+.. seealso::
+
+   See `Models (llama.cpp docs) <https://llama.app/models>`__ for a list of
+   GGUF-formatted models available to download from Hugging Face.
+
+.. selected:: os=ubuntu
+
+   The following examples assume the llama.cpp executables are in your
+   ``llama-<build>`` directory from the :ref:`previous installation step
+   <llamacpp-install>` and you've downloaded a model in GGUF format to run.
+
+.. selected:: os=windows
+
+   The following examples assume the llama.cpp executables are in ``C:\llamacpp``
+   and you've downloaded a model in GGUF format to run.
 
 llama-cli
 ---------
 
-1. Use the CLI tool to start the client:
+1. Use the CLI tool to start the client, replacing ``<model>.gguf`` with the path to a model on your system:
 
    .. selected:: os=ubuntu
 
