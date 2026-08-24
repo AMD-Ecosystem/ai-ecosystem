@@ -55,7 +55,6 @@ external_projects_current_project = "rocm"
 html_theme = "rocm_docs_theme"
 templates_path = [
     "templates",
-    str(DOCS_DIR / "extension/rocm_docs_custom/selector/templates"),
 ]
 html_theme_options = {
     "flavor": "ai-ecosystem",
