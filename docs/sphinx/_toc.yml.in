@@ -19,6 +19,8 @@ subtrees:
             title: Install PyTorch
           - file: frameworks/jax/install.rst
             title: Install JAX
+          - file: frameworks/tensorflow/install.rst
+            title: Install TensorFlow
     - caption: Inference
       entries:
           - file: inference/vllm.rst

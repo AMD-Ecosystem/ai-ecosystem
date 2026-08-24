@@ -15,6 +15,7 @@ pip.
 
 - [Install PyTorch](frameworks/pytorch/install)
 - [Install JAX](frameworks/jax/install)
+- [Install TensorFlow](frameworks/tensorflow/install)
 :::
 
 :::{grid-item-card} GPU kernel development
