@@ -3,12 +3,12 @@
 
 .. _tensorflow-install:
 
-***************************
-Install TensorFlow for ROCm
-***************************
+**********************************
+Install TensorFlow for ROCm 10.0.0
+**********************************
 
-This page guides you through installing TensorFlow with ROCm support on AMD hardware.
-It applies to `supported AMD GPUs and platforms
+This page guides you through installing TensorFlow with ROCm support on AMD
+Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
 <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
 .. selector:: Device family
@@ -50,19 +50,6 @@ It applies to `supported AMD GPUs and platforms
 
    .. selector-option:: AMD Instinct MI210 (gfx90a)
       :value: mi210 gfx=gfx90a
-
-.. selector:: Operating system
-   :key: os
-
-   .. selector-option:: Linux
-      :value: linux
-      :width: 12
-
-.. selector:: ROCm version
-   :key: rocm-ver
-
-   .. selector-option:: 10.0.0
-      :width: 12
 
 .. selector:: TensorFlow version
    :key: tensorflow-ver
