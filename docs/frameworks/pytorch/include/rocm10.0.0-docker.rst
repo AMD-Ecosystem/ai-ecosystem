@@ -1,3 +1,18 @@
+.. |PYT213_CP314| replace:: rocm/pytorch:rocm10.0_ubuntu26.04_py3.14_pytorch_release_2.13.0
+.. |PYT213_CP313| replace:: rocm/pytorch:rocm10.0_ubuntu24.04_py3.13_pytorch_release_2.13.0
+.. |PYT213_CP312| replace:: rocm/pytorch:rocm10.0_ubuntu24.04_py3.12_pytorch_release_2.13.0
+.. |PYT213_CP311| replace:: rocm/pytorch:rocm10.0_ubuntu24.04_py3.11_pytorch_release_2.13.0
+
+.. |PYT212_CP314| replace:: rocm/pytorch:rocm10.0_ubuntu26.04_py3.14_pytorch_release_2.12.0
+.. |PYT212_CP313| replace:: rocm/pytorch:rocm10.0_ubuntu24.04_py3.13_pytorch_release_2.12.0
+.. |PYT212_CP312| replace:: rocm/pytorch:rocm10.0_ubuntu24.04_py3.12_pytorch_release_2.12.0
+.. |PYT212_CP311| replace:: rocm/pytorch:rocm10.0_ubuntu24.04_py3.11_pytorch_release_2.12.0
+
+.. |PYT211_CP314| replace:: rocm/pytorch:rocm10.0_ubuntu26.04_py3.14_pytorch_release_2.11.0
+.. |PYT211_CP313| replace:: rocm/pytorch:rocm10.0_ubuntu24.04_py3.13_pytorch_release_2.11.0
+.. |PYT211_CP312| replace:: rocm/pytorch:rocm10.0_ubuntu24.04_py3.12_pytorch_release_2.11.0
+.. |PYT211_CP311| replace:: rocm/pytorch:rocm10.0_ubuntu24.04_py3.11_pytorch_release_2.11.0
+
 .. selected:: rocm-ver=10.0.0
 
    .. selected:: i=docker
@@ -15,7 +30,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu26.04_py3.14_pytorch_release_2.13.0
+                     docker pull |PYT213_CP314|
 
                .. tab-item:: Python 3.13
                   :sync: py313
@@ -23,7 +38,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.13_pytorch_release_2.13.0
+                     docker pull |PYT213_CP313|
 
                .. tab-item:: Python 3.12
                   :sync: py312
@@ -31,7 +46,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.12_pytorch_release_2.13.0
+                     docker pull |PYT213_CP312|
 
                .. tab-item:: Python 3.11
                   :sync: py311
@@ -39,7 +54,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.11_pytorch_release_2.13.0
+                     docker pull |PYT213_CP311|
 
       .. selected:: pytorch-ver=2.12.0
 
@@ -53,7 +68,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu26.04_py3.14_pytorch_release_2.12.0
+                     docker pull |PYT212_CP314|
 
                .. tab-item:: Python 3.13
                   :sync: py313
@@ -61,7 +76,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.13_pytorch_release_2.12.0
+                     docker pull |PYT212_CP313|
 
                .. tab-item:: Python 3.12
                   :sync: py312
@@ -69,7 +84,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.12_pytorch_release_2.12.0
+                     docker pull |PYT212_CP312|
 
                .. tab-item:: Python 3.11
                   :sync: py311
@@ -77,7 +92,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.11_pytorch_release_2.12.0
+                     docker pull |PYT212_CP311|
 
       .. selected:: pytorch-ver=2.11.0
 
@@ -91,7 +106,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu26.04_py3.14_pytorch_release_2.11.0
+                     docker pull |PYT211_CP314|
 
                .. tab-item:: Python 3.13
                   :sync: py313
@@ -99,7 +114,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.13_pytorch_release_2.11.0
+                     docker pull |PYT211_CP313|
 
                .. tab-item:: Python 3.12
                   :sync: py312
@@ -107,7 +122,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.12_pytorch_release_2.11.0
+                     docker pull |PYT211_CP312|
 
                .. tab-item:: Python 3.11
                   :sync: py311
@@ -115,7 +130,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.11_pytorch_release_2.11.0
+                     docker pull |PYT211_CP311|
 
       2. Start the Docker container.
 
@@ -137,7 +152,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu26.04_py3.14_pytorch_release_2.13.0 \
+                        |PYT213_CP314| \
                         bash
 
                .. tab-item:: Python 3.13
@@ -154,7 +169,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.13_pytorch_release_2.13.0 \
+                        |PYT213_CP313| \
                         bash
 
                .. tab-item:: Python 3.12
@@ -171,7 +186,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.12_pytorch_release_2.13.0 \
+                        |PYT213_CP312| \
                         bash
 
                .. tab-item:: Python 3.11
@@ -188,7 +203,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.11_pytorch_release_2.13.0 \
+                        |PYT213_CP311| \
                         bash
 
          .. selected:: pytorch-ver=2.12.0
@@ -209,7 +224,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu26.04_py3.14_pytorch_release_2.12.0 \
+                        |PYT212_CP314| \
                         bash
 
                .. tab-item:: Python 3.13
@@ -226,7 +241,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.13_pytorch_release_2.12.0 \
+                        |PYT212_CP313| \
                         bash
 
                .. tab-item:: Python 3.12
@@ -243,7 +258,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.12_pytorch_release_2.12.0 \
+                        |PYT212_CP312| \
                         bash
 
                .. tab-item:: Python 3.11
@@ -260,7 +275,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.11_pytorch_release_2.12.0 \
+                        |PYT212_CP311| \
                         bash
 
          .. selected:: pytorch-ver=2.11.0
@@ -281,7 +296,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu26.04_py3.14_pytorch_release_2.11.0 \
+                        |PYT211_CP314| \
                         bash
 
                .. tab-item:: Python 3.13
@@ -298,7 +313,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.13_pytorch_release_2.11.0 \
+                        |PYT211_CP313| \
                         bash
 
                .. tab-item:: Python 3.12
@@ -315,7 +330,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.12_pytorch_release_2.11.0 \
+                        |PYT211_CP312| \
                         bash
 
                .. tab-item:: Python 3.11
@@ -332,5 +347,5 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/pytorch:rocm10.0.0_ubuntu24.04_py3.11_pytorch_release_2.11.0 \
+                        |PYT211_CP311| \
                         bash

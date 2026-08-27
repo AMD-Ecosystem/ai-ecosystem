@@ -78,27 +78,16 @@ It applies to `supported AMD GPUs and platforms
          :value: 0.9.1
          :width: 6
 
-.. selected:: rocm-ver=10.0.0
+.. selector:: Installation method
+   :key: i
 
-   .. selector:: Installation method
-      :key: i
+   .. selector-option:: Docker
+      :value: docker
+      :width: 6
 
-      .. selector-option:: pip
-         :value: pip
-         :width: 12
-
-.. selected:: rocm-ver=7.14.0
-
-   .. selector:: Installation method
-      :key: i
-
-      .. selector-option:: Docker
-         :value: docker
-         :width: 6
-
-      .. selector-option:: pip
-         :value: pip
-         :width: 6
+   .. selector-option:: pip
+      :value: pip
+      :width: 6
 
 Prerequisites
 =============

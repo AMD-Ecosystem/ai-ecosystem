@@ -291,27 +291,16 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       :width: 12
       :show-cond: rocm-ver=7.14.0
 
-.. selected:: rocm-ver=10.0.0
+.. selector:: Installation method
+   :key: i
 
-   .. selector:: Installation method
-      :key: i
+   .. selector-option:: Docker
+      :value: docker
+      :width: 6
 
-      .. selector-option:: pip
-         :value: pip
-         :width: 12
-
-.. selected:: rocm-ver=7.14.0
-
-   .. selector:: Installation method
-      :key: i
-
-      .. selector-option:: Docker
-         :value: docker
-         :width: 6
-
-      .. selector-option:: pip
-         :value: pip
-         :width: 6
+   .. selector-option:: pip
+      :value: pip
+      :width: 6
 
 Prerequisites
 =============

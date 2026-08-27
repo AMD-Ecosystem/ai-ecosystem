@@ -69,9 +69,13 @@ Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
 .. selector:: Installation method
    :key: i
 
+   .. selector-option:: Docker
+      :value: docker rocm-ver=10.0.0
+      :width: 6
+
    .. selector-option:: pip
       :value: pip rocm-ver=10.0.0
-      :width: 12
+      :width: 6
 
 Prerequisites
 =============
