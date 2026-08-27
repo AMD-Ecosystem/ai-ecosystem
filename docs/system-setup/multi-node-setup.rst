@@ -27,11 +27,11 @@ Before starting, ensure your environment meets the following requirements:
 
 * ROCm Docker container to simplify environment setup for AI workloads. See the following resources to get started:
 
-  * :doc:`Training a model with Megatron-LM and ROCm </training/recipes/primus-megatron>`
+  * `Training a model with Megatron-LM and ROCm <https://rocm.docs.amd.com/projects/primus/en/latest/02-user-guide/megatron-lm-training.html>`__
 
-  * :doc:`Training a model with PyTorch and ROCm </training/recipes/primus-torch>`
+  * `Training a model with PyTorch and ROCm <https://rocm.docs.amd.com/projects/primus/en/latest/02-user-guide/torchtitan-training.html>`__
 
-  * :doc:`Training a model with JAX MaxText and ROCm </training/recipes/primus-jax-maxtext>`
+  * `Training a model with JAX MaxText and ROCm <https://rocm.docs.amd.com/projects/primus/en/latest/02-user-guide/jax-maxtext-training.html>`__
 
 * Slurm workload manager to run the :ref:`provided examples <amd-primus-pytorch-multi-node-examples>`.
 
