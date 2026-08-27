@@ -308,7 +308,7 @@ Prerequisites
 .. selected:: fam=instinct rocm-ver=10.0.0
    :heading: Known issues
 
-   * HuggingFace model training workloads might see 9–25% lower training
+   * Hugging Face model training workloads might see 9–25% lower training
      throughput on AMD Instinct MI350X (gfx950) GPUs, including BART, GPT-2,
      DiT (Diffusion Transformers), BERT, Llama 2 70B Chat, and RoBERTa-large.
      This occurs because AOTriton 0.13b selects a suboptimal flash-attention
