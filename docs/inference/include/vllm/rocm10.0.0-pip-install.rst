@@ -145,69 +145,35 @@
              "flash-attn==2.8.3" \
              "amd-aiter==0.1.20.post1"
 
+   5. Install the vLLM |VLLM_VERSION_10P| wheel using ``uv pip``.
 
-   .. selected:: fam=instinct
+      .. code-block:: bash
+         :substitutions:
 
-      6. Install the vLLM |VLLM_VERSION_10P| wheel using ``uv pip``.
+         uv pip install |VLLM_WHL|
 
-         .. code-block:: bash
-            :substitutions:
+   6. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
 
-            uv pip install |VLLM_WHL|
+      .. code-block:: bash
+         :substitutions:
 
-   .. selected:: fam=instinct
+         export PYTHONPATH=$VIRTUAL_ENV/lib/python3.14/site-packages/_rocm_sdk_core/share/amd_smi
+         export FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE
 
-      7. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
+      To make any of these settings permanent, add it to your shell startup file;
+      ``~/.bashrc``, for instance.
 
-         .. code-block:: bash
-            :substitutions:
+   7. Check your installation.
 
-            export PYTHONPATH=$VIRTUAL_ENV/lib/python3.14/site-packages/_rocm_sdk_core/share/amd_smi
-            export FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE
+      .. code-block:: bash
+         :substitutions:
 
-         To make any of these settings permanent, add it to your shell startup file;
-         ``~/.bashrc``, for instance.
+         python -c "import vllm; print('vLLM version:', vllm.__version__)"
+         python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
+         python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
 
-      8. Check your installation.
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -c "import vllm; print('vLLM version:', vllm.__version__)"
-            python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
-            python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
-
-      9. After setting up your environment, follow the vLLM |VLLM_VERSION_10P| usage
-         documentation to get started: |VLLM_USAGE_DOC_10P|.
-
-   .. selected:: fam=radeon fam=ryzen
-
-      6. Install the vLLM |VLLM_VERSION_10P| wheel using ``uv pip``.
-
-         .. code-block:: bash
-            :substitutions:
-
-            uv pip install |VLLM_WHL|
-
-      7. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
-
-         .. code-block:: bash
-            :substitutions:
-
-            export PYTHONPATH=$VIRTUAL_ENV/lib/python3.14/site-packages/_rocm_sdk_core/share/amd_smi
-            export FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE
-
-      8. Check your installation.
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -c "import vllm; print('vLLM version:', vllm.__version__)"
-            python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
-            python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
-
-      9. After setting up your environment, follow the vLLM |VLLM_VERSION_10P| usage
-         documentation to get started: |VLLM_USAGE_DOC_10P|.
+   8. After setting up your environment, follow the vLLM |VLLM_VERSION_10P| usage
+      documentation to get started: |VLLM_USAGE_DOC_10P|.
 
    .. seealso::
 
