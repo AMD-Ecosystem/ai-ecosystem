@@ -1,7 +1,7 @@
 :selector-toc2: Installation environment
 :selector-toc2-icon: fa-solid fa-computer
 
-.. |SGLANG_VERSION| replace:: 0.5.13post1
+.. |SGLANG_VERSION| replace:: 0.5.13
 
 .. |SGLANG_DOCKER_TAG_ALL| replace:: rocm/sgl-dev:v0.5.13.post1-ubuntu24.04-py3.14-rocm7.14
 
@@ -150,7 +150,7 @@ or pip. It applies to `supported AMD GPUs and platforms
       :width: 12
       :show-cond: rocm-ver=10.0.0
 
-   .. selector-option:: 0.5.13post1
+   .. selector-option:: 0.5.13
       :value: 0.5.13
       :width: 12
       :show-cond: rocm-ver=7.14.0

@@ -1,6 +1,6 @@
 .. |SGLANG_VERSION_10| replace:: 0.5.15
 
-.. |SGLANG_DOCKER_TAG_ALL_10| replace:: rocm/sgl-dev:v0.5.15-ubuntu24.04-py3.14-rocm10.0.0
+.. |SGLANG_DOCKER_TAG_ALL_10| replace:: rocm/sgl-dev:v0.5.15.post1-ubuntu24.04-py3.14-rocm10.0.0
 
 .. |SGLANG_USAGE_DOC_10| replace:: `Basic usage (SGLang docs) <https://docs.sglang.io/docs/basic_usage/overview>`__
 .. |SGLANG_DOCKER_INSTALL_DOC_10| replace:: `Using Docker (SGLang docs) <https://docs.sglang.io/docs/hardware-platforms/amd_gpu#install-using-docker-recommended>`__
