@@ -18,26 +18,9 @@ Windows using pip.
 - [Install TensorFlow](frameworks/tensorflow/install)
 :::
 
-:::{grid-item-card} GPU kernel development
-Write and optimize high-performance GPU kernels for AMD hardware using Python
-DSLs, MLIR compiler stacks, and C++ template libraries.
-
-- [FlyDSL](https://rocm.docs.amd.com/projects/FlyDSL)
-- [Optimize Triton kernels](optimization/optimize-triton-kernels)
-- [Optimize with Composable Kernel](optimization/optimize-with-composable-kernel)
-:::
-
-:::{grid-item-card} Training
-Train and scale models on AMD GPUs. Primus provides end-to-end training
-infrastructure for multiple popular backend frameworks, including Megatron,
-TorchTitan, and MaxText.
-
-- [Primus](https://rocm.docs.amd.com/projects/primus)
-:::
-
 :::{grid-item-card} Inference
 Serve LLMs and generative AI models using high-performance inference
-frameworks. Covers single-node and distributed multi-GPU deployments.
+frameworks.
 
 - [vLLM](inference/vllm)
 - [SGLang](inference/sglang)
@@ -57,6 +40,23 @@ networking on MI355X clusters.
 - [Infera](https://rocm.docs.amd.com/projects/infera)
 - [vLLM with MoRI recipe](inference/distributed/vllm-mori-recipe)
 - [SGLang with MoRI recipe](inference/distributed/sglang-mori-recipe)
+:::
+
+:::{grid-item-card} Training
+Train and scale models on AMD GPUs. Primus provides end-to-end training
+infrastructure for multiple popular backend frameworks, including Megatron,
+TorchTitan, and MaxText.
+
+- [Primus](https://rocm.docs.amd.com/projects/primus)
+:::
+
+:::{grid-item-card} GPU kernel development
+Write and optimize high-performance GPU kernels for AMD hardware using Python
+DSLs, MLIR compiler stacks, and C++ template libraries.
+
+- [FlyDSL](https://rocm.docs.amd.com/projects/FlyDSL)
+- [Optimize Triton kernels](optimization/optimize-triton-kernels)
+- [Optimize with Composable Kernel](optimization/optimize-with-composable-kernel)
 :::
 
 :::{grid-item-card} Optimization
