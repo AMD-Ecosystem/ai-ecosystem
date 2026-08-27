@@ -9,16 +9,18 @@ for GPU computing. This documentation covers the AI ecosystem built on ROCm
 :gutter: 3
 
 :::{grid-item-card} Deep learning frameworks
-Install PyTorch and JAX on AMD GPUs. Includes hardware-specific instructions
-for AMD Instinct and Radeon GPUs and Ryzen APUs across Linux and Windows using
-pip.
+Install popular deep learning on AMD GPUs. Includes hardware-specific
+instructions for AMD Instinct and Radeon GPUs and Ryzen APUs across Linux and
+Windows using pip.
 
 - [Install PyTorch](frameworks/pytorch/install)
 - [Install JAX](frameworks/jax/install)
+- [Install TensorFlow](frameworks/tensorflow/install)
 :::
 
 :::{grid-item-card} GPU kernel development
-Write and optimize high-performance GPU kernels for AMD hardware using Python DSLs, MLIR compiler stacks, and C++ template libraries.
+Write and optimize high-performance GPU kernels for AMD hardware using Python
+DSLs, MLIR compiler stacks, and C++ template libraries.
 
 - [FlyDSL](https://rocm.docs.amd.com/projects/FlyDSL)
 - [Optimize Triton kernels](optimization/optimize-triton-kernels)
@@ -31,16 +33,16 @@ infrastructure for multiple popular backend frameworks, including Megatron,
 TorchTitan, and MaxText.
 
 - [Primus](https://rocm.docs.amd.com/projects/primus)
-- [Scale model training](training/scale-model-training)
 :::
 
 :::{grid-item-card} Inference
-Serve LLMs and generative AI models using high-performance inference frameworks.
-Covers single-node and distributed multi-GPU deployments.
+Serve LLMs and generative AI models using high-performance inference
+frameworks. Covers single-node and distributed multi-GPU deployments.
 
 - [vLLM](inference/vllm)
 - [SGLang](inference/sglang)
 - [ATOM](https://rocm.docs.amd.com/projects/atom)
+- [llama.cpp](inference/llamacpp)
 - [MIGraphX](inference/migraphx)
 - [ONNX Runtime](inference/onnxruntime)
 - [xDiT](inference/xdit)

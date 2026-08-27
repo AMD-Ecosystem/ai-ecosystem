@@ -1,11 +1,10 @@
 :selector-toc2: Installation environment
 :selector-toc2-icon: fa-solid fa-computer
 
-.. |SGLANG_VERSION| replace:: 0.15.3post1
+.. |SGLANG_VERSION| replace:: 0.5.13post1
 
 .. |SGLANG_DOCKER_TAG_ALL| replace:: rocm/sgl-dev:v0.5.13.post1-ubuntu24.04-py3.14-rocm7.14
 
-.. |SGLANG_DOC| replace:: `SGLang <https://docs.sglang.io/>`__
 .. |SGLANG_USAGE_DOC| replace:: `Basic usage (SGLang docs) <https://docs.sglang.io/docs/basic_usage/overview>`__
 .. |SGLANG_DOCKER_INSTALL_DOC| replace:: `Using Docker (SGLang docs) <https://docs.sglang.io/docs/hardware-platforms/amd_gpu#install-using-docker-recommended>`__
 .. |SGLANG_PIP_INSTALL_DOC| replace:: `With pip or uv (SGLang docs) <https://docs.sglang.io/docs/get-started/install#method-1-with-pip-or-uv>`__
@@ -14,10 +13,11 @@
 SGLang inference and serving on ROCm
 ************************************
 
-|SGLANG_DOC| is an open-source library for fast, memory-efficient LLM inference
-and serving. This page describes how to set up and run SGLang on AMD GPUs
-using either a prebuilt Docker image (recommended) or pip. It applies to
-`supported AMD GPUs and platforms <https://rocm.docs.amd.com/en/docs-7.14.0/about/release-notes.html#ai-ecosystem-support>`__.
+`SGLang <https://docs.sglang.io/>`__ is an open-source library for fast,
+memory-efficient LLM inference and serving. This page describes how to set up
+and run SGLang on AMD GPUs using either a prebuilt Docker image (recommended)
+or pip. It applies to `supported AMD GPUs and platforms
+<https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
 .. selector:: Device family
    :key: fam
@@ -88,6 +88,12 @@ using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Radeon RX 9060 (gfx1200)
          :value: rx-9060 gfx=gfx1200
 
+      .. selector-option:: AMD Radeon RX 9050 (4GB) (gfx1200)
+         :value: rx-9050-4gb gfx=gfx1200
+
+      .. selector-option:: AMD Radeon RX 9050 (gfx1200)
+         :value: rx-9050 gfx=gfx1200
+
       .. selector-option:: AMD Radeon PRO W7900 Dual Slot (gfx1100)
          :value: w7900-dual-slot gfx=gfx1100
 
@@ -127,12 +133,24 @@ using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Radeon RX 7600 (gfx1102)
          :value: rx-7600 gfx=gfx1102
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 7.14.0
+      :width: 12
+
 .. selector:: SGLang version
    :key: sgl-ver
 
-   .. selector-option:: 0.15.3post1
-      :value: 0.15.3
+   .. selector-option:: 0.5.15
+      :value: 0.5.15
       :width: 12
+      :show-cond: rocm-ver=10.0.0
+
+   .. selector-option:: 0.5.13post1
+      :value: 0.5.13
+      :width: 12
+      :show-cond: rocm-ver=7.14.0
 
 .. selector:: Installation method
    :key: i
@@ -144,109 +162,28 @@ using either a prebuilt Docker image (recommended) or pip. It applies to
 Prerequisites
 =============
 
-- For Instinct and Radeon devices, ensure your host system has the AMD GPU
-  Driver (amdgpu) installed. See the `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for driver support
-  information. For installation instructions, see the `AMD GPU Driver
-  documentation
-  <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
+.. selected:: rocm-ver=10.0.0
+
+   - For Instinct and Radeon devices, ensure your host system has the AMD GPU
+     Driver (amdgpu) installed. See the `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__ for driver support
+     information. For installation instructions, see the `AMD GPU Driver
+     documentation
+     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
+
+.. selected:: rocm-ver=7.14.0
+
+   - For Instinct and Radeon devices, ensure your host system has the AMD GPU
+     Driver (amdgpu) installed. See the `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for driver support
+     information. For installation instructions, see the `AMD GPU Driver
+     documentation
+     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
 
 - Ensure the host system has `Docker Engine
   <https://docs.docker.com/engine/install/>`__ installed.
 
-.. selected:: i=docker
-   :heading: Get started
+.. include:: ./include/sglang/rocm10.0.0-docker.rst
 
-   .. selected:: fam=all
-
-      1. Pull the ROCm SGLang |SGLANG_VERSION| Docker image.
-
-         .. code-block:: bash
-            :substitutions:
-
-            docker pull |SGLANG_DOCKER_TAG_ALL|
-
-      2. Start the Docker container.
-
-         .. code-block:: bash
-            :substitutions:
-
-            docker run -it --rm \
-               --device /dev/kfd \
-               --device /dev/dri \
-               --network=host \
-               --ipc=host \
-               --group-add=video \
-               --cap-add=SYS_PTRACE \
-               --security-opt seccomp=unconfined \
-               -v <path/to/your/models>:/app/models \
-               -e HF_HOME="/app/models" \
-               |SGLANG_DOCKER_TAG_ALL| \
-               bash
-
-   .. selected:: fam=instinct
-
-      1. Pull the ROCm SGLang |SGLANG_VERSION| Docker image.
-
-         .. code-block:: bash
-            :substitutions:
-
-            docker pull |SGLANG_DOCKER_TAG_ALL|
-
-      2. Start the Docker container.
-
-         .. code-block:: bash
-            :substitutions:
-
-            docker run -it --rm \
-               --device /dev/kfd \
-               --device /dev/dri \
-               --network=host \
-               --ipc=host \
-               --group-add=video \
-               --cap-add=SYS_PTRACE \
-               --security-opt seccomp=unconfined \
-               -v <path/to/your/models>:/app/models \
-               -e HF_HOME="/app/models" \
-               |SGLANG_DOCKER_TAG_ALL| \
-               bash
-
-   .. selected:: fam=radeon fam=ryzen
-
-      1. Pull the ROCm SGLang |SGLANG_VERSION| Docker image.
-
-         .. code-block:: bash
-            :substitutions:
-
-            docker pull |SGLANG_DOCKER_TAG_ALL|
-
-      2. Start the Docker container. On Radeon GPUs, disable AITER by unsetting
-         ``SGLANG_USE_AITER`` and ``SGLANG_ROCM_FUSED_DECODE_MLA``. See the
-         :ref:`known issue <sglang-aiter-ki>` for more information.
-
-         .. code-block:: bash
-            :substitutions:
-
-            docker run -it --rm \
-               --device /dev/kfd \
-               --device /dev/dri \
-               --network=host \
-               --ipc=host \
-               --group-add=video \
-               --cap-add=SYS_PTRACE \
-               --security-opt seccomp=unconfined \
-               -v <path/to/your/models>:/app/models \
-               -e HF_HOME="/app/models" \
-               -e SGLANG_USE_AITER=false \
-               -e SGLANG_ROCM_FUSED_DECODE_MLA=false \
-               |SGLANG_DOCKER_TAG_ALL| \
-               bash
-
-   .. seealso::
-
-      |SGLANG_DOCKER_INSTALL_DOC|
-
-   3. After setting up your environment, follow the SGLang |SGLANG_VERSION| usage
-      documentation to get started: |SGLANG_USAGE_DOC|.
+.. include:: ./include/sglang/rocm7.14.0-docker.rst
 
 .. selected:: fam=radeon
    :heading: Known issues
@@ -270,3 +207,14 @@ Prerequisites
    MiniMax-M2.7) and Qwen3-ASR models. Users experiencing these issues are
    recommended to use the latest upstream SGLang versions, which will include
    the necessary fixes once they are merged.
+
+   * SGLang inference workloads using the default AITER attention backend might
+     fail on some AMD Radeon graphics products, such as the Radeon PRO W7900,
+     Radeon AI PRO R9700, and Radeon RX 9070 XT. As a workaround, configure
+     SGLang to use the Triton attention backend (``--attention-backend triton``)
+     or disable AITER:
+
+     .. code-block:: bash
+
+        export SGLANG_USE_AITER=0
+        export SGLANG_USE_AITER_AR=0

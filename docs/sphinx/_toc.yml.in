@@ -19,6 +19,8 @@ subtrees:
             title: Install PyTorch
           - file: frameworks/jax/install.rst
             title: Install JAX
+          - file: frameworks/tensorflow/install.rst
+            title: Install TensorFlow
     - caption: Inference
       entries:
           - file: inference/vllm.rst
@@ -27,6 +29,8 @@ subtrees:
             title: SGLang
           - url: https://rocm.docs.amd.com/projects/atom
             title: ATOM
+          - file: inference/llamacpp.rst
+            title: llama.cpp
           - file: inference/migraphx.rst
             title: MIGraphX
           - file: inference/onnxruntime.rst
@@ -43,6 +47,10 @@ subtrees:
             title: vLLM with MoRI recipe
           - file: inference/distributed/sglang-mori-recipe.md
             title: SGLang with MoRI recipe
+    - caption: Training
+      entries:
+          - url: https://rocm.docs.amd.com/projects/primus
+            title: Primus
     - caption: GPU kernel development
       entries:
           - url: https://rocm.docs.amd.com/projects/FlyDSL
@@ -51,10 +59,6 @@ subtrees:
             title: Optimize Triton kernels
           - file: optimization/optimize-with-composable-kernel.md
             title: Optimize with Composable Kernel
-    - caption: Training
-      entries:
-          - url: https://rocm.docs.amd.com/projects/primus
-            title: Primus
     - caption: Optimization
       entries:
           - file: optimization/workload-optimization.rst

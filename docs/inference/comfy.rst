@@ -54,6 +54,17 @@ steps to install ComfyUI.
 Run ComfyUI
 ===========
 
+.. important::
+
+   ROCm users running ComfyUI on AMD supported Radeon and Ryzen devices can now
+   refer to the blog `Understanding Attention Algorithms and Their Backends for
+   Image and Video Generation
+   <https://rocm.blogs.amd.com/software-tools-optimization/comfyui-fa-backends/README.html>`__
+   for guidance on selecting the optimal attention implementation and backend.
+   The blog explains how ComfyUI attention mechanisms map to ROCm backends, and
+   provides practical recommendations for image and video generation workloads
+   on AMD GPUs.
+
 Use the following steps for a simple example of running ComfyUI.
 
 1. Start the ComfyUI server from the command line.

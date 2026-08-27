@@ -5,64 +5,81 @@
 Install ONNX Runtime on ROCm
 ****************************
 
-ONNX Runtime accelerates machine learning inference using the :doc:`AMD
-MIGraphX <migraphx>` execution provider on ROCm-supported GPUs. This guide
-covers building ONNX Runtime from source inside a Docker environment and running
-unit tests with TheRock-based wheels.
+`ONNX Runtime <https://onnxruntime.ai/docs/>`__ accelerates machine learning
+inference using the :doc:`AMD MIGraphX <migraphx>` execution provider on
+ROCm-supported GPUs.
 
-ONNX Runtime is currently supported on ``gfx950`` AMD Instinct MI355X and
-MI350X data center GPUs and ``gfx942`` MI325X and MI300X GPUs. See the `ROCm
-compatibility matrix
-<https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
-for more information.
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.0.0
+      :value: 10.0.0
+      :width: 6
+
+   .. selector-option:: 7.14.0
+      :value: 7.14.0
+      :width: 6
+
+.. selector:: Installation method
+   :key: i
+
+   .. selector-option:: pip
+      :value: pip
+      :width: 12
 
 Prerequisites
 =============
 
-- Ensure your system has Python 3.12 installed and accessible.
+.. selected:: rocm-ver=10.0.0
 
-- ``wget`` and ``unzip`` available in your shell.
+   ONNX Runtime is currently supported on:
+
+   * ``gfx950`` AMD Instinct MI355X and MI350X
+
+   * ``gfx942`` AMD Instinct MI325X and MI300X
+
+   * ``gfx1200``, ``gfx1201``, ``gfx1100``, ``gfx1101``, and ``gfx1102`` Radeon GPUs.
+
+   See the `ROCm compatibility matrix
+   <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__
+   for more information.
+
+.. selected:: rocm-ver=7.14.0
+
+   ONNX Runtime is currently supported on ``gfx950`` AMD Instinct MI355X and MI350X
+   data center GPUs and ``gfx942`` MI325X and MI300X GPUs. See the `ROCm
+   compatibility matrix
+   <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
+   for more information.
+
+- Ensure your system has Python 3.14 or 3.12 installed and accessible.
 
 Install the ROCm Core SDK
 -------------------------
 
-For instructions, see `Install AMD ROCm
-<https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=all>`__. Use the
-selector panel on that page to view instructions appropriate for your system
-environment.
+.. selected:: rocm-ver=10.0.0
+
+   For instructions, see `Install AMD ROCm
+   <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html?fam=all>`__. Use the
+   selector panel on that page to view instructions appropriate for your system
+   environment.
+
+.. selected:: rocm-ver=7.14.0
+
+   For instructions, see `Install AMD ROCm
+   <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=all>`__. Use the
+   selector panel on that page to view instructions appropriate for your system
+   environment.
 
 Install ONNX Runtime using pip
 ------------------------------
 
-1. Create and activate a virtual environment or activate an existing ROCm 7.14.0 environment.
-   To create a new Python 3.12 virtual environment:
+.. include:: ./include/onnxruntime/rocm10.0.0-pip-install.rst
 
-   .. code-block:: bash
+.. include:: ./include/onnxruntime/rocm7.14.0-pip-install.rst
 
-      python3.12 -m venv .venv
-      source .venv/bin/activate
+.. seealso::
 
-2. Download and install the wheels.
-
-   .. code-block:: bash
-
-      python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch/onnxruntime-migraphx/onnxruntime_migraphx-1.23.2%2Brocm7.14.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
-
-Verify your installation
-------------------------
-
-1. Download and extract the test binary zip file.
-
-   .. code-block:: bash
-
-      wget https://rocm.frameworks.amd.com/whl-multi-arch/onnxruntime-migraphx/onnxruntime_migraphx-1.23.2%2Brocm7.14.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.zip
-      unzip onnxruntime_migraphx-1.23.2+rocm7.14.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.zip
-      cd build/Linux/Release
-
-2. Run the test suite.
-
-   .. code-block:: bash
-
-      ./onnxruntime_test_all \
-          --gtest_filter=-:CudaKernelTest.SoftmaxGrad_LargeTensor_LastAxis_Float16:CudaKernelTest.SoftmaxGrad_LargeTensor_LastAxis_Float16_NoPowerOfTwo:CudaKernelTest.SoftmaxGrad_LargeTensor_AllAxis_Float16:CudaKernelTest.SoftmaxGrad_LargeTensor_AllAxis_Float16_NoPowerOfTwo:CudaKernelTest.LogSoftmaxGrad_LargeTensor_LastAxis_Float16:CudaKernelTest.LogSoftmaxGrad_LargeTensor_LastAxis_Float16_NoPowerOfTwo:CudaKernelTest.LogSoftmaxGrad_LargeTensor_AllAxis_Float16:CudaKernelTest.LogSoftmaxGrad_LargeTensor_AllAxis_Float16_NoPowerOfTwo:ReductionOpTest.ReductionVariationTest:GatherOpTest.Gather_invalid_index_cpu:Scatter.InvalidIndex:GradientCheckerTest.AddGrad:GradientCheckerTest.SubGrad:GradientCheckerTest.MulGrad:GradientCheckerTest.DivGrad:NhwcTransformerTests*:QDQTransformerTests*Sample Output for Unit Test
-
+   See `MIGraphX Execution Provider (ONNX Runtime docs)
+   <https://onnxruntime.ai/docs/execution-providers/MIGraphX-ExecutionProvider.html#samples>`__
+   for more information.

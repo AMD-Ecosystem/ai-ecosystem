@@ -3,7 +3,6 @@
 
 .. |MIGRAPHX_VERSION| replace:: 2.16.0
 
-
 *************************
 Install MIGraphX for ROCm
 *************************
@@ -12,29 +11,67 @@ MIGraphX is AMD's graph inference engine for optimizing and executing ONNX
 models on AMD GPUs using ROCm. This page describes how to install MIGraphX
 |MIGRAPHX_VERSION|.
 
-MIGraphX is currently supported on ``gfx950`` AMD Instinct MI355X and MI350X
-data center GPUs and ``gfx942`` MI325X and MI300X GPUs. See the `ROCm
-compatibility matrix
-<https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
-for more information.
+.. selector:: ROCm version
+   :key: rocm-ver
 
-.. selector:: Installation method
-   :key: i
-
-   .. selector-option:: Package manager
-      :value: pkgman
+   .. selector-option:: 10.0.0
+      :value: 10.0.0
       :width: 6
 
-   .. selector-option:: pip
-      :value: pip
+   .. selector-option:: 7.14.0
+      :value: 7.14.0
       :width: 6
+
+.. selected:: rocm-ver=10.0.0
+
+   .. selector:: Installation method
+      :key: i
+
+      .. selector-option:: pip
+         :value: pip
+         :width: 12
+
+.. selected:: rocm-ver=7.14.0
+
+   .. selector:: Installation method
+      :key: i
+
+      .. selector-option:: Package manager
+         :value: pkgman
+         :width: 6
+
+      .. selector-option:: pip
+         :value: pip
+         :width: 6
 
 Prerequisites
 =============
 
+.. selected:: rocm-ver=10.0.0
+
+   MIGraphX is currently supported on:
+
+   * ``gfx950`` AMD Instinct MI355X and MI350X
+
+   * ``gfx942`` AMD Instinct MI325X and MI300X
+
+   * ``gfx1200``, ``gfx1201``, ``gfx1100``, ``gfx1101``, and ``gfx1102`` Radeon GPUs.
+
+   See the `ROCm compatibility matrix
+   <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__
+   for more information.
+
+.. selected:: rocm-ver=7.14.0
+
+   MIGraphX is currently supported on ``gfx950`` AMD Instinct MI355X and MI350X
+   data center GPUs and ``gfx942`` MI325X and MI300X GPUs. See the `ROCm
+   compatibility matrix
+   <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
+   for more information.
+
 .. selected:: i=pip
 
-   - Ensure your system has Python 3.12 installed and accessible.
+   - Ensure your system has Python 3.14 or 3.12 installed and accessible.
 
 - ``wget`` available in your shell.
 
@@ -43,102 +80,32 @@ Prerequisites
 Install MIGraphX on Linux
 =========================
 
-MIGraphX requires the ROCm Core SDK to be installed on your system first.
+MIGraphX requires ROCm to be installed on your system first.
 
-Install the ROCm Core SDK
--------------------------
+Install ROCm
+------------
 
-For instructions, see `Install AMD ROCm
-<https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=all>`__. Use the
-selector panel on that page to view instructions appropriate for your system
-environment.
+.. selected:: rocm-ver=10.0.0
 
-.. selected:: i=pkgman
-   :heading: Install MIGraphX 2.16.0 via package manager
-   :heading-level: 3
+   For instructions, see `Install AMD ROCm 10.0.0
+   <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html?fam=all>`__. Use the
+   selector panel on that page to view instructions appropriate for your system
+   environment.
 
-   This method installs MIGraphX system-wide via ``.deb`` or ``.rpm`` packages.
+.. selected:: rocm-ver=7.14.0
 
-   1. Download the packages.
+   For instructions, see `Install AMD ROCm 7.14.0
+   <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=all>`__. Use the
+   selector panel on that page to view instructions appropriate for your system
+   environment.
 
-      .. tab-set::
+.. include:: ./include/migraphx/rocm10.0.0-pkg-install.rst
 
-         .. tab-item:: Debian-based distro
-            :sync: deb
+.. include:: ./include/migraphx/rocm7.14.0-pkg-install.rst
 
-            .. code-block:: bash
+.. include:: ./include/migraphx/rocm10.0.0-pip-install.rst
 
-               wget https://rocm.frameworks.amd.com/deb-multi-arch/amdrocm-migraphx/pool/main/amdrocm-migraphx_2.16.0-3.py312_amd64.deb
-               wget https://rocm.frameworks.amd.com/deb-multi-arch/amdrocm-migraphx/pool/main/amdrocm-migraphx-dev_2.16.0-3.py312_amd64.deb
-
-         .. tab-item:: RPM-based distro
-            :sync: rpm
-
-            .. code-block:: bash
-
-               wget https://rocm.frameworks.amd.com/rpm-multi-arch/amdrocm-migraphx/amdrocm-migraphx-2.16.0-3.x86_64.rpm
-               wget https://rocm.frameworks.amd.com/rpm-multi-arch/amdrocm-migraphx/amdrocm-migraphx-devel-2.16.0-3.x86_64.rpm
-
-   2. Install the packages. Supported Debian-based Linux distributions are
-      Ubuntu and Debian. Supported RPM-based distributions are RHEL, Oracle Linux,
-      Rocky Linux, and SLES.
-
-      .. tab-set::
-
-         .. tab-item:: Debian-based distro
-            :sync: deb
-
-            .. code-block:: bash
-
-               sudo dpkg -i \
-                 amdrocm-migraphx_2.16.0-3.py312_amd64.deb \
-                 amdrocm-migraphx-dev_2.16.0-3.py312_amd64.deb
-
-         .. tab-item:: RPM-based distro
-            :sync: rpm
-
-            .. code-block:: bash
-
-               sudo rpm -i \
-                 amdrocm-migraphx-2.16.0-3.x86_64.rpm \
-                 amdrocm-migraphx-devel-2.16.0-3.x86_64.rpm \
-
-   3. ONNX Runtime accelerates machine learning inference using the MIGraphX
-      execution provider on ROCm-supported GPUs. See the :doc:`installation
-      <onnxruntime>` guidance.
-
-.. selected:: i=pip
-   :heading: Install MIGraphX 2.16.0 using pip
-   :heading-level: 3
-
-   .. _migraphx-wheel-install:
-
-   After installing ROCm, install MIGraphX. This method installs MIGraphX into
-   a Python virtual environment.
-
-   1. Create and activate a virtual environment or activate an existing ROCm 7.14.0 environment.
-      To create a new Python 3.12 virtual environment.
-
-      .. code-block:: bash
-
-         python3.12 -m venv .venv
-         source .venv/bin/activate
-
-   2. Download the wheel.
-
-      .. code-block:: bash
-
-         wget https://rocm.frameworks.amd.com/whl-multi-arch/migraphx/migraphx-2.16.0%2Brocm7.14.0-cp312-none-manylinux_2_28_x86_64.whl
-
-   3. Install the wheels and required packages.
-
-      .. code-block:: bash
-
-         python -m pip install migraphx-2.16.0+rocm7.14.0-cp312-none-manylinux_2_28_x86_64.whl
-
-   4. ONNX Runtime accelerates machine learning inference using the MIGraphX
-      execution provider on ROCm-supported GPUs. See the :doc:`installation
-      <onnxruntime>` guidance.
+.. include:: ./include/migraphx/rocm7.14.0-pip-install.rst
 
 .. Verify your installation
 .. ------------------------
