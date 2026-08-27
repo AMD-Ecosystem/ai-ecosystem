@@ -73,8 +73,6 @@ Prerequisites
 
    - Ensure your system has Python 3.14 or 3.12 installed and accessible.
 
-- ``wget`` available in your shell.
-
 .. _migraphx-package-install:
 
 Install MIGraphX on Linux
