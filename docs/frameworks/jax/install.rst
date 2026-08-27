@@ -144,14 +144,14 @@ Prerequisites
 
    .. selected:: rocm-ver=10.0.0
 
-      * Complete the ROCm Core SDK installation prerequisites. See `Prerequisites
+      * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
         (Install ROCm 10.0.0)
         <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html#prerequisites>`__ for
         instructions.
 
    .. selected:: rocm-ver=7.14.0
 
-      * Complete the ROCm Core SDK installation prerequisites. See `Prerequisites
+      * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
         (Install ROCm 7.14.0)
         <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html#prerequisites>`__ for
         instructions.

@@ -107,9 +107,9 @@ Prerequisites
      <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
      installed and accessible: **3.12**
 
-   * Complete the ROCm Core SDK installation prerequisites. See `Prerequisites
-     (Install ROCm)
-     <https://rocm.docs.amd.com/en/latest/install/rocm.html#prerequisites>`__ for
+   * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
+     (Install ROCm 10.0.0)
+     <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html#prerequisites>`__ for
      instructions.
 
 .. include:: ./include/rocm10.0.0-docker.rst

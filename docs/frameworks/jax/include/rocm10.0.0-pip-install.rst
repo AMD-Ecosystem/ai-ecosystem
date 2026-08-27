@@ -4,7 +4,9 @@
 .. selected:: rocm-ver=10.0.0
 
    3. If you don't have an existing ROCm installation, install ROCm using the
-      following command; otherwise, proceed to installing JAX libraries.
+      following command; see the `ROCm 10.0.0 installation instructions
+      <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html>`__ for
+      complete guidance. Otherwise, proceed to installing JAX libraries.
 
       .. selected:: fam=all
 
