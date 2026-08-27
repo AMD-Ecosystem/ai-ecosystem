@@ -8,9 +8,6 @@
    .. selected:: i=pip
       :heading: Install TensorFlow using pip
 
-      For prerequisite steps and post-installation recommendations, see the `ROCm
-      installation instructions <https://rocm.docs.amd.com/en/latest/install/rocm.html>`__.
-
       1. Set up your Python virtual environment.
 
          .. code-block:: bash
@@ -25,6 +22,8 @@
 
       3. If you don't have an existing ROCm installation, install ROCm using the
          following command; otherwise, proceed to installing TensorFlow packages.
+         For prerequisite steps and post-installation recommendations, see the `ROCm
+         installation instructions <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html>`__.
 
          .. selected:: gfx=gfx950
 
