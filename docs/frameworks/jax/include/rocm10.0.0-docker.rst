@@ -27,6 +27,7 @@
                   :sync: py314
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker pull |JAX0110_CP314|
 
@@ -34,6 +35,7 @@
                   :sync: py313
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker pull |JAX0110_CP313|
 
@@ -41,6 +43,7 @@
                   :sync: py312
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker pull |JAX0110_CP312|
 
@@ -52,6 +55,7 @@
                   :sync: py314
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -68,6 +72,7 @@
                   :sync: py313
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -84,6 +89,7 @@
                   :sync: py312
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -106,6 +112,7 @@
                   :sync: py314
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker pull |JAX0102_CP314|
 
@@ -113,6 +120,7 @@
                   :sync: py313
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker pull |JAX0102_CP313|
 
@@ -120,6 +128,7 @@
                   :sync: py312
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker pull |JAX0102_CP312|
 
@@ -127,6 +136,7 @@
                   :sync: py311
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker pull |JAX0102_CP311|
 
@@ -138,6 +148,7 @@
                   :sync: py314
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -154,6 +165,7 @@
                   :sync: py313
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -170,6 +182,7 @@
                   :sync: py312
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -186,6 +199,7 @@
                   :sync: py311
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -208,6 +222,7 @@
                   :sync: py314
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker pull |JAX0100_CP314|
 
@@ -215,6 +230,7 @@
                   :sync: py313
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker pull |JAX0100_CP313|
 
@@ -222,6 +238,7 @@
                   :sync: py312
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker pull |JAX0100_CP312|
 
@@ -229,6 +246,7 @@
                   :sync: py311
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker pull |JAX0100_CP311|
 
@@ -240,6 +258,7 @@
                   :sync: py314
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -256,6 +275,7 @@
                   :sync: py313
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -272,6 +292,7 @@
                   :sync: py312
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -288,6 +309,7 @@
                   :sync: py311
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
