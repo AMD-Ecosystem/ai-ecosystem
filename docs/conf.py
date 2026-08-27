@@ -70,6 +70,8 @@ if os.environ.get("READTHEDOCS", "") == "True":
 
 myst_fence_as_directive = ["mermaid"]
 numfig = False
+# Generate llms.txt and llms-full.txt (requires the rocm-docs-core[llms] extra).
+rocm_docs_generate_llms = True
 
 exclude_patterns = [
     "exclude/**",
