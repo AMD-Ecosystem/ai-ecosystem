@@ -9,9 +9,9 @@
 .. |SGLANG_DOCKER_INSTALL_DOC| replace:: `Using Docker (SGLang docs) <https://docs.sglang.io/docs/hardware-platforms/amd_gpu#install-using-docker-recommended>`__
 .. |SGLANG_PIP_INSTALL_DOC| replace:: `With pip or uv (SGLang docs) <https://docs.sglang.io/docs/get-started/install#method-1-with-pip-or-uv>`__
 
-*******************************************
-SGLang inference and serving on ROCm 7.14.0
-*******************************************
+****************************
+SGLang inference and serving
+****************************
 
 `SGLang <https://docs.sglang.io/>`__ is an open-source library for fast,
 memory-efficient LLM inference and serving. This page describes how to set up
