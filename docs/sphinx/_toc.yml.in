@@ -29,8 +29,6 @@ subtrees:
             title: SGLang
           - url: https://rocm.docs.amd.com/projects/atom
             title: ATOM
-          - file: inference/llamacpp.rst
-            title: llama.cpp
           - file: inference/migraphx.rst
             title: MIGraphX
           - file: inference/onnxruntime.rst
