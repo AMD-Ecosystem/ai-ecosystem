@@ -25,7 +25,6 @@ frameworks.
 - [vLLM](inference/vllm)
 - [SGLang](inference/sglang)
 - [ATOM](https://rocm.docs.amd.com/projects/atom)
-- [llama.cpp](inference/llamacpp)
 - [MIGraphX](inference/migraphx)
 - [ONNX Runtime](inference/onnxruntime)
 - [xDiT](inference/xdit)
