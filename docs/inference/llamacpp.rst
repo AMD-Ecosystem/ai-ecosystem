@@ -14,27 +14,61 @@ Ryzen™ APUs.
 .. selector:: Device family
    :key: fam
 
+   .. selector-option:: AMD Instinct
+      :value: instinct
+      :width: 4
+
    .. selector-option:: AMD Radeon
       :value: radeon
-      :width: 6
+      :width: 4
 
    .. selector-option:: AMD Ryzen
       :value: ryzen
-      :width: 6
+      :width: 4
 
-.. datatemplate:yaml:: /data/gpus.yaml
-   :template: gpu-selector.rst.jinja
+.. selector-dropdown:: Instinct GPU
+   :key: gpu
+   :show-cond: fam=instinct
+   :sort: desc
 
-.. selector:: Operating system
-   :key: os
+   .. selector-option:: AMD Instinct MI250X
+      :value: amd-instinct-mi250x gfx=gfx90a
 
-   .. selector-option:: Ubuntu 24.04
-      :value: ubuntu ubuntu-ver=24.04
-      :width: 6
+   .. selector-option:: AMD Instinct MI250
+      :value: amd-instinct-mi250 gfx=gfx90a
 
-   .. selector-option:: Windows 11
-      :value: windows windows-ver=11
-      :width: 6
+   .. selector-option:: AMD Instinct MI210
+      :value: amd-instinct-mi210 gfx=gfx90a
+
+   .. selector-option:: AMD Instinct MI100
+      :value: amd-instinct-mi100 gfx=gfx908
+
+.. selected:: fam=radeon fam=ryzen
+
+   .. datatemplate:yaml:: /data/gpus.yaml
+      :template: misc/gpu-selector.rst.jinja
+
+.. selected:: fam=instinct
+
+   .. selector:: Operating system
+      :key: os
+
+      .. selector-option:: Ubuntu 24.04
+         :value: ubuntu ubuntu-ver=24.04
+         :width: 12
+
+.. selected:: fam=radeon fam=ryzen
+
+   .. selector:: Operating system
+      :key: os
+
+      .. selector-option:: Ubuntu 24.04
+         :value: ubuntu ubuntu-ver=24.04
+         :width: 6
+
+      .. selector-option:: Windows 11
+         :value: windows windows-ver=11
+         :width: 6
 
 .. selector:: ROCm version
    :key: rocm-ver
@@ -85,35 +119,24 @@ Prerequisites
 
 To run llama.cpp with ROCm on Linux, you need the following prerequisites:
 
-- **GPU platform:** AMD Instinct accelerators, and AMD Radeon discrete GPUs and Ryzen APUs
-  supported by ROCm 7.14.0. For the list of supported devices, see the
-  `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__.
+- **ROCm version:** 7.14.0
+
+- **Operating system**: Ubuntu 24.04
+
+- **GPU platform:** AMD Instinct MI200 Series (gfx90a) and MI100 (gfx908) GPUs,
+  AMD Radeon, and AMD Ryzen devices supported by ROCm 7.14.0
 
 .. selected:: os=ubuntu
 
-   - **Driver:** the AMD GPU Driver (``amdgpu``). This is a separate installation step and is
-     not provided by the ROCm packages or the tarball. Instinct and Radeon devices require the
-     AMD GPU Driver; supported Ryzen APUs use the inbox kernel driver included with the
-     distribution. See `Install ROCm 7.14.0 <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html>`__
-     for the driver installation step that applies to your distribution.
-
    - **Group membership:** your user must be a member of the ``video`` and ``render`` groups.
 
-   - **Additional packages:** ``libgomp1`` provides the OpenMP runtime that llama.cpp links
-     against, and ``libcurl4`` is required for model downloading. Install them if they are not
-     already present on your system:
+   - **Additional packages:** ``libgomp1`` and ``libcurl4``.
+
+     Install the additional packages if they are not already present:
 
      .. code-block:: bash
 
         sudo apt install libgomp1 libcurl4
-
-.. selected:: os=windows
-
-   - **Driver:** AMD Software: Adrenalin Edition. This is a separate
-     installation step and is not provided by the ROCm packages or the tarball.
-     See `Install ROCm 7.14.0
-     <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html>`__ for the
-     driver installation step that applies to your system.
 
 .. _llamacpp-install-rocm:
 
@@ -134,55 +157,37 @@ llama.cpp requires a ROCm installation on the host system.
 
                See the `Install ROCm 7.14.0
                <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1201&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
+               guide for instructions. Use the selector on the page to match your system.
 
             .. selected:: gfx=gfx1200
 
                See the `Install ROCm 7.14.0
                <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1200&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
+               guide for instructions. Use the selector on the page to match your system.
 
             .. selected:: gfx=gfx1100
 
                See the `Install ROCm 7.14.0
                <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1100&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
+               guide for instructions. Use the selector on the page to match your system.
 
             .. selected:: gfx=gfx1101
 
                See the `Install ROCm 7.14.0
                <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1101&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
+               guide for instructions. Use the selector on the page to match your system.
 
             .. selected:: gfx=gfx1102
 
                See the `Install ROCm 7.14.0
                <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1102&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
+               guide for instructions. Use the selector on the page to match your system.
 
             .. selected:: gfx=gfx1030
 
                See the `Install ROCm 7.14.0
                <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1030&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
+               guide for instructions. Use the selector on the page to match your system.
 
             * Device family: **AMD Radeon**
             * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
