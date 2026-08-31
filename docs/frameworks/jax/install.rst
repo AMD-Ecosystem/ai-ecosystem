@@ -42,11 +42,15 @@ It applies to `supported AMD GPUs and platforms
 
    .. selector-option:: 10.0.0
       :value: 10.0.0
-      :width: 6
+      :width: 4
+
+   .. selector-option:: 7.14.1
+      :value: 7.14.1
+      :width: 4
 
    .. selector-option:: 7.14.0
       :value: 7.14.0
-      :width: 6
+      :width: 4
 
 .. selected:: rocm-ver=10.0.0
 
@@ -65,7 +69,7 @@ It applies to `supported AMD GPUs and platforms
          :value: 0.10.0
          :width: 4
 
-.. selected:: rocm-ver=7.14.0
+.. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
 
    .. selector:: JAX version
       :key: jax-ver
@@ -138,6 +142,13 @@ Prerequisites
         <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html#prerequisites>`__ for
         instructions.
 
+   .. selected:: rocm-ver=7.14.1
+
+      * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
+        (Install ROCm 7.14.1)
+        <https://rocm.docs.amd.com/en/docs-7.14.1/install/rocm.html#prerequisites>`__ for
+        instructions.
+
    .. selected:: rocm-ver=7.14.0
 
       * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
@@ -151,10 +162,12 @@ Prerequisites
       don't automatically install ROCm library and device packages as
       dependencies. The following section includes recommended instructions to
       install ROCm in a Python virtual environment alongside JAX. See `Install
-      ROCm <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html>`__ for other
+      ROCm <https://rocm.docs.amd.com/en/latest/install/rocm.html>`__ for other
       installation methods.
 
 .. include:: ./include/rocm10.0.0-docker.rst
+
+.. include:: ./include/rocm7.14.1-docker.rst
 
 .. include:: ./include/rocm7.14.0-docker.rst
 
@@ -165,6 +178,11 @@ Prerequisites
 
       For prerequisite steps and post-installation recommendations, see the `ROCm
       installation instructions <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html>`__.
+
+   .. selected:: rocm-ver=7.14.1
+
+      For prerequisite steps and post-installation recommendations, see the `ROCm
+      installation instructions <https://rocm.docs.amd.com/en/docs-7.14.1/install/rocm.html>`__.
 
    .. selected:: rocm-ver=7.14.0
 
@@ -230,6 +248,8 @@ Prerequisites
          source .venv/bin/activate
 
    .. include:: ./include/rocm10.0.0-pip-install.rst
+
+   .. include:: ./include/rocm7.14.1-pip-install.rst
 
    .. include:: ./include/rocm7.14.0-pip-install.rst
 
