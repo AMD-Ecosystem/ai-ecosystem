@@ -60,10 +60,13 @@ hardware. It applies to `supported AMD GPUs and platforms
    :key: rocm-ver
 
    .. selector-option:: 10.0.0
-      :width: 6
+      :width: 4
+
+   .. selector-option:: 7.14.1
+      :width: 4
 
    .. selector-option:: 7.14.0
-      :width: 6
+      :width: 4
 
 .. selected:: rocm-ver=10.0.0
 
@@ -96,7 +99,7 @@ hardware. It applies to `supported AMD GPUs and platforms
          :width: 6
          :show-cond: fam=radeon fam=ryzen
 
-.. selected:: rocm-ver=7.14.0
+.. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
 
    .. selector:: PyTorch version
       :key: pytorch-ver
@@ -139,7 +142,7 @@ hardware. It applies to `supported AMD GPUs and platforms
    .. selector-option:: 2.12.0
       :value: 2.12.0
       :width: 12
-      :show-cond: rocm-ver=7.14.0
+      :show-cond: rocm-ver=7.14.1 rocm-ver=7.14.0
 
 .. selector:: Installation method
    :key: i
@@ -166,7 +169,7 @@ Prerequisites
         `AMD GPU Driver documentation
         <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
-   .. selected:: rocm-ver=7.14.0
+   .. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
@@ -193,6 +196,13 @@ Prerequisites
         <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html#prerequisites>`__ for
         instructions.
 
+   .. selected:: rocm-ver=7.14.1
+
+      * Complete the ROCm Core SDK installation prerequisites. See `Prerequisites
+        (Install ROCm 7.14.1)
+        <https://rocm.docs.amd.com/en/docs-7.14.1/install/rocm.html#prerequisites>`__ for
+        instructions.
+
    .. selected:: rocm-ver=7.14.0
 
       * Complete the ROCm Core SDK installation prerequisites. See `Prerequisites
@@ -201,6 +211,8 @@ Prerequisites
         instructions.
 
 .. include:: ./include/rocm10.0.0-docker.rst
+
+.. include:: ./include/rocm7.14.1-docker.rst
 
 .. include:: ./include/rocm7.14.0-docker.rst
 
@@ -282,6 +294,8 @@ Prerequisites
             .venv\Scripts\activate
 
    .. include:: ./include/rocm10.0.0-pip-install.rst
+
+   .. include:: ./include/rocm7.14.1-pip-install.rst
 
    .. include:: ./include/rocm7.14.0-pip-install.rst
 
