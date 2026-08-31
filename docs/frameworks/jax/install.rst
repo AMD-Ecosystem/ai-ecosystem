@@ -114,7 +114,7 @@ Prerequisites
         <https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>`__
         for driver support information. For installation instructions, see the
         `AMD GPU Driver documentation
-        <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
+        <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
 .. selected:: i=docker
 
