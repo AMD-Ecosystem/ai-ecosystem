@@ -1,7 +1,7 @@
 .. |VLLM_VERSION_7141D| replace:: 0.23
 
-.. |VLLM_DOCKER_TAG_CDNA_7141D| replace:: rocm/vllm:rocm7.14.1_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
-.. |VLLM_DOCKER_TAG_RDNA_7141D| replace:: rocm/vllm:rocm7.14.1_rdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0
+.. |VLLM_DOCKER_TAG_CDNA_7141D| replace:: rocm/vllm:rocm7.14.1_cdna_ubuntu24.04_py3.14_pytorch_2.11_vllm_0.23.0
+.. |VLLM_DOCKER_TAG_RDNA_7141D| replace:: rocm/vllm:rocm7.14.1_rdna_ubuntu24.04_py3.14_pytorch_2.11_vllm_0.23.0
 
 .. |VLLM_DOC_7141D| replace:: `vLLM <https://docs.vllm.ai/en/v0.23.0/>`__
 .. |VLLM_USAGE_DOC_7141D| replace:: `Using vLLM <https://docs.vllm.ai/en/v0.23.0/usage/>`__

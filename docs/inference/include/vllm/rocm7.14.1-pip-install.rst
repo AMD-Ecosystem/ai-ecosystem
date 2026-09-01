@@ -115,13 +115,13 @@
 
          .. code-block:: bash
 
-            python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch-staging/vllm-cdna/flash-attn/flash_attn-2.8.3-cp314-cp314-linux_x86_64.whl
+            python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/flash-attn/flash_attn-2.8.3-cp314-cp314-linux_x86_64.whl
 
       .. selected:: fam=radeon fam=ryzen
 
          .. code-block:: bash
 
-            python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch-staging/vllm-rdna/flash-attn/flash_attn-2.8.3-py3-none-any.whl
+            python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-rdna/flash-attn/flash_attn-2.8.3-py3-none-any.whl
 
    .. selected:: fam=instinct
 
@@ -129,13 +129,13 @@
 
          .. code-block:: bash
 
-            python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch-staging/vllm-cdna/amd-aiter/amd_aiter-0.1.13.post2.dev1%2Bgb32deb267.d20260901-cp314-cp314-linux_x86_64.whl
+            python -m pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/amd-aiter/amd_aiter-0.1.13.post2.dev1%2Bgb32deb267.d20260901-cp314-cp314-linux_x86_64.whl
 
       6. Install the vLLM 0.23.1 wheel using ``uv pip``.
 
          .. code-block:: bash
 
-            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch-staging/vllm-cdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.1.g9ddef7117.d20260901-cp314-cp314-linux_x86_64.whl
+            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.1.g9ddef7117.d20260901-cp314-cp314-linux_x86_64.whl
 
    .. selected:: fam=instinct
 
@@ -163,7 +163,7 @@
 
          .. code-block:: bash
 
-            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch-staging/vllm-rdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.1.g9ddef7117.d20260831-cp314-cp314-linux_x86_64.whl
+            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-rdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.1.g9ddef7117.d20260831-cp314-cp314-linux_x86_64.whl
 
       6. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
 
