@@ -1,11 +1,11 @@
-.. |ROCM1000_TF221_CP312_UB24| replace:: rocm/tensorflow:rocm10.0-ubuntu24.04-py3.12-tf2.21
+.. |ROCM7141_TF221_CP312_UB24| replace:: rocm/tensorflow:rocm7.14.1-ubuntu24.04-py3.12-tf2.21
 
-.. |ROCM1000_TF220_CP312_UB24| replace:: rocm/tensorflow:rocm10.0-ubuntu24.04-py3.12-tf2.20
+.. |ROCM7141_TF220_CP312_UB24| replace:: rocm/tensorflow:rocm7.14.1-ubuntu24.04-py3.12-tf2.20
 
-.. |ROCM1000_TF219_CP312_UB24| replace:: rocm/tensorflow:rocm10.0-ubuntu24.04-py3.12-tf2.19.1
-.. |ROCM1000_TF219_CP312_UB22| replace:: rocm/tensorflow:rocm10.0-ubuntu22.04-py3.12-tf2.19.1
+.. |ROCM7141_TF219_CP312_UB24| replace:: rocm/tensorflow:rocm7.14.1-ubuntu24.04-py3.12-tf2.19.1
+.. |ROCM7141_TF219_CP312_UB22| replace:: rocm/tensorflow:rocm7.14.1-ubuntu22.04-py3.12-tf2.19.1
 
-.. selected:: rocm-ver=10.0.0
+.. selected:: rocm-ver=7.14.1
 
    .. selected:: i=docker
       :heading: Get started
@@ -17,7 +17,7 @@
             .. code-block:: bash
                :substitutions:
 
-               docker pull |ROCM1000_TF221_CP312_UB24|
+               docker pull |ROCM7141_TF221_CP312_UB24|
 
       .. selected:: tensorflow-ver=2.20
 
@@ -26,7 +26,7 @@
             .. code-block:: bash
                :substitutions:
 
-               docker pull |ROCM1000_TF220_CP312_UB24|
+               docker pull |ROCM7141_TF220_CP312_UB24|
 
       .. selected:: tensorflow-ver=2.19
 
@@ -40,7 +40,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull |ROCM1000_TF219_CP312_UB24|
+                     docker pull |ROCM7141_TF219_CP312_UB24|
 
                .. tab-item:: Ubuntu 22.04
                   :sync: ub22
@@ -48,7 +48,7 @@
                   .. code-block:: bash
                      :substitutions:
 
-                     docker pull |ROCM1000_TF219_CP312_UB22|
+                     docker pull |ROCM7141_TF219_CP312_UB22|
 
       2. Start the Docker container.
 
@@ -65,7 +65,7 @@
                   --group-add=video \
                   --cap-add=SYS_PTRACE \
                   --security-opt seccomp=unconfined \
-                  |ROCM1000_TF221_CP312_UB24| \
+                  |ROCM7141_TF221_CP312_UB24| \
                   bash
 
          .. selected:: tensorflow-ver=2.20
@@ -81,7 +81,7 @@
                   --group-add=video \
                   --cap-add=SYS_PTRACE \
                   --security-opt seccomp=unconfined \
-                  |ROCM1000_TF220_CP312_UB24| \
+                  |ROCM7141_TF220_CP312_UB24| \
                   bash
 
          .. selected:: tensorflow-ver=2.19
@@ -102,7 +102,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        |ROCM1000_TF219_CP312_UB24| \
+                        |ROCM7141_TF219_CP312_UB24| \
                         bash
 
                .. tab-item:: Ubuntu 22.04
@@ -119,6 +119,6 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        |ROCM1000_TF219_CP312_UB22| \
+                        |ROCM7141_TF219_CP312_UB22| \
                         bash
 
