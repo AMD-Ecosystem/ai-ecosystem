@@ -1,3 +1,13 @@
+.. |ROCM7141_JAX0100_CP314| replace:: rocm/jax:rocm7.14.1-jax0.10.0-py3.14
+.. |ROCM7141_JAX0100_CP313| replace:: rocm/jax:rocm7.14.1-jax0.10.0-py3.13
+.. |ROCM7141_JAX0100_CP312| replace:: rocm/jax:rocm7.14.1-jax0.10.0-py3.12
+.. |ROCM7141_JAX0100_CP311| replace:: rocm/jax:rocm7.14.1-jax0.10.0-py3.11
+
+.. |ROCM7141_JAX091_CP314| replace:: rocm/jax:rocm7.14.1-jax0.9.1-py3.14
+.. |ROCM7141_JAX091_CP313| replace:: rocm/jax:rocm7.14.1-jax0.9.1-py3.13
+.. |ROCM7141_JAX091_CP312| replace:: rocm/jax:rocm7.14.1-jax0.9.1-py3.12
+.. |ROCM7141_JAX091_CP311| replace:: rocm/jax:rocm7.14.1-jax0.9.1-py3.11
+
 .. selected:: rocm-ver=7.14.1
 
    .. selected:: i=docker
@@ -13,29 +23,33 @@
                   :sync: py314
 
                   .. code-block:: bash
+                     :substitutions:
 
-                     docker pull rocm/jax:rocm7.14.1-jax0.10.0-py3.14
+                     docker pull |ROCM7141_JAX0100_CP314|
 
                .. tab-item:: Python 3.13
                   :sync: py313
 
                   .. code-block:: bash
+                     :substitutions:
 
-                     docker pull rocm/jax:rocm7.14.1-jax0.10.0-py3.13
+                     docker pull |ROCM7141_JAX0100_CP313|
 
                .. tab-item:: Python 3.12
                   :sync: py312
 
                   .. code-block:: bash
+                     :substitutions:
 
-                     docker pull rocm/jax:rocm7.14.1-jax0.10.0-py3.12
+                     docker pull |ROCM7141_JAX0100_CP312|
 
                .. tab-item:: Python 3.11
                   :sync: py311
 
                   .. code-block:: bash
+                     :substitutions:
 
-                     docker pull rocm/jax:rocm7.14.1-jax0.10.0-py3.11
+                     docker pull |ROCM7141_JAX0100_CP311|
 
       .. selected:: jax-ver=0.9.1
 
@@ -47,29 +61,33 @@
                   :sync: py314
 
                   .. code-block:: bash
+                     :substitutions:
 
-                     docker pull rocm/jax:rocm7.14.1-jax0.9.1-py3.14
+                     docker pull |ROCM7141_JAX091_CP314|
 
                .. tab-item:: Python 3.13
                   :sync: py313
 
                   .. code-block:: bash
+                     :substitutions:
 
-                     docker pull rocm/jax:rocm7.14.1-jax0.9.1-py3.13
+                     docker pull |ROCM7141_JAX091_CP313|
 
                .. tab-item:: Python 3.12
                   :sync: py312
 
                   .. code-block:: bash
+                     :substitutions:
 
-                     docker pull rocm/jax:rocm7.14.1-jax0.9.1-py3.12
+                     docker pull |ROCM7141_JAX091_CP312|
 
                .. tab-item:: Python 3.11
                   :sync: py311
 
                   .. code-block:: bash
+                     :substitutions:
 
-                     docker pull rocm/jax:rocm7.14.1-jax0.9.1-py3.11
+                     docker pull |ROCM7141_JAX091_CP311|
 
       2. Start the Docker container.
 
@@ -81,6 +99,7 @@
                   :sync: py314
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -90,13 +109,14 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/jax:rocm7.14.1-jax0.10.0-py3.14 \
+                        |ROCM7141_JAX0100_CP314| \
                         bash
 
                .. tab-item:: Python 3.13
                   :sync: py313
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -106,13 +126,14 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/jax:rocm7.14.1-jax0.10.0-py3.13 \
+                        |ROCM7141_JAX0100_CP313| \
                         bash
 
                .. tab-item:: Python 3.12
                   :sync: py312
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -122,13 +143,14 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/jax:rocm7.14.1-jax0.10.0-py3.12 \
+                        |ROCM7141_JAX0100_CP312| \
                         bash
 
                .. tab-item:: Python 3.11
                   :sync: py311
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -138,7 +160,7 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/jax:rocm7.14.1-jax0.10.0-py3.11 \
+                        |ROCM7141_JAX0100_CP311| \
                         bash
 
          .. selected:: jax-ver=0.9.1
@@ -149,6 +171,7 @@
                   :sync: py314
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -158,13 +181,14 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/jax:rocm7.14.1-jax0.9.1-py3.14 \
+                        |ROCM7141_JAX091_CP314| \
                         bash
 
                .. tab-item:: Python 3.13
                   :sync: py313
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -174,13 +198,14 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/jax:rocm7.14.1-jax0.9.1-py3.13 \
+                        |ROCM7141_JAX091_CP313| \
                         bash
 
                .. tab-item:: Python 3.12
                   :sync: py312
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -190,13 +215,14 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/jax:rocm7.14.1-jax0.9.1-py3.12 \
+                        |ROCM7141_JAX091_CP312| \
                         bash
 
                .. tab-item:: Python 3.11
                   :sync: py311
 
                   .. code-block:: bash
+                     :substitutions:
 
                      docker run -it --rm \
                         --device /dev/kfd \
@@ -206,6 +232,6 @@
                         --group-add=video \
                         --cap-add=SYS_PTRACE \
                         --security-opt seccomp=unconfined \
-                        rocm/jax:rocm7.14.1-jax0.9.1-py3.11 \
+                        |ROCM7141_JAX091_CP311| \
                         bash
 
