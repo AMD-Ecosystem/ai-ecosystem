@@ -1,9 +1,9 @@
 :selector-toc2: Installation environment
 :selector-toc2-icon: fa-solid fa-computer
 
-****************************
-Install ONNX Runtime on ROCm
-****************************
+*****************************
+Install ONNX Runtime for ROCm
+*****************************
 
 `ONNX Runtime <https://onnxruntime.ai/docs/>`__ accelerates machine learning
 inference using the :doc:`AMD MIGraphX <migraphx>` execution provider on

@@ -1,9 +1,9 @@
 :selector-toc2: Installation environment
 :selector-toc2-icon: fa-solid fa-computer
 
-****************************
-SGLang inference and serving
-****************************
+************************************
+SGLang inference and serving on ROCm
+************************************
 
 `SGLang <https://docs.sglang.io/>`__ is an open-source library for fast,
 memory-efficient LLM inference and serving. This page describes how to set up

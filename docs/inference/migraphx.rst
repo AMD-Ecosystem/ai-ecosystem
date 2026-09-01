@@ -3,9 +3,9 @@
 
 .. |MIGRAPHX_VERSION| replace:: 2.16.0
 
-*************************
-Install MIGraphX for ROCm
-*************************
+****************
+Install MIGraphX
+****************
 
 MIGraphX is AMD's graph inference engine for optimizing and executing ONNX
 models on AMD GPUs using ROCm. This page describes how to install MIGraphX
