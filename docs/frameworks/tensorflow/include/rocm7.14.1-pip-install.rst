@@ -87,7 +87,7 @@
 
             export LD_LIBRARY_PATH=$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib/rocm_sysdeps/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_libraries/lib:$LD_LIBRARY_PATH
 
-      5. Verify your TensorFlow installation.
+      6. Verify your TensorFlow installation.
 
          .. code-block:: shell
 
