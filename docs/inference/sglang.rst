@@ -1,17 +1,9 @@
 :selector-toc2: Installation environment
 :selector-toc2-icon: fa-solid fa-computer
 
-.. |SGLANG_VERSION| replace:: 0.5.13
-
-.. |SGLANG_DOCKER_TAG_ALL| replace:: rocm/sgl-dev:v0.5.13.post1-ubuntu24.04-py3.14-rocm7.14
-
-.. |SGLANG_USAGE_DOC| replace:: `Basic usage (SGLang docs) <https://docs.sglang.io/docs/basic_usage/overview>`__
-.. |SGLANG_DOCKER_INSTALL_DOC| replace:: `Using Docker (SGLang docs) <https://docs.sglang.io/docs/hardware-platforms/amd_gpu#install-using-docker-recommended>`__
-.. |SGLANG_PIP_INSTALL_DOC| replace:: `With pip or uv (SGLang docs) <https://docs.sglang.io/docs/get-started/install#method-1-with-pip-or-uv>`__
-
-****************************
-SGLang inference and serving
-****************************
+************************************
+SGLang inference and serving on ROCm
+************************************
 
 `SGLang <https://docs.sglang.io/>`__ is an open-source library for fast,
 memory-efficient LLM inference and serving. This page describes how to set up
@@ -137,10 +129,13 @@ or pip. It applies to `supported AMD GPUs and platforms
    :key: rocm-ver
 
    .. selector-option:: 10.0.0
-      :width: 6
+      :width: 4
+
+   .. selector-option:: 7.14.1
+      :width: 4
 
    .. selector-option:: 7.14.0
-      :width: 6
+      :width: 4
 
 .. selector:: SGLang version
    :key: sgl-ver
@@ -153,7 +148,7 @@ or pip. It applies to `supported AMD GPUs and platforms
    .. selector-option:: 0.5.13
       :value: 0.5.13
       :width: 12
-      :show-cond: rocm-ver=7.14.0
+      :show-cond: rocm-ver=7.14.1 rocm-ver=7.14.0
 
 .. selector:: Installation method
    :key: i
@@ -168,23 +163,33 @@ Prerequisites
 .. selected:: rocm-ver=10.0.0
 
    - For Instinct and Radeon devices, ensure your host system has the AMD GPU
-     Driver (amdgpu) installed. See the `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__ for driver support
+     Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 10.0.0) <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__ for driver support
      information. For installation instructions, see the `AMD GPU Driver
      documentation
-     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
+     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
+
+.. selected:: rocm-ver=7.14.1
+
+   - For Instinct and Radeon devices, ensure your host system has the AMD GPU
+     Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.1) <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__ for driver support
+     information. For installation instructions, see the `AMD GPU Driver
+     documentation
+     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
 .. selected:: rocm-ver=7.14.0
 
    - For Instinct and Radeon devices, ensure your host system has the AMD GPU
-     Driver (amdgpu) installed. See the `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for driver support
+     Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.0) <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for driver support
      information. For installation instructions, see the `AMD GPU Driver
      documentation
-     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.0/index.html>`__.
+     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
 - Ensure the host system has `Docker Engine
   <https://docs.docker.com/engine/install/>`__ installed.
 
 .. include:: ./include/sglang/rocm10.0.0-docker.rst
+
+.. include:: ./include/sglang/rocm7.14.1-docker.rst
 
 .. include:: ./include/sglang/rocm7.14.0-docker.rst
 

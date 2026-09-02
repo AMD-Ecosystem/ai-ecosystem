@@ -1,0 +1,31 @@
+.. |PKG_REPO| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/
+.. |WHL| replace:: "migraphx==2.16.0+rocm7.14.1"
+
+.. selected:: rocm-ver=7.14.1
+
+   .. selected:: i=pip
+      :heading: Install MIGraphX 2.17.0 using pip
+      :heading-level: 3
+
+      After installing ROCm, install MIGraphX. This method installs MIGraphX into
+      a Python virtual environment.
+
+      1. Create and activate a virtual environment or activate an existing ROCm 10.0.0 environment.
+
+         .. code-block:: bash
+
+            python3.12 -m venv .venv
+            source .venv/bin/activate
+
+      2. Install the MIGraphX and ``migraphx-libs`` wheels.
+
+         .. code-block:: bash
+            :substitutions:
+
+            python -m pip install --index-url |PKG_REPO| \
+                |WHL| \
+                https://rocm.frameworks.amd.com/whl-multi-arch/migraphx/migraphx_libs-2.16.0%2Brocm7.14.1-py3-none-manylinux_2_28_x86_64.whl
+
+      3. ONNX Runtime accelerates machine learning inference using the MIGraphX
+         execution provider on ROCm-supported GPUs. See the :doc:`installation
+         <onnxruntime>` guidance.
