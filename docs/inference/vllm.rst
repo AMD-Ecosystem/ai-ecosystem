@@ -359,7 +359,7 @@ Prerequisites
       .. selected:: rocm-ver=7.14.1
 
          - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.1) <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for driver
+           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.1) <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__ for driver
            support information. For installation instructions, see the `AMD GPU
            Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.

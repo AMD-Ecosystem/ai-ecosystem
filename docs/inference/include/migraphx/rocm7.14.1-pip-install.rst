@@ -4,7 +4,7 @@
 .. selected:: rocm-ver=7.14.1
 
    .. selected:: i=pip
-      :heading: Install MIGraphX 2.17.0 using pip
+      :heading: Install MIGraphX 2.16.0 using pip
       :heading-level: 3
 
       After installing ROCm, install MIGraphX. This method installs MIGraphX into
