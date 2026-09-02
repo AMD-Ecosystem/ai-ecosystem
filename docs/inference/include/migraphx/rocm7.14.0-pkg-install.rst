@@ -48,7 +48,7 @@
 
                   sudo rpm -i \
                     amdrocm-migraphx-2.16.0-3.x86_64.rpm \
-                    amdrocm-migraphx-devel-2.16.0-3.x86_64.rpm \
+                    amdrocm-migraphx-devel-2.16.0-3.x86_64.rpm
 
       3. ONNX Runtime accelerates machine learning inference using the MIGraphX
          execution provider on ROCm-supported GPUs. See the :doc:`installation

@@ -1,6 +1,6 @@
 .. selected:: rocm-ver=7.14.1
 
-   1. Create and activate a virtual environment or activate an existing ROCm 7.14.0 environment.
+   1. Create and activate a virtual environment or activate an existing ROCm 7.14.1 environment.
       To create a new Python 3.12 virtual environment:
 
       .. code-block:: bash

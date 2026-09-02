@@ -104,8 +104,8 @@ Install ROCm
 
 .. selected:: rocm-ver=7.14.1
 
-   For instructions, see `Install AMD ROCm 7.14.0
-   <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=all>`__. Use the
+   For instructions, see `Install AMD ROCm 7.14.1
+   <https://rocm.docs.amd.com/en/docs-7.14.1/install/rocm.html?fam=all>`__. Use the
    selector panel on that page to view instructions appropriate for your system
    environment.
 
