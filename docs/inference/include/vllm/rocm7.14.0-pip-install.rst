@@ -137,7 +137,49 @@
 
             uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.0.g9ddef7117.d20260715-cp314-cp314-linux_x86_64.whl
 
+      7. Upgrade vLLM's `tensorizer` dependency as a workaround for
+         a :ref:`compatibility issue <vllm-tensorizer-issue>`.
+
+         .. code-block:: bash
+            :substitutions:
+
+            python -m pip install --upgrade "tensorizer==2.12.1"
+
    .. selected:: fam=instinct
+
+      8. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
+
+         .. code-block:: bash
+
+            export PYTHONPATH=$VIRTUAL_ENV/lib/python3.14/site-packages/_rocm_sdk_core/share/amd_smi
+            export FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE
+
+      9. Check your installation.
+
+         .. code-block:: bash
+
+            python -c "import vllm; print('vLLM version:', vllm.__version__)"
+            python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
+            python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
+
+      10. After setting up your environment, follow the vLLM 0.23.1 usage
+          documentation to get started: |VLLM_USAGE_DOC_714P|.
+
+   .. selected:: fam=radeon fam=ryzen
+
+      5. Install the vLLM 0.23.1 wheel using ``uv pip``.
+
+         .. code-block:: bash
+
+            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-rdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.0.g9ddef7117.d20260715-cp314-cp314-linux_x86_64.whl
+
+      6. Upgrade vLLM's `tensorizer` dependency as a workaround for
+         a :ref:`compatibility issue <vllm-tensorizer-issue>`.
+
+         .. code-block:: bash
+            :substitutions:
+
+            python -m pip install --upgrade "tensorizer==2.12.1"
 
       7. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
 
@@ -154,33 +196,7 @@
             python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
             python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
 
-      9. After setting up your environment, follow the vLLM 0.23.1 usage
-         documentation to get started: |VLLM_USAGE_DOC_714P|.
-
-   .. selected:: fam=radeon fam=ryzen
-
-      5. Install the vLLM 0.23.1 wheel using ``uv pip``.
-
-         .. code-block:: bash
-
-            uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-rdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.0.g9ddef7117.d20260715-cp314-cp314-linux_x86_64.whl
-
-      6. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
-
-         .. code-block:: bash
-
-            export PYTHONPATH=$VIRTUAL_ENV/lib/python3.14/site-packages/_rocm_sdk_core/share/amd_smi
-            export FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE
-
-      7. Check your installation.
-
-         .. code-block:: bash
-
-            python -c "import vllm; print('vLLM version:', vllm.__version__)"
-            python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
-            python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
-
-      8. After setting up your environment, follow the vLLM |VLLM_VERSION_714P| usage
+      9. After setting up your environment, follow the vLLM |VLLM_VERSION_714P| usage
          documentation to get started: |VLLM_USAGE_DOC_714P|.
 
    .. seealso::

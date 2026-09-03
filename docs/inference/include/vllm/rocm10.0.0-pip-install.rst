@@ -152,7 +152,22 @@
 
          uv pip install |VLLM_WHL|
 
-   6. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
+   6. Install the vLLM |VLLM_VERSION_10P| wheel using ``uv pip``.
+
+      .. code-block:: bash
+         :substitutions:
+
+         uv pip install |VLLM_WHL|
+
+   7. Upgrade vLLM's `tensorizer` dependency as a workaround for
+      a :ref:`compatibility issue <vllm-tensorizer-issue>`.
+
+      .. code-block:: bash
+         :substitutions:
+
+         python -m pip install --upgrade "tensorizer==2.12.1"
+
+   8. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
 
       .. code-block:: bash
          :substitutions:
@@ -163,7 +178,7 @@
       To make any of these settings permanent, add it to your shell startup file;
       ``~/.bashrc``, for instance.
 
-   7. Check your installation.
+   9. Check your installation.
 
       .. code-block:: bash
          :substitutions:
@@ -172,8 +187,8 @@
          python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP built:', torch.backends.hip.is_built() if hasattr(torch.backends, 'hip') else 'N/A')"
          python -c "import flash_attn; print('flash-attn:', flash_attn.__version__)"
 
-   8. After setting up your environment, follow the vLLM |VLLM_VERSION_10P| usage
-      documentation to get started: |VLLM_USAGE_DOC_10P|.
+   10. After setting up your environment, follow the vLLM |VLLM_VERSION_10P| usage
+       documentation to get started: |VLLM_USAGE_DOC_10P|.
 
    .. seealso::
 

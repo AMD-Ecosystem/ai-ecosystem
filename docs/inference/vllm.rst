@@ -413,18 +413,41 @@ Prerequisites
 
    .. include:: ./include/vllm/rocm7.14.0-pip-install.rst
 
+.. _vllm-tensorizer-issue:
+
+.. selected:: fam=instinct
+
+   .. selected:: i=pip
+      :heading: Known issues
+
+      * An incompatibility with vLLM's `tensorizer` dependency results in
+        errors when running vLLM. As a workaround, manually bump the
+        `tensorizer` version in your virtual environment.
+
+        .. code-block:: bash
+
+           python -m pip install --upgrade "tensorizer==2.12.1"
 
 .. selected:: fam=radeon fam=ryzen
    :heading: Known issues
+
+   .. selected:: i=pip
+
+      * An incompatibility with vLLM's `tensorizer` dependency results in
+        errors when running vLLM. As a workaround, manually bump the
+        `tensorizer` version in your virtual environment.
+
+        .. code-block:: bash
+
+           python -m pip install --upgrade "tensorizer==2.12.1"
 
    * Significantly longer warmup times might be observed in some large language
      model inference workloads on AMD Radeon GPUs using vLLM versions v0.21.0
      through v0.25.0. As a workaround, use a vLLM release earlier than v0.21.0
      or upgrade to vLLM v0.26.0 or later, which includes a fix for this issue.
 
-.. selected:: fam=ryzen gfx=gfx1103
-   :heading: Known issues
+   .. selected:: fam=ryzen gfx=gfx1103
 
-   * Intermittent segmentation faults or GPU hangs might be observed when
-     running some vLLM or ComfyUI workloads on Ryzen AI systems using gfx1103
-     (RDNA3) GPUs.
+      * Intermittent segmentation faults or GPU hangs might be observed when
+        running some vLLM or ComfyUI workloads on Ryzen AI systems using gfx1103
+        (RDNA3) GPUs.
