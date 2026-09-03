@@ -137,7 +137,7 @@
 
             uv pip install https://rocm.frameworks.amd.com/whl-multi-arch/vllm-cdna/vllm/vllm-0.23.1.dev1%2Brocm7.14.1.g9ddef7117.d20260901-cp314-cp314-linux_x86_64.whl
 
-      7. Upgrade vLLM's `tensorizer` dependency as a workaround for
+      7. Upgrade vLLM's ``tensorizer`` dependency as a workaround for
          a :ref:`compatibility issue <vllm-tensorizer-issue>`.
 
          .. code-block:: bash
