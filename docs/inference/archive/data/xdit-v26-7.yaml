@@ -1,13 +1,11 @@
 docker:
-  pull_tag: rocm/pytorch-xdit:v26.8
-  docker_hub_url: https://hub.docker.com/layers/rocm/pytorch-xdit/v26.8
+  pull_tag: rocm/pytorch-xdit:v26.7
+  docker_hub_url: https://hub.docker.com/layers/rocm/pytorch-xdit/v26.7
   ROCm: 7.14.0
   whats_new:
-    - Krea 2 (Raw and Turbo) text-to-image support
-    - Ideogram 4 support
-    - MiniMax-H3 support
-    - LingBot-Video support (MoE 30B and Dense 1.3B)
-    - FLUX.2 PipeFusion support, and PipeFusion enabled for FLUX.1-dev low-VRAM inference
+    - ROCm 7.14.0 bump
+    - LTX2.3 support
+    - Sparge head balancing
   components:
     TheRock:
       version: 9100ec6
@@ -34,13 +32,13 @@ docker:
       version: 3a526149
       url: https://github.com/ROCm/aiter
     diffusers:
-      version: f6e1c4d
+      version: 447e571a
       url: https://github.com/huggingface/diffusers
     distvae:
       version: 6d8025c9
       url: https://github.com/xdit-project/DistVAE
     xfuser:
-      version: 2f74acb
+      version: c302663
       url: https://github.com/xdit-project/xDiT
     yunchang:
       version: 631bdfd
