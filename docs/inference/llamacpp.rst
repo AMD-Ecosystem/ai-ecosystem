@@ -7,9 +7,8 @@ llama.cpp inference on ROCm
 
 `llama.cpp <https://llama.app/docs/introduction>`__ is an open-source inference
 engine for running LLMs locally. It runs quantized models efficiently on
-everyday hardware and has become a pillar of local LLM inference.
-This page explains how to set up and run llama.cpp on AMD Radeon™ GPUs and
-Ryzen™ APUs.
+consumer hardware and has become a pillar of local LLM inference. This page
+explains how to set up and run llama.cpp on AMD GPUs and APUs.
 
 .. selector:: Device family
    :key: fam
@@ -46,7 +45,7 @@ Ryzen™ APUs.
 .. selected:: fam=radeon fam=ryzen
 
    .. datatemplate:yaml:: /data/gpus.yaml
-      :template: misc/gpu-selector.rst.jinja
+      :template: misc/ror-gpu-selector.rst.jinja
 
 .. selected:: fam=instinct
 
@@ -73,9 +72,13 @@ Ryzen™ APUs.
 .. selector:: ROCm version
    :key: rocm-ver
 
+   .. selector-option:: 10.0.0
+      :value: 10.0.0
+      :width: 6
+
    .. selector-option:: 7.14.0
       :value: 7.14.0
-      :width: 12
+      :width: 6
 
 .. selector:: ROCm installation
    :key: i
@@ -119,7 +122,13 @@ Prerequisites
 
 To run llama.cpp with ROCm on Linux, you need the following prerequisites:
 
-- **ROCm version:** 7.14.0
+.. selected:: rocm-ver=10.0.0
+
+   - **ROCm version:** `10.0.0 <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html>`__
+
+.. selected:: rocm-ver=7.14.0
+
+   - **ROCm version:** `7.14.0 <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html>`__
 
 - **Operating system**: Ubuntu 24.04
 
@@ -145,576 +154,9 @@ Install ROCm
 
 llama.cpp requires a ROCm installation on the host system.
 
-.. selected:: rocm-ver=7.14.0
+.. include:: ./include/llamacpp/rocm10.0.0-rocm-install.rst
 
-   .. selected:: fam=radeon
-
-      .. selected:: os=ubuntu
-
-         .. selected:: i=pkgman
-
-            .. selected:: gfx=gfx1201
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1201&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions. Use the selector on the page to match your system.
-
-            .. selected:: gfx=gfx1200
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1200&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions. Use the selector on the page to match your system.
-
-            .. selected:: gfx=gfx1100
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1100&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions. Use the selector on the page to match your system.
-
-            .. selected:: gfx=gfx1101
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1101&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions. Use the selector on the page to match your system.
-
-            .. selected:: gfx=gfx1102
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1102&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions. Use the selector on the page to match your system.
-
-            .. selected:: gfx=gfx1030
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1030&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions. Use the selector on the page to match your system.
-
-            * Device family: **AMD Radeon**
-            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
-            * Use case: **Compute**
-            * Operating system: **Ubuntu**
-            * Installation method: **apt** (package manager)
-
-         .. selected:: i=pip
-
-            .. selected:: gfx=gfx1201
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1201&w=compute&os=ubuntu&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1200
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1200&w=compute&os=ubuntu&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1100
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1100&w=compute&os=ubuntu&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1101
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1101&w=compute&os=ubuntu&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1102
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1102&w=compute&os=ubuntu&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1030
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1030&w=compute&os=ubuntu&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            * Device family: **AMD Radeon**
-            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
-            * Use case: **Compute**
-            * Operating system: **Ubuntu**
-            * Installation method: **pip**
-
-         .. selected:: i=tar
-
-            .. selected:: gfx=gfx1201
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1201&w=compute&os=ubuntu&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1200
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1200&w=compute&os=ubuntu&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1100
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1100&w=compute&os=ubuntu&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1101
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1101&w=compute&os=ubuntu&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1102
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1102&w=compute&os=ubuntu&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1030
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1030&w=compute&os=ubuntu&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            * Device family: **AMD Radeon**
-            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
-            * Use case: **Compute**
-            * Operating system: **Ubuntu**
-            * Installation method: **Tarball**
-
-      .. selected:: os=windows
-
-         .. selected:: i=pip
-
-            .. selected:: gfx=gfx1201
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1201&w=compute&os=windows&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1200
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1200&w=compute&os=windows&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1100
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1100&w=compute&os=windows&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1101
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1101&w=compute&os=windows&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1102
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1102&w=compute&os=windows&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1030
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1030&w=compute&os=windows&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            * Device family: **AMD Radeon**
-            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
-            * Use case: **Compute**
-            * Operating system: **Windows**
-            * Installation method: **pip**
-
-         .. selected:: i=tar
-
-            .. selected:: gfx=gfx1201
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1201&w=compute&os=windows&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1200
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1200&w=compute&os=windows&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1100
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1100&w=compute&os=windows&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1101
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1101&w=compute&os=windows&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1102
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1102&w=compute&os=windows&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1030
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=radeon&gfx=gfx1030&w=compute&os=windows&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            * Device family: **AMD Radeon**
-            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
-            * Use case: **Compute**
-            * Operating system: **Windows**
-            * Installation method: **Tarball**
-
-   .. selected:: fam=ryzen
-
-      .. selected:: os=ubuntu
-
-         .. selected:: i=pkgman
-
-            .. selected:: gfx=gfx1150
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1150&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1151
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1151&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1152
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1152&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1153
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1153&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1103
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1103&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            * Device family: **AMD Ryzen**
-            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
-            * Use case: **Compute**
-            * Operating system: **Ubuntu**
-            * Installation method: **apt** (package manager)
-
-         .. selected:: i=pip
-
-            .. selected:: gfx=gfx1150
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1150&w=compute&os=ubuntu&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1151
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1151&w=compute&os=ubuntu&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1152
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1152&w=compute&os=ubuntu&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1153
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1153&w=compute&os=ubuntu&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1103
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1103&w=compute&os=ubuntu&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            * Device family: **AMD Ryzen**
-            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
-            * Use case: **Compute**
-            * Operating system: **Ubuntu**
-            * Installation method: **pip**
-
-         .. selected:: i=tar
-
-            .. selected:: gfx=gfx1150
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1150&w=compute&os=ubuntu&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1151
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1151&w=compute&os=ubuntu&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1152
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1152&w=compute&os=ubuntu&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1153
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1153&w=compute&os=ubuntu&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1103
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1103&w=compute&os=ubuntu&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            * Device family: **AMD Ryzen**
-            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
-            * Use case: **Compute**
-            * Operating system: **Ubuntu**
-            * Installation method: **Tarball**
-
-      .. selected:: os=windows
-
-         .. selected:: i=pip
-
-            .. selected:: gfx=gfx1150
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1150&w=compute&os=windows&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1151
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1151&w=compute&os=windows&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1152
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1152&w=compute&os=windows&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1153
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1153&w=compute&os=windows&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1103
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1103&w=compute&os=windows&i=pip>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            * Device family: **AMD Ryzen**
-            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
-            * Use case: **Compute**
-            * Operating system: **Windows**
-            * Installation method: **pip**
-
-         .. selected:: i=tar
-
-            .. selected:: gfx=gfx1150
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1150&w=compute&os=windows&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1151
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1151&w=compute&os=windows&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1152
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1152&w=compute&os=windows&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1153
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1153&w=compute&os=windows&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            .. selected:: gfx=gfx1103
-
-               See the `Install ROCm 7.14.0
-               <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?fam=ryzen&gfx=gfx1103&w=compute&os=windows&i=tar>`__
-               guide for instructions; use the selector on the page to update
-               the instructions based on your environment. Your ROCm
-               installation should target the same environment you plan to
-               install llama.cpp in.
-
-            * Device family: **AMD Ryzen**
-            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
-            * Use case: **Compute**
-            * Operating system: **Windows**
-            * Installation method: **Tarball**
+.. include:: ./include/llamacpp/rocm7.14.0-rocm-install.rst
 
 .. selected:: os=ubuntu
 
@@ -733,7 +175,7 @@ llama.cpp requires a ROCm installation on the host system.
          prebuilt llama.cpp binaries; it supplies the ``rocm-sdk`` command-line tool and
          build-time files only.
 
-         Record the path of the virtual environment you create. You need it in
+         Record the path of the virtual environment you create. You need it to
          :ref:`Configure your environment <llamacpp-configure-env>`.
 
       .. selected:: i=tar
@@ -751,42 +193,9 @@ ROCm-enabled release from the `llama.cpp releases page
 <https://github.com/ggml-org/llama.cpp/releases>`__. Release assets are named
 in the following format:
 
-.. selected:: rocm-ver=7.14.0
+.. include:: ./include/llamacpp/rocm10.0.0-llamacpp-install.rst
 
-   .. selected:: os=ubuntu
-
-      .. code-block::
-
-         llama-<build>-bin-ubuntu-rocm-7.14-x64.tar.gz
-
-      For ROCm 7.14, that is any asset containing ``ubuntu-rocm-7.14``, for
-      example ``llama-b10628-bin-ubuntu-rocm-7.14-x64.tar.gz``.
-
-      Verify the checksum of the downloaded file against the digest shown for the asset, then
-      extract the archive:
-
-      .. code-block:: bash
-
-         sha256sum llama-b10628-bin-ubuntu-rocm-7.14-x64.tar.gz
-         tar -xf llama-b10628-bin-ubuntu-rocm-7.14-x64.tar.gz
-
-      The archive extracts into a directory named after the build, for example ``llama-b10628``.
-
-   .. selected:: os=windows
-
-      .. code-block::
-
-         llama-<build>-bin-win-rocm-win-rocm7.14-x64.zip
-
-      For ROCm 7.14, that is any asset containing ``win-rocm-7.14``, for example
-      ``llama-b10539-bin-win-rocm-7.14-x64.zip``.
-
-      Verify the checksum of the downloaded file against the digest shown for the
-      asset, then extract the archive. This guide assumes you extract to ``C:\llamacpp``.
-
-      .. code-block:: bat
-
-         certutil -hashfile llama-<build>-bin-win-rocm-7.14-x64.zip SHA256
+.. include:: ./include/llamacpp/rocm7.14.0-llamacpp-install.rst
 
 .. note::
 
@@ -837,7 +246,7 @@ in the following format:
       The tarball installation instructions already set ``LD_LIBRARY_PATH`` to
       ``$ROCM_PATH/lib``. No further configuration is required.
 
-   To make any of these settings permanent, add it to your shell startup file;
+   To make any of these settings permanent, update your shell startup file;
    ``~/.bashrc``, for instance.
 
 .. selected:: i=pip

@@ -15,9 +15,8 @@
 {{ name | lower | replace("+", "") | replace("  ", " ") | replace(" ", "-") }}
 {%- endmacro -%}
 
-.. selected:: fam=instinct fam=radeon fam=ryzen
+.. selected:: fam=radeon fam=ryzen
 
-{% endfor %}
    .. selector-dropdown:: Radeon GPU
       :key: gpu
       :show-cond: fam=radeon
