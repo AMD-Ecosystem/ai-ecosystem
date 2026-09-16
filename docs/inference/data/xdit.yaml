@@ -500,7 +500,9 @@ docker:
           setup:
             - text: LingBot-Video requires the ``lingbot-video`` package inside the container.
               commands:
-                - pip install lingbot-video
+                - git clone https://github.com/Robbyant/lingbot-video.git
+                - cd lingbot-video
+                - pip install -e . --no-deps
             - text: >-
                 LingBot-Video is conditioned on a structured JSON caption rather than a free-text
                 prompt, so ``--prompt`` takes the path to a JSON file. Create ``prompt.json`` in your
@@ -529,7 +531,9 @@ docker:
           setup:
             - text: LingBot-Video requires the ``lingbot-video`` package inside the container.
               commands:
-                - pip install lingbot-video
+                - git clone https://github.com/Robbyant/lingbot-video.git
+                - cd lingbot-video
+                - pip install -e . --no-deps
             - text: >-
                 LingBot-Video is conditioned on a structured JSON caption rather than a free-text
                 prompt, so ``--prompt`` takes the path to a JSON file. Create ``prompt.json`` in your
@@ -576,6 +580,7 @@ docker:
             - '--ulysses_degree 4 \'
             - '--use_cfg_parallel \'
             - '--use_parallel_vae \'
+            - '--enable_tiling \'
             - '--use_fp8_gemms \'
             - '--use_torch_compile \'
             - '--attention_backend aiter \'
@@ -599,6 +604,7 @@ docker:
             - '--ulysses_degree 4 \'
             - '--use_cfg_parallel \'
             - '--use_parallel_vae \'
+            - '--enable_tiling \'
             - '--use_fp8_gemms \'
             - '--use_torch_compile \'
             - '--attention_backend aiter \'
