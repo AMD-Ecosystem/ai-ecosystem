@@ -1,6 +1,6 @@
 docker:
-  pull_tag: rocm/pytorch-xdit:v26.8
-  docker_hub_url: https://hub.docker.com/layers/rocm/pytorch-xdit/v26.8
+  pull_tag: rocm/pytorch-xdit:v26.9
+  docker_hub_url: https://hub.docker.com/layers/rocm/pytorch-xdit/v26.9
   ROCm: 7.14.0
   whats_new:
     - Krea 2 (Raw and Turbo) text-to-image support
@@ -379,3 +379,189 @@ docker:
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
             - "--output_directory results"
+    - group: Ideogram 4
+      js_tag: ideogram4
+      models:
+        - model: Ideogram 4
+          model_repo: ideogram-ai/ideogram-4-fp8
+          url: https://huggingface.co/ideogram-ai/ideogram-4-fp8
+          github: https://github.com/xdit-project/xDiT/blob/main/xfuser/model_executor/models/runner_models/ideogram4.py
+          js_tag: ideogram_4_tag
+          benchmark_command:
+            - mkdir results
+            - 'xdit \'
+            - '--model {model_repo} \'
+            - '--prompt "A polished summer solstice festival poster" \'
+            - '--height 2048 \'
+            - '--width 2048 \'
+            - '--seed 42 \'
+            - '--num_inference_steps 48 \'
+            - '--num_iterations 1 \'
+            - '--ulysses_degree 2 \'
+            - '--use_cfg_parallel \'
+            - '--use_torch_compile \'
+            - '--attention_backend aiter \'
+            - "--output_directory results"
+    - group: Krea 2
+      js_tag: krea2
+      models:
+        - model: Krea 2 Raw
+          model_repo: krea/Krea-2-Raw
+          url: https://huggingface.co/krea/Krea-2-Raw
+          github: https://github.com/xdit-project/xDiT/blob/main/xfuser/model_executor/models/runner_models/krea2.py
+          js_tag: krea_2_raw_tag
+          benchmark_command:
+            - mkdir results
+            - 'xdit \'
+            - '--model {model_repo} \'
+            - '--prompt "A fox walking in the snow" \'
+            - '--negative_prompt "bad quality, illustration" \'
+            - '--height 2048 \'
+            - '--width 2048 \'
+            - '--seed 42 \'
+            - '--num_inference_steps 52 \'
+            - '--num_iterations 1 \'
+            - '--ulysses_degree 8 \'
+            - '--use_torch_compile \'
+            - '--attention_backend aiter \'
+            - "--output_directory results"
+        - model: Krea 2 Turbo
+          model_repo: krea/Krea-2-Turbo
+          url: https://huggingface.co/krea/Krea-2-Turbo
+          github: https://github.com/xdit-project/xDiT/blob/main/xfuser/model_executor/models/runner_models/krea2.py
+          js_tag: krea_2_turbo_tag
+          benchmark_command:
+            - mkdir results
+            - 'xdit \'
+            - '--model {model_repo} \'
+            - '--prompt "A fox walking in the snow" \'
+            - '--height 2048 \'
+            - '--width 2048 \'
+            - '--seed 42 \'
+            - '--num_inference_steps 8 \'
+            - '--num_iterations 1 \'
+            - '--ulysses_degree 8 \'
+            - '--use_torch_compile \'
+            - '--attention_backend aiter \'
+            - "--output_directory results"
+    - group: MiniMax-H3
+      js_tag: minimax_h3
+      models:
+        - model: MiniMax-H3
+          model_repo: MiniMaxAI/MiniMax-H3
+          url: https://huggingface.co/MiniMaxAI/MiniMax-H3
+          github: https://github.com/xdit-project/xDiT/blob/main/xfuser/model_executor/models/runner_models/minimax_h3.py
+          js_tag: minimax_h3_tag
+          benchmark_command:
+            - mkdir results
+            - 'xdit \'
+            - '--model {model_repo} \'
+            - '--prompt "A cat flying through the universe on a broom, playing rap music from his boombox" \'
+            - '--height 768 \'
+            - '--width 1344 \'
+            - '--seed 42 \'
+            - '--num_frames 124 \'
+            - '--num_inference_steps 50 \'
+            - '--num_iterations 1 \'
+            - '--ulysses_degree 8 \'
+            - '--text_encoder_tp_degree 8 \'
+            - '--use_torch_compile \'
+            - '--attention_backend aiter \'
+            - "--output_directory results"
+    - group: LingBot-Video
+      js_tag: lingbot_video
+      models:
+        - model: LingBot-Video Dense 1.3B
+          model_repo: robbyant/lingbot-video-dense-1.3b
+          url: https://huggingface.co/robbyant/lingbot-video-dense-1.3b
+          github: https://github.com/Robbyant/lingbot-video
+          js_tag: lingbot_video_dense_tag
+          benchmark_command:
+            - mkdir results
+            - 'xdit \'
+            - '--model {model_repo} \'
+            - '--prompt prompt.json \'
+            - '--height 480 \'
+            - '--width 832 \'
+            - '--seed 42 \'
+            - '--num_frames 81 \'
+            - '--num_inference_steps 40 \'
+            - '--guidance_scale 1.0 \'
+            - '--num_iterations 1 \'
+            - '--use_torch_compile \'
+            - '--attention_backend aiter \'
+            - "--output_directory results"
+        - model: LingBot-Video MoE 30B
+          model_repo: robbyant/lingbot-video-moe-30b-a3b
+          url: https://huggingface.co/robbyant/lingbot-video-moe-30b-a3b
+          github: https://github.com/Robbyant/lingbot-video
+          js_tag: lingbot_video_moe_tag
+          benchmark_command:
+            - mkdir results
+            - 'xdit \'
+            - '--model {model_repo} \'
+            - '--prompt prompt.json \'
+            - '--height 1088 \'
+            - '--width 1920 \'
+            - '--seed 42 \'
+            - '--num_frames 81 \'
+            - '--num_inference_steps 40 \'
+            - '--guidance_scale 3.0 \'
+            - '--num_iterations 1 \'
+            - '--ulysses_degree 4 \'
+            - '--use_cfg_parallel \'
+            - '--use_parallel_vae \'
+            - '--use_torch_compile \'
+            - '--attention_backend aiter \'
+            - "--output_directory results"
+    - group: Cosmos3
+      js_tag: cosmos3
+      models:
+        - model: Cosmos3 Nano
+          model_repo: nvidia/Cosmos3-Nano
+          url: https://huggingface.co/nvidia/Cosmos3-Nano
+          github: https://github.com/NVIDIA/Cosmos
+          js_tag: cosmos3_nano_tag
+          benchmark_command:
+            - mkdir results
+            - 'xdit \'
+            - '--model {model_repo} \'
+            - '--prompt "A red fox trots through a snowy pine forest." \'
+            - '--height 720 \'
+            - '--width 1280 \'
+            - '--seed 42 \'
+            - '--num_frames 121 \'
+            - '--num_inference_steps 35 \'
+            - '--guidance_scale 6.0 \'
+            - '--num_iterations 1 \'
+            - '--ulysses_degree 4 \'
+            - '--use_cfg_parallel \'
+            - '--use_parallel_vae \'
+            - '--use_fp8_gemms \'
+            - '--use_torch_compile \'
+            - '--attention_backend aiter \'
+            - "--output_directory results"
+        - model: Cosmos3 Super
+          model_repo: nvidia/Cosmos3-Super
+          url: https://huggingface.co/nvidia/Cosmos3-Super
+          github: https://github.com/NVIDIA/Cosmos
+          js_tag: cosmos3_super_tag
+          benchmark_command:
+            - mkdir results
+            - 'xdit \'
+            - '--model {model_repo} \'
+            - '--prompt "A red fox trots through a snowy pine forest." \'
+            - '--height 720 \'
+            - '--width 1280 \'
+            - '--seed 42 \'
+            - '--num_frames 121 \'
+            - '--num_inference_steps 35 \'
+            - '--num_iterations 1 \'
+            - '--ulysses_degree 4 \'
+            - '--use_cfg_parallel \'
+            - '--use_parallel_vae \'
+            - '--use_fp8_gemms \'
+            - '--use_torch_compile \'
+            - '--attention_backend aiter \'
+            - "--output_directory results"
+
