@@ -285,6 +285,16 @@ Run inference
 
          .. tab-item:: Standalone benchmarking
 
+            {% for step in model.setup | default([], true) %}
+            {{ step.text }}
+
+            {% if step.commands %}
+            .. code-block:: shell
+
+               {{ step.commands | map('trim') | join('\n               ') }}
+
+            {% endif %}
+            {% endfor %}
             To run the benchmarks for {{ model.model }}, use the following command:
 
             .. code-block:: shell

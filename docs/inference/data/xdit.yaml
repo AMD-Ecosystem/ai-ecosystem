@@ -406,7 +406,7 @@ docker:
         - model: Ideogram 4
           model_repo: ideogram-ai/ideogram-4-fp8
           url: https://huggingface.co/ideogram-ai/ideogram-4-fp8
-          github: https://github.com/xdit-project/xDiT/blob/main/xfuser/model_executor/models/runner_models/ideogram4.py
+          github: https://github.com/ideogram-oss/ideogram4
           js_tag: ideogram_4_tag
           benchmark_command:
             - mkdir results
@@ -429,7 +429,7 @@ docker:
         - model: Krea 2 Raw
           model_repo: krea/Krea-2-Raw
           url: https://huggingface.co/krea/Krea-2-Raw
-          github: https://github.com/xdit-project/xDiT/blob/main/xfuser/model_executor/models/runner_models/krea2.py
+          github: https://github.com/krea-ai/krea-2
           js_tag: krea_2_raw_tag
           benchmark_command:
             - mkdir results
@@ -449,7 +449,7 @@ docker:
         - model: Krea 2 Turbo
           model_repo: krea/Krea-2-Turbo
           url: https://huggingface.co/krea/Krea-2-Turbo
-          github: https://github.com/xdit-project/xDiT/blob/main/xfuser/model_executor/models/runner_models/krea2.py
+          github: https://github.com/krea-ai/krea-2
           js_tag: krea_2_turbo_tag
           benchmark_command:
             - mkdir results
@@ -471,7 +471,7 @@ docker:
         - model: MiniMax-H3
           model_repo: MiniMaxAI/MiniMax-H3
           url: https://huggingface.co/MiniMaxAI/MiniMax-H3
-          github: https://github.com/xdit-project/xDiT/blob/main/xfuser/model_executor/models/runner_models/minimax_h3.py
+          github: https://github.com/MiniMax-AI/MiniMax-H3
           js_tag: minimax_h3_tag
           benchmark_command:
             - mkdir results
@@ -497,6 +497,15 @@ docker:
           url: https://huggingface.co/robbyant/lingbot-video-dense-1.3b
           github: https://github.com/Robbyant/lingbot-video
           js_tag: lingbot_video_dense_tag
+          setup:
+            - text: LingBot-Video requires the ``lingbot-video`` package inside the container.
+              commands:
+                - pip install lingbot-video
+            - text: >-
+                LingBot-Video is conditioned on a structured JSON caption rather than a free-text
+                prompt, so ``--prompt`` takes the path to a JSON file. Create ``prompt.json`` in your
+                working directory using the caption format documented in the
+                `LingBot-Video repository <https://github.com/Robbyant/lingbot-video>`__.
           benchmark_command:
             - mkdir results
             - 'xdit \'
@@ -517,6 +526,15 @@ docker:
           url: https://huggingface.co/robbyant/lingbot-video-moe-30b-a3b
           github: https://github.com/Robbyant/lingbot-video
           js_tag: lingbot_video_moe_tag
+          setup:
+            - text: LingBot-Video requires the ``lingbot-video`` package inside the container.
+              commands:
+                - pip install lingbot-video
+            - text: >-
+                LingBot-Video is conditioned on a structured JSON caption rather than a free-text
+                prompt, so ``--prompt`` takes the path to a JSON file. Create ``prompt.json`` in your
+                working directory using the caption format documented in the
+                `LingBot-Video repository <https://github.com/Robbyant/lingbot-video>`__.
           benchmark_command:
             - mkdir results
             - 'xdit \'
