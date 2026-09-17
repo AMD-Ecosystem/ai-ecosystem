@@ -286,6 +286,26 @@ docker:
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
             - "--output_directory results"
+        - model: Z-Image-Turbo
+          model_repo: Tongyi-MAI/Z-Image-Turbo
+          url: https://huggingface.co/Tongyi-MAI/Z-Image-Turbo
+          github: https://github.com/Tongyi-MAI/Z-Image
+          js_tag: z_image_turbo_tag
+          benchmark_command:
+            - mkdir results
+            - 'xdit \'
+            - '--model {model_repo} \'
+            - '--seed 42 \'
+            - '--prompt "A small cat" \'
+            - '--height 1024 \'
+            - '--width 1024 \'
+            - '--num_inference_steps 9 \'
+            - '--guidance_scale 0.0 \'
+            - '--ulysses_degree 8 \'
+            - '--use_torch_compile \'
+            - '--num_iterations 25 \'
+            - '--attention_backend aiter \'
+            - "--output_directory results"
     - group: LTX
       js_tag: ltx
       models:
@@ -426,26 +446,6 @@ docker:
     - group: Krea 2
       js_tag: krea2
       models:
-        - model: Krea 2 Raw
-          model_repo: krea/Krea-2-Raw
-          url: https://huggingface.co/krea/Krea-2-Raw
-          github: https://github.com/krea-ai/krea-2
-          js_tag: krea_2_raw_tag
-          benchmark_command:
-            - mkdir results
-            - 'xdit \'
-            - '--model {model_repo} \'
-            - '--prompt "A fox walking in the snow" \'
-            - '--negative_prompt "bad quality, illustration" \'
-            - '--height 2048 \'
-            - '--width 2048 \'
-            - '--seed 42 \'
-            - '--num_inference_steps 52 \'
-            - '--num_iterations 5 \'
-            - '--ulysses_degree 8 \'
-            - '--use_torch_compile \'
-            - '--attention_backend aiter \'
-            - "--output_directory results"
         - model: Krea 2 Turbo
           model_repo: krea/Krea-2-Turbo
           url: https://huggingface.co/krea/Krea-2-Turbo
