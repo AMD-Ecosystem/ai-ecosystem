@@ -505,9 +505,11 @@ docker:
                 - pip install -e . --no-deps
             - text: >-
                 LingBot-Video is conditioned on a structured JSON caption rather than a free-text
-                prompt, so ``--prompt`` takes the path to a JSON file. Create ``prompt.json`` in your
-                working directory using the caption format documented in the
-                `LingBot-Video repository <https://github.com/Robbyant/lingbot-video>`__.
+                prompt, so ``--prompt`` takes the path to a JSON file. After cloning the repository,
+                copy a T2V example such as
+                `assets/cases/t2v/example_1/prompt.json <https://github.com/Robbyant/lingbot-video/blob/master/assets/cases/t2v/example_1/prompt.json>`__
+                to ``prompt.json`` in your working directory. More examples are under
+                `assets/cases <https://github.com/Robbyant/lingbot-video/tree/master/assets/cases>`__.
           benchmark_command:
             - mkdir results
             - 'xdit \'
@@ -536,9 +538,11 @@ docker:
                 - pip install -e . --no-deps
             - text: >-
                 LingBot-Video is conditioned on a structured JSON caption rather than a free-text
-                prompt, so ``--prompt`` takes the path to a JSON file. Create ``prompt.json`` in your
-                working directory using the caption format documented in the
-                `LingBot-Video repository <https://github.com/Robbyant/lingbot-video>`__.
+                prompt, so ``--prompt`` takes the path to a JSON file. After cloning the repository,
+                copy a T2V example such as
+                `assets/cases/t2v/example_1/prompt.json <https://github.com/Robbyant/lingbot-video/blob/master/assets/cases/t2v/example_1/prompt.json>`__
+                to ``prompt.json`` in your working directory. More examples are under
+                `assets/cases <https://github.com/Robbyant/lingbot-video/tree/master/assets/cases>`__.
           benchmark_command:
             - mkdir results
             - 'xdit \'
@@ -580,6 +584,7 @@ docker:
             - '--use_cfg_parallel \'
             - '--use_torch_compile \'
             - '--use_parallel_vae \'
+            - '--enable_tiling \'
             - '--use_fp8_gemms \'
             - '--prompt assets/example_t2v_prompt.json \'
             - '--negative_prompt assets/negative_prompt.json \'
@@ -609,6 +614,7 @@ docker:
             - '--use_cfg_parallel \'
             - '--use_torch_compile \'
             - '--use_parallel_vae \'
+            - '--enable_tiling \'
             - '--use_fp8_gemms \'
             - '--prompt assets/example_t2v_prompt.json \'
             - '--negative_prompt assets/negative_prompt.json \'
