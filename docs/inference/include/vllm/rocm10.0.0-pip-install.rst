@@ -102,9 +102,9 @@
             :substitutions:
 
             python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx1151]==2.13.0+|ROCM_VER|" \
-                "torchvision[device-gfx1151]==0.28.0+|ROCM_VER|" \
-                "torchaudio==2.11.0.2+|ROCM_VER|"
+                "torch[device-gfx1151]==2.12.0+|ROCM_VER|" \
+                "torchvision[device-gfx1151]==0.27.0+|ROCM_VER|" \
+                "torchaudio==2.11.0+|ROCM_VER|"
 
       .. selected:: gfx=gfx1150
 
