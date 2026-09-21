@@ -1,4 +1,4 @@
-.. |ROCM7141_PYT212_CP314| replace:: rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.14_pytorch_release_2.12.0
+.. |ROCM7141_PYT212_CP314| replace:: rocm/pytorch:rocm7.14.1_ubuntu26.04_py3.14_pytorch_release_2.12.0
 .. |ROCM7141_PYT212_CP313| replace:: rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.13_pytorch_release_2.12.0
 .. |ROCM7141_PYT212_CP312| replace:: rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.12_pytorch_release_2.12.0
 .. |ROCM7141_PYT212_CP311| replace:: rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.11_pytorch_release_2.12.0
