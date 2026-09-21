@@ -319,14 +319,43 @@ Prerequisites
      0.11.2b. As a workaround, rebuild PyTorch and pin AOTriton to version
      0.11.2b.
 
-.. selected:: fam=radeon fam=ryzen
+.. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
    :heading: Known issues
 
-   * PyTorch might display a warning when importing on Linux if the system
-     ``libnuma`` package is not installed on some Radeon graphics products, such
-     as Radeon AI PRO R9600D. As a workaround, install the system ``libnuma``
-     package or configure the library path to use the ROCm-bundled NUMA
-     libraries.
+   .. selected:: i=pip
+
+      * On Linux, importing PyTorch might display a rocSHMEM error message about
+        a missing ``libnuma`` library.
+
+        .. code-block:: shell-session
+
+           E-001h rocSHMEM Could not open libnuma. Returning       NUMAWrapper@src/gda/numa_wrapper.cpp:48
+
+        While ``libnuma`` is not required for the normal functioning of rocSHMEM,
+        you can resolve this message by installing the corresponding development
+        package using your Linux distribution's package manager:
+
+        .. tab-set::
+
+           .. tab-item:: apt
+
+              .. code-block:: bash
+
+                 sudo apt update && sudo apt install libnuma-dev
+
+           .. tab-item:: dnf
+
+              .. code-block:: bash
+
+                 sudo dnf install numactl-devel
+
+           .. tab-item:: zypper
+
+              .. code-block:: bash
+
+                 sudo zypper install libnuma-devel
+
+.. selected:: fam=radeon fam=ryzen
 
    * Lower-than-expected performance might be observed in some large language model
      inference workloads, including vLLM FP16 decode workloads with batch sizes of
