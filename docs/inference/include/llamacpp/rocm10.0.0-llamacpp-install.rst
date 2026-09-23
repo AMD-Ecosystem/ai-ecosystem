@@ -25,7 +25,7 @@
 
          llama-<build>-bin-win-rocm-10.0-x64.zip
 
-      For ROCm 7.14, that is any asset containing ``win-rocm-10.0``, for example
+      For ROCm 10.0,0, that is any asset containing ``win-rocm-10.0``, for example
       ``llama-b10864-bin-win-rocm-10.0-x64.zip``.
 
       Verify the checksum of the downloaded file against the digest shown for the
