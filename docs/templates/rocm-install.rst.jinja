@@ -1,0 +1,353 @@
+{#
+  Template: rocm-install.rst.jinja
+  Renders the ROCm install guide link blocks for llama.cpp documentation.
+  Output: RST with selector directives conditioned on ROCm version, family,
+  OS, and install method.
+
+  Data: gpus.yaml (passed as `data` by the caller)
+
+  The template iterates over ROCm versions (7.14.0, 10.0.0) and generates
+  `.. selected::` blocks for each family/OS/install-method combination,
+  pulling the unique GFX architectures from gpus.yaml.
+#}
+
+{%- set instinct = data["AMD Instinct"] -%}
+{%- set radeon   = data["AMD Radeon"] -%}
+{%- set ryzen    = data["AMD Ryzen"] -%}
+
+{%- macro unique_gfx_list(family) -%}
+{%-   set seen = [] -%}
+{%-   for gpu_name, gpu in family.items() -%}
+{%-     if gpu.gfx not in seen -%}
+{%-       set _ = seen.append(gpu.gfx) -%}
+{%-     endif -%}
+{%-   endfor -%}
+{{ seen }}
+{%- endmacro -%}
+
+{%- set instinct_gfx = [] -%}
+{%- for gpu_name, gpu in instinct.items() -%}
+{%-   if gpu.gfx not in instinct_gfx -%}{%- set _ = instinct_gfx.append(gpu.gfx) -%}{%- endif -%}
+{%- endfor -%}
+
+{%- set radeon_gfx = [] -%}
+{%- for gpu_name, gpu in radeon.items() -%}
+{%-   if gpu.gfx not in radeon_gfx -%}{%- set _ = radeon_gfx.append(gpu.gfx) -%}{%- endif -%}
+{%- endfor -%}
+
+{%- set ryzen_gfx = [] -%}
+{%- for gpu_name, gpu in ryzen.items() -%}
+{%-   if gpu.gfx not in ryzen_gfx -%}{%- set _ = ryzen_gfx.append(gpu.gfx) -%}{%- endif -%}
+{%- endfor -%}
+
+{%- set rocm_versions = ["7.14.0", "10.0.0"] -%}
+
+{# ------------------------------------------------------------------ #}
+{# Macros to render gfx-link blocks and trailing bullet lists          #}
+{# ------------------------------------------------------------------ #}
+
+{%- macro instinct_gfx_links(ver, os, i, extra_params) -%}
+{%-   for gfx in instinct_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=instinct&gfx={{ gfx }}{{ extra_params }}&os={{ os }}&i={{ i }}>`__
+               guide for instructions. Use the selector on the page to match your system.
+
+{%-   endfor %}
+{%- endmacro -%}
+
+{%- macro radeon_gfx_links(ver, os, i, extra_params, short_text) -%}
+{%-   for gfx in radeon_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=radeon&gfx={{ gfx }}{{ extra_params }}&os={{ os }}&i={{ i }}>`__
+{% if short_text %}               guide for instructions. Use the selector on the page to match your system.
+{% else %}               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
+{% endif %}
+{%-   endfor %}
+{%- endmacro -%}
+
+{%- macro ryzen_gfx_links(ver, os, i, extra_params, short_text) -%}
+{%-   for gfx in ryzen_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=ryzen&gfx={{ gfx }}{{ extra_params }}&os={{ os }}&i={{ i }}>`__
+{% if short_text %}               guide for instructions. Use the selector on the page to match your system.
+{% else %}               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
+{% endif %}
+{%-   endfor %}
+{%- endmacro -%}
+
+{%- macro fam_section(os_values, i_values, family_label, gfx_links_macro, extra_params, long_text_methods) -%}
+{%-   for os in os_values %}
+      .. selected:: os={{ os }}
+{%-     for i in i_values %}
+{%-       if i in i_values %}
+
+         .. selected:: i={{ i }}
+{%-         set is_short = i not in long_text_methods %}
+{{ gfx_links_macro(ver, os, i, extra_params, is_short) }}
+{%-         if family_label == "Instinct" %}
+            * Device family: **AMD Instinct**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Operating system: **{{ os|title }}**
+            * Installation method: **{{ i|install_label }}**
+{%-         else %}
+            * Device family: **AMD {{ family_label }}**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
+            * Operating system: **{{ os|title }}**
+            * Installation method: **{{ i|install_label }}**
+{%-         endif %}
+
+{%-       endif %}
+{%-     endfor %}
+{%-   endfor %}
+{%- endmacro -%}
+
+{% for ver in rocm_versions %}
+.. selected:: rocm-ver={{ ver }}
+
+   .. selected:: fam=instinct
+
+      .. selected:: os=ubuntu
+
+         .. selected:: i=pkgman
+
+{% for gfx in instinct_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=instinct&gfx={{ gfx }}&os=ubuntu&i=pkgman>`__
+               guide for instructions. Use the selector on the page to match your system.
+
+{% endfor %}
+            * Device family: **AMD Instinct**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Operating system: **Ubuntu**
+            * Installation method: **apt** (package manager)
+
+         .. selected:: i=pip
+
+{% for gfx in instinct_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=instinct&gfx={{ gfx }}&os=ubuntu&i=pip>`__
+               guide for instructions. Use the selector on the page to match your system.
+
+{% endfor %}
+            * Device family: **AMD Instinct**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Operating system: **Ubuntu**
+            * Installation method: **pip**
+
+   .. selected:: fam=radeon
+
+      .. selected:: os=ubuntu
+
+         .. selected:: i=pkgman
+
+{% for gfx in radeon_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=radeon&gfx={{ gfx }}&w=compute&os=ubuntu&i=pkgman>`__
+               guide for instructions. Use the selector on the page to match your system.
+
+{% endfor %}
+            * Device family: **AMD Radeon**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
+            * Operating system: **Ubuntu**
+            * Installation method: **apt** (package manager)
+
+         .. selected:: i=pip
+
+{% for gfx in radeon_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=radeon&gfx={{ gfx }}&w=compute&os=ubuntu&i=pip>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
+
+{% endfor %}
+            * Device family: **AMD Radeon**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
+            * Operating system: **Ubuntu**
+            * Installation method: **pip**
+
+         .. selected:: i=tar
+
+{% for gfx in radeon_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=radeon&gfx={{ gfx }}&w=compute&os=ubuntu&i=tar>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
+
+{% endfor %}
+            * Device family: **AMD Radeon**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
+            * Operating system: **Ubuntu**
+            * Installation method: **Tarball**
+
+      .. selected:: os=windows
+
+         .. selected:: i=pip
+
+{% for gfx in radeon_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=radeon&gfx={{ gfx }}&w=compute&os=windows&i=pip>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
+
+{% endfor %}
+            * Device family: **AMD Radeon**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
+            * Operating system: **Windows**
+            * Installation method: **pip**
+
+         .. selected:: i=tar
+
+{% for gfx in radeon_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=radeon&gfx={{ gfx }}&w=compute&os=windows&i=tar>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
+
+{% endfor %}
+            * Device family: **AMD Radeon**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
+            * Operating system: **Windows**
+            * Installation method: **Tarball**
+
+   .. selected:: fam=ryzen
+
+      .. selected:: os=ubuntu
+
+         .. selected:: i=pkgman
+
+{% for gfx in ryzen_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=ryzen&gfx={{ gfx }}&w=compute&os=ubuntu&i=pkgman>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
+
+{% endfor %}
+            * Device family: **AMD Ryzen**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
+            * Operating system: **Ubuntu**
+            * Installation method: **apt** (package manager)
+
+         .. selected:: i=pip
+
+{% for gfx in ryzen_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=ryzen&gfx={{ gfx }}&w=compute&os=ubuntu&i=pip>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
+
+{% endfor %}
+            * Device family: **AMD Ryzen**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
+            * Operating system: **Ubuntu**
+            * Installation method: **pip**
+
+         .. selected:: i=tar
+
+{% for gfx in ryzen_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=ryzen&gfx={{ gfx }}&w=compute&os=ubuntu&i=tar>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
+
+{% endfor %}
+            * Device family: **AMD Ryzen**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
+            * Operating system: **Ubuntu**
+            * Installation method: **Tarball**
+
+      .. selected:: os=windows
+
+         .. selected:: i=pip
+
+{% for gfx in ryzen_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=ryzen&gfx={{ gfx }}&w=compute&os=windows&i=pip>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
+
+{% endfor %}
+            * Device family: **AMD Ryzen**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
+            * Operating system: **Windows**
+            * Installation method: **pip**
+
+         .. selected:: i=tar
+
+{% for gfx in ryzen_gfx %}
+            .. selected:: gfx={{ gfx }}
+
+               See the `Install ROCm {{ ver }}
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=ryzen&gfx={{ gfx }}&w=compute&os=windows&i=tar>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
+
+{% endfor %}
+            * Device family: **AMD Ryzen**
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
+            * Operating system: **Windows**
+            * Installation method: **Tarball**
+
+{% endfor %}

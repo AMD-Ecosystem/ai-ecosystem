@@ -25,49 +25,38 @@ explains how to set up and run llama.cpp on AMD GPUs and APUs.
       :value: ryzen
       :width: 4
 
-.. selector-dropdown:: Instinct GPU
-   :key: gpu
-   :show-cond: fam=instinct
-   :sort: desc
-
-   .. selector-option:: AMD Instinct MI250X
-      :value: amd-instinct-mi250x gfx=gfx90a
-
-   .. selector-option:: AMD Instinct MI250
-      :value: amd-instinct-mi250 gfx=gfx90a
-
-   .. selector-option:: AMD Instinct MI210
-      :value: amd-instinct-mi210 gfx=gfx90a
-
-   .. selector-option:: AMD Instinct MI100
-      :value: amd-instinct-mi100 gfx=gfx908
-
-.. selected:: fam=radeon fam=ryzen
-
-   .. datatemplate:yaml:: /data/gpus.yaml
-      :template: misc/ror-gpu-selector.rst.jinja
+.. datatemplate:yaml:: /data/gpus.yaml
+   :template: gpu-selector.rst.jinja
 
 .. selected:: fam=instinct
 
    .. selector:: Operating system
       :key: os
 
+      .. selector-option:: Ubuntu 26.04
+         :value: ubuntu ubuntu-ver=26.04
+         :width: 50%
+
       .. selector-option:: Ubuntu 24.04
          :value: ubuntu ubuntu-ver=24.04
-         :width: 12
+         :width: 50%
 
 .. selected:: fam=radeon fam=ryzen
 
    .. selector:: Operating system
       :key: os
 
+      .. selector-option:: Ubuntu 26.04
+         :value: ubuntu ubuntu-ver=26.04
+         :width: 4
+
       .. selector-option:: Ubuntu 24.04
          :value: ubuntu ubuntu-ver=24.04
-         :width: 6
+         :width: 4
 
       .. selector-option:: Windows 11
          :value: windows windows-ver=11
-         :width: 6
+         :width: 4
 
 .. selector:: ROCm version
    :key: rocm-ver
@@ -133,7 +122,7 @@ To run llama.cpp with ROCm on Linux, you need the following prerequisites:
 - **Operating system**: Ubuntu 24.04
 
 - **GPU platform:** AMD Instinct MI200 Series (gfx90a) and MI100 (gfx908) GPUs,
-  AMD Radeon, and AMD Ryzen devices supported by ROCm 7.14.0
+  AMD Radeon, and AMD Ryzen devices supported by ROCm.
 
 .. selected:: os=ubuntu
 
@@ -145,7 +134,7 @@ To run llama.cpp with ROCm on Linux, you need the following prerequisites:
 
      .. code-block:: bash
 
-        sudo apt install libgomp1 libcurl4
+        sudo apt update && sudo apt install libgomp1 libcurl4
 
 .. _llamacpp-install-rocm:
 
@@ -154,9 +143,8 @@ Install ROCm
 
 llama.cpp requires a ROCm installation on the host system.
 
-.. include:: ./include/llamacpp/rocm10.0.0-rocm-install.rst
-
-.. include:: ./include/llamacpp/rocm7.14.0-rocm-install.rst
+.. datatemplate:yaml:: /data/gpus.yaml
+   :template: rocm-install.rst.jinja
 
 .. selected:: os=ubuntu
 
@@ -563,7 +551,7 @@ llama-bench
    ``CPU``, the ROCm libraries were not found. Review the :ref:`environment
    configuration steps <llamacpp-install>` to troubleshoot.
 
-Flash Attention is enabled with ``-fa 1`` and is supported on Radeon GPUs through rocWMMA:
+You can enable Flash Attention using ``-fa 1``:
 
 .. selected:: os=ubuntu
 
