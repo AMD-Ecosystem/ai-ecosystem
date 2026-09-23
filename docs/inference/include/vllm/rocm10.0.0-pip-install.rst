@@ -1,6 +1,6 @@
-.. |PKG_REPO| replace:: https://stable.repo.amd.com/rocm/whl-next/
-.. |ROCM_VER| replace:: rocm10.0.0
-.. |FW_REPO| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/vllm/
+.. |PKG_REPO_1000| replace:: https://stable.repo.amd.com/rocm/whl-next/
+.. |ROCM_VER_1000| replace:: rocm10.0.0
+.. |FW_REPO_1000| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/vllm/
 
 .. |VLLM_VERSION_10P| replace:: 0.27
 .. |VLLM_DOC_10P| replace:: `vLLM <https://docs.vllm.ai/en/v0.27.0/>`__
@@ -21,127 +21,127 @@
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx950]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx950]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx950]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx950]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx942
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx942]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx942]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx942]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx942]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1200
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx1200]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx1200]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx1200]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx1200]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1201
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx1201]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx1201]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx1201]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx1201]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1100
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx1100]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx1100]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx1100]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx1100]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1101
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx1101]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx1101]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx1101]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx1101]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1102
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx1102]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx1102]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx1102]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx1102]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1103
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx1103]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx1103]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx1103]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx1103]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1151
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx1151]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx1151]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx1151]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx1151]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1150
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx1150]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx1150]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx1150]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx1150]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1152
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx1152]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx1152]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx1152]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx1152]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1152
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "torch[device-gfx1153]==2.12.0+|ROCM_VER|" \
-                "torchvision[device-gfx1153]==0.27.0+|ROCM_VER|" \
-                "torchaudio==2.11.0+|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "torch[device-gfx1153]==2.12.0+|ROCM_VER_1000|" \
+                "torchvision[device-gfx1153]==0.27.0+|ROCM_VER_1000|" \
+                "torchaudio==2.11.0+|ROCM_VER_1000|"
 
    4. Install Flash Attention and `AITER <https://github.com/rocm/aiter>`__.
 
       .. code-block:: bash
          :substitutions:
 
-         python -m pip install --extra-index-url |FW_REPO| \
+         python -m pip install --extra-index-url |FW_REPO_1000| \
              "flash-attn==2.8.3" \
              "amd-aiter==0.1.20.post1"
 

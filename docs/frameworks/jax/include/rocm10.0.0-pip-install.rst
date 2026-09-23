@@ -1,5 +1,5 @@
-.. |PKG_REPO| replace:: https://stable.repo.amd.com/rocm/whl-next/
-.. |ROCM_VER| replace:: 10.0.0
+.. |PKG_REPO_1000| replace:: https://stable.repo.amd.com/rocm/whl-next/
+.. |ROCM_VER_1000| replace:: 10.0.0
 
 .. selected:: rocm-ver=10.0.0
 
@@ -13,80 +13,80 @@
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "rocm[libraries,device-all]==|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "rocm[libraries,device-all]==|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx950
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "rocm[libraries,device-gfx950]==|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "rocm[libraries,device-gfx950]==|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx942
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "rocm[libraries,device-gfx942]==|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "rocm[libraries,device-gfx942]==|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx90a
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "rocm[libraries,device-gfx90a]==|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "rocm[libraries,device-gfx90a]==|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1200
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "rocm[libraries,device-gfx1200]==|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "rocm[libraries,device-gfx1200]==|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1201
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "rocm[libraries,device-gfx1201]==|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "rocm[libraries,device-gfx1201]==|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1100
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "rocm[libraries,device-gfx1100]==|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "rocm[libraries,device-gfx1100]==|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1101
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "rocm[libraries,device-gfx1101]==|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "rocm[libraries,device-gfx1101]==|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1102
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "rocm[libraries,device-gfx1102]==|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "rocm[libraries,device-gfx1102]==|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1103
 
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "rocm[libraries,device-gfx1103]==|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "rocm[libraries,device-gfx1103]==|ROCM_VER_1000|"
 
    4. Install the ROCm-enabled JAX libraries.
 
@@ -102,9 +102,9 @@
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "jax_rocm10_plugin==0.11.0+rocm|ROCM_VER|" \
-                "jax_rocm10_pjrt==0.11.0+rocm|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "jax_rocm10_plugin==0.11.0+rocm|ROCM_VER_1000|" \
+                "jax_rocm10_pjrt==0.11.0+rocm|ROCM_VER_1000|"
 
             # Install jax from PyPI
             python -m pip install \
@@ -116,9 +116,9 @@
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "jax_rocm10_plugin==0.10.2+rocm|ROCM_VER|" \
-                "jax_rocm10_pjrt==0.10.2+rocm|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "jax_rocm10_plugin==0.10.2+rocm|ROCM_VER_1000|" \
+                "jax_rocm10_pjrt==0.10.2+rocm|ROCM_VER_1000|"
 
             # Install jax from PyPI
             python -m pip install \
@@ -130,9 +130,9 @@
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                "jax_rocm10_plugin==0.10.0+rocm|ROCM_VER|" \
-                "jax_rocm10_pjrt==0.10.0+rocm|ROCM_VER|"
+            python -m pip install --index-url |PKG_REPO_1000| \
+                "jax_rocm10_plugin==0.10.0+rocm|ROCM_VER_1000|" \
+                "jax_rocm10_pjrt==0.10.0+rocm|ROCM_VER_1000|"
 
             # Install jax from PyPI
             python -m pip install \
