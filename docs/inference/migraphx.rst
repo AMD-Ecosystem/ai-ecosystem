@@ -1,30 +1,32 @@
 :selector-toc2: Installation environment
 :selector-toc2-icon: fa-solid fa-computer
 
-.. |MIGRAPHX_VERSION| replace:: 2.16.0
-
 ****************
 Install MIGraphX
 ****************
 
 MIGraphX is AMD's graph inference engine for optimizing and executing ONNX
-models on AMD GPUs using ROCm. This page describes how to install MIGraphX
-|MIGRAPHX_VERSION|.
+models on AMD GPUs using ROCm. This page describes how to install the version
+of MIGraphX that ships with your selected ROCm release.
 
 .. selector:: ROCm version
    :key: rocm-ver
 
+   .. selector-option:: 10.1.0
+      :value: 10.1.0
+      :width: 3
+
    .. selector-option:: 10.0.0
       :value: 10.0.0
-      :width: 4
+      :width: 3
 
    .. selector-option:: 7.14.1
       :value: 7.14.1
-      :width: 4
+      :width: 3
 
    .. selector-option:: 7.14.0
       :value: 7.14.0
-      :width: 4
+      :width: 3
 
 .. selected:: rocm-ver=10.0.0
 
@@ -35,7 +37,7 @@ models on AMD GPUs using ROCm. This page describes how to install MIGraphX
          :value: pip
          :width: 12
 
-.. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
+.. selected:: rocm-ver=10.1.0 rocm-ver=7.14.1 rocm-ver=7.14.0
 
    .. selector:: Installation method
       :key: i
@@ -50,6 +52,20 @@ models on AMD GPUs using ROCm. This page describes how to install MIGraphX
 
 Prerequisites
 =============
+
+.. selected:: rocm-ver=10.1.0
+
+   MIGraphX is currently supported on:
+
+   * ``gfx950`` AMD Instinct MI355X and MI350X
+
+   * ``gfx942`` AMD Instinct MI325X and MI300X
+
+   * ``gfx1200``, ``gfx1201``, ``gfx1100``, ``gfx1101``, and ``gfx1102`` Radeon GPUs.
+
+   See the `ROCm compatibility matrix
+   <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__
+   for more information.
 
 .. selected:: rocm-ver=10.0.0
 
@@ -95,6 +111,13 @@ MIGraphX requires ROCm to be installed on your system first.
 Install ROCm
 ------------
 
+.. selected:: rocm-ver=10.1.0
+
+   For instructions, see `Install AMD ROCm 10.1.0
+   <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html?fam=all>`__. Use the
+   selector panel on that page to view instructions appropriate for your system
+   environment.
+
 .. selected:: rocm-ver=10.0.0
 
    For instructions, see `Install AMD ROCm 10.0.0
@@ -116,11 +139,15 @@ Install ROCm
    selector panel on that page to view instructions appropriate for your system
    environment.
 
+.. include:: ./include/migraphx/rocm10.1.0-pkg-install.rst
+
 .. include:: ./include/migraphx/rocm10.0.0-pkg-install.rst
 
 .. include:: ./include/migraphx/rocm7.14.1-pkg-install.rst
 
 .. include:: ./include/migraphx/rocm7.14.0-pkg-install.rst
+
+.. include:: ./include/migraphx/rocm10.1.0-pip-install.rst
 
 .. include:: ./include/migraphx/rocm10.0.0-pip-install.rst
 

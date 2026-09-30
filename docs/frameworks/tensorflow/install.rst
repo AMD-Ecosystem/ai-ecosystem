@@ -54,11 +54,14 @@ Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
 .. selector:: ROCm version
    :key: rocm-ver
 
+   .. selector-option:: 10.1.0
+      :width: 4
+
    .. selector-option:: 10.0.0
-      :width: 6
+      :width: 4
 
    .. selector-option:: 7.14.1
-      :width: 6
+      :width: 4
 
 .. selector:: TensorFlow version
    :key: tensorflow-ver
@@ -91,7 +94,7 @@ Prerequisites
 
 .. selected:: fam=instinct fam=radeon
 
-   .. selected:: rocm-ver=10.0.0
+   .. selected:: rocm-ver=10.1.0 rocm-ver=10.0.0
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
@@ -120,6 +123,13 @@ Prerequisites
      <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
      installed and accessible: **3.12**
 
+   .. selected:: rocm-ver=10.1.0
+
+      * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
+        (Install ROCm 10.1.0)
+        <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html#prerequisites>`__ for
+        instructions.
+
    .. selected:: rocm-ver=10.0.0
 
       * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
@@ -141,9 +151,13 @@ Prerequisites
         <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html#prerequisites>`__ for
         instructions.
 
+.. include:: ./include/rocm10.1.0-docker.rst
+
 .. include:: ./include/rocm10.0.0-docker.rst
 
 .. include:: ./include/rocm7.14.1-docker.rst
+
+.. include:: ./include/rocm10.1.0-pip-install.rst
 
 .. include:: ./include/rocm10.0.0-pip-install.rst
 

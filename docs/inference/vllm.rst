@@ -272,17 +272,25 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
 .. selector:: ROCm version
    :key: rocm-ver
 
+   .. selector-option:: 10.1.0
+      :width: 3
+
    .. selector-option:: 10.0.0
-      :width: 4
+      :width: 3
 
    .. selector-option:: 7.14.1
-      :width: 4
+      :width: 3
 
    .. selector-option:: 7.14.0
-      :width: 4
+      :width: 3
 
 .. selector:: vLLM version
    :key: vllm-ver
+
+   .. selector-option:: 0.29
+      :value: 0.29
+      :width: 12
+      :show-cond: rocm-ver=10.1.0
 
    .. selector-option:: 0.27
       :value: 0.27
@@ -311,6 +319,14 @@ Prerequisites
 .. selected:: i=docker
 
    .. selected:: fam=all fam=instinct fam=radeon
+
+      .. selected:: rocm-ver=10.1.0
+
+         - For Instinct and Radeon devices, ensure your host system has the AMD
+           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 10.1.0) <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__ for driver
+           support information. For installation instructions, see the `AMD GPU
+           Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
       .. selected:: rocm-ver=10.0.0
 
@@ -347,6 +363,14 @@ Prerequisites
 .. selected:: i=pip
 
    .. selected:: fam=all fam=instinct fam=radeon
+
+      .. selected:: rocm-ver=10.1.0
+
+         - For Instinct and Radeon devices, ensure your host system has the AMD
+           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 10.1.0) <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__ for driver
+           support information. For installation instructions, see the `AMD GPU
+           Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
       .. selected:: rocm-ver=10.0.0
 
@@ -386,6 +410,8 @@ Prerequisites
         direct wheel URL. ``uv pip`` resolves dependencies more predictably,
         respecting the exact versions bundled with or required by the wheel.
 
+.. include:: ./include/vllm/rocm10.1.0-docker.rst
+
 .. include:: ./include/vllm/rocm10.0.0-docker.rst
 
 .. include:: ./include/vllm/rocm7.14.1-docker.rst
@@ -406,6 +432,8 @@ Prerequisites
       .. code-block:: shell
 
          source .venv/bin/activate
+
+   .. include:: ./include/vllm/rocm10.1.0-pip-install.rst
 
    .. include:: ./include/vllm/rocm10.0.0-pip-install.rst
 

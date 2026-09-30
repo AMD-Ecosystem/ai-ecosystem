@@ -40,19 +40,23 @@ It applies to `supported AMD GPUs and platforms
 .. selector:: ROCm version
    :key: rocm-ver
 
+   .. selector-option:: 10.1.0
+      :value: 10.1.0
+      :width: 3
+
    .. selector-option:: 10.0.0
       :value: 10.0.0
-      :width: 4
+      :width: 3
 
    .. selector-option:: 7.14.1
       :value: 7.14.1
-      :width: 4
+      :width: 3
 
    .. selector-option:: 7.14.0
       :value: 7.14.0
-      :width: 4
+      :width: 3
 
-.. selected:: rocm-ver=10.0.0
+.. selected:: rocm-ver=10.1.0 rocm-ver=10.0.0
 
    .. selector:: JAX version
       :key: jax-ver
@@ -98,7 +102,7 @@ Prerequisites
 
 .. selected:: fam=instinct fam=radeon
 
-   .. selected:: rocm-ver=10.0.0
+   .. selected:: rocm-ver=10.1.0 rocm-ver=10.0.0
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
@@ -135,6 +139,13 @@ Prerequisites
         <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
         installed and accessible: **3.12, 3.13, or 3.14**.
 
+   .. selected:: rocm-ver=10.1.0
+
+      * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
+        (Install ROCm 10.1.0)
+        <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html#prerequisites>`__ for
+        instructions.
+
    .. selected:: rocm-ver=10.0.0
 
       * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
@@ -165,6 +176,8 @@ Prerequisites
       ROCm <https://rocm.docs.amd.com/en/latest/install/rocm.html>`__ for other
       installation methods.
 
+.. include:: ./include/rocm10.1.0-docker.rst
+
 .. include:: ./include/rocm10.0.0-docker.rst
 
 .. include:: ./include/rocm7.14.1-docker.rst
@@ -173,6 +186,11 @@ Prerequisites
 
 .. selected:: i=pip
    :heading: Install JAX using pip
+
+   .. selected:: rocm-ver=10.1.0
+
+      For prerequisite steps and post-installation recommendations, see the `ROCm
+      installation instructions <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html>`__.
 
    .. selected:: rocm-ver=10.0.0
 
@@ -246,6 +264,8 @@ Prerequisites
       .. code-block:: shell
 
          source .venv/bin/activate
+
+   .. include:: ./include/rocm10.1.0-pip-install.rst
 
    .. include:: ./include/rocm10.0.0-pip-install.rst
 
