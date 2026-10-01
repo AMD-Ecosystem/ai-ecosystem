@@ -319,13 +319,19 @@ Prerequisites
            Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
-      - Ensure the host system has `Docker Engine
-        <https://docs.docker.com/engine/install/>`__ installed.
+      * Ensure the host system has `Docker Engine
+        <https://docs.docker.com/engine/install/>`__ installed. For more guidance
+        on running ROCm workloads in Docker containers, see `Run ROCm Docker
+        containers
+        <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
    .. selected:: fam=ryzen
 
       Ensure the host system has `Docker Engine
-      <https://docs.docker.com/engine/install/>`__ installed.
+      <https://docs.docker.com/engine/install/>`__ installed. For more guidance
+      on running ROCm workloads in Docker containers, see `Run ROCm Docker
+      containers
+      <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
 .. selected:: i=pip
 

@@ -36,6 +36,9 @@ xDiT diffusion inference
 
 Follow this guide to pull the required image, spin up a container, download the model, and run a benchmark.
 For preview and development releases, see `amdsiloai/pytorch-xdit <https://hub.docker.com/r/amdsiloai/pytorch-xdit>`_.
+For more guidance on running ROCm workloads in Docker containers, see `Run ROCm
+Docker containers
+<https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
 What's new
 ==========

@@ -203,13 +203,11 @@ Prerequisites
      documentation
      <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
-- Ensure the host system has `Docker Engine
-  <https://docs.docker.com/engine/install/>`__ installed.
-
-.. selected:: rocm-ver=10.1.0
-
-   - SGLang 0.5.18 requires PyTorch 2.13.0. The Docker image includes it. See
-     :doc:`/frameworks/pytorch/install` for other installation methods.
+* Ensure the host system has `Docker Engine
+  <https://docs.docker.com/engine/install/>`__ installed. For more guidance
+  on running ROCm workloads in Docker containers, see `Run ROCm Docker
+  containers
+  <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
 .. include:: ./include/sglang/rocm10.1.0-docker.rst
 
