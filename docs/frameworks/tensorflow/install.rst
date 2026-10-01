@@ -16,19 +16,12 @@ Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
 
    .. selector-option:: 10.1.0
       :width: 4
-      :show-cond: fam=instinct
 
    .. selector-option:: 10.0.0
       :width: 4
-      :show-cond: fam=instinct
 
    .. selector-option:: 7.14.1
       :width: 4
-      :show-cond: fam=instinct
-
-   .. selector-option:: 10.1.0
-      :width: 12
-      :show-cond: fam=radeon
 
 .. selector:: Device family
    :key: fam
@@ -36,12 +29,20 @@ Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
    .. selector-option:: AMD Instinct™
       :value: instinct
       :width: 6
+      :show-cond: rocm-ver=10.1.0
       :toc-label: AMD Instinct
 
    .. selector-option:: AMD Radeon™
       :value: radeon
       :width: 6
+      :show-cond: rocm-ver=10.1.0
       :toc-label: AMD Radeon
+
+   .. selector-option:: AMD Instinct™
+      :value: instinct
+      :width: 12
+      :show-cond: rocm-ver=10.0.0 rocm-ver=7.14.1
+      :toc-label: AMD Instinct
 
 .. selector-dropdown:: Instinct GPU
    :key: gpu
