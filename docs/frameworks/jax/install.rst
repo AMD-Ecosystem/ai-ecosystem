@@ -56,7 +56,24 @@ It applies to `supported AMD GPUs and platforms
       :value: 7.14.0
       :width: 3
 
-.. selected:: rocm-ver=10.1.0 rocm-ver=10.0.0
+.. selected:: rocm-ver=10.1.0
+
+   .. selector:: JAX version
+      :key: jax-ver
+
+      .. selector-option:: 0.11.1
+         :value: 0.11.1
+         :width: 4
+
+      .. selector-option:: 0.11.0
+         :value: 0.11.0
+         :width: 4
+
+      .. selector-option:: 0.10.2
+         :value: 0.10.2
+         :width: 4
+
+.. selected:: rocm-ver=10.0.0
 
    .. selector:: JAX version
       :key: jax-ver
@@ -133,7 +150,7 @@ Prerequisites
         <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
         installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
 
-   .. selected:: jax-ver=0.11.0
+   .. selected:: jax-ver=0.11.1 jax-ver=0.11.0
 
       * Ensure your system has a `supported Python version
         <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
@@ -209,9 +226,15 @@ Prerequisites
 
    1. Set up your Python virtual environment.
 
-      .. selected:: jax-ver=0.11.0
+      .. selected:: jax-ver=0.11.1 jax-ver=0.11.0
 
          .. tab-set::
+
+            .. tab-item:: Python 3.14
+
+               .. code-block:: bash
+
+                  python3.14 -m venv .venv
 
             .. tab-item:: Python 3.13
 
@@ -225,13 +248,7 @@ Prerequisites
 
                   python3.12 -m venv .venv
 
-            .. tab-item:: Python 3.11
-
-               .. code-block:: bash
-
-                  python3.11 -m venv .venv
-
-      .. selected:: jax-ver=0.10.2 jax-ver=0.10.0
+      .. selected:: jax-ver=0.10.2
 
          .. tab-set::
 

@@ -1,6 +1,6 @@
 .. |VLLM_VERSION_1010D| replace:: 0.29
 
-.. |VLLM029_PYT212_CP314_1010| replace:: rocm/vllm:rocm10.1.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.29.0
+.. |VLLM029_PYT213_CP314_1010| replace:: rocm/vllm:rocm10.1.0_ubuntu24.04_py3.14_pytorch_2.13.0_vllm_0.29.0
 
 .. |VLLM_DOC_1010D| replace:: `vLLM <https://docs.vllm.ai/en/v0.29.0/>`__
 .. |VLLM_USAGE_DOC_1010D| replace:: `Using vLLM <https://docs.vllm.ai/en/v0.29.0/usage/>`__
@@ -16,7 +16,7 @@
          .. code-block:: bash
             :substitutions:
 
-            docker pull |VLLM029_PYT212_CP314_1010|
+            docker pull |VLLM029_PYT213_CP314_1010|
 
       2. Start the Docker container.
 
@@ -33,7 +33,7 @@
                --security-opt seccomp=unconfined \
                -v <path/to/your/models>:/app/models \
                -e HF_HOME="/app/models" \
-               |VLLM029_PYT212_CP314_1010| \
+               |VLLM029_PYT213_CP314_1010| \
                bash
 
       .. seealso::

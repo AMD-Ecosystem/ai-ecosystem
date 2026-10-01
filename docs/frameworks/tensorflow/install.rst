@@ -13,6 +13,21 @@ Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
 
 .. selector:: Device family
    :key: fam
+   :show-cond: rocm-ver=10.1.0
+
+   .. selector-option:: AMD Instinct™
+      :value: instinct
+      :width: 6
+      :toc-label: AMD Instinct
+
+   .. selector-option:: AMD Radeon™
+      :value: radeon
+      :width: 6
+      :toc-label: AMD Radeon
+
+.. selector:: Device family
+   :key: fam
+   :show-cond: rocm-ver=10.0.0 rocm-ver=7.14.1
 
    .. selector-option:: AMD Instinct™
       :value: instinct
@@ -21,7 +36,110 @@ Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
 
 .. selector-dropdown:: Instinct GPU
    :key: gpu
-   :show-cond: fam=instinct
+   :show-cond: fam=instinct rocm-ver=10.1.0
+   :sort: desc
+
+   .. selector-option:: AMD Instinct MI355X (gfx950)
+      :value: mi355x gfx=gfx950
+
+   .. selector-option:: AMD Instinct MI350X (gfx950)
+      :value: mi350x gfx=gfx950
+
+   .. selector-option:: AMD Instinct MI350P (gfx950)
+      :value: mi350p gfx=gfx950
+
+   .. selector-option:: AMD Instinct MI325X (gfx942)
+      :value: mi325x gfx=gfx942
+
+   .. selector-option:: AMD Instinct MI300X (gfx942)
+      :value: mi300x gfx=gfx942
+
+   .. selector-option:: AMD Instinct MI300A (gfx942)
+      :value: mi300a gfx=gfx942
+
+.. selector-dropdown:: Radeon GPU
+   :key: gpu
+   :show-cond: fam=radeon rocm-ver=10.1.0 tensorflow-ver=2.21
+   :sort: desc
+
+   .. selector-option:: AMD Radeon AI PRO R9700S (gfx1201)
+      :value: amd-radeon-ai-pro-r9700s gfx=gfx1201
+
+   .. selector-option:: AMD Radeon AI PRO R9700 (gfx1201)
+      :value: amd-radeon-ai-pro-r9700 gfx=gfx1201
+
+   .. selector-option:: AMD Radeon AI PRO R9600D (gfx1201)
+      :value: amd-radeon-ai-pro-r9600d gfx=gfx1201
+
+   .. selector-option:: AMD Radeon AI PRO R9600 (gfx1201)
+      :value: amd-radeon-ai-pro-r9600 gfx=gfx1201
+
+   .. selector-option:: AMD Radeon RX 9070 XT (gfx1201)
+      :value: amd-radeon-rx-9070-xt gfx=gfx1201
+
+   .. selector-option:: AMD Radeon RX 9070 GRE (gfx1201)
+      :value: amd-radeon-rx-9070-gre gfx=gfx1201
+
+   .. selector-option:: AMD Radeon RX 9070 (gfx1201)
+      :value: amd-radeon-rx-9070 gfx=gfx1201
+
+   .. selector-option:: AMD Radeon RX 9060 XT LP (gfx1200)
+      :value: amd-radeon-rx-9060-xt-lp gfx=gfx1200
+
+   .. selector-option:: AMD Radeon RX 9060 XT (gfx1200)
+      :value: amd-radeon-rx-9060-xt gfx=gfx1200
+
+   .. selector-option:: AMD Radeon RX 9060 (gfx1200)
+      :value: amd-radeon-rx-9060 gfx=gfx1200
+
+   .. selector-option:: AMD Radeon RX 9050 (gfx1200)
+      :value: amd-radeon-rx-9050 gfx=gfx1200
+
+   .. selector-option:: AMD Radeon RX 9050 (4GB) (gfx1200)
+      :value: amd-radeon-rx-9050-4gb gfx=gfx1200
+
+   .. selector-option:: AMD Radeon PRO W7900 Dual Slot (gfx1100)
+      :value: amd-radeon-pro-w7900-dual-slot gfx=gfx1100
+
+   .. selector-option:: AMD Radeon PRO W7900 (gfx1100)
+      :value: amd-radeon-pro-w7900 gfx=gfx1100
+
+   .. selector-option:: AMD Radeon PRO W7800 48GB (gfx1100)
+      :value: amd-radeon-pro-w7800-48gb gfx=gfx1100
+
+   .. selector-option:: AMD Radeon PRO W7800 (gfx1100)
+      :value: amd-radeon-pro-w7800 gfx=gfx1100
+
+   .. selector-option:: AMD Radeon PRO W7700 (gfx1101)
+      :value: amd-radeon-pro-w7700 gfx=gfx1101
+
+   .. selector-option:: AMD Radeon RX 7900 XTX (gfx1100)
+      :value: amd-radeon-rx-7900-xtx gfx=gfx1100
+
+   .. selector-option:: AMD Radeon RX 7900 XT (gfx1100)
+      :value: amd-radeon-rx-7900-xt gfx=gfx1100
+
+   .. selector-option:: AMD Radeon RX 7900 GRE (gfx1100)
+      :value: amd-radeon-rx-7900-gre gfx=gfx1100
+
+   .. selector-option:: AMD Radeon RX 7800 XT (gfx1101)
+      :value: amd-radeon-rx-7800-xt gfx=gfx1101
+
+   .. selector-option:: AMD Radeon RX 7700 XT (gfx1101)
+      :value: amd-radeon-rx-7700-xt gfx=gfx1101
+
+   .. selector-option:: AMD Radeon RX 7700 (gfx1101)
+      :value: amd-radeon-rx-7700 gfx=gfx1101
+
+   .. selector-option:: AMD Radeon RX 7600 (gfx1102)
+      :value: amd-radeon-rx-7600 gfx=gfx1102
+
+   .. selector-option:: AMD Radeon PRO V710 (gfx1101)
+      :value: amd-radeon-pro-v710 gfx=gfx1101
+
+.. selector-dropdown:: Instinct GPU
+   :key: gpu
+   :show-cond: fam=instinct rocm-ver=10.0.0 rocm-ver=7.14.1
    :sort: desc
 
    .. selector-option:: AMD Instinct MI355X (gfx950)
@@ -65,6 +183,20 @@ Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
 
 .. selector:: TensorFlow version
    :key: tensorflow-ver
+   :show-cond: rocm-ver=10.1.0
+
+   .. selector-option:: 2.21
+      :value: 2.21
+      :width: 6
+
+   .. selector-option:: 2.20
+      :value: 2.20
+      :width: 6
+      :show-cond: fam=instinct
+
+.. selector:: TensorFlow version
+   :key: tensorflow-ver
+   :show-cond: rocm-ver=10.0.0 rocm-ver=7.14.1
 
    .. selector-option:: 2.21
       :value: 2.21

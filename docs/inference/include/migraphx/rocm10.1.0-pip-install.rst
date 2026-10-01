@@ -14,14 +14,6 @@
 
          .. tab-set::
 
-            .. tab-item:: Python 3.14
-               :sync: py314
-
-               .. code-block:: bash
-
-                  python3.14 -m venv .venv
-                  source .venv/bin/activate
-
             .. tab-item:: Python 3.12
                :sync: py312
 

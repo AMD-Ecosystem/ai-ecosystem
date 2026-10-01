@@ -62,6 +62,9 @@ or pip. It applies to `supported AMD GPUs and platforms
       .. selector-option:: AMD Radeon AI PRO R9600D (gfx1201)
          :value: ai-r9600d gfx=gfx1201
 
+      .. selector-option:: AMD Radeon AI PRO R9600 (gfx1201)
+         :value: ai-r9600 gfx=gfx1201
+
       .. selector-option:: AMD Radeon RX 9070 XT (gfx1201)
          :value: rx-9070-xt gfx=gfx1201
 
@@ -143,8 +146,8 @@ or pip. It applies to `supported AMD GPUs and platforms
 .. selector:: SGLang version
    :key: sgl-ver
 
-   .. selector-option:: 0.5.19
-      :value: 0.5.19
+   .. selector-option:: 0.5.18
+      :value: 0.5.18
       :width: 12
       :show-cond: rocm-ver=10.1.0
 
@@ -202,6 +205,11 @@ Prerequisites
 
 - Ensure the host system has `Docker Engine
   <https://docs.docker.com/engine/install/>`__ installed.
+
+.. selected:: rocm-ver=10.1.0
+
+   - SGLang 0.5.18 requires PyTorch 2.13.0. The Docker image includes it. See
+     :doc:`/frameworks/pytorch/install` for other installation methods.
 
 .. include:: ./include/sglang/rocm10.1.0-docker.rst
 

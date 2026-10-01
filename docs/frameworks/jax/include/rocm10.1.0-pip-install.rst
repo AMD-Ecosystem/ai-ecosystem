@@ -80,14 +80,6 @@
             python -m pip install --index-url |PKG_REPO_1010| \
                 "rocm[libraries,device-gfx1102]==|ROCM_VER_1010|"
 
-      .. selected:: gfx=gfx1103
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url |PKG_REPO_1010| \
-                "rocm[libraries,device-gfx1103]==|ROCM_VER_1010|"
-
    4. Install the ROCm-enabled JAX libraries.
 
       .. note::
@@ -96,6 +88,20 @@
          repository. After installing GFX architecture-based ``jax_rocm10_plugin``
          and ``jax_rocm10_pjrt`` packages from the AMD repository, install
          ``jax`` and ``jaxlib`` from `PyPI <https://pypi.org/project/jax>`__.
+
+      .. selected:: jax-ver=0.11.1
+
+         .. code-block:: bash
+            :substitutions:
+
+            python -m pip install --index-url |PKG_REPO_1010| \
+                "jax_rocm10_plugin==0.11.1+rocm|ROCM_VER_1010|" \
+                "jax_rocm10_pjrt==0.11.1+rocm|ROCM_VER_1010|"
+
+            # Install jax from PyPI
+            python -m pip install \
+                "jax==0.11.1" \
+                "jaxlib==0.11.1"
 
       .. selected:: jax-ver=0.11.0
 
@@ -124,17 +130,3 @@
             python -m pip install \
                 "jax==0.10.2" \
                 "jaxlib==0.10.2"
-
-      .. selected:: jax-ver=0.10.0
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url |PKG_REPO_1010| \
-                "jax_rocm10_plugin==0.10.0+rocm|ROCM_VER_1010|" \
-                "jax_rocm10_pjrt==0.10.0+rocm|ROCM_VER_1010|"
-
-            # Install jax from PyPI
-            python -m pip install \
-                "jax==0.10.0" \
-                "jaxlib==0.10.0"

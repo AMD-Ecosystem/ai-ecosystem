@@ -69,6 +69,9 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Radeon AI PRO R9600D (gfx1201)
          :value: ai-r9600d gfx=gfx1201
 
+      .. selector-option:: AMD Radeon AI PRO R9600 (gfx1201)
+         :value: ai-r9600 gfx=gfx1201
+
       .. selector-option:: AMD Radeon RX 9070 XT (gfx1201)
          :value: rx-9070-xt gfx=gfx1201
 
@@ -233,42 +236,6 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Ryzen AI 5 330 (gfx1152)
          :value: ai-5-330 gfx=gfx1152
 
-      .. selector-option:: AMD Ryzen 7 PRO 250 (gfx1103)
-         :value: 7-pro-250 gfx=gfx1103
-
-      .. selector-option:: AMD Ryzen 5 PRO 230 (gfx1103)
-         :value: 5-pro-230 gfx=gfx1103
-
-      .. selector-option:: AMD Ryzen 5 PRO 220 (gfx1103)
-         :value: 5-pro-220 gfx=gfx1103
-
-      .. selector-option:: AMD Ryzen 5 PRO 215 (gfx1103)
-         :value: 5-pro-215 gfx=gfx1103
-
-      .. selector-option:: AMD Ryzen 3 PRO 210 (gfx1103)
-         :value: 3-pro-210 gfx=gfx1103
-
-      .. selector-option:: AMD Ryzen 9 270 (gfx1103)
-         :value: 9-270 gfx=gfx1103
-
-      .. selector-option:: AMD Ryzen 7 260 (gfx1103)
-         :value: 7-260 gfx=gfx1103
-
-      .. selector-option:: AMD Ryzen 7 250 (gfx1103)
-         :value: 7-250 gfx=gfx1103
-
-      .. selector-option:: AMD Ryzen 5 240 (gfx1103)
-         :value: 5-240 gfx=gfx1103
-
-      .. selector-option:: AMD Ryzen 5 230 (gfx1103)
-         :value: 5-230 gfx=gfx1103
-
-      .. selector-option:: AMD Ryzen 5 220 (gfx1103)
-         :value: 5-220 gfx=gfx1103
-
-      .. selector-option:: AMD Ryzen 3 210 (gfx1103)
-         :value: 3-210 gfx=gfx1103
-
 .. selector:: ROCm version
    :key: rocm-ver
 
@@ -400,6 +367,11 @@ Prerequisites
      <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
      installed and accessible.
 
+   .. selected:: rocm-ver=10.1.0
+
+      * vLLM 0.29.0 requires PyTorch 2.13.0. See
+        :doc:`/frameworks/pytorch/install` for installation instructions.
+
    * Install `uv <https://docs.astral.sh/uv/getting-started/installation/>`__.
 
      .. note::
@@ -473,9 +445,3 @@ Prerequisites
      model inference workloads on AMD Radeon GPUs using vLLM versions v0.21.0
      through v0.25.0. As a workaround, use a vLLM release earlier than v0.21.0
      or upgrade to vLLM v0.26.0 or later, which includes a fix for this issue.
-
-   .. selected:: fam=ryzen gfx=gfx1103
-
-      * Intermittent segmentation faults or GPU hangs might be observed when
-        running some vLLM or ComfyUI workloads on Ryzen AI systems using gfx1103
-        (RDNA3) GPUs.

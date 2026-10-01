@@ -40,19 +40,23 @@ Prerequisites
 
 .. selected:: rocm-ver=10.1.0
 
-   ONNX Runtime is currently supported on:
+   ONNX Runtime 1.29.0 is currently supported on:
 
-   * ``gfx950`` AMD Instinct MI355X and MI350X
+   * ``gfx950`` AMD Instinct MI355X, MI350X, and MI350P
 
-   * ``gfx942`` AMD Instinct MI325X and MI300X
+   * ``gfx942`` AMD Instinct MI325X, MI300X, and MI300A
+
+   * ``gfx90a`` AMD Instinct MI250X, MI250, and MI210
 
    * ``gfx1200``, ``gfx1201``, ``gfx1100``, ``gfx1101``, and ``gfx1102`` Radeon GPUs.
+
+   * ``gfx1153``, ``gfx1152``, ``gfx1151``, and ``gfx1150`` Ryzen AI processors.
 
    See the `ROCm compatibility matrix
    <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__
    for more information.
 
-   * Ensure your system has Python 3.14 or 3.12 installed and accessible.
+   * Ensure your system has Python 3.12 installed and accessible.
 
 .. selected:: rocm-ver=10.0.0
 

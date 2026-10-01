@@ -71,7 +71,33 @@ hardware. It applies to `supported AMD GPUs and platforms
    .. selector-option:: 7.14.0
       :width: 3
 
-.. selected:: rocm-ver=10.1.0 rocm-ver=10.0.0
+.. selected:: rocm-ver=10.1.0
+
+   .. selector:: PyTorch version
+      :key: pytorch-ver
+      :show-cond: os=linux
+
+      .. selector-option:: 2.14.0
+         :value: 2.14.0
+         :width: 4
+         :show-cond: fam=instinct fam=all
+
+      .. selector-option:: 2.13.0
+         :value: 2.13.0
+         :width: 4
+         :show-cond: fam=instinct fam=all
+
+      .. selector-option:: 2.12.0
+         :value: 2.12.0
+         :width: 4
+         :show-cond: fam=instinct fam=all
+
+      .. selector-option:: 2.14.0
+         :value: 2.14.0
+         :width: 12
+         :show-cond: fam=radeon fam=ryzen
+
+.. selected:: rocm-ver=10.0.0
 
    .. selector:: PyTorch version
       :key: pytorch-ver
@@ -137,10 +163,15 @@ hardware. It applies to `supported AMD GPUs and platforms
    :key: pytorch-ver
    :show-cond: os=windows
 
+   .. selector-option:: 2.14.0
+      :value: 2.14.0
+      :width: 12
+      :show-cond: rocm-ver=10.1.0
+
    .. selector-option:: 2.13.0
       :value: 2.13.0
       :width: 12
-      :show-cond: rocm-ver=10.1.0 rocm-ver=10.0.0
+      :show-cond: rocm-ver=10.0.0
 
    .. selector-option:: 2.12.0
       :value: 2.12.0
@@ -188,9 +219,25 @@ Prerequisites
 
 .. selected:: i=pip
 
-   * Ensure your system has a `supported Python version
-     <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
-     installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
+   .. selected:: rocm-ver=10.1.0
+
+      .. selected:: os=linux
+
+         * Ensure your system has a `supported Python version
+           <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+           installed and accessible: **3.10, 3.11, 3.12, 3.13, or 3.14**.
+
+      .. selected:: os=windows
+
+         * Ensure your system has a `supported Python version
+           <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+           installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
+
+   .. selected:: rocm-ver=10.0.0 rocm-ver=7.14.1 rocm-ver=7.14.0
+
+      * Ensure your system has a `supported Python version
+        <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+        installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
 
    .. selected:: rocm-ver=10.1.0
 
@@ -290,6 +337,14 @@ Prerequisites
                .. code-block:: bat
 
                   py -3.11 -m venv .venv
+
+         .. tab-item:: Python 3.10
+
+            .. selected:: os=linux rocm-ver=10.1.0
+
+               .. code-block:: bash
+
+                  python3.10 -m venv .venv
 
    2. Activate your Python virtual environment. For example:
 
