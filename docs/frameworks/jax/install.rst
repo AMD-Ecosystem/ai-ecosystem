@@ -64,14 +64,22 @@ It applies to `supported AMD GPUs and platforms
       .. selector-option:: 0.11.1
          :value: 0.11.1
          :width: 4
+         :show-cond: fam=all fam=instinct
 
       .. selector-option:: 0.11.0
          :value: 0.11.0
          :width: 4
+         :show-cond: fam=all fam=instinct
 
       .. selector-option:: 0.10.2
          :value: 0.10.2
          :width: 4
+         :show-cond: fam=all fam=instinct
+
+      .. selector-option:: 0.11.1
+         :value: 0.11.1
+         :width: 12
+         :show-cond: fam=radeon
 
 .. selected:: rocm-ver=10.0.0
 

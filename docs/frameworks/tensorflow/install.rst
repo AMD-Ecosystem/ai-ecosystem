@@ -16,16 +16,22 @@ Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
 
    .. selector-option:: 10.1.0
       :width: 4
+      :show-cond: fam=instinct
 
    .. selector-option:: 10.0.0
       :width: 4
+      :show-cond: fam=instinct
 
    .. selector-option:: 7.14.1
       :width: 4
+      :show-cond: fam=instinct
+
+   .. selector-option:: 10.1.0
+      :width: 12
+      :show-cond: fam=radeon
 
 .. selector:: Device family
    :key: fam
-   :show-cond: rocm-ver=10.1.0
 
    .. selector-option:: AMD Instinct™
       :value: instinct
@@ -36,15 +42,6 @@ Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
       :value: radeon
       :width: 6
       :toc-label: AMD Radeon
-
-.. selector:: Device family
-   :key: fam
-   :show-cond: rocm-ver=10.0.0 rocm-ver=7.14.1
-
-   .. selector-option:: AMD Instinct™
-      :value: instinct
-      :width: 12
-      :toc-label: AMD Instinct
 
 .. selector-dropdown:: Instinct GPU
    :key: gpu
@@ -71,7 +68,7 @@ Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
 
 .. selector-dropdown:: Radeon GPU
    :key: gpu
-   :show-cond: fam=radeon rocm-ver=10.1.0 tensorflow-ver=2.21
+   :show-cond: fam=radeon
    :sort: desc
 
    .. selector-option:: AMD Radeon AI PRO R9700S (gfx1201)

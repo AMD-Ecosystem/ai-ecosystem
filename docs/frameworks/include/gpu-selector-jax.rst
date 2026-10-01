@@ -34,7 +34,7 @@
 
    .. selector-dropdown:: Radeon GPU
       :key: gpu
-      :show-cond: fam=radeon rocm-ver=10.1.0 jax-ver=0.11.1
+      :show-cond: fam=radeon rocm-ver=10.1.0
       :sort: desc
 
       .. selector-option:: AMD Radeon AI PRO R9700S (gfx1201)
