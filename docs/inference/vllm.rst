@@ -10,6 +10,21 @@ and serving. This page describes how to set up and run vLLM on AMD GPUs and
 APUs using either a prebuilt Docker image (recommended) or pip. It applies to
 `supported AMD GPUs and platforms <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.1.0
+      :width: 3
+
+   .. selector-option:: 10.0.0
+      :width: 3
+
+   .. selector-option:: 7.14.1
+      :width: 3
+
+   .. selector-option:: 7.14.0
+      :width: 3
+
 .. selector:: Device family
    :key: fam
 
@@ -235,21 +250,6 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
 
       .. selector-option:: AMD Ryzen AI 5 330 (gfx1152)
          :value: ai-5-330 gfx=gfx1152
-
-.. selector:: ROCm version
-   :key: rocm-ver
-
-   .. selector-option:: 10.1.0
-      :width: 3
-
-   .. selector-option:: 10.0.0
-      :width: 3
-
-   .. selector-option:: 7.14.1
-      :width: 3
-
-   .. selector-option:: 7.14.0
-      :width: 3
 
 .. selector:: vLLM version
    :key: vllm-ver

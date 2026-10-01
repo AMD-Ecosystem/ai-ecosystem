@@ -11,6 +11,21 @@ and run SGLang on AMD GPUs using either a prebuilt Docker image (recommended)
 or pip. It applies to `supported AMD GPUs and platforms
 <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.1.0
+      :width: 3
+
+   .. selector-option:: 10.0.0
+      :width: 3
+
+   .. selector-option:: 7.14.1
+      :width: 3
+
+   .. selector-option:: 7.14.0
+      :width: 3
+
 .. selector:: Device family
    :key: fam
 
@@ -127,21 +142,6 @@ or pip. It applies to `supported AMD GPUs and platforms
 
       .. selector-option:: AMD Radeon RX 7600 (gfx1102)
          :value: rx-7600 gfx=gfx1102
-
-.. selector:: ROCm version
-   :key: rocm-ver
-
-   .. selector-option:: 10.1.0
-      :width: 3
-
-   .. selector-option:: 10.0.0
-      :width: 3
-
-   .. selector-option:: 7.14.1
-      :width: 3
-
-   .. selector-option:: 7.14.0
-      :width: 3
 
 .. selector:: SGLang version
    :key: sgl-ver

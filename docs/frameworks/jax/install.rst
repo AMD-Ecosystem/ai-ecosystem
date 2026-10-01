@@ -11,6 +11,25 @@ This page guides you through installing JAX with ROCm support on AMD hardware.
 It applies to `supported AMD GPUs and platforms
 <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.1.0
+      :value: 10.1.0
+      :width: 3
+
+   .. selector-option:: 10.0.0
+      :value: 10.0.0
+      :width: 3
+
+   .. selector-option:: 7.14.1
+      :value: 7.14.1
+      :width: 3
+
+   .. selector-option:: 7.14.0
+      :value: 7.14.0
+      :width: 3
+
 .. selector:: Device family
    :key: fam
 
@@ -36,25 +55,6 @@ It applies to `supported AMD GPUs and platforms
    .. selector-option:: Linux
       :value: linux
       :width: 12
-
-.. selector:: ROCm version
-   :key: rocm-ver
-
-   .. selector-option:: 10.1.0
-      :value: 10.1.0
-      :width: 3
-
-   .. selector-option:: 10.0.0
-      :value: 10.0.0
-      :width: 3
-
-   .. selector-option:: 7.14.1
-      :value: 7.14.1
-      :width: 3
-
-   .. selector-option:: 7.14.0
-      :value: 7.14.0
-      :width: 3
 
 .. selected:: rocm-ver=10.1.0
 
