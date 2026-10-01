@@ -45,8 +45,6 @@
                python -m pip install --index-url |PKG_REPO_1010| \
                    "rocm[libraries,device-gfx942]==|ROCM_VER_1010|"
 
-      4. Install the ROCm-enabled TensorFlow libraries.
-
          .. selected:: gfx=gfx1200
 
             .. code-block:: bash
@@ -54,8 +52,6 @@
 
                python -m pip install --index-url |PKG_REPO_1010| \
                    "rocm[libraries,device-gfx1200]==|ROCM_VER_1010|"
-
-      4. Install the ROCm-enabled TensorFlow libraries.
 
          .. selected:: gfx=gfx1201
 
@@ -65,8 +61,6 @@
                python -m pip install --index-url |PKG_REPO_1010| \
                    "rocm[libraries,device-gfx1201]==|ROCM_VER_1010|"
 
-      4. Install the ROCm-enabled TensorFlow libraries.
-
          .. selected:: gfx=gfx1100
 
             .. code-block:: bash
@@ -75,8 +69,6 @@
                python -m pip install --index-url |PKG_REPO_1010| \
                    "rocm[libraries,device-gfx1100]==|ROCM_VER_1010|"
 
-      4. Install the ROCm-enabled TensorFlow libraries.
-
          .. selected:: gfx=gfx1101
 
             .. code-block:: bash
@@ -84,8 +76,6 @@
 
                python -m pip install --index-url |PKG_REPO_1010| \
                    "rocm[libraries,device-gfx1101]==|ROCM_VER_1010|"
-
-      4. Install the ROCm-enabled TensorFlow libraries.
 
          .. selected:: gfx=gfx1102
 
@@ -121,7 +111,7 @@
 
             export LD_LIBRARY_PATH=$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib/rocm_sysdeps/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_libraries/lib:$LD_LIBRARY_PATH
 
-      5. Verify your TensorFlow installation.
+      6. Verify your TensorFlow installation.
 
          .. code-block:: shell
 
