@@ -5,7 +5,7 @@
       :heading-level: 3
 
       Use the following steps to install MIGraphX system-wide using your
-      distribution's package manager on top of the ROCm.
+      distribution's package manager on top of ROCm core libraries.
 
       .. selector:: Linux distribution
          :key: os
@@ -114,6 +114,10 @@
 
             .. selector-option:: 15.7
                :width: 6
+
+      .. raw:: html
+
+         <br>
 
       1. Register the ROCm MIGraphX repository.
 
