@@ -123,7 +123,7 @@
 
          python -m pip install --extra-index-url |FW_REPO_1010| \
              "flash-attn==2.8.3" \
-             "amd-aiter==0.1.22.post2.dev0"
+             "amd-aiter==0.1.22.post2.dev0+gb4d9154d1.d20260928"
 
    5. Install the vLLM |VLLM_VERSION_1010P| wheel using ``uv pip``.
 
