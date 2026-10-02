@@ -546,9 +546,9 @@
                   :substitutions:
 
                   python -m pip install --index-url |PKG_REPO_1010| \
-                      "torch[device-gfx1150]==2.12.0+|ROCM_VER_1010|" \
-                      "torchvision[device-gfx1150]==0.27.0+|ROCM_VER_1010|" \
-                      "torchaudio==2.11.0+|ROCM_VER_1010|"
+                      "torch[device-gfx1150]==2.14.0+|ROCM_VER_1010|" \
+                      "torchvision[device-gfx1150]==0.29.0a0+|ROCM_VER_1010|" \
+                      "torchaudio==2.11.0.3+|ROCM_VER_1010|"
 
             .. selected:: os=windows
 
@@ -565,9 +565,9 @@
                   :substitutions:
 
                   python -m pip install --index-url |PKG_REPO_1010| \
-                      "torch[device-gfx1150]==2.12.0+|ROCM_VER_1010|" \
-                      "torchvision[device-gfx1150]==0.27.0+|ROCM_VER_1010|" \
-                      "torchaudio==2.11.0+|ROCM_VER_1010|"
+                      "torch[device-gfx1150]==2.13.0+|ROCM_VER_1010|" \
+                      "torchvision[device-gfx1150]==0.28.0+|ROCM_VER_1010|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1010|"
 
             .. selected:: os=windows
 
