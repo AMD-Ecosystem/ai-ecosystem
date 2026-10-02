@@ -39,10 +39,10 @@
          .. selector:: Ubuntu version
             :key: ubuntu-ver
 
-            .. selector-option:: 26.04
+            .. selector-option:: 26.04.1
                :width: 4
 
-            .. selector-option:: 24.04.4
+            .. selector-option:: 24.04.5
                :width: 4
 
             .. selector-option:: 22.04.5
@@ -109,7 +109,7 @@
          .. selector:: SLES version
             :key: sles-ver
 
-            .. selector-option:: 16.0
+            .. selector-option:: 16
                :width: 6
 
             .. selector-option:: 15.7
@@ -123,28 +123,44 @@
 
          .. selected:: os=ubuntu
 
-            .. selected:: ubuntu-ver=26.04
+            .. selected:: ubuntu-ver=26.04.1
 
                .. code-block:: bash
 
                   sudo mkdir --parents --mode=0755 /etc/apt/keyrings
                   wget https://stable.repo.amd.com/rocm/gpg/packages.gpg -O - | \
                       gpg --dearmor | sudo tee /etc/apt/keyrings/amdrocm.gpg > /dev/null
-                  sudo tee /etc/apt/sources.list.d/amdrocm-migraphx.list << 'EOF'
-                  deb [arch=amd64 signed-by=/etc/apt/keyrings/amdrocm.gpg] https://stable.repo.amd.com/rocm/migraphx/packages/ubuntu2604/ stable main
+                  sudo tee /etc/apt/sources.list.d/amdrocm-migraphx.sources << 'EOF'
+                  X-Repo-Id: amdrocm-migraphx
+                  Types: deb
+                  URIs: https://stable.repo.amd.com/rocm/migraphx/packages/ubuntu2604/
+                  Suites: stable
+                  Components: main
+                  Architectures: amd64
+                  Signed-By: /etc/apt/keyrings/amdrocm.gpg
+                  Enabled: yes
                   EOF
+
                   sudo apt update
 
-            .. selected:: ubuntu-ver=24.04.4
+            .. selected:: ubuntu-ver=24.04.5
 
                .. code-block:: bash
 
                   sudo mkdir --parents --mode=0755 /etc/apt/keyrings
                   wget https://stable.repo.amd.com/rocm/gpg/packages.gpg -O - | \
                       gpg --dearmor | sudo tee /etc/apt/keyrings/amdrocm.gpg > /dev/null
-                  sudo tee /etc/apt/sources.list.d/amdrocm-migraphx.list << 'EOF'
-                  deb [arch=amd64 signed-by=/etc/apt/keyrings/amdrocm.gpg] https://stable.repo.amd.com/rocm/migraphx/packages/ubuntu2404/ stable main
+                  sudo tee /etc/apt/sources.list.d/amdrocm-migraphx.sources << 'EOF'
+                  X-Repo-Id: amdrocm-migraphx
+                  Types: deb
+                  URIs: https://stable.repo.amd.com/rocm/migraphx/packages/ubuntu2404/
+                  Suites: stable
+                  Components: main
+                  Architectures: amd64
+                  Signed-By: /etc/apt/keyrings/amdrocm.gpg
+                  Enabled: yes
                   EOF
+
                   sudo apt update
 
             .. selected:: ubuntu-ver=22.04.5
@@ -154,9 +170,17 @@
                   sudo mkdir --parents --mode=0755 /etc/apt/keyrings
                   wget https://stable.repo.amd.com/rocm/gpg/packages.gpg -O - | \
                       gpg --dearmor | sudo tee /etc/apt/keyrings/amdrocm.gpg > /dev/null
-                  sudo tee /etc/apt/sources.list.d/amdrocm-migraphx.list << 'EOF'
-                  deb [arch=amd64 signed-by=/etc/apt/keyrings/amdrocm.gpg] https://stable.repo.amd.com/rocm/migraphx/packages/ubuntu2204/ stable main
+                  sudo tee /etc/apt/sources.list.d/amdrocm-migraphx.sources << 'EOF'
+                  X-Repo-Id: amdrocm-migraphx
+                  Types: deb
+                  URIs: https://stable.repo.amd.com/rocm/migraphx/packages/ubuntu2204/
+                  Suites: stable
+                  Components: main
+                  Architectures: amd64
+                  Signed-By: /etc/apt/keyrings/amdrocm.gpg
+                  Enabled: yes
                   EOF
+
                   sudo apt update
 
          .. selected:: os=debian
@@ -168,9 +192,17 @@
                   sudo mkdir --parents --mode=0755 /etc/apt/keyrings
                   wget https://stable.repo.amd.com/rocm/gpg/packages.gpg -O - | \
                       gpg --dearmor | sudo tee /etc/apt/keyrings/amdrocm.gpg > /dev/null
-                  sudo tee /etc/apt/sources.list.d/amdrocm-migraphx.list << 'EOF'
-                  deb [arch=amd64 signed-by=/etc/apt/keyrings/amdrocm.gpg] https://stable.repo.amd.com/rocm/migraphx/packages/debian13/ stable main
+                  sudo tee /etc/apt/sources.list.d/amdrocm-migraphx.sources << 'EOF'
+                  X-Repo-Id: amdrocm-migraphx
+                  Types: deb
+                  URIs: https://stable.repo.amd.com/rocm/migraphx/packages/debian13/
+                  Suites: stable
+                  Components: main
+                  Architectures: amd64
+                  Signed-By: /etc/apt/keyrings/amdrocm.gpg
+                  Enabled: yes
                   EOF
+
                   sudo apt update
 
             .. selected:: debian-ver=12
@@ -180,9 +212,17 @@
                   sudo mkdir --parents --mode=0755 /etc/apt/keyrings
                   wget https://stable.repo.amd.com/rocm/gpg/packages.gpg -O - | \
                       gpg --dearmor | sudo tee /etc/apt/keyrings/amdrocm.gpg > /dev/null
-                  sudo tee /etc/apt/sources.list.d/amdrocm-migraphx.list << 'EOF'
-                  deb [arch=amd64 signed-by=/etc/apt/keyrings/amdrocm.gpg] https://stable.repo.amd.com/rocm/migraphx/packages/debian12/ stable main
+                  sudo tee /etc/apt/sources.list.d/amdrocm-migraphx.sources << 'EOF'
+                  X-Repo-Id: amdrocm-migraphx
+                  Types: deb
+                  URIs: https://stable.repo.amd.com/rocm/migraphx/packages/debian12/
+                  Suites: stable
+                  Components: main
+                  Architectures: amd64
+                  Signed-By: /etc/apt/keyrings/amdrocm.gpg
+                  Enabled: yes
                   EOF
+
                   sudo apt update
 
          .. selected:: os=rhel
@@ -193,7 +233,7 @@
 
                   sudo tee /etc/yum.repos.d/amdrocm-migraphx.repo <<EOF
                   [amdrocm-migraphx]
-                  name=MIGraphX
+                  name=AMD ROCm MIGraphX
                   baseurl=https://stable.repo.amd.com/rocm/migraphx/packages/rhel10/x86_64
                   enabled=1
                   gpgcheck=1
@@ -208,7 +248,7 @@
 
                   sudo tee /etc/yum.repos.d/amdrocm-migraphx.repo <<EOF
                   [amdrocm-migraphx]
-                  name=MIGraphX
+                  name=AMD ROCm MIGraphX
                   baseurl=https://stable.repo.amd.com/rocm/migraphx/packages/rhel9/x86_64
                   enabled=1
                   gpgcheck=1
@@ -223,7 +263,7 @@
 
                   sudo tee /etc/yum.repos.d/amdrocm-migraphx.repo <<EOF
                   [amdrocm-migraphx]
-                  name=MIGraphX
+                  name=AMD ROCm MIGraphX
                   baseurl=https://stable.repo.amd.com/rocm/migraphx/packages/rhel8/x86_64
                   enabled=1
                   gpgcheck=1
@@ -240,7 +280,7 @@
 
                   sudo tee /etc/yum.repos.d/amdrocm-migraphx.repo <<EOF
                   [amdrocm-migraphx]
-                  name=MIGraphX
+                  name=AMD ROCm MIGraphX
                   baseurl=https://stable.repo.amd.com/rocm/migraphx/packages/rhel10/x86_64
                   enabled=1
                   gpgcheck=1
@@ -255,8 +295,23 @@
 
                   sudo tee /etc/yum.repos.d/amdrocm-migraphx.repo <<EOF
                   [amdrocm-migraphx]
-                  name=MIGraphX
+                  name=AMD ROCm MIGraphX
                   baseurl=https://stable.repo.amd.com/rocm/migraphx/packages/rhel9/x86_64
+                  enabled=1
+                  gpgcheck=1
+                  gpgkey=https://stable.repo.amd.com/rocm/gpg/packages.gpg
+                  priority=50
+                  EOF
+                  sudo dnf clean all
+
+            .. selected:: oracle-linux-ver=8
+
+               .. code-block:: bash
+
+                  sudo tee /etc/yum.repos.d/amdrocm-migraphx.repo <<EOF
+                  [amdrocm-migraphx]
+                  name=AMD ROCm MIGraphX
+                  baseurl=https://stable.repo.amd.com/rocm/migraphx/packages/rhel8/x86_64
                   enabled=1
                   gpgcheck=1
                   gpgkey=https://stable.repo.amd.com/rocm/gpg/packages.gpg
@@ -270,7 +325,7 @@
 
                sudo tee /etc/yum.repos.d/amdrocm-migraphx.repo <<EOF
                [amdrocm-migraphx]
-               name=MIGraphX
+               name=AMD ROCm MIGraphX
                baseurl=https://stable.repo.amd.com/rocm/migraphx/packages/rhel9/x86_64
                enabled=1
                gpgcheck=1
@@ -281,17 +336,18 @@
 
          .. selected:: os=sles
 
-            .. selected:: sles-ver=16.0
+            .. selected:: sles-ver=16
 
                .. code-block:: bash
 
                   sudo tee /etc/zypp/repos.d/amdrocm-migraphx.repo <<EOF
                   [amdrocm-migraphx]
-                  name=MIGraphX
+                  name=AMD ROCm MIGraphX
                   baseurl=https://stable.repo.amd.com/rocm/migraphx/packages/sles16/x86_64
                   enabled=1
                   gpgcheck=1
                   gpgkey=https://stable.repo.amd.com/rocm/gpg/packages.gpg
+                  priority=50
                   EOF
 
                   sudo zypper --gpg-auto-import-keys refresh
@@ -302,11 +358,12 @@
 
                   sudo tee /etc/zypp/repos.d/amdrocm-migraphx.repo <<EOF
                   [amdrocm-migraphx]
-                  name=MIGraphX
+                  name=AMD ROCm MIGraphX
                   baseurl=https://stable.repo.amd.com/rocm/migraphx/packages/sles15/x86_64
                   enabled=1
                   gpgcheck=1
                   gpgkey=https://stable.repo.amd.com/rocm/gpg/packages.gpg
+                  priority=50
                   EOF
 
                   sudo zypper --gpg-auto-import-keys refresh
@@ -317,21 +374,78 @@
 
             .. code-block:: bash
 
-               sudo apt install amdrocm-migraphx
+               sudo apt install amdrocm10-migraphx amdrocm10-migraphx-dev
 
          .. selected:: os=rhel os=oracle-linux os=rocky-linux
 
             .. code-block:: bash
 
-               sudo dnf install amdrocm-migraphx
+               sudo dnf install amdrocm10-migraphx amdrocm10-migraphx-devel
 
          .. selected:: os=sles
 
             .. code-block:: bash
 
-               sudo zypper install amdrocm-migraphx
+               sudo zypper install amdrocm10-migraphx amdrocm10-migraphx-devel
 
-      3. ONNX Runtime accelerates machine learning inference using the MIGraphX
+      3. Complete the following post-installation steps.
+
+         Configure environment variables so that MIGraphX is added to the
+         ``PATH`` and ``LD_LIBRARY_PATH``.
+
+         .. tab-set::
+
+            .. tab-item:: User (~/.bashrc)
+               :sync: bashrc
+
+               .. code-block:: bash
+
+                  # MIGraphX Environment Setup
+                  tee --append ~/.bashrc << 'EOF'
+                  # BEGIN MIGraphX environment configuration
+                  export ROCM_PATH=/opt/rocm/core-10.1
+                  export MIGRAPHX_PATH=/opt/rocm/extras-10
+                  export PATH=$MIGRAPHX_PATH/bin:$PATH
+                  export LD_LIBRARY_PATH=$MIGRAPHX_PATH/lib:$ROCM_PATH/lib:$LD_LIBRARY_PATH
+                  # END MIGraphX environment configuration
+                  EOF
+
+                  source ~/.bashrc
+
+            .. tab-item:: User (~/.profile)
+               :sync: profile
+
+               .. code-block:: bash
+
+                  # MIGraphX Environment Setup
+                  tee --append ~/.profile << 'EOF'
+                  # BEGIN MIGraphX environment configuration
+                  export ROCM_PATH=/opt/rocm/core-10.1
+                  export MIGRAPHX_PATH=/opt/rocm/extras-10
+                  export PATH=$MIGRAPHX_PATH/bin:$PATH
+                  export LD_LIBRARY_PATH=$MIGRAPHX_PATH/lib:$ROCM_PATH/lib:$LD_LIBRARY_PATH
+                  # END MIGraphX environment configuration
+                  EOF
+
+                  source ~/.profile
+
+            .. tab-item:: System-wide
+               :sync: system
+
+               .. code-block:: bash
+
+                  # MIGraphX Environment Setup
+                  sudo tee /etc/profile.d/set-migraphx-env.sh << 'EOF'
+                  export ROCM_PATH=/opt/rocm/core-10.1
+                  export MIGRAPHX_PATH=/opt/rocm/extras-10
+                  export PATH=$MIGRAPHX_PATH/bin:$PATH
+                  export LD_LIBRARY_PATH=$MIGRAPHX_PATH/lib:$ROCM_PATH/lib:$LD_LIBRARY_PATH
+                  EOF
+
+                  sudo chmod +x /etc/profile.d/set-migraphx-env.sh
+                  source /etc/profile.d/set-migraphx-env.sh
+
+      4. ONNX Runtime accelerates machine learning inference using the MIGraphX
          execution provider on ROCm-supported GPUs. See the :doc:`installation
          <onnxruntime>` guidance.
 
@@ -345,19 +459,19 @@
 
             .. code-block:: bash
 
-               sudo apt autoremove amdrocm-migraphx
+               sudo apt remove amdrocm10-migraphx amdrocm10-migraphx-dev
 
          .. selected:: os=rhel os=oracle-linux os=rocky-linux
 
             .. code-block:: bash
 
-               sudo dnf remove amdrocm-migraphx
+               sudo dnf remove amdrocm10-migraphx amdrocm10-migraphx-devel
 
          .. selected:: os=sles
 
             .. code-block:: bash
 
-               sudo zypper remove amdrocm-migraphx
+               sudo zypper remove amdrocm10-migraphx amdrocm10-migraphx-devel
 
       2. Remove the MIGraphX repository.
 
@@ -366,11 +480,10 @@
             .. code-block:: bash
 
                # Remove MIGraphX repository
-               sudo rm /etc/apt/sources.list.d/amdrocm-migraphx.list
+               sudo rm /etc/apt/sources.list.d/amdrocm-migraphx.sources
 
                # Clear the cache and clean the system
-               sudo rm -rf /var/cache/apt/*
-               sudo apt clean all
+               sudo apt clean
                sudo apt update
 
          .. selected:: os=rhel os=oracle-linux os=rocky-linux
@@ -381,7 +494,6 @@
                sudo rm /etc/yum.repos.d/amdrocm-migraphx.repo
 
                # Clear the cache and clean the system
-               sudo rm -rf /var/cache/dnf
                sudo dnf clean all
 
          .. selected:: os=sles
@@ -389,8 +501,38 @@
             .. code-block:: bash
 
                # Remove MIGraphX repository
-               sudo zypper removerepo "amdrocm-migraphx"
+               sudo rm /etc/zypp/repos.d/amdrocm-migraphx.repo
 
                # Clear the cache and clean the system
                sudo zypper clean --all
                sudo zypper refresh
+
+      3. Remove the MIGraphX environment configuration.
+
+         .. tab-set::
+
+            .. tab-item:: User (~/.bashrc)
+               :sync: bashrc
+
+               If you opted for a user-specific setup during the installation
+               process, remove the MIGraphX environment configuration block --
+               the lines between the ``BEGIN`` and ``END`` markers -- from
+               ``~/.bashrc``.
+
+            .. tab-item:: User (~/.profile)
+               :sync: profile
+
+               If you opted for a user-specific setup during the installation
+               process, remove the MIGraphX environment configuration block --
+               the lines between the ``BEGIN`` and ``END`` markers -- from
+               ``~/.profile``.
+
+            .. tab-item:: System-wide
+               :sync: system
+
+               If you opted for a system-wide setup during the installation
+               process, remove the MIGraphX environment variables.
+
+               .. code-block:: bash
+
+                  sudo rm -f /etc/profile.d/set-migraphx-env.sh

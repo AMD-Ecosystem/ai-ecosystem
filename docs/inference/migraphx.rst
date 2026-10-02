@@ -44,11 +44,15 @@ of MIGraphX that ships with your selected ROCm release.
 
       .. selector-option:: Package manager
          :value: pkgman
-         :width: 6
+         :width: 4
 
       .. selector-option:: pip
          :value: pip
-         :width: 6
+         :width: 4
+
+      .. selector-option:: Tarball
+         :value: tar
+         :width: 4
 
 Prerequisites
 =============
@@ -152,6 +156,8 @@ Install ROCm
 .. include:: ./include/migraphx/rocm10.1.0-pkg-install.rst
 
 .. include:: ./include/migraphx/rocm10.1.0-pip-install.rst
+
+.. include:: ./include/migraphx/rocm10.1.0-tar-install.rst
 
 .. include:: ./include/migraphx/rocm10.0.0-pip-install.rst
 
