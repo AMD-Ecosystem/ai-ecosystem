@@ -1,5 +1,5 @@
-.. |PKG_REPO_1010| replace:: https://rocm.frameworks-prereleases.amd.com/whl-multi-arch-staging/
-.. |ROCM_VER_1010| replace:: rocm10.1.0rc3
+.. |PKG_REPO_1010| replace:: https://stable.repo.amd.com/rocm/whl-next/
+.. |ROCM_VER_1010| replace:: rocm10.1.0
 .. |FW_REPO_1010| replace:: https://rocm.frameworks-prereleases.amd.com/whl-multi-arch-staging/vllm/
 
 .. |VLLM_VERSION_1010P| replace:: 0.29
