@@ -8,7 +8,7 @@
 .. |VLLM_DOCKER_INSTALL_DOC_1010P| replace:: `Set up using Docker (vLLM docs) <https://docs.vllm.ai/en/v0.29.0/getting_started/installation/gpu/#amd-rocm_5>`__
 .. |VLLM_PIP_INSTALL_DOC_1010P| replace:: `Set up using Python (vLLM docs) <https://docs.vllm.ai/en/v0.29.0/getting_started/installation/gpu/#amd-rocm_3>`__
 
-.. |VLLM_WHL_1010| replace:: https://rocm.frameworks-prereleases.amd.com/whl-multi-arch-staging/vllm/vllm/vllm-0.29.1.dev0%2Brocm10.1.0rc3.g98dff2a81.d20260928-cp314-cp314-linux_x86_64.whl
+.. |VLLM_WHL_1010| replace:: https://rocm.frameworks-prereleases.amd.com/whl-multi-arch-staging/vllm/vllm/vllm-0.29.1.dev0%2Brocm10.1.0.g98dff2a81.d20261002-cp314-cp314-linux_x86_64.whl
 
 .. selected:: rocm-ver=10.1.0
 
@@ -123,7 +123,7 @@
 
          python -m pip install --extra-index-url |FW_REPO_1010| \
              "flash-attn==2.8.3" \
-             "amd-aiter==0.1.20.post1"
+             "amd-aiter==0.1.22.post2.dev0"
 
    5. Install the vLLM |VLLM_VERSION_1010P| wheel using ``uv pip``.
 
