@@ -94,6 +94,11 @@ Prerequisites
 
    * Ensure your system has Python 3.12 installed and accessible.
 
+Install ONNX Runtime on Linux
+=============================
+
+ONNX Runtime requires ROCm to be installed on your system first.
+
 Install ROCm
 ------------
 
