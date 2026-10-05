@@ -25,32 +25,15 @@
 
          python -m pip install --extra-index-url |PKG_REPO_1010| |WHL_1010|
 
-   4. As a workaround due to packaging issues, create the required soname
-      symlink and set library search paths. For example, if you installed
-      MIGraphX using pip:
-
-      .. code-block:: bash
-
-         SP=$(python -c "import site; print(site.getsitepackages()[0])")
-         ln -sf $SP/onnxruntime/capi/libonnxruntime.so.1.29.0 $SP/onnxruntime/capi/libonnxruntime.so.1
-         export LD_LIBRARY_PATH=$SP/onnxruntime/capi:$SP/migraphx_libs:$LD_LIBRARY_PATH
-
-      .. tip::
-
-         The symlink only needs to be created once. For persistence,
-         ``LD_LIBRARY_PATH`` should be set for each shell session or added to
-         your shell startup script (e.g. ``~/.bashrc``).
-
-   5. Confirm ONNX Runtime is correctly installed and the MIGraphX execution
+   4. Confirm ONNX Runtime is correctly installed and the MIGraphX execution
       provider is available.
 
       The EP plugin must be explicitly registered using
       ``onnxruntime_ep_migraphx`` before querying available providers.
-      ``migraphx`` must be imported first to initialize the ROCm runtime.
 
       .. code-block:: bash
 
-         python -c "import migraphx, onnxruntime as ort, onnxruntime_ep_migraphx as m; [ort.register_execution_provider_library(n,p) for n,p in zip(m.get_ep_names(), m.get_library_paths())]; print(ort.get_available_providers())"
+         python -c "import onnxruntime as ort, onnxruntime_ep_migraphx as m; [ort.register_execution_provider_library(n,p) for n,p in zip(m.get_ep_names(), m.get_library_paths())]; print(ort.get_available_providers())"
 
       You should see ``MIGraphXExecutionProvider`` in the output:
 
