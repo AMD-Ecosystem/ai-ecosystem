@@ -224,7 +224,16 @@ Prerequisites
 
 .. selected:: fam=instinct fam=radeon
 
-   .. selected:: rocm-ver=10.1.0 rocm-ver=10.0.0
+   .. selected:: rocm-ver=10.1.0
+
+      * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
+        `ROCm compatibility matrix
+        <https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>`__
+        for driver support information. For installation instructions, see the
+        `AMD GPU Driver documentation
+        <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.60.0/index.html>`__.
+
+   .. selected:: rocm-ver=10.0.0
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
