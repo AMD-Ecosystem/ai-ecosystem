@@ -1,5 +1,5 @@
-.. |PKG_REPO| replace:: https://stable.repo.amd.com/rocm/whl-next/
-.. |ROCM_VER| replace:: rocm10.0.0
+.. |PKG_REPO_1000| replace:: https://stable.repo.amd.com/rocm/whl-next/
+.. |ROCM_VER_1000| replace:: rocm10.0.0
 
 .. selected:: rocm-ver=10.0.0
 
@@ -15,10 +15,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-all]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-all]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-all]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-all]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-all]==2.13.0+|ROCM_VER_1000|" "torchvision[device-all]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -27,17 +34,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-all]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-all]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-all]==2.13.0+|ROCM_VER|" "torchvision[device-all]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-all]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-all]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -46,10 +46,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-all]==2.11.0+|ROCM_VER|" \
-                      "torchvision[device-all]==0.26.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-all]==2.11.0+|ROCM_VER_1000|" \
+                      "torchvision[device-all]==0.26.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx950
 
@@ -60,10 +60,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx950]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx950]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx950]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx950]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -72,10 +72,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx950]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx950]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx950]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx950]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -84,10 +84,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx950]==2.11.0+|ROCM_VER|" \
-                      "torchvision[device-gfx950]==0.26.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx950]==2.11.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx950]==0.26.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx942
 
@@ -98,10 +98,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx942]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx942]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx942]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx942]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -110,10 +110,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx942]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx942]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx942]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx942]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -122,10 +122,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx942]==2.11.0+|ROCM_VER|" \
-                      "torchvision[device-gfx942]==0.26.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx942]==2.11.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx942]==0.26.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx90a
 
@@ -136,10 +136,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx90a]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx90a]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx90a]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx90a]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -148,10 +148,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx90a]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx90a]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx90a]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx90a]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -160,10 +160,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx90a]==2.11.0+|ROCM_VER|" \
-                      "torchvision[device-gfx90a]==0.26.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx90a]==2.11.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx90a]==0.26.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx908
 
@@ -174,10 +174,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx908]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx908]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx908]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx908]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -186,10 +186,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx908]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx908]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx908]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx908]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.11.0
 
@@ -198,10 +198,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx908]==2.11.0+|ROCM_VER|" \
-                      "torchvision[device-gfx908]==0.26.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx908]==2.11.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx908]==0.26.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1200
 
@@ -212,10 +212,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1200]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1200]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1200]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1200]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-gfx1200]==2.13.0+|ROCM_VER_1000|" "torchvision[device-gfx1200]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -224,17 +231,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1200]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1200]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-gfx1200]==2.13.0+|ROCM_VER|" "torchvision[device-gfx1200]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1200]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1200]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1201
 
@@ -245,10 +245,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1201]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1201]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1201]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1201]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-gfx1201]==2.13.0+|ROCM_VER_1000|" "torchvision[device-gfx1201]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -257,17 +264,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1201]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1201]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-gfx1201]==2.13.0+|ROCM_VER|" "torchvision[device-gfx1201]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1201]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1201]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1100
 
@@ -278,10 +278,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1100]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1100]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1100]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1100]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-gfx1100]==2.13.0+|ROCM_VER_1000|" "torchvision[device-gfx1100]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -290,17 +297,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1100]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1100]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-gfx1100]==2.13.0+|ROCM_VER|" "torchvision[device-gfx1100]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1100]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1100]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1101
 
@@ -311,10 +311,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1101]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1101]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1101]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1101]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-gfx1101]==2.13.0+|ROCM_VER_1000|" "torchvision[device-gfx1101]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -323,17 +330,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1101]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1101]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-gfx1101]==2.13.0+|ROCM_VER|" "torchvision[device-gfx1101]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1101]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1101]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1102
 
@@ -344,10 +344,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1102]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1102]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1102]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1102]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-gfx1102]==2.13.0+|ROCM_VER_1000|" "torchvision[device-gfx1102]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -356,17 +363,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1102]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1102]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-gfx1102]==2.13.0+|ROCM_VER|" "torchvision[device-gfx1102]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1102]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1102]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1103
 
@@ -377,10 +377,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1103]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1103]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1103]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1103]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-gfx1103]==2.13.0+|ROCM_VER_1000|" "torchvision[device-gfx1103]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -389,17 +396,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1103]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1103]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-gfx1103]==2.13.0+|ROCM_VER|" "torchvision[device-gfx1103]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1103]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1103]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1030
 
@@ -410,10 +410,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1030]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1030]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1030]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1030]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-gfx1030]==2.13.0+|ROCM_VER_1000|" "torchvision[device-gfx1030]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -422,17 +429,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1030]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1030]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-gfx1030]==2.13.0+|ROCM_VER|" "torchvision[device-gfx1030]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1030]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1030]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1151
 
@@ -443,10 +443,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1151]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1151]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1151]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1151]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-gfx1151]==2.13.0+|ROCM_VER_1000|" "torchvision[device-gfx1151]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -455,17 +462,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1151]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1151]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-gfx1151]==2.13.0+|ROCM_VER|" "torchvision[device-gfx1151]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1151]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1151]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1150
 
@@ -476,10 +476,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1150]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1150]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1150]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1150]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-gfx1150]==2.13.0+|ROCM_VER_1000|" "torchvision[device-gfx1150]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -488,17 +495,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1150]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1150]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-gfx1150]==2.13.0+|ROCM_VER|" "torchvision[device-gfx1150]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1150]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1150]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1152
 
@@ -509,10 +509,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1152]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1152]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1152]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1152]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-gfx1152]==2.13.0+|ROCM_VER_1000|" "torchvision[device-gfx1152]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -521,17 +528,10 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1152]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1152]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-gfx1152]==2.13.0+|ROCM_VER|" "torchvision[device-gfx1152]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1152]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1152]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"
 
       .. selected:: gfx=gfx1153
 
@@ -542,10 +542,17 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1153]==2.13.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1153]==0.28.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1153]==2.13.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1153]==0.28.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0.2+|ROCM_VER_1000|"
+
+            .. selected:: os=windows
+
+               .. code-block:: bat
+                  :substitutions:
+
+                  python -m pip install --index-url |PKG_REPO_1000| "torch[device-gfx1153]==2.13.0+|ROCM_VER_1000|" "torchvision[device-gfx1153]==0.28.0+|ROCM_VER_1000|" "torchaudio==2.11.0.2+|ROCM_VER_1000|"
 
          .. selected:: pytorch-ver=2.12.0
 
@@ -554,14 +561,7 @@
                .. code-block:: bash
                   :substitutions:
 
-                  python -m pip install --index-url |PKG_REPO| \
-                      "torch[device-gfx1153]==2.12.0+|ROCM_VER|" \
-                      "torchvision[device-gfx1153]==0.27.0+|ROCM_VER|" \
-                      "torchaudio==2.11.0+|ROCM_VER|"
-
-            .. selected:: os=windows
-
-               .. code-block:: bat
-                  :substitutions:
-
-                  python -m pip install --index-url |PKG_REPO| "torch[device-gfx1153]==2.13.0+|ROCM_VER|" "torchvision[device-gfx1153]==0.28.0+|ROCM_VER|" "torchaudio==2.11.0.2+|ROCM_VER|"
+                  python -m pip install --index-url |PKG_REPO_1000| \
+                      "torch[device-gfx1153]==2.12.0+|ROCM_VER_1000|" \
+                      "torchvision[device-gfx1153]==0.27.0+|ROCM_VER_1000|" \
+                      "torchaudio==2.11.0+|ROCM_VER_1000|"

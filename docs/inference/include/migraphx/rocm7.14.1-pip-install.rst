@@ -1,5 +1,5 @@
-.. |PKG_REPO| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/
-.. |WHL| replace:: "migraphx==2.16.0+rocm7.14.1"
+.. |PKG_REPO_7141| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/
+.. |WHL_7141| replace:: "migraphx==2.16.0+rocm7.14.1"
 
 .. selected:: rocm-ver=7.14.1
 
@@ -22,8 +22,8 @@
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                |WHL| \
+            python -m pip install --index-url |PKG_REPO_7141| \
+                |WHL_7141| \
                 https://rocm.frameworks.amd.com/whl-multi-arch/migraphx/migraphx_libs-2.16.0%2Brocm7.14.1-py3-none-manylinux_2_28_x86_64.whl
 
       3. ONNX Runtime accelerates machine learning inference using the MIGraphX

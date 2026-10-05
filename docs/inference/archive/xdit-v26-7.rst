@@ -1,3 +1,5 @@
+:no-search:
+:orphan:
 :selector-toc2: Model
 :selector-toc2-icon: fa-solid fa-robot
 
@@ -12,7 +14,7 @@ xDiT diffusion inference
 
 .. _xdit-video-diffusion:
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
 
    {% set docker = data.docker %}
 
@@ -40,7 +42,7 @@ For preview and development releases, see `amdsiloai/pytorch-xdit <https://hub.d
 What's new
 ==========
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
 
    {% set docker = data.docker %}
 
@@ -48,7 +50,7 @@ What's new
    * {{ item }}
    {% endfor %}
 
-.. _xdit-video-diffusion-supported-models:
+.. _xdit-v26-7-video-diffusion-supported-models:
 
 Supported models
 ================
@@ -57,7 +59,7 @@ The following models are supported for inference performance benchmarking.
 Some instructions, commands, and recommendations in this documentation might
 vary by model -- select one to get started.
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
 
    {% set docker = data.docker %}
 
@@ -116,7 +118,7 @@ system's configuration.
 Pull the Docker image
 =====================
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
 
    {% set docker = data.docker %}
 
@@ -130,7 +132,7 @@ Pull the Docker image
 Validate and benchmark
 ======================
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
 
    {% set docker = data.docker %}
 
@@ -143,7 +145,7 @@ Validate and benchmark
    .. selected:: model={{ model.js_tag }}
 
       The following commands are written for {{ model.model }}.
-      See :ref:`xdit-video-diffusion-supported-models` to switch to another available model.
+      See :ref:`xdit-v26-7-video-diffusion-supported-models` to switch to another available model.
 
      {% endfor %}
    {% endfor %}
@@ -153,7 +155,7 @@ Choose your setup method
 
 You can either use an existing Hugging Face cache or download the model fresh inside the container.
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
 
    {% set docker = data.docker %}
 
@@ -243,7 +245,7 @@ You can either use an existing Hugging Face cache or download the model fresh in
 Run inference
 =============
 
-.. datatemplate:yaml:: ./data/xdit.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
 
    {% set docker = data.docker %}
 

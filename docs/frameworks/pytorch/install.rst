@@ -11,6 +11,21 @@ This pages guides you through installing PyTorch with ROCm support on AMD
 hardware. It applies to `supported AMD GPUs and platforms
 <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.1.0
+      :width: 3
+
+   .. selector-option:: 10.0.0
+      :width: 3
+
+   .. selector-option:: 7.14.1
+      :width: 3
+
+   .. selector-option:: 7.14.0
+      :width: 3
+
 .. selector:: Device family
    :key: fam
 
@@ -56,17 +71,31 @@ hardware. It applies to `supported AMD GPUs and platforms
       :value: windows
       :width: 6
 
-.. selector:: ROCm version
-   :key: rocm-ver
+.. selected:: rocm-ver=10.1.0
 
-   .. selector-option:: 10.0.0
-      :width: 4
+   .. selector:: PyTorch version
+      :key: pytorch-ver
+      :show-cond: os=linux
 
-   .. selector-option:: 7.14.1
-      :width: 4
+      .. selector-option:: 2.14.0
+         :value: 2.14.0
+         :width: 4
+         :show-cond: fam=instinct fam=all
 
-   .. selector-option:: 7.14.0
-      :width: 4
+      .. selector-option:: 2.13.0
+         :value: 2.13.0
+         :width: 4
+         :show-cond: fam=instinct fam=all
+
+      .. selector-option:: 2.12.0
+         :value: 2.12.0
+         :width: 4
+         :show-cond: fam=instinct fam=all
+
+      .. selector-option:: 2.14.0
+         :value: 2.14.0
+         :width: 12
+         :show-cond: fam=radeon fam=ryzen
 
 .. selected:: rocm-ver=10.0.0
 
@@ -134,8 +163,13 @@ hardware. It applies to `supported AMD GPUs and platforms
    :key: pytorch-ver
    :show-cond: os=windows
 
+   .. selector-option:: 2.14.0
+      :value: 2.14.0
+      :width: 12
+      :show-cond: rocm-ver=10.1.0
+
    .. selector-option:: 2.13.0
-      :value: 2.12.0
+      :value: 2.13.0
       :width: 12
       :show-cond: rocm-ver=10.0.0
 
@@ -160,7 +194,7 @@ Prerequisites
 
 .. selected:: fam=instinct fam=radeon
 
-   .. selected:: rocm-ver=10.0.0
+   .. selected:: rocm-ver=10.1.0 rocm-ver=10.0.0
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
@@ -181,13 +215,39 @@ Prerequisites
 .. selected:: i=docker
 
    * Ensure the host system has `Docker Engine
-     <https://docs.docker.com/engine/install/>`__ installed.
+     <https://docs.docker.com/engine/install/>`__ installed. For more guidance
+     on running ROCm workloads in Docker containers, see `Run ROCm Docker
+     containers
+     <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
 .. selected:: i=pip
 
-   * Ensure your system has a `supported Python version
-     <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
-     installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
+   .. selected:: rocm-ver=10.1.0
+
+      .. selected:: os=linux
+
+         * Ensure your system has a `supported Python version
+           <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+           installed and accessible: **3.10, 3.11, 3.12, 3.13, or 3.14**.
+
+      .. selected:: os=windows
+
+         * Ensure your system has a `supported Python version
+           <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+           installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
+
+   .. selected:: rocm-ver=10.0.0 rocm-ver=7.14.1 rocm-ver=7.14.0
+
+      * Ensure your system has a `supported Python version
+        <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+        installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
+
+   .. selected:: rocm-ver=10.1.0
+
+      * Complete the ROCm Core SDK installation prerequisites. See `Prerequisites
+        (Install ROCm 10.1.0)
+        <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html#prerequisites>`__ for
+        instructions.
 
    .. selected:: rocm-ver=10.0.0
 
@@ -209,6 +269,8 @@ Prerequisites
         (Install ROCm 7.14.0)
         <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html#prerequisites>`__ for
         instructions.
+
+.. include:: ./include/rocm10.1.0-docker.rst
 
 .. include:: ./include/rocm10.0.0-docker.rst
 
@@ -279,6 +341,14 @@ Prerequisites
 
                   py -3.11 -m venv .venv
 
+         .. tab-item:: Python 3.10
+
+            .. selected:: os=linux rocm-ver=10.1.0
+
+               .. code-block:: bash
+
+                  python3.10 -m venv .venv
+
    2. Activate your Python virtual environment. For example:
 
       .. selected:: os=linux
@@ -292,6 +362,8 @@ Prerequisites
          .. code-block:: bat
 
             .venv\Scripts\activate
+
+   .. include:: ./include/rocm10.1.0-pip-install.rst
 
    .. include:: ./include/rocm10.0.0-pip-install.rst
 
@@ -308,7 +380,7 @@ Prerequisites
       This prints ``True`` if PyTorch and ROCm are installed properly and your AMD
       GPUs are detected.
 
-.. selected:: fam=instinct rocm-ver=10.0.0
+.. selected:: fam=instinct rocm-ver=10.1.0 rocm-ver=10.0.0
    :heading: Known issues
 
    * Hugging Face model training workloads might see 9–25% lower training
@@ -362,7 +434,7 @@ Prerequisites
      8 or greater, on AMD Radeon RX 7900 Series Graphics, AMD Radeon RX 7800 XT
      Graphics, and AMD Ryzen AI MAX / MAX+ Series Processors when using PyTorch
      versions earlier than 2.14. As a workaround, set the
-     TORCH_BLAS_PREFER_HIPBLASLT=1 environment variable to use the hipBLASLt
+     ``TORCH_BLAS_PREFER_HIPBLASLT=1`` environment variable to use the hipBLASLt
      backend. This setting becomes the default for these architectures in PyTorch
      2.14.
 

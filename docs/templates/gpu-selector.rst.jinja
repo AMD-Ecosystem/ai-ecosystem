@@ -8,6 +8,10 @@
   Slug derivation: GPU name lowercased, spaces replaced with hyphens, "+" removed.
   e.g. "AMD Instinct MI355X" -> "amd-instinct-mi355x"
        "AMD Ryzen AI Max+ PRO 495" -> "amd-ryzen-ai-max-pro-495"
+
+  Optional per-GPU key `rocm_versions`: a list of the ROCm versions that still
+  support the GPU. When present, the option is restricted to those versions so
+  that hardware dropped by a newer release cannot be selected on it.
 #}
 {%- set instinct = data["AMD Instinct"] -%}
 {%- set radeon   = data["AMD Radeon"] -%}
@@ -15,6 +19,12 @@
 
 {%- macro slugify(name) -%}
 {{ name | lower | replace("+", "") | replace("  ", " ") | replace(" ", "-") }}
+{%- endmacro -%}
+
+{%- macro show_cond(gpu) -%}
+{%- if gpu.rocm_versions %}
+         :show-cond: {% for v in gpu.rocm_versions %}rocm-ver={{ v }}{% if not loop.last %} {% endif %}{% endfor %}
+{%- endif -%}
 {%- endmacro -%}
 
 .. selected:: fam=instinct fam=radeon fam=ryzen
@@ -26,7 +36,7 @@
 
 {% for gpu_name, gpu in instinct.items() %}
       .. selector-option:: {{ gpu_name }} ({{ gpu.gfx }})
-         :value: {{ slugify(gpu_name) }} gfx={{ gpu.gfx }}
+         :value: {{ slugify(gpu_name) }} gfx={{ gpu.gfx }}{{ show_cond(gpu) }}
 
 {% endfor %}
    .. selector-dropdown:: Radeon GPU
@@ -36,7 +46,7 @@
 
 {% for gpu_name, gpu in radeon.items() %}
       .. selector-option:: {{ gpu_name }} ({{ gpu.gfx }})
-         :value: {{ slugify(gpu_name) }} gfx={{ gpu.gfx }}
+         :value: {{ slugify(gpu_name) }} gfx={{ gpu.gfx }}{{ show_cond(gpu) }}
 
 {% endfor %}
    .. selector-dropdown:: Ryzen APU
@@ -46,7 +56,7 @@
 
 {% for gpu_name, gpu in ryzen.items() %}
       .. selector-option:: {{ gpu_name }} ({{ gpu.igpu }}) ({{ gpu.gfx }})
-         :value: {{ slugify(gpu_name) }} gfx={{ gpu.gfx }}
+         :value: {{ slugify(gpu_name) }} gfx={{ gpu.gfx }}{{ show_cond(gpu) }}
 
 {% endfor %}
 
