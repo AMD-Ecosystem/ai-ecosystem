@@ -1208,7 +1208,7 @@ MI16x16 versus MI32x32
    MI16x16 outperforms MI32x32 due to its superior power efficiency. The MI16x16
    format refers to the ``v_mfma`` instruction (such as
    ``v_mfma_f32_16x16x16f16``). See
-   `<https://llvm.org/docs/AMDGPU/AMDGPUAsmGFX940.html#vop3p>`__.
+   `<https://rocm.docs.amd.com/projects/llvm-project/en/docs-10.1.0/reference/AMDGPU/AMDGPUAsmGFX940.html#vop3>`__.
 
    .. note::
 
