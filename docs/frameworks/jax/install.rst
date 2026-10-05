@@ -144,7 +144,7 @@ Prerequisites
         `AMD GPU Driver documentation
         <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
-   .. selected:: rocm-ver=7.14.0
+   .. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
