@@ -143,8 +143,6 @@
 
             python -m pip install --upgrade "tensorizer==2.12.1"
 
-   .. selected:: fam=instinct
-
       8. Set the following environment variables to prevent errors related to ROCm platform and Flash Attention availability when running vLLM.
 
          .. code-block:: bash

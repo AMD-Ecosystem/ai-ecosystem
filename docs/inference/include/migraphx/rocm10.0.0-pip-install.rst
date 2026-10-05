@@ -30,7 +30,7 @@
                   python3.12 -m venv .venv
                   source .venv/bin/activate
 
-      2. Install the MIGraphX wheel.
+      2. Install the MIGraphX and ``migraphx-libs`` wheels.
 
          .. code-block:: bash
             :substitutions:
