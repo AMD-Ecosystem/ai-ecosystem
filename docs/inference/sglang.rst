@@ -14,17 +14,14 @@ or pip. It applies to `supported AMD GPUs and platforms
 .. selector:: ROCm version
    :key: rocm-ver
 
-   .. selector-option:: 10.1.0
-      :width: 3
-
    .. selector-option:: 10.0.0
-      :width: 3
+      :width: 4
 
    .. selector-option:: 7.14.1
-      :width: 3
+      :width: 4
 
    .. selector-option:: 7.14.0
-      :width: 3
+      :width: 4
 
 .. selector:: Device family
    :key: fam
@@ -146,11 +143,6 @@ or pip. It applies to `supported AMD GPUs and platforms
 .. selector:: SGLang version
    :key: sgl-ver
 
-   .. selector-option:: 0.5.18
-      :value: 0.5.18
-      :width: 12
-      :show-cond: rocm-ver=10.1.0
-
    .. selector-option:: 0.5.15
       :value: 0.5.15
       :width: 12
@@ -170,14 +162,6 @@ or pip. It applies to `supported AMD GPUs and platforms
 
 Prerequisites
 =============
-
-.. selected:: rocm-ver=10.1.0
-
-   - For Instinct and Radeon devices, ensure your host system has the AMD GPU
-     Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 10.1.0) <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__ for driver support
-     information. For installation instructions, see the `AMD GPU Driver
-     documentation
-     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
 .. selected:: rocm-ver=10.0.0
 
@@ -208,8 +192,6 @@ Prerequisites
   on running ROCm workloads in Docker containers, see `Run ROCm Docker
   containers
   <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
-
-.. include:: ./include/sglang/rocm10.1.0-docker.rst
 
 .. include:: ./include/sglang/rocm10.0.0-docker.rst
 
