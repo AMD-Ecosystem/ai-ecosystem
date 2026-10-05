@@ -302,7 +302,7 @@ Prerequisites
    :heading: Known issues
 
    After installing ``rocm_tensorflow`` using pip, attempting to run TensorFlow
-   can result in multiple ``ImportError``s.
+   can result in multiple ``ImportError``\ s.
 
    As a workaround, update ``LD_LIBRARY_PATH`` to link to the required ROCm
    libraries and system dependencies in your installation path:
