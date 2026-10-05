@@ -267,7 +267,7 @@ Prerequisites
 
                   python3.12 -m venv .venv
 
-      .. selected:: jax-ver=0.10.2
+      .. selected:: jax-ver=0.10.2 jax-ver=0.10.0 jax-ver=0.9.1
 
          .. tab-set::
 

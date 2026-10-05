@@ -283,71 +283,95 @@ Prerequisites
 
    1. Set up your Python virtual environment.
 
-      .. tab-set::
+      .. selected:: os=linux rocm-ver=10.1.0
 
-         .. tab-item:: Python 3.14
+         .. tab-set::
 
-            .. selected:: os=linux
+            .. tab-item:: Python 3.14
 
                .. code-block:: bash
 
                   python3.14 -m venv .venv
 
-            .. selected:: os=windows
-
-               .. code-block:: bat
-
-                  py -3.14 -m venv .venv
-
-         .. tab-item:: Python 3.13
-
-            .. selected:: os=linux
+            .. tab-item:: Python 3.13
 
                .. code-block:: bash
 
                   python3.13 -m venv .venv
 
-            .. selected:: os=windows
-
-               .. code-block:: bat
-
-                  py -3.13 -m venv .venv
-
-         .. tab-item:: Python 3.12
-
-            .. selected:: os=linux
+            .. tab-item:: Python 3.12
 
                .. code-block:: bash
 
                   python3.12 -m venv .venv
 
-            .. selected:: os=windows
-
-               .. code-block:: bat
-
-                  py -3.12 -m venv .venv
-
-         .. tab-item:: Python 3.11
-
-            .. selected:: os=linux
+            .. tab-item:: Python 3.11
 
                .. code-block:: bash
 
                   python3.11 -m venv .venv
 
-            .. selected:: os=windows
-
-               .. code-block:: bat
-
-                  py -3.11 -m venv .venv
-
-         .. tab-item:: Python 3.10
-
-            .. selected:: os=linux rocm-ver=10.1.0
+            .. tab-item:: Python 3.10
 
                .. code-block:: bash
 
                   python3.10 -m venv .venv
+
+      .. selected:: os=linux rocm-ver=10.0.0 rocm-ver=7.14.1 rocm-ver=7.14.0
+
+         .. tab-set::
+
+            .. tab-item:: Python 3.14
+
+               .. code-block:: bash
+
+                  python3.14 -m venv .venv
+
+            .. tab-item:: Python 3.13
+
+               .. code-block:: bash
+
+                  python3.13 -m venv .venv
+
+            .. tab-item:: Python 3.12
+
+               .. code-block:: bash
+
+                  python3.12 -m venv .venv
+
+            .. tab-item:: Python 3.11
+
+               .. code-block:: bash
+
+                  python3.11 -m venv .venv
+
+      .. selected:: os=windows
+
+         .. tab-set::
+
+            .. tab-item:: Python 3.14
+
+               .. code-block:: bat
+
+                  py -3.14 -m venv .venv
+
+            .. tab-item:: Python 3.13
+
+               .. code-block:: bat
+
+                  py -3.13 -m venv .venv
+
+            .. tab-item:: Python 3.12
+
+               .. code-block:: bat
+
+                  py -3.12 -m venv .venv
+
+            .. tab-item:: Python 3.11
+
+               .. code-block:: bat
+
+                  py -3.11 -m venv .venv
 
    2. Activate your Python virtual environment. For example:
 
