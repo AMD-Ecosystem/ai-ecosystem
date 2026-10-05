@@ -461,6 +461,7 @@ Prerequisites
                  sudo zypper install libnuma-devel
 
 .. selected:: fam=radeon fam=ryzen
+   :heading: Known issues
 
    * Lower-than-expected performance might be observed in some large language model
      inference workloads, including vLLM FP16 decode workloads with batch sizes of
