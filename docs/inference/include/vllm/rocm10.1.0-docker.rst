@@ -1,6 +1,6 @@
 .. |VLLM_VERSION_1010D| replace:: 0.29
 
-.. |VLLM029_PYT213_CP314_1010| replace:: rocm/vllm:rocm10.1.0_ubuntu24.04_py3.14_pytorch_2.13.0_vllm_0.29.0
+.. |VLLM029_PYT213_CP314_1010| replace:: rocm/vllm:rocm10.1.0_ubuntu24.04_py3.14-pytorch_2.13.0_vllm-0.29.0
 
 .. |VLLM_DOC_1010D| replace:: `vLLM <https://docs.vllm.ai/en/v0.29.0/>`__
 .. |VLLM_USAGE_DOC_1010D| replace:: `Using vLLM <https://docs.vllm.ai/en/v0.29.0/usage/>`__
