@@ -86,6 +86,16 @@
                 "torchvision[device-gfx1102]==0.28.0+|ROCM_VER_1010|" \
                 "torchaudio==2.11.0.2+|ROCM_VER_1010|"
 
+      .. selected:: gfx=gfx1103
+
+         .. code-block:: bash
+            :substitutions:
+
+            python -m pip install --index-url |PKG_REPO_1010| \
+                "torch[device-gfx1103]==2.13.0+|ROCM_VER_1010|" \
+                "torchvision[device-gfx1103]==0.28.0+|ROCM_VER_1010|" \
+                "torchaudio==2.11.0.2+|ROCM_VER_1010|"
+
       .. selected:: gfx=gfx1151
 
          .. code-block:: bash

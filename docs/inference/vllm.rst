@@ -251,6 +251,42 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Ryzen AI 5 330 (gfx1152)
          :value: ai-5-330 gfx=gfx1152
 
+      .. selector-option:: AMD Ryzen 7 PRO 250 (gfx1103)
+         :value: 7-pro-250 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 PRO 230 (gfx1103)
+         :value: 5-pro-230 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 PRO 220 (gfx1103)
+         :value: 5-pro-220 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 PRO 215 (gfx1103)
+         :value: 5-pro-215 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 3 PRO 210 (gfx1103)
+         :value: 3-pro-210 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 9 270 (gfx1103)
+         :value: 9-270 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 260 (gfx1103)
+         :value: 7-260 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 250 (gfx1103)
+         :value: 7-250 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 240 (gfx1103)
+         :value: 5-240 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 230 (gfx1103)
+         :value: 5-230 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 220 (gfx1103)
+         :value: 5-220 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 3 210 (gfx1103)
+         :value: 3-210 gfx=gfx1103
+
 .. selector:: vLLM version
    :key: vllm-ver
 

@@ -126,16 +126,6 @@
                 "torchvision[device-gfx1152]==0.27.0+|ROCM_VER_1000|" \
                 "torchaudio==2.11.0+|ROCM_VER_1000|"
 
-      .. selected:: gfx=gfx1152
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url |PKG_REPO_1000| \
-                "torch[device-gfx1153]==2.12.0+|ROCM_VER_1000|" \
-                "torchvision[device-gfx1153]==0.27.0+|ROCM_VER_1000|" \
-                "torchaudio==2.11.0+|ROCM_VER_1000|"
-
    4. Install Flash Attention and `AITER <https://github.com/rocm/aiter>`__.
 
       .. code-block:: bash
