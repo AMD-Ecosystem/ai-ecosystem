@@ -7,7 +7,7 @@
 Install PyTorch for ROCm
 ************************
 
-This pages guides you through installing PyTorch with ROCm support on AMD
+This page guides you through installing PyTorch with ROCm support on AMD
 hardware. It applies to `supported AMD GPUs and platforms
 <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
