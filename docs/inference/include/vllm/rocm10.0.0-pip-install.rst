@@ -3,9 +3,7 @@
 .. |FW_REPO_1000| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/vllm/
 
 .. |VLLM_VERSION_10P| replace:: 0.27
-.. |VLLM_DOC_10P| replace:: `vLLM <https://docs.vllm.ai/en/v0.27.0/>`__
 .. |VLLM_USAGE_DOC_10P| replace:: `Using vLLM <https://docs.vllm.ai/en/v0.27.0/usage/>`__
-.. |VLLM_DOCKER_INSTALL_DOC_10P| replace:: `Set up using Docker (vLLM docs) <https://docs.vllm.ai/en/v0.27.0/getting_started/installation/gpu/#amd-rocm_5>`__
 .. |VLLM_PIP_INSTALL_DOC_10P| replace:: `Set up using Python (vLLM docs) <https://docs.vllm.ai/en/v0.27.0/getting_started/installation/gpu/#amd-rocm_3>`__
 
 .. |VLLM_WHL| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/vllm/vllm/vllm-0.27.1.dev5%2Brocm10.0.0.gf46a9dfe2.d20260826-cp314-cp314-linux_x86_64.whl

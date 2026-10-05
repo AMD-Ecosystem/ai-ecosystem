@@ -470,9 +470,9 @@ Prerequisites
    .. selected:: i=pip
       :heading: Known issues
 
-      * An incompatibility with vLLM's `tensorizer` dependency results in
+      * An incompatibility with vLLM's ``tensorizer`` dependency results in
         errors when running vLLM. As a workaround, manually bump the
-        `tensorizer` version in your virtual environment.
+        ``tensorizer`` version in your virtual environment.
 
         .. code-block:: bash
 
@@ -483,9 +483,9 @@ Prerequisites
 
    .. selected:: i=pip
 
-      * An incompatibility with vLLM's `tensorizer` dependency results in
+      * An incompatibility with vLLM's ``tensorizer`` dependency results in
         errors when running vLLM. As a workaround, manually bump the
-        `tensorizer` version in your virtual environment.
+        ``tensorizer`` version in your virtual environment.
 
         .. code-block:: bash
 
