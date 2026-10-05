@@ -104,6 +104,21 @@
                   sudo chmod +x /etc/profile.d/set-migraphx-env.sh
                   source /etc/profile.d/set-migraphx-env.sh
 
+      4. Verify your installation.
+
+         Confirm that ``migraphx-driver`` is on your ``PATH`` and reports the
+         expected version.
+
+         .. code-block:: bash
+
+            migraphx-driver --version
+
+         .. tip::
+
+            If the command isn't found, the environment variables from the
+            previous step aren't set in your current shell. Re-run the
+            ``source`` command or open a new shell session.
+
    .. selected:: i=tar
       :heading: Uninstall MIGraphX
       :heading-level: 3

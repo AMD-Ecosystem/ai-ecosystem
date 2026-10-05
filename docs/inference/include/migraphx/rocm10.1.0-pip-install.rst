@@ -31,6 +31,15 @@
             python -m pip install --index-url |PKG_REPO_1010| \
                 |WHL_1010| |WHL_LIBS_1010|
 
-      3. ONNX Runtime accelerates machine learning inference using the MIGraphX
+      3. Verify your installation.
+
+         Confirm that ``migraphx-driver`` is available in your virtual
+         environment and reports the expected version.
+
+         .. code-block:: bash
+
+            migraphx-driver --version
+
+      4. ONNX Runtime accelerates machine learning inference using the MIGraphX
          execution provider on ROCm-supported GPUs. See the :doc:`installation
          <onnxruntime>` guidance.

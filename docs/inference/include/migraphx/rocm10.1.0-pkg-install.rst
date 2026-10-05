@@ -445,9 +445,38 @@
                   sudo chmod +x /etc/profile.d/set-migraphx-env.sh
                   source /etc/profile.d/set-migraphx-env.sh
 
-      4. ONNX Runtime accelerates machine learning inference using the MIGraphX
+      4. Verify your installation.
+
+         Confirm that ``migraphx-driver`` is on your ``PATH`` and reports the
+         expected version.
+
+         .. code-block:: bash
+
+            migraphx-driver --version
+
+         You should see MIGraphX 2.18.0 in the output:
+
+         .. code-block:: text
+
+            MIGraphX Version: 2.18.0
+
+         .. tip::
+
+            If the command isn't found, the environment variables from the
+            previous step aren't set in your current shell. Re-run the
+            ``source`` command or open a new shell session.
+
+      5. ONNX Runtime accelerates machine learning inference using the MIGraphX
          execution provider on ROCm-supported GPUs. See the :doc:`installation
          <onnxruntime>` guidance.
+
+         .. note::
+
+            The ONNX Runtime MIGraphX execution provider requires MIGraphX to
+            be installed using pip. The ``onnxruntime-ep-migraphx`` wheel
+            depends on ``migraphx-libs``, which pip can't resolve from a
+            package manager installation. To use the execution provider,
+            install MIGraphX using pip instead.
 
    .. selected:: i=pkgman
       :heading: Uninstall MIGraphX

@@ -18,6 +18,15 @@
 
    2. Install MIGraphX using pip. See :doc:`migraphx` for installation instructions.
 
+      .. important::
+
+         MIGraphX must be installed using pip. The
+         ``onnxruntime-ep-migraphx`` wheel declares a dependency on
+         ``migraphx-libs``, which is only available from the MIGraphX pip
+         repository. Installing MIGraphX using the package manager or tarball
+         method doesn't satisfy this dependency, and installing the execution
+         provider in the next step fails to resolve.
+
    3. Install ONNX Runtime and the ``onnxruntime-ep-migraphx`` execution provider plugin.
 
       .. code-block:: bash
