@@ -321,38 +321,42 @@ Prerequisites
 
 .. selected:: i=docker
 
-   .. selected:: fam=all fam=instinct fam=radeon
+   .. selected:: fam=instinct fam=radeon
 
       .. selected:: rocm-ver=10.1.0
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 10.1.0) <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
-           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 10.1.0)
+           <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.60.0/index.html>`__.
 
       .. selected:: rocm-ver=10.0.0
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 10.0.0) <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 10.0.0)
+           <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
       .. selected:: rocm-ver=7.14.1
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.1) <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 7.14.1)
+           <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
       .. selected:: rocm-ver=7.14.0
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.0) <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 7.14.0)
+           <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
       * Ensure the host system has `Docker Engine
@@ -363,46 +367,50 @@ Prerequisites
 
    .. selected:: fam=ryzen
 
-      Ensure the host system has `Docker Engine
-      <https://docs.docker.com/engine/install/>`__ installed. For more guidance
-      on running ROCm workloads in Docker containers, see `Run ROCm Docker
-      containers
-      <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
+      * Ensure the host system has `Docker Engine
+        <https://docs.docker.com/engine/install/>`__ installed. For more guidance
+        on running ROCm workloads in Docker containers, see `Run ROCm Docker
+        containers
+        <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
 .. selected:: i=pip
 
-   .. selected:: fam=all fam=instinct fam=radeon
+   .. selected:: fam=instinct fam=radeon
 
       .. selected:: rocm-ver=10.1.0
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 10.1.0) <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
-           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 10.1.0)
+           <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.60.0/index.html>`__.
 
       .. selected:: rocm-ver=10.0.0
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
-           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 10.0.0)
+           <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
       .. selected:: rocm-ver=7.14.1
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.1) <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 7.14.1)
+           <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
       .. selected:: rocm-ver=7.14.0
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.0) <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 7.14.0)
+           <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
    * Ensure your system has `Python 3.14
