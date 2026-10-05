@@ -3,9 +3,7 @@
 .. |FW_REPO_1000| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/vllm/
 
 .. |VLLM_VERSION_10P| replace:: 0.27
-.. |VLLM_DOC_10P| replace:: `vLLM <https://docs.vllm.ai/en/v0.27.0/>`__
 .. |VLLM_USAGE_DOC_10P| replace:: `Using vLLM <https://docs.vllm.ai/en/v0.27.0/usage/>`__
-.. |VLLM_DOCKER_INSTALL_DOC_10P| replace:: `Set up using Docker (vLLM docs) <https://docs.vllm.ai/en/v0.27.0/getting_started/installation/gpu/#amd-rocm_5>`__
 .. |VLLM_PIP_INSTALL_DOC_10P| replace:: `Set up using Python (vLLM docs) <https://docs.vllm.ai/en/v0.27.0/getting_started/installation/gpu/#amd-rocm_3>`__
 
 .. |VLLM_WHL| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/vllm/vllm/vllm-0.27.1.dev5%2Brocm10.0.0.gf46a9dfe2.d20260826-cp314-cp314-linux_x86_64.whl
@@ -124,16 +122,6 @@
             python -m pip install --index-url |PKG_REPO_1000| \
                 "torch[device-gfx1152]==2.12.0+|ROCM_VER_1000|" \
                 "torchvision[device-gfx1152]==0.27.0+|ROCM_VER_1000|" \
-                "torchaudio==2.11.0+|ROCM_VER_1000|"
-
-      .. selected:: gfx=gfx1152
-
-         .. code-block:: bash
-            :substitutions:
-
-            python -m pip install --index-url |PKG_REPO_1000| \
-                "torch[device-gfx1153]==2.12.0+|ROCM_VER_1000|" \
-                "torchvision[device-gfx1153]==0.27.0+|ROCM_VER_1000|" \
                 "torchaudio==2.11.0+|ROCM_VER_1000|"
 
    4. Install Flash Attention and `AITER <https://github.com/rocm/aiter>`__.

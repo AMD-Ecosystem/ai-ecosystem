@@ -3,9 +3,7 @@
 .. |FW_REPO_1010| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/vllm/
 
 .. |VLLM_VERSION_1010P| replace:: 0.29
-.. |VLLM_DOC_1010P| replace:: `vLLM <https://docs.vllm.ai/en/v0.29.0/>`__
 .. |VLLM_USAGE_DOC_1010P| replace:: `Using vLLM <https://docs.vllm.ai/en/v0.29.0/usage/>`__
-.. |VLLM_DOCKER_INSTALL_DOC_1010P| replace:: `Set up using Docker (vLLM docs) <https://docs.vllm.ai/en/v0.29.0/getting_started/installation/gpu/#amd-rocm_5>`__
 .. |VLLM_PIP_INSTALL_DOC_1010P| replace:: `Set up using Python (vLLM docs) <https://docs.vllm.ai/en/v0.29.0/getting_started/installation/gpu/#amd-rocm_3>`__
 
 .. |VLLM_WHL_1010| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/vllm/vllm/vllm-0.29.1.dev0%2Brocm10.1.0.g98dff2a81.d20261002-cp314-cp314-linux_x86_64.whl
@@ -84,6 +82,16 @@
             python -m pip install --index-url |PKG_REPO_1010| \
                 "torch[device-gfx1102]==2.13.0+|ROCM_VER_1010|" \
                 "torchvision[device-gfx1102]==0.28.0+|ROCM_VER_1010|" \
+                "torchaudio==2.11.0.2+|ROCM_VER_1010|"
+
+      .. selected:: gfx=gfx1103
+
+         .. code-block:: bash
+            :substitutions:
+
+            python -m pip install --index-url |PKG_REPO_1010| \
+                "torch[device-gfx1103]==2.13.0+|ROCM_VER_1010|" \
+                "torchvision[device-gfx1103]==0.28.0+|ROCM_VER_1010|" \
                 "torchaudio==2.11.0.2+|ROCM_VER_1010|"
 
       .. selected:: gfx=gfx1151

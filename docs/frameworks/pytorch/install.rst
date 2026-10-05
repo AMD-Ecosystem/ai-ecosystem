@@ -7,7 +7,7 @@
 Install PyTorch for ROCm
 ************************
 
-This pages guides you through installing PyTorch with ROCm support on AMD
+This page guides you through installing PyTorch with ROCm support on AMD
 hardware. It applies to `supported AMD GPUs and platforms
 <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
@@ -194,7 +194,16 @@ Prerequisites
 
 .. selected:: fam=instinct fam=radeon
 
-   .. selected:: rocm-ver=10.1.0 rocm-ver=10.0.0
+   .. selected:: rocm-ver=10.1.0
+
+      * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
+        `ROCm compatibility matrix
+        <https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>`__
+        for driver support information. For installation instructions, see the
+        `AMD GPU Driver documentation
+        <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.60.0/index.html>`__.
+
+   .. selected:: rocm-ver=10.0.0
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
@@ -283,71 +292,95 @@ Prerequisites
 
    1. Set up your Python virtual environment.
 
-      .. tab-set::
+      .. selected:: os=linux rocm-ver=10.1.0
 
-         .. tab-item:: Python 3.14
+         .. tab-set::
 
-            .. selected:: os=linux
+            .. tab-item:: Python 3.14
 
                .. code-block:: bash
 
                   python3.14 -m venv .venv
 
-            .. selected:: os=windows
-
-               .. code-block:: bat
-
-                  py -3.14 -m venv .venv
-
-         .. tab-item:: Python 3.13
-
-            .. selected:: os=linux
+            .. tab-item:: Python 3.13
 
                .. code-block:: bash
 
                   python3.13 -m venv .venv
 
-            .. selected:: os=windows
-
-               .. code-block:: bat
-
-                  py -3.13 -m venv .venv
-
-         .. tab-item:: Python 3.12
-
-            .. selected:: os=linux
+            .. tab-item:: Python 3.12
 
                .. code-block:: bash
 
                   python3.12 -m venv .venv
 
-            .. selected:: os=windows
-
-               .. code-block:: bat
-
-                  py -3.12 -m venv .venv
-
-         .. tab-item:: Python 3.11
-
-            .. selected:: os=linux
+            .. tab-item:: Python 3.11
 
                .. code-block:: bash
 
                   python3.11 -m venv .venv
 
-            .. selected:: os=windows
-
-               .. code-block:: bat
-
-                  py -3.11 -m venv .venv
-
-         .. tab-item:: Python 3.10
-
-            .. selected:: os=linux rocm-ver=10.1.0
+            .. tab-item:: Python 3.10
 
                .. code-block:: bash
 
                   python3.10 -m venv .venv
+
+      .. selected:: os=linux rocm-ver=10.0.0 rocm-ver=7.14.1 rocm-ver=7.14.0
+
+         .. tab-set::
+
+            .. tab-item:: Python 3.14
+
+               .. code-block:: bash
+
+                  python3.14 -m venv .venv
+
+            .. tab-item:: Python 3.13
+
+               .. code-block:: bash
+
+                  python3.13 -m venv .venv
+
+            .. tab-item:: Python 3.12
+
+               .. code-block:: bash
+
+                  python3.12 -m venv .venv
+
+            .. tab-item:: Python 3.11
+
+               .. code-block:: bash
+
+                  python3.11 -m venv .venv
+
+      .. selected:: os=windows
+
+         .. tab-set::
+
+            .. tab-item:: Python 3.14
+
+               .. code-block:: bat
+
+                  py -3.14 -m venv .venv
+
+            .. tab-item:: Python 3.13
+
+               .. code-block:: bat
+
+                  py -3.13 -m venv .venv
+
+            .. tab-item:: Python 3.12
+
+               .. code-block:: bat
+
+                  py -3.12 -m venv .venv
+
+            .. tab-item:: Python 3.11
+
+               .. code-block:: bat
+
+                  py -3.11 -m venv .venv
 
    2. Activate your Python virtual environment. For example:
 
@@ -428,6 +461,7 @@ Prerequisites
                  sudo zypper install libnuma-devel
 
 .. selected:: fam=radeon fam=ryzen
+   :heading: Known issues
 
    * Lower-than-expected performance might be observed in some large language model
      inference workloads, including vLLM FP16 decode workloads with batch sizes of

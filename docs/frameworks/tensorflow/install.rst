@@ -8,7 +8,7 @@ Install TensorFlow for ROCm
 ***************************
 
 This page guides you through installing TensorFlow with ROCm support on AMD
-Instinct GPUs running Linux. It applies to `supported AMD GPUs and platforms
+hardware running Linux. It applies to `supported AMD GPUs and platforms
 <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
 .. selector:: ROCm version
@@ -224,7 +224,16 @@ Prerequisites
 
 .. selected:: fam=instinct fam=radeon
 
-   .. selected:: rocm-ver=10.1.0 rocm-ver=10.0.0
+   .. selected:: rocm-ver=10.1.0
+
+      * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
+        `ROCm compatibility matrix
+        <https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>`__
+        for driver support information. For installation instructions, see the
+        `AMD GPU Driver documentation
+        <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.60.0/index.html>`__.
+
+   .. selected:: rocm-ver=10.0.0
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
@@ -233,7 +242,7 @@ Prerequisites
         `AMD GPU Driver documentation
         <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
-   .. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
+   .. selected:: rocm-ver=7.14.1
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
@@ -275,13 +284,6 @@ Prerequisites
       * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
         (Install ROCm 7.14.1)
         <https://rocm.docs.amd.com/en/docs-7.14.1/install/rocm.html#prerequisites>`__ for
-        instructions.
-
-   .. selected:: rocm-ver=7.14.0
-
-      * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
-        (Install ROCm 7.14.0)
-        <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html#prerequisites>`__ for
         instructions.
 
 .. include:: ./include/rocm10.1.0-docker.rst

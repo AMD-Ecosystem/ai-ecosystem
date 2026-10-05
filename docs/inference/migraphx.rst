@@ -109,11 +109,15 @@ Prerequisites
 
    .. selected:: rocm-ver=10.1.0
 
-      - Ensure your system has Python 3.12 installed and accessible.
+      * Ensure your system has Python 3.12 installed and accessible.
 
-   .. selected:: rocm-ver=10.0.0 rocm-ver=7.14.1 rocm-ver=7.14.0
+   .. selected:: rocm-ver=10.0.0
 
-      - Ensure your system has Python 3.14 or 3.12 installed and accessible.
+      * Ensure your system has Python 3.14 or 3.12 installed and accessible.
+
+   .. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
+
+      * Ensure your system has Python 3.12 installed and accessible.
 
 .. _migraphx-package-install:
 
