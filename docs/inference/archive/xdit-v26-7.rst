@@ -1,3 +1,5 @@
+:no-search:
+:orphan:
 :selector-toc2: Model
 :selector-toc2-icon: fa-solid fa-robot
 
