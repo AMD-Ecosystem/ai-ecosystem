@@ -133,4 +133,4 @@ Use the following steps for a simple example of running ComfyUI.
 .. seealso::
 
    To learn more about the ComfyUI interface and workflows, see the `ComfyUI
-   documentation <https://docs.comfy.org/development/core-concepts/workflow>`__.
+   documentation <https://docs.comfy.org/>`__.
