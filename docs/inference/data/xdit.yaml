@@ -505,16 +505,15 @@ docker:
                 - pip install -e . --no-deps
             - text: >-
                 LingBot-Video is conditioned on a structured JSON caption rather than a free-text
-                prompt, so ``--prompt`` takes the path to a JSON file. After cloning the repository,
-                copy a T2V example such as
+                prompt, so ``--prompt`` takes the path to a JSON file. Copy a T2V example such as
                 `assets/cases/t2v/example_1/prompt.json <https://github.com/Robbyant/lingbot-video/blob/master/assets/cases/t2v/example_1/prompt.json>`__
-                to ``prompt.json`` in your working directory. More examples are under
+                to ``/app/data/prompt.json``. More examples are under
                 `assets/cases <https://github.com/Robbyant/lingbot-video/tree/master/assets/cases>`__.
           benchmark_command:
             - mkdir results
             - 'xdit \'
             - '--model {model_repo} \'
-            - '--prompt prompt.json \'
+            - '--prompt /app/data/prompt.json \'
             - '--height 480 \'
             - '--width 832 \'
             - '--seed 42 \'
@@ -538,16 +537,15 @@ docker:
                 - pip install -e . --no-deps
             - text: >-
                 LingBot-Video is conditioned on a structured JSON caption rather than a free-text
-                prompt, so ``--prompt`` takes the path to a JSON file. After cloning the repository,
-                copy a T2V example such as
+                prompt, so ``--prompt`` takes the path to a JSON file. Copy a T2V example such as
                 `assets/cases/t2v/example_1/prompt.json <https://github.com/Robbyant/lingbot-video/blob/master/assets/cases/t2v/example_1/prompt.json>`__
-                to ``prompt.json`` in your working directory. More examples are under
+                to ``/app/data/prompt.json``. More examples are under
                 `assets/cases <https://github.com/Robbyant/lingbot-video/tree/master/assets/cases>`__.
           benchmark_command:
             - mkdir results
             - 'xdit \'
             - '--model {model_repo} \'
-            - '--prompt prompt.json \'
+            - '--prompt /app/data/prompt.json \'
             - '--height 1088 \'
             - '--width 1920 \'
             - '--seed 42 \'
@@ -571,11 +569,14 @@ docker:
           js_tag: cosmos3_nano_tag
           setup:
             - text: >-
-                Cosmos3 produces best quality with structured JSON captions rather than free-text
-                prompts. The example files are bundled with the model snapshot. Download them into
-                your working directory so the paths in the command below resolve:
-              commands:
-                - hf download nvidia/Cosmos3-Nano assets/example_t2v_prompt.json assets/negative_prompt.json --local-dir .
+                Cosmos3 is conditioned on a structured JSON caption rather than a free-text
+                prompt, so ``--prompt`` and ``--negative_prompt`` take paths to JSON files.
+                Copy a T2V example such as
+                `assets/prompts/text2video/robot_kitchen.json <https://github.com/NVIDIA/cosmos/blob/main/cookbooks/cosmos3/generator/audiovisual/assets/prompts/text2video/robot_kitchen.json>`__
+                to ``/app/data/example_t2v_prompt.json`` and
+                `assets/negative_prompts/text2video/neg_prompt.json <https://github.com/NVIDIA/cosmos/blob/main/cookbooks/cosmos3/generator/audiovisual/assets/negative_prompts/text2video/neg_prompt.json>`__
+                to ``/app/data/negative_prompt.json``. More examples are under
+                `assets <https://github.com/NVIDIA/cosmos/tree/main/cookbooks/cosmos3/generator/audiovisual/assets>`__.
           benchmark_command:
             - mkdir results
             - 'xdit \'
@@ -586,8 +587,8 @@ docker:
             - '--use_parallel_vae \'
             - '--enable_tiling \'
             - '--use_fp8_gemms \'
-            - '--prompt assets/example_t2v_prompt.json \'
-            - '--negative_prompt assets/negative_prompt.json \'
+            - '--prompt /app/data/example_t2v_prompt.json \'
+            - '--negative_prompt /app/data/negative_prompt.json \'
             - '--num_frames 121 \'
             - '--height 720 \'
             - '--width 1280 \'
@@ -601,11 +602,14 @@ docker:
           js_tag: cosmos3_super_tag
           setup:
             - text: >-
-                Cosmos3 produces best quality with structured JSON captions rather than free-text
-                prompts. The example files are bundled with the model snapshot. Download them into
-                your working directory so the paths in the command below resolve:
-              commands:
-                - hf download nvidia/Cosmos3-Super assets/example_t2v_prompt.json assets/negative_prompt.json --local-dir .
+                Cosmos3 is conditioned on a structured JSON caption rather than a free-text
+                prompt, so ``--prompt`` and ``--negative_prompt`` take paths to JSON files.
+                Copy a T2V example such as
+                `assets/prompts/text2video/robot_kitchen.json <https://github.com/NVIDIA/cosmos/blob/main/cookbooks/cosmos3/generator/audiovisual/assets/prompts/text2video/robot_kitchen.json>`__
+                to ``/app/data/example_t2v_prompt.json`` and
+                `assets/negative_prompts/text2video/neg_prompt.json <https://github.com/NVIDIA/cosmos/blob/main/cookbooks/cosmos3/generator/audiovisual/assets/negative_prompts/text2video/neg_prompt.json>`__
+                to ``/app/data/negative_prompt.json``. More examples are under
+                `assets <https://github.com/NVIDIA/cosmos/tree/main/cookbooks/cosmos3/generator/audiovisual/assets>`__.
           benchmark_command:
             - mkdir results
             - 'xdit \'
@@ -616,8 +620,8 @@ docker:
             - '--use_parallel_vae \'
             - '--enable_tiling \'
             - '--use_fp8_gemms \'
-            - '--prompt assets/example_t2v_prompt.json \'
-            - '--negative_prompt assets/negative_prompt.json \'
+            - '--prompt /app/data/example_t2v_prompt.json \'
+            - '--negative_prompt /app/data/negative_prompt.json \'
             - '--num_frames 121 \'
             - '--height 720 \'
             - '--width 1280 \'
