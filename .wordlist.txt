@@ -222,6 +222,7 @@ radeon
 rc
 reachability
 repo
+rocSHMEM
 rocprofv
 rst
 rx

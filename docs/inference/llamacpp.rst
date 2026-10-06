@@ -11,6 +11,13 @@ everyday hardware and has become a pillar of local LLM inference.
 This page explains how to set up and run llama.cpp on AMD Radeon™ GPUs and
 Ryzen™ APUs.
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 7.14.0
+      :value: 7.14.0
+      :width: 12
+
 .. selector:: Device family
    :key: fam
 
@@ -35,13 +42,6 @@ Ryzen™ APUs.
    .. selector-option:: Windows 11
       :value: windows windows-ver=11
       :width: 6
-
-.. selector:: ROCm version
-   :key: rocm-ver
-
-   .. selector-option:: 7.14.0
-      :value: 7.14.0
-      :width: 12
 
 .. selector:: ROCm installation
    :key: i
@@ -1162,4 +1162,3 @@ Flash Attention is enabled with ``-fa 1`` and is supported on Radeon GPUs throug
    .. code-block:: bat
 
       llama-bench.exe -m <model>.gguf -p 512 -n 64 -ngl 999 -fa 1
-

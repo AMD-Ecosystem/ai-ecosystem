@@ -11,6 +11,18 @@ and run SGLang on AMD GPUs using either a prebuilt Docker image (recommended)
 or pip. It applies to `supported AMD GPUs and platforms
 <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.0.0
+      :width: 4
+
+   .. selector-option:: 7.14.1
+      :width: 4
+
+   .. selector-option:: 7.14.0
+      :width: 4
+
 .. selector:: Device family
    :key: fam
 
@@ -61,6 +73,9 @@ or pip. It applies to `supported AMD GPUs and platforms
 
       .. selector-option:: AMD Radeon AI PRO R9600D (gfx1201)
          :value: ai-r9600d gfx=gfx1201
+
+      .. selector-option:: AMD Radeon AI PRO R9600 (gfx1201)
+         :value: ai-r9600 gfx=gfx1201
 
       .. selector-option:: AMD Radeon RX 9070 XT (gfx1201)
          :value: rx-9070-xt gfx=gfx1201
@@ -125,18 +140,6 @@ or pip. It applies to `supported AMD GPUs and platforms
       .. selector-option:: AMD Radeon RX 7600 (gfx1102)
          :value: rx-7600 gfx=gfx1102
 
-.. selector:: ROCm version
-   :key: rocm-ver
-
-   .. selector-option:: 10.0.0
-      :width: 4
-
-   .. selector-option:: 7.14.1
-      :width: 4
-
-   .. selector-option:: 7.14.0
-      :width: 4
-
 .. selector:: SGLang version
    :key: sgl-ver
 
@@ -166,7 +169,7 @@ Prerequisites
      Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 10.0.0) <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__ for driver support
      information. For installation instructions, see the `AMD GPU Driver
      documentation
-     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
+     <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
 .. selected:: rocm-ver=7.14.1
 
@@ -184,8 +187,11 @@ Prerequisites
      documentation
      <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
-- Ensure the host system has `Docker Engine
-  <https://docs.docker.com/engine/install/>`__ installed.
+* Ensure the host system has `Docker Engine
+  <https://docs.docker.com/engine/install/>`__ installed. For more guidance
+  on running ROCm workloads in Docker containers, see `Run ROCm Docker
+  containers
+  <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
 .. include:: ./include/sglang/rocm10.0.0-docker.rst
 

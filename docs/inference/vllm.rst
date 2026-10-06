@@ -10,6 +10,21 @@ and serving. This page describes how to set up and run vLLM on AMD GPUs and
 APUs using either a prebuilt Docker image (recommended) or pip. It applies to
 `supported AMD GPUs and platforms <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.1.0
+      :width: 3
+
+   .. selector-option:: 10.0.0
+      :width: 3
+
+   .. selector-option:: 7.14.1
+      :width: 3
+
+   .. selector-option:: 7.14.0
+      :width: 3
+
 .. selector:: Device family
    :key: fam
 
@@ -68,6 +83,9 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
 
       .. selector-option:: AMD Radeon AI PRO R9600D (gfx1201)
          :value: ai-r9600d gfx=gfx1201
+
+      .. selector-option:: AMD Radeon AI PRO R9600 (gfx1201)
+         :value: ai-r9600 gfx=gfx1201
 
       .. selector-option:: AMD Radeon RX 9070 XT (gfx1201)
          :value: rx-9070-xt gfx=gfx1201
@@ -269,20 +287,13 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Ryzen 3 210 (gfx1103)
          :value: 3-210 gfx=gfx1103
 
-.. selector:: ROCm version
-   :key: rocm-ver
-
-   .. selector-option:: 10.0.0
-      :width: 4
-
-   .. selector-option:: 7.14.1
-      :width: 4
-
-   .. selector-option:: 7.14.0
-      :width: 4
-
 .. selector:: vLLM version
    :key: vllm-ver
+
+   .. selector-option:: 0.29
+      :value: 0.29
+      :width: 12
+      :show-cond: rocm-ver=10.1.0
 
    .. selector-option:: 0.27
       :value: 0.27
@@ -310,71 +321,106 @@ Prerequisites
 
 .. selected:: i=docker
 
-   .. selected:: fam=all fam=instinct fam=radeon
+   .. selected:: fam=instinct fam=radeon
+
+      .. selected:: rocm-ver=10.1.0
+
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 10.1.0)
+           <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.60.0/index.html>`__.
 
       .. selected:: rocm-ver=10.0.0
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 10.0.0) <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 10.0.0)
+           <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
       .. selected:: rocm-ver=7.14.1
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.1) <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 7.14.1)
+           <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
       .. selected:: rocm-ver=7.14.0
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.0) <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 7.14.0)
+           <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
-      - Ensure the host system has `Docker Engine
-        <https://docs.docker.com/engine/install/>`__ installed.
+      * Ensure the host system has `Docker Engine
+        <https://docs.docker.com/engine/install/>`__ installed. For more guidance
+        on running ROCm workloads in Docker containers, see `Run ROCm Docker
+        containers
+        <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
    .. selected:: fam=ryzen
 
-      Ensure the host system has `Docker Engine
-      <https://docs.docker.com/engine/install/>`__ installed.
+      * Ensure the host system has `Docker Engine
+        <https://docs.docker.com/engine/install/>`__ installed. For more guidance
+        on running ROCm workloads in Docker containers, see `Run ROCm Docker
+        containers
+        <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
 .. selected:: i=pip
 
-   .. selected:: fam=all fam=instinct fam=radeon
+   .. selected:: fam=instinct fam=radeon
+
+      .. selected:: rocm-ver=10.1.0
+
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 10.1.0)
+           <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.60.0/index.html>`__.
 
       .. selected:: rocm-ver=10.0.0
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
-           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 10.0.0)
+           <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
       .. selected:: rocm-ver=7.14.1
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.1) <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 7.14.1)
+           <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
       .. selected:: rocm-ver=7.14.0
 
-         - For Instinct and Radeon devices, ensure your host system has the AMD
-           GPU Driver (amdgpu) installed. See the `ROCm compatibility matrix (ROCm 7.14.0) <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__ for driver
-           support information. For installation instructions, see the `AMD GPU
-           Driver documentation
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 7.14.0)
+           <https://rocm.docs.amd.com/en/docs-7.14.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
            <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
 
    * Ensure your system has `Python 3.14
      <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
      installed and accessible.
+
+   .. selected:: rocm-ver=10.1.0
+
+      * vLLM 0.29.0 requires PyTorch 2.13.0. See
+        :doc:`/frameworks/pytorch/install` for installation instructions.
 
    * Install `uv <https://docs.astral.sh/uv/getting-started/installation/>`__.
 
@@ -385,6 +431,8 @@ Prerequisites
         silently pull incompatible versions from PyPI when installing from a
         direct wheel URL. ``uv pip`` resolves dependencies more predictably,
         respecting the exact versions bundled with or required by the wheel.
+
+.. include:: ./include/vllm/rocm10.1.0-docker.rst
 
 .. include:: ./include/vllm/rocm10.0.0-docker.rst
 
@@ -407,24 +455,43 @@ Prerequisites
 
          source .venv/bin/activate
 
+   .. include:: ./include/vllm/rocm10.1.0-pip-install.rst
+
    .. include:: ./include/vllm/rocm10.0.0-pip-install.rst
 
    .. include:: ./include/vllm/rocm7.14.1-pip-install.rst
 
    .. include:: ./include/vllm/rocm7.14.0-pip-install.rst
 
+.. _vllm-tensorizer-issue:
+
+.. selected:: fam=instinct
+
+   .. selected:: i=pip
+      :heading: Known issues
+
+      * An incompatibility with vLLM's ``tensorizer`` dependency results in
+        errors when running vLLM. As a workaround, manually bump the
+        ``tensorizer`` version in your virtual environment.
+
+        .. code-block:: bash
+
+           python -m pip install --upgrade "tensorizer==2.12.1"
 
 .. selected:: fam=radeon fam=ryzen
    :heading: Known issues
+
+   .. selected:: i=pip
+
+      * An incompatibility with vLLM's ``tensorizer`` dependency results in
+        errors when running vLLM. As a workaround, manually bump the
+        ``tensorizer`` version in your virtual environment.
+
+        .. code-block:: bash
+
+           python -m pip install --upgrade "tensorizer==2.12.1"
 
    * Significantly longer warmup times might be observed in some large language
      model inference workloads on AMD Radeon GPUs using vLLM versions v0.21.0
      through v0.25.0. As a workaround, use a vLLM release earlier than v0.21.0
      or upgrade to vLLM v0.26.0 or later, which includes a fix for this issue.
-
-.. selected:: fam=ryzen gfx=gfx1103
-   :heading: Known issues
-
-   * Intermittent segmentation faults or GPU hangs might be observed when
-     running some vLLM or ComfyUI workloads on Ryzen AI systems using gfx1103
-     (RDNA3) GPUs.

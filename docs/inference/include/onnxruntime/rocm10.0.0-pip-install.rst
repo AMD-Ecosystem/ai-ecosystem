@@ -1,5 +1,5 @@
-.. |PKG_REPO| replace:: https://stable.repo.amd.com/rocm/onnxruntime/whl-next/
-.. |WHL| replace:: "onnxruntime-ep-migraphx==1.0.0+rocm10.0.0"
+.. |PKG_REPO_1000| replace:: https://stable.repo.amd.com/rocm/onnxruntime/whl-next/
+.. |WHL_1000| replace:: "onnxruntime-ep-migraphx==1.0.0+rocm10.0.0"
 
 .. selected:: rocm-ver=10.0.0
 
@@ -31,7 +31,7 @@
       .. code-block:: bash
          :substitutions:
 
-         python -m pip install --extra-index-url |PKG_REPO| |WHL|
+         python -m pip install --extra-index-url |PKG_REPO_1000| |WHL_1000|
 
    4. As a workaround due to packaging issues, create the required soname
       symlink and set library search paths. For example, if you installed
@@ -65,38 +65,3 @@
       .. code-block:: text
 
          ['CPUExecutionProvider', 'MIGraphXExecutionProvider']
-..
-.. .. selected:: rocm-ver=10.0.0
-..    :heading: Verify your installation
-..    :heading-level: 3
-..
-..    1. Download and extract the test binary zip file.
-..
-..       .. tab-set::
-..
-..          .. tab-item:: Python 3.14
-..             :sync: py314
-..
-..             .. code-block:: bash
-..                :substitutions:
-..
-..                wget |PKG_REPO||WGET_PY_314_TEST_ZIP|
-..                unzip |PY_314_TEST_ZIP|
-..                cd build/Linux/Release
-..
-..          .. tab-item:: Python 3.12
-..             :sync: py312
-..
-..             .. code-block:: bash
-..                :substitutions:
-..
-..                wget |PKG_REPO||WGET_PY_312_TEST_ZIP|
-..                unzip |PY_312_TEST_ZIP|
-..                cd build/Linux/Release
-..
-..    2. Run the test suite.
-..
-..       .. code-block:: bash
-..
-..          ./onnxruntime_test_all \
-..              --gtest_filter=-:CudaKernelTest.SoftmaxGrad_LargeTensor_LastAxis_Float16:CudaKernelTest.SoftmaxGrad_LargeTensor_LastAxis_Float16_NoPowerOfTwo:CudaKernelTest.SoftmaxGrad_LargeTensor_AllAxis_Float16:CudaKernelTest.SoftmaxGrad_LargeTensor_AllAxis_Float16_NoPowerOfTwo:CudaKernelTest.LogSoftmaxGrad_LargeTensor_LastAxis_Float16:CudaKernelTest.LogSoftmaxGrad_LargeTensor_LastAxis_Float16_NoPowerOfTwo:CudaKernelTest.LogSoftmaxGrad_LargeTensor_AllAxis_Float16:CudaKernelTest.LogSoftmaxGrad_LargeTensor_AllAxis_Float16_NoPowerOfTwo:ReductionOpTest.ReductionVariationTest:GatherOpTest.Gather_invalid_index_cpu:Scatter.InvalidIndex:GradientCheckerTest.AddGrad:GradientCheckerTest.SubGrad:GradientCheckerTest.MulGrad:GradientCheckerTest.DivGrad:NhwcTransformerTests*:QDQTransformerTests*Sample Output for Unit Test
