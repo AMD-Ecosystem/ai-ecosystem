@@ -257,6 +257,7 @@ Run inference
 
       .. tab-set::
 
+         {% if model.mad_tag %}
          .. tab-item:: MAD-integrated benchmarking
 
             1. Clone the ROCm Model Automation and Dashboarding (`<https://github.com/ROCm/MAD>`__) repository to a local
@@ -283,9 +284,20 @@ Run inference
             ``container_ci-{{model.mad_tag}}``. The throughput and serving reports of the
             model are collected in the following paths: ``{{ model.mad_tag }}_throughput.csv``
             and ``{{ model.mad_tag }}_serving.csv``.
+         {% endif %}
 
          .. tab-item:: Standalone benchmarking
 
+            {% for step in model.setup | default([], true) %}
+            {{ step.text }}
+
+            {% if step.commands %}
+            .. code-block:: shell
+
+               {{ step.commands | map('trim') | join('\n               ') }}
+
+            {% endif %}
+            {% endfor %}
             To run the benchmarks for {{ model.model }}, use the following command:
 
             .. code-block:: shell

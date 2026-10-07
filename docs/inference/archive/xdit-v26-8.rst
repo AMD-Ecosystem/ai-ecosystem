@@ -9,7 +9,7 @@
    :keywords: xDiT, diffusion, video, video generation, image, image generation, validate, benchmark
 
 ********************************
-xDiT diffusion inference (v26.7)
+xDiT diffusion inference (v26.8)
 ********************************
 
 .. caution::
@@ -18,9 +18,9 @@ xDiT diffusion inference (v26.7)
    inference documentation. See :doc:`../xdit` for the
    latest version.
 
-.. _xdit-video-diffusion-v26-7:
+.. _xdit-video-diffusion-v26-8:
 
-.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-8.yaml
 
    {% set docker = data.docker %}
 
@@ -48,7 +48,7 @@ For preview and development releases, see `amdsiloai/pytorch-xdit <https://hub.d
 What's new
 ==========
 
-.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-8.yaml
 
    {% set docker = data.docker %}
 
@@ -56,7 +56,7 @@ What's new
    * {{ item }}
    {% endfor %}
 
-.. _xdit-video-diffusion-supported-models-v26-7:
+.. _xdit-video-diffusion-supported-models-v26-8:
 
 Supported models
 ================
@@ -65,7 +65,7 @@ The following models are supported for inference performance benchmarking.
 Some instructions, commands, and recommendations in this documentation might
 vary by model -- select one to get started.
 
-.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-8.yaml
 
    {% set docker = data.docker %}
 
@@ -124,7 +124,7 @@ system's configuration.
 Pull the Docker image
 =====================
 
-.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-8.yaml
 
    {% set docker = data.docker %}
 
@@ -138,7 +138,7 @@ Pull the Docker image
 Validate and benchmark
 ======================
 
-.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-8.yaml
 
    {% set docker = data.docker %}
 
@@ -151,7 +151,7 @@ Validate and benchmark
    .. selected:: model={{ model.js_tag }}
 
       The following commands are written for {{ model.model }}.
-      See :ref:`xdit-video-diffusion-supported-models-v26-7` to switch to another available model.
+      See :ref:`xdit-video-diffusion-supported-models-v26-8` to switch to another available model.
 
      {% endfor %}
    {% endfor %}
@@ -161,7 +161,7 @@ Choose your setup method
 
 You can either use an existing Hugging Face cache or download the model fresh inside the container.
 
-.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-8.yaml
 
    {% set docker = data.docker %}
 
@@ -251,7 +251,7 @@ You can either use an existing Hugging Face cache or download the model fresh in
 Run inference
 =============
 
-.. datatemplate:yaml:: ./data/xdit-v26-7.yaml
+.. datatemplate:yaml:: ./data/xdit-v26-8.yaml
 
    {% set docker = data.docker %}
 
@@ -262,6 +262,7 @@ Run inference
 
       .. tab-set::
 
+         {% if model.mad_tag %}
          .. tab-item:: MAD-integrated benchmarking
 
             1. Clone the ROCm Model Automation and Dashboarding (`<https://github.com/ROCm/MAD>`__) repository to a local
@@ -288,6 +289,7 @@ Run inference
             ``container_ci-{{model.mad_tag}}``. The throughput and serving reports of the
             model are collected in the following paths: ``{{ model.mad_tag }}_throughput.csv``
             and ``{{ model.mad_tag }}_serving.csv``.
+         {% endif %}
 
          .. tab-item:: Standalone benchmarking
 
