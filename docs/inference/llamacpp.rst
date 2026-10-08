@@ -33,26 +33,18 @@ explains how to set up and run llama.cpp on AMD GPUs and APUs.
    .. selector:: Operating system
       :key: os
 
-      .. selector-option:: Ubuntu 26.04
+      .. selector-option:: Ubuntu 26.04 / 24.04
          :value: ubuntu ubuntu-ver=26.04
-         :width: 50%
-
-      .. selector-option:: Ubuntu 24.04
-         :value: ubuntu ubuntu-ver=24.04
-         :width: 50%
+         :width: 12
 
 .. selected:: fam=radeon fam=ryzen
 
    .. selector:: Operating system
       :key: os
 
-      .. selector-option:: Ubuntu 26.04
+      .. selector-option:: Ubuntu 26.04 / 24.04
          :value: ubuntu ubuntu-ver=26.04
-         :width: 4
-
-      .. selector-option:: Ubuntu 24.04
-         :value: ubuntu ubuntu-ver=24.04
-         :width: 4
+         :width: 8
 
       .. selector-option:: Windows 11
          :value: windows windows-ver=11
@@ -75,14 +67,27 @@ explains how to set up and run llama.cpp on AMD GPUs and APUs.
    .. selector-option:: apt
       :value: pkgman
       :width: 4
+      :show-cond: os=ubuntu
 
    .. selector-option:: pip
       :value: pip
       :width: 4
+      :show-cond: os=ubuntu
 
    .. selector-option:: Tarball
       :value: tar
       :width: 4
+      :show-cond: os=ubuntu
+
+   .. selector-option:: pip
+      :value: pip
+      :width: 6
+      :show-cond: os=windows
+
+   .. selector-option:: Tarball
+      :value: tar
+      :width: 6
+      :show-cond: os=windows
 
 ----
 
@@ -109,20 +114,18 @@ explains how to set up and run llama.cpp on AMD GPUs and APUs.
 Prerequisites
 =============
 
-To run llama.cpp with ROCm on Linux, you need the following prerequisites:
+To run llama.cpp with ROCm, you need the following prerequisites:
 
-.. selected:: rocm-ver=10.0.0
+.. selected:: os=ubuntu
 
-   - **ROCm version:** `10.0.0 <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html>`__
+   - **Operating system:** Ubuntu 26.04 or 24.04
 
-.. selected:: rocm-ver=7.14.0
+.. selected:: os=windows
 
-   - **ROCm version:** `7.14.0 <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html>`__
+   - **Operating system:** Windows 11
 
-- **Operating system**: Ubuntu 24.04
-
-- **GPU platform:** AMD Instinct MI200 Series (gfx90a) and MI100 (gfx908) GPUs,
-  AMD Radeon, and AMD Ryzen devices supported by ROCm.
+- **GPU platform:** AMD Instinct, AMD Radeon, and AMD Ryzen devices supported by
+  ROCm. Use the device family and GPU selectors to match your hardware.
 
 .. selected:: os=ubuntu
 
