@@ -23,15 +23,16 @@
 
       .. code-block::
 
-         llama-<build>-bin-win-rocm-win-rocm7.14-x64.zip
+         llama-<build>-bin-win-rocm-7.14-x64.zip
 
       For ROCm 7.14, that is any asset containing ``win-rocm-7.14``, for example
-      ``llama-b10539-bin-win-rocm-7.14-x64.zip``.
+      ``llama-b10628-bin-win-rocm-7.14-x64.zip``.
 
       Verify the checksum of the downloaded file against the digest shown for the
       asset, then extract the archive. This guide assumes you extract to ``C:\llamacpp``.
 
       .. code-block:: bat
 
-         certutil -hashfile llama-<build>-bin-win-rocm-7.14-x64.zip SHA256
+         certutil -hashfile llama-b10628-bin-win-rocm-7.14-x64.zip SHA256
+         tar -xf llama-b10628-bin-win-rocm-7.14-x64.zip -C C:\llamacpp
 
