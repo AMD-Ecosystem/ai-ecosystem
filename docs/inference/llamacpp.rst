@@ -5,7 +5,7 @@
 llama.cpp inference on ROCm
 ***************************
 
-`llama.cpp <https://llama.app/docs/introduction>`__ is an open-source inference
+`llama.cpp <https://github.com/ggml-org/llama.cpp>`__ is an open-source inference
 engine for running LLMs locally. It runs quantized models efficiently on
 consumer hardware and has become a pillar of local LLM inference. This page
 explains how to set up and run llama.cpp on AMD GPUs and APUs.
@@ -346,7 +346,8 @@ Verify the installation
 
    .. code-block:: bash
 
-      cd llama-b10628
+      # Replace <build> with your llama.cpp build number
+      cd llama-<build>
       ./llama-cli --list-devices
 
    The output shows the detected GPU and its available memory:
@@ -371,19 +372,10 @@ Verify the installation
    List the devices visible to llama.cpp. Make sure to ``cd`` into where the llama.cpp
    binaries are located and that you're in the same shell in which you set your ``PATH``.
 
-   .. selected:: i=pip
+   .. code-block:: bat
 
-      .. code-block:: bat
-
-         cd C:\llamacpp
-         llama-cli.exe --list-devices
-
-   .. selected:: i=tar
-
-      .. code-block:: bat
-
-         cd C:\llamacpp
-         llama-cli.exe --list-devices
+      cd C:\llamacpp
+      llama-cli.exe --list-devices
 
    The output shows the detected GPU and its available memory. For example:
 
@@ -562,8 +554,8 @@ llama-bench
       build: 78ec4c378 (10539)
 
 3. The ``backend`` column shows ``ROCm`` when the GPU is in use. If it shows
-   ``CPU``, the ROCm libraries were not found. Review the :ref:`environment
-   configuration steps <llamacpp-install>` to troubleshoot.
+   ``CPU``, the ROCm libraries were not found. Review :ref:`Configure your
+   environment <llamacpp-configure-env>` to troubleshoot.
 
 You can enable Flash Attention using ``-fa 1``:
 
