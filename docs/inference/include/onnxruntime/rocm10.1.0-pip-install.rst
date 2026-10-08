@@ -1,0 +1,51 @@
+.. |PKG_REPO_1010| replace:: https://stable.repo.amd.com/rocm/onnxruntime/whl-next/
+.. |WHL_1010| replace:: "onnxruntime-ep-migraphx==1.0.0+rocm10.1.0"
+
+.. selected:: rocm-ver=10.1.0
+
+   1. Create and activate a virtual environment or activate an existing ROCm
+      10.1.0 environment.
+
+      .. tab-set::
+
+         .. tab-item:: Python 3.12
+            :sync: py312
+
+            .. code-block:: bash
+
+               python3.12 -m venv .venv
+               source .venv/bin/activate
+
+   2. Install MIGraphX using pip. See :doc:`migraphx` for installation instructions.
+
+      .. important::
+
+         MIGraphX must be installed using pip. The
+         ``onnxruntime-ep-migraphx`` wheel declares a dependency on
+         ``migraphx-libs``, which is only available from the MIGraphX pip
+         repository. Installing MIGraphX using the package manager or tarball
+         method doesn't satisfy this dependency, and installing the execution
+         provider in the next step fails to resolve.
+
+   3. Install ONNX Runtime and the ``onnxruntime-ep-migraphx`` execution provider plugin.
+
+      .. code-block:: bash
+         :substitutions:
+
+         python -m pip install --extra-index-url |PKG_REPO_1010| |WHL_1010|
+
+   4. Confirm ONNX Runtime is correctly installed and the MIGraphX execution
+      provider is available.
+
+      The EP plugin must be explicitly registered using
+      ``onnxruntime_ep_migraphx`` before querying available providers.
+
+      .. code-block:: bash
+
+         python -c "import onnxruntime as ort, onnxruntime_ep_migraphx as m; [ort.register_execution_provider_library(n,p) for n,p in zip(m.get_ep_names(), m.get_library_paths())]; print(ort.get_available_providers())"
+
+      You should see ``MIGraphXExecutionProvider`` in the output:
+
+      .. code-block:: text
+
+         ['CPUExecutionProvider', 'MIGraphXExecutionProvider']

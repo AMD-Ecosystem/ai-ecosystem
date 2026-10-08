@@ -10,6 +10,17 @@ engine for running LLMs locally. It runs quantized models efficiently on
 consumer hardware and has become a pillar of local LLM inference. This page
 explains how to set up and run llama.cpp on AMD GPUs and APUs.
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.0.0
+      :value: 10.0.0
+      :width: 6
+
+   .. selector-option:: 7.14.0
+      :value: 7.14.0
+      :width: 6
+
 .. selector:: Device family
    :key: fam
 
@@ -49,17 +60,6 @@ explains how to set up and run llama.cpp on AMD GPUs and APUs.
       .. selector-option:: Windows 11
          :value: windows windows-ver=11
          :width: 4
-
-.. selector:: ROCm version
-   :key: rocm-ver
-
-   .. selector-option:: 10.0.0
-      :value: 10.0.0
-      :width: 6
-
-   .. selector-option:: 7.14.0
-      :value: 7.14.0
-      :width: 6
 
 .. selector:: ROCm installation
    :key: i
@@ -570,4 +570,3 @@ You can enable Flash Attention using ``-fa 1``:
    .. code-block:: bat
 
       llama-bench.exe -m <model>.gguf -p 512 -n 64 -ngl 999 -fa 1
-

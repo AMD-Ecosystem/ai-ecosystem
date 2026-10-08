@@ -3,7 +3,6 @@
 .. |VLLM_DOCKER_TAG_CDNA_7141D| replace:: rocm/vllm:rocm7.14.1_cdna_ubuntu24.04_py3.14_pytorch_2.11_vllm_0.23.0
 .. |VLLM_DOCKER_TAG_RDNA_7141D| replace:: rocm/vllm:rocm7.14.1_rdna_ubuntu24.04_py3.14_pytorch_2.11_vllm_0.23.0
 
-.. |VLLM_DOC_7141D| replace:: `vLLM <https://docs.vllm.ai/en/v0.23.0/>`__
 .. |VLLM_USAGE_DOC_7141D| replace:: `Using vLLM <https://docs.vllm.ai/en/v0.23.0/usage/>`__
 .. |VLLM_DOCKER_INSTALL_DOC_7141D| replace:: `Set up using Docker (vLLM docs) <https://docs.vllm.ai/en/v0.23.0/getting_started/installation/gpu/#amd-rocm_5>`__
 

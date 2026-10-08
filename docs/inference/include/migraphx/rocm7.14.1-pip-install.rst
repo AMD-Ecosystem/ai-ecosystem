@@ -10,7 +10,7 @@
       After installing ROCm, install MIGraphX. This method installs MIGraphX into
       a Python virtual environment.
 
-      1. Create and activate a virtual environment or activate an existing ROCm 10.0.0 environment.
+      1. Create and activate a virtual environment or activate an existing ROCm 7.14.1 environment.
 
          .. code-block:: bash
 
