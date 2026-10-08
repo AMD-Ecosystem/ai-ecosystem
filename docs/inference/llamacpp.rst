@@ -171,8 +171,8 @@ llama.cpp requires a ROCm installation on the host system.
 
       .. selected:: i=tar
 
-         This guide assumes the tarball is extracted to an ``install`` directory, as the
-         installation instructions describe, and refers to that location as ``$ROCM_PATH``.
+         This guide assumes ``ROCM_PATH`` and ``LD_LIBRARY_PATH`` are set according to the
+         ROCm installation via tarball instructions.
 
 .. _llamacpp-install:
 
@@ -234,8 +234,19 @@ in the following format:
 
    .. selected:: i=tar
 
-      The tarball installation instructions already set ``LD_LIBRARY_PATH`` to
-      ``$ROCM_PATH/lib``. No further configuration is required.
+      .. selected:: rocm-ver=10.0.0
+
+         The `tarball installation instructions
+         <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html?i=tar>`__
+         already set ``LD_LIBRARY_PATH`` to ``$ROCM_PATH/lib``. No further
+         configuration is required.
+
+      .. selected:: rocm-ver=7.14.0
+
+         The `tarball installation instructions
+         <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?i=tar>`__
+         already set ``LD_LIBRARY_PATH`` to ``$ROCM_PATH/lib``. No further
+         configuration is required.
 
    To make any of these settings permanent, update your shell startup file;
    ``~/.bashrc``, for instance.
