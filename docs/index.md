@@ -49,7 +49,7 @@ solution blueprints are reference applications built on them, and the AMD AI
 Workbench manages the lifecycle of your AI stack.
 
 - [AMD Enterprise AI release notes](https://enterprise-ai.docs.amd.com/en/latest/release-notes.html)
-- [AMD Inference Microservices (AIMs)](https://enterprise-ai.docs.amd.com/en/latest/aims/catalog/models.html)
+- [AIMs (AMD Inference Microservices)](https://enterprise-ai.docs.amd.com/en/latest/aims/catalog/models.html)
 - [AMD AI Workbench](https://enterprise-ai.docs.amd.com/en/latest/workbench/overview.html)
 - [Solution blueprints catalog](https://enterprise-ai.docs.amd.com/en/latest/solution-blueprints/catalog.html)
 ::::
