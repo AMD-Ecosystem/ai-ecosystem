@@ -221,13 +221,26 @@ Configure your environment
       - ``<venv>/lib/python<version>/site-packages/_rocm_sdk_libraries/lib``
 
       Add both to ``LD_LIBRARY_PATH``, replacing ``<venv>`` with the path of your virtual
-      environment. The Python version in the path is the one you created the environment with;
-      Ubuntu 24.04 provides Python 3.12.
+      environment. The Python version in the path is the one you created the environment
+      with.
 
-      .. code-block:: bash
+      .. tab-set::
 
-         SP=<venv>/lib/python3.12/site-packages
-         export LD_LIBRARY_PATH="$SP/_rocm_sdk_core/lib:$SP/_rocm_sdk_libraries/lib:$LD_LIBRARY_PATH"
+         .. tab-item:: Ubuntu 26.04
+            :sync: ub26
+
+            .. code-block:: bash
+
+               SP=<venv>/lib/python3.14/site-packages
+               export LD_LIBRARY_PATH="$SP/_rocm_sdk_core/lib:$SP/_rocm_sdk_libraries/lib:$LD_LIBRARY_PATH"
+
+         .. tab-item:: Ubuntu 24.04
+            :sync: ub24
+
+            .. code-block:: bash
+
+               SP=<venv>/lib/python3.12/site-packages
+               export LD_LIBRARY_PATH="$SP/_rocm_sdk_core/lib:$SP/_rocm_sdk_libraries/lib:$LD_LIBRARY_PATH"
 
       .. note::
 
