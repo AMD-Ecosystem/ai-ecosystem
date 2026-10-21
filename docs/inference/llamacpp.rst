@@ -196,8 +196,10 @@ in the following format:
 
 .. _llamacpp-configure-env:
 
+Configure your environment
+==========================
+
 .. selected:: os=ubuntu
-   :heading: Configure your environment (Linux)
 
    llama.cpp loads the ROCm math libraries at run time and must be able to find them.
 
@@ -251,10 +253,11 @@ in the following format:
    To make any of these settings permanent, update your shell startup file;
    ``~/.bashrc``, for instance.
 
-.. selected:: i=pip
+.. selected:: os=windows
 
-   .. selected:: os=windows
-      :heading: Configure your environment (Windows)
+   llama.cpp loads the ROCm math libraries at run time and must be able to find them.
+
+   .. selected:: i=pip
 
       A pip installation places the ROCm runtime inside the virtual environment in
       two directories:
@@ -274,14 +277,29 @@ in the following format:
       permanent, add both directories to your user or system ``PATH`` in your
       Windows settings.
 
-      If the ROCm libraries are not on your ``PATH``, llama.cpp does not report an
-      error. It silently falls back to the CPU backend and runs several times
-      slower. Use :ref:`Verify the installation <llamacpp-verify-installation>` to confirm
-      the GPU is detected.
+   .. selected:: i=tar
 
-.. _llamacpp-copy-runtime-libs:
+      .. selected:: rocm-ver=10.0.0
+
+         The `tarball installation instructions
+         <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html?i=tar&os=windows>`__
+         already add ``C:\TheRock\build\bin`` to the system ``PATH``. No further
+         configuration is required.
+
+      .. selected:: rocm-ver=7.14.0
+
+         The `tarball installation instructions
+         <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html?i=tar&os=windows>`__
+         already add ``C:\TheRock\build\bin`` to the system ``PATH``. No further
+         configuration is required.
+
+   If the ROCm libraries are not on your ``PATH``, llama.cpp does not report an
+   error. It silently falls back to the CPU backend and runs several times
+   slower. Use :ref:`Verify the installation <llamacpp-verify-installation>` to confirm
+   the GPU is detected.
 
 .. selected:: os=windows
+   :id: llamacpp-copy-runtime-libs
    :heading: Copy the HIP runtime libraries
 
    .. selected:: i=pip
@@ -395,13 +413,6 @@ Verify the installation
 
    If no devices are listed at all, the ROCm runtime cannot be found. Review
    :ref:`Configure your environment <llamacpp-configure-env>`.
-
-   Optionally, run the llama.cpp unit tests to validate the installation more
-   thoroughly. The test suite takes a considerable amount of time to complete.
-
-   .. code-block:: bat
-
-      test-backend-ops.exe
 
 .. selected:: os=ubuntu
    :heading: Select a GPU
