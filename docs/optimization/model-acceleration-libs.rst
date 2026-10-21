@@ -416,11 +416,11 @@ Perform the prebuild and build
       FBGEMM_VERSION=v0.8.0
 
       # Clone the repo along with its submodules
-      git clone https://github.com/pytorch/FBGEMM.git --branch=v0.8.0 --recursive fbgemm_${FBGEMM_VERSION}
+      git clone https://github.com/pytorch/FBGEMM.git --branch=${FBGEMM_VERSION} --recursive fbgemm_${FBGEMM_VERSION}
 
       # Install additional required packages for building and testing
       cd fbgemm_${FBGEMM_VERSION}/fbgemm_gpu
-      pip install requirements.txt
+      pip install -r requirements.txt
 
 #. Clear the build cache to remove stale build information.
 
@@ -457,7 +457,6 @@ Perform the prebuild and build
       export ROCM_PATH=</path/to/rocm>
 
       # Build for the target architecture of the ROCm device installed on the machine (for example, 'gfx942;gfx90a')
-      # See :doc:`The Linux system requirements <../../reference/system-requirements>` for a list of supported GPUs.
       export PYTORCH_ROCM_ARCH=$(${ROCM_PATH}/bin/rocminfo | grep -o -m 1 'gfx.*')
 
       # Build the wheel artifact only
