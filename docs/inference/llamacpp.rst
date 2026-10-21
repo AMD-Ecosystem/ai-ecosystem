@@ -311,6 +311,8 @@ Configure your environment
    slower. Use :ref:`Verify the installation <llamacpp-verify-installation>` to confirm
    the GPU is detected.
 
+.. _llamacpp-copy-runtime-libs:
+
 .. selected:: os=windows
    :id: llamacpp-copy-runtime-libs
    :heading: Copy the HIP runtime libraries
