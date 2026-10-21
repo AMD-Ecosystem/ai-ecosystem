@@ -480,8 +480,9 @@ The two most popular use cases are:
 
 .. seealso::
 
-   See `Models (llama.cpp docs) <https://llama.app/models>`__ for a list of
-   GGUF-formatted models available to download from Hugging Face.
+   See `GGUF models for llama.cpp
+   <https://huggingface.co/models?library=gguf&apps=llama.cpp&sort=trending>`__
+   for a list of GGUF-formatted models available to download from Hugging Face.
 
 .. selected:: os=ubuntu
 
