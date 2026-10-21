@@ -415,7 +415,7 @@ Verify the installation
    :ref:`Configure your environment <llamacpp-configure-env>`.
 
 .. selected:: os=ubuntu
-   :heading: Select a GPU
+   :heading: Select the GPUs to use
 
    Systems with both a discrete GPU and an integrated GPU report more than one ROCm device:
 
@@ -426,12 +426,27 @@ Verify the installation
         ROCm1: AMD Radeon Graphics (63199 MiB, 63174 MiB free)
 
    The integrated GPU reports a large amount of shared system memory and may not be a
-   supported ROCm device. To restrict llama.cpp to a specific GPU, set
-   ``HIP_VISIBLE_DEVICES`` to its index:
+   supported ROCm device. To restrict llama.cpp to specific GPUs, set
+   ``HIP_VISIBLE_DEVICES`` to a comma-separated list of their indices:
 
    .. code-block:: bash
 
+      # Use ROCm0 only
       export HIP_VISIBLE_DEVICES=0
+
+      # Use ROCm0 and ROCm1 together, for example two discrete GPUs
+      export HIP_VISIBLE_DEVICES=0,1
+
+   The indices refer to the devices as numbered in the ``--list-devices`` output.
+   llama.cpp distributes a model across all visible GPUs, so listing more than one
+   lets you run models that do not fit in the memory of a single GPU.
+
+   Alternatively, pass the devices to a single command with ``--device``, using the
+   names from ``--list-devices`` rather than the indices:
+
+   .. code-block:: bash
+
+      ./llama-cli -m <model>.gguf -ngl 999 --device ROCm0,ROCm1
 
 .. _llamacpp-example:
 
@@ -543,13 +558,28 @@ llama-bench
 
 2. The result of the command above should be similar to the following when running on an AMD Radeon RX 7900 XT system:
 
+   .. selected:: os=ubuntu
+
+      .. code-block::
+
+         ggml_cuda_init: found 1 ROCm devices (Total VRAM: 20464 MiB):
+           Device 0: AMD Radeon RX 7900 XT, gfx1100 (0x1100), VMM: no, Wave Size: 32, VRAM: 20464 MiB
+         load_backend: loaded ROCm backend from /home/user/llama-b10539/libggml-hip.so
+         load_backend: loaded RPC backend from /home/user/llama-b10539/libggml-rpc.so
+         load_backend: loaded CPU backend from /home/user/llama-b10539/libggml-cpu-haswell.so
+
+   .. selected:: os=windows
+
+      .. code-block::
+
+         ggml_cuda_init: found 1 ROCm devices (Total VRAM: 20464 MiB):
+           Device 0: AMD Radeon RX 7900 XT, gfx1100 (0x1100), VMM: no, Wave Size: 32, VRAM: 20464 MiB
+         load_backend: loaded ROCm backend from C:\llamacpp\ggml-hip.dll
+         load_backend: loaded RPC backend from C:\llamacpp\ggml-rpc.dll
+         load_backend: loaded CPU backend from C:\llamacpp\ggml-cpu-haswell.dll
+
    .. code-block::
 
-      ggml_cuda_init: found 1 ROCm devices (Total VRAM: 20464 MiB):
-        Device 0: AMD Radeon RX 7900 XT, gfx1100 (0x1100), VMM: no, Wave Size: 32, VRAM: 20464 MiB
-      load_backend: loaded ROCm backend from C:\llamacpp\ggml-hip.dll
-      load_backend: loaded RPC backend from C:\llamacpp\ggml-rpc.dll
-      load_backend: loaded CPU backend from C:\llamacpp\ggml-cpu-haswell.dll
       | model                          |       size |     params | backend    | ngl |            test |                  t/s |
       | ------------------------------ | ---------: | ---------: | ---------- | --: | --------------: | -------------------: |
       | qwen2 1B Q4_K - Medium         | 462.96 MiB |   630.17 M | ROCm       | 999 |            pp16 |     2406.95 ± 704.75 |
