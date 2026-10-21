@@ -102,24 +102,24 @@ Using Flash Attention 2
    model_name = "NousResearch/Llama-3.2-1B"
 
    tokenizer = AutoTokenizer.from_pretrained(model_name, dtype=torch.bfloat16, use_fast=False)
-   inputs = tokenizer('Today is', return_tensors='pt').to(device)
+   inputs = tokenizer('The key advantage of GPU computing is', return_tensors='pt').to(device)
 
    model_eager = AutoModelForCausalLM.from_pretrained(model_name, dtype=torch.bfloat16, attn_implementation="eager").cuda(device)
    model_ckFAv2 = AutoModelForCausalLM.from_pretrained(model_name, dtype=torch.bfloat16, attn_implementation="flash_attention_2").cuda(device)
    model_eager.generation_config.pad_token_id = model_eager.generation_config.eos_token_id
    model_ckFAv2.generation_config.pad_token_id = model_ckFAv2.generation_config.eos_token_id
 
-   print("eager\n GQA: ", tokenizer.decode(model_eager.generate(**inputs, max_new_tokens=22)[0], skip_special_tokens=True, do_sample=False, num_beams=1))
-   print("ckFAv2\n GQA: ", tokenizer.decode(model_ckFAv2.generate(**inputs, max_new_tokens=22)[0], skip_special_tokens=True, do_sample=False, num_beams=1))
+   print("eager\n GQA: ", tokenizer.decode(model_eager.generate(**inputs, max_new_tokens=24)[0], skip_special_tokens=True, do_sample=False, num_beams=1))
+   print("ckFAv2\n GQA: ", tokenizer.decode(model_ckFAv2.generate(**inputs, max_new_tokens=24)[0], skip_special_tokens=True, do_sample=False, num_beams=1))
 
 The outputs from eager mode and FlashAttention-2 are identical, although their performance behavior differs.
 
 .. code-block:: shell
 
    eager
-   GQA:  Today is the 10th anniversary of the 9/11 attacks. I remember that day like it was yesterday.
+   GQA:  The key advantage of GPU computing is that it can perform many calculations in parallel, which makes it much faster than a CPU for these workloads.
    ckFAv2
-   GQA:  Today is the 10th anniversary of the 9/11 attacks. I remember that day like it was yesterday.
+   GQA:  The key advantage of GPU computing is that it can perform many calculations in parallel, which makes it much faster than a CPU for these workloads.
 
 xFormers
 ========
@@ -416,11 +416,11 @@ Perform the prebuild and build
       FBGEMM_VERSION=v0.8.0
 
       # Clone the repo along with its submodules
-      git clone https://github.com/pytorch/FBGEMM.git --branch=v0.8.0 --recursive fbgemm_${FBGEMM_VERSION}
+      git clone https://github.com/pytorch/FBGEMM.git --branch=${FBGEMM_VERSION} --recursive fbgemm_${FBGEMM_VERSION}
 
       # Install additional required packages for building and testing
       cd fbgemm_${FBGEMM_VERSION}/fbgemm_gpu
-      pip install requirements.txt
+      pip install -r requirements.txt
 
 #. Clear the build cache to remove stale build information.
 
@@ -457,7 +457,6 @@ Perform the prebuild and build
       export ROCM_PATH=</path/to/rocm>
 
       # Build for the target architecture of the ROCm device installed on the machine (for example, 'gfx942;gfx90a')
-      # See :doc:`The Linux system requirements <../../reference/system-requirements>` for a list of supported GPUs.
       export PYTORCH_ROCM_ARCH=$(${ROCM_PATH}/bin/rocminfo | grep -o -m 1 'gfx.*')
 
       # Build the wheel artifact only
