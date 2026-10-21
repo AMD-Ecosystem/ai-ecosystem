@@ -102,24 +102,24 @@ Using Flash Attention 2
    model_name = "NousResearch/Llama-3.2-1B"
 
    tokenizer = AutoTokenizer.from_pretrained(model_name, dtype=torch.bfloat16, use_fast=False)
-   inputs = tokenizer('Today is', return_tensors='pt').to(device)
+   inputs = tokenizer('The key advantage of GPU computing is', return_tensors='pt').to(device)
 
    model_eager = AutoModelForCausalLM.from_pretrained(model_name, dtype=torch.bfloat16, attn_implementation="eager").cuda(device)
    model_ckFAv2 = AutoModelForCausalLM.from_pretrained(model_name, dtype=torch.bfloat16, attn_implementation="flash_attention_2").cuda(device)
    model_eager.generation_config.pad_token_id = model_eager.generation_config.eos_token_id
    model_ckFAv2.generation_config.pad_token_id = model_ckFAv2.generation_config.eos_token_id
 
-   print("eager\n GQA: ", tokenizer.decode(model_eager.generate(**inputs, max_new_tokens=22)[0], skip_special_tokens=True, do_sample=False, num_beams=1))
-   print("ckFAv2\n GQA: ", tokenizer.decode(model_ckFAv2.generate(**inputs, max_new_tokens=22)[0], skip_special_tokens=True, do_sample=False, num_beams=1))
+   print("eager\n GQA: ", tokenizer.decode(model_eager.generate(**inputs, max_new_tokens=24)[0], skip_special_tokens=True, do_sample=False, num_beams=1))
+   print("ckFAv2\n GQA: ", tokenizer.decode(model_ckFAv2.generate(**inputs, max_new_tokens=24)[0], skip_special_tokens=True, do_sample=False, num_beams=1))
 
 The outputs from eager mode and FlashAttention-2 are identical, although their performance behavior differs.
 
 .. code-block:: shell
 
    eager
-   GQA:  Today is the 10th anniversary of the 9/11 attacks. I remember that day like it was yesterday.
+   GQA:  The key advantage of GPU computing is that it can perform many calculations in parallel, which makes it much faster than a CPU for these workloads.
    ckFAv2
-   GQA:  Today is the 10th anniversary of the 9/11 attacks. I remember that day like it was yesterday.
+   GQA:  The key advantage of GPU computing is that it can perform many calculations in parallel, which makes it much faster than a CPU for these workloads.
 
 xFormers
 ========
