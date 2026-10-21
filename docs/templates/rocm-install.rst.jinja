@@ -45,12 +45,16 @@
             .. selected:: gfx={{ gfx }}
 
                See the `Install ROCm {{ ver }}
-               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=instinct&gfx={{ gfx }}&os=ubuntu&i=pkgman>`__
-               guide for instructions. Use the selector on the page to match your system.
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=instinct&gfx={{ gfx }}&w=compute&os=ubuntu&i=pkgman>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
 
 {% endfor %}
             * Device family: **AMD Instinct**
-            * Select your GPU (importantly, ``gfx`` architecture) from the dropdown list.
+            * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
             * Operating system: **Ubuntu**
             * Installation method: **apt** (package manager)
 
@@ -60,12 +64,16 @@
             .. selected:: gfx={{ gfx }}
 
                See the `Install ROCm {{ ver }}
-               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=instinct&gfx={{ gfx }}&os=ubuntu&i=pip>`__
-               guide for instructions. Use the selector on the page to match your system.
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=instinct&gfx={{ gfx }}&w=compute&os=ubuntu&i=pip>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
 
 {% endfor %}
             * Device family: **AMD Instinct**
             * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
             * Operating system: **Ubuntu**
             * Installation method: **pip**
 
@@ -75,12 +83,16 @@
             .. selected:: gfx={{ gfx }}
 
                See the `Install ROCm {{ ver }}
-               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=instinct&gfx={{ gfx }}&os=ubuntu&i=tar>`__
-               guide for instructions. Use the selector on the page to match your system.
+               <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=instinct&gfx={{ gfx }}&w=compute&os=ubuntu&i=tar>`__
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
 
 {% endfor %}
             * Device family: **AMD Instinct**
             * Select your GPU -- importantly, ``gfx`` architecture -- from the dropdown list.
+            * Use case: **Compute**
             * Operating system: **Ubuntu**
             * Installation method: **Tarball**
 
@@ -95,7 +107,10 @@
 
                See the `Install ROCm {{ ver }}
                <https://rocm.docs.amd.com/en/docs-{{ ver }}/install/rocm.html?fam=radeon&gfx={{ gfx }}&w=compute&os=ubuntu&i=pkgman>`__
-               guide for instructions. Use the selector on the page to match your system.
+               guide for instructions; use the selector on the page to update
+               the instructions based on your environment. Your ROCm
+               installation should target the same environment you plan to
+               install llama.cpp in.
 
 {% endfor %}
             * Device family: **AMD Radeon**
