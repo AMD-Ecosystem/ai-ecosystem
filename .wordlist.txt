@@ -1,6 +1,7 @@
 ACS
 AGPR
 AGPRs
+AIMs
 AITER
 AOTriton
 APU
@@ -185,6 +186,7 @@ ki
 kv
 len
 libexec
+lifecycle
 llm
 ln
 lora
