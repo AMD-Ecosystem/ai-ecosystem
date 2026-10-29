@@ -14,14 +14,17 @@ hardware running Linux. It applies to `supported AMD GPUs and platforms
 .. selector:: ROCm version
    :key: rocm-ver
 
+   .. selector-option:: 10.2.0
+      :width: 3
+
    .. selector-option:: 10.1.0
-      :width: 4
+      :width: 3
 
    .. selector-option:: 10.0.0
-      :width: 4
+      :width: 3
 
    .. selector-option:: 7.14.1
-      :width: 4
+      :width: 3
 
 .. selector:: Device family
    :key: fam
@@ -29,13 +32,13 @@ hardware running Linux. It applies to `supported AMD GPUs and platforms
    .. selector-option:: AMD Instinct™
       :value: instinct
       :width: 6
-      :show-cond: rocm-ver=10.1.0
+      :show-cond: rocm-ver=10.2.0 rocm-ver=10.1.0
       :toc-label: AMD Instinct
 
    .. selector-option:: AMD Radeon™
       :value: radeon
       :width: 6
-      :show-cond: rocm-ver=10.1.0
+      :show-cond: rocm-ver=10.2.0 rocm-ver=10.1.0
       :toc-label: AMD Radeon
 
    .. selector-option:: AMD Instinct™
@@ -46,7 +49,7 @@ hardware running Linux. It applies to `supported AMD GPUs and platforms
 
 .. selector-dropdown:: Instinct GPU
    :key: gpu
-   :show-cond: fam=instinct rocm-ver=10.1.0
+   :show-cond: fam=instinct rocm-ver=10.2.0 rocm-ver=10.1.0
    :sort: desc
 
    .. selector-option:: AMD Instinct MI355X (gfx950)
@@ -181,16 +184,22 @@ hardware running Linux. It applies to `supported AMD GPUs and platforms
 
 .. selector:: TensorFlow version
    :key: tensorflow-ver
-   :show-cond: rocm-ver=10.1.0
+   :show-cond: rocm-ver=10.2.0 rocm-ver=10.1.0
 
    .. selector-option:: 2.21
       :value: 2.21
       :width: 6
+      :show-cond: fam=instinct
 
    .. selector-option:: 2.20
       :value: 2.20
       :width: 6
       :show-cond: fam=instinct
+
+   .. selector-option:: 2.21
+      :value: 2.21
+      :width: 12
+      :show-cond: fam=radeon
 
 .. selector:: TensorFlow version
    :key: tensorflow-ver
@@ -223,6 +232,15 @@ Prerequisites
 =============
 
 .. selected:: fam=instinct fam=radeon
+
+   .. selected:: rocm-ver=10.2.0
+
+      * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
+        `ROCm compatibility matrix
+        <https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>`__
+        for driver support information. For installation instructions, see the
+        `AMD GPU Driver documentation
+        <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.70.0/index.html>`__.
 
    .. selected:: rocm-ver=10.1.0
 
@@ -261,36 +279,39 @@ Prerequisites
 
 .. selected:: i=pip
 
+   .. selected:: rocm-ver=10.2.0
+
+      * Install `ROCm 10.2.0
+        <https://rocm-stg.amd.com/en/docs-10.2.0/install/rocm.html>`__.
+
+   .. selected:: rocm-ver=10.1.0
+
+      * Install `ROCm 10.1.0
+        <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html>`__.
+
+   .. selected:: rocm-ver=10.0.0
+
+      * Install `ROCm 10.0.0
+        <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html>`__.
+
+   .. selected:: rocm-ver=7.14.1
+
+      * Install `ROCm 7.14.1
+        <https://rocm.docs.amd.com/en/docs-7.14.1/install/rocm.html>`__.
+
    * Ensure your system has a `supported Python version
      <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
      installed and accessible: **3.12**
 
-   .. selected:: rocm-ver=10.1.0
-
-      * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
-        (Install ROCm 10.1.0)
-        <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html#prerequisites>`__ for
-        instructions.
-
-   .. selected:: rocm-ver=10.0.0
-
-      * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
-        (Install ROCm 10.0.0)
-        <https://rocm.docs.amd.com/en/docs-10.0.0/install/rocm.html#prerequisites>`__ for
-        instructions.
-
-   .. selected:: rocm-ver=7.14.1
-
-      * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
-        (Install ROCm 7.14.1)
-        <https://rocm.docs.amd.com/en/docs-7.14.1/install/rocm.html#prerequisites>`__ for
-        instructions.
+.. include:: ./include/rocm10.2.0-docker.rst
 
 .. include:: ./include/rocm10.1.0-docker.rst
 
 .. include:: ./include/rocm10.0.0-docker.rst
 
 .. include:: ./include/rocm7.14.1-docker.rst
+
+.. include:: ./include/rocm10.2.0-pip-install.rst
 
 .. include:: ./include/rocm10.1.0-pip-install.rst
 
@@ -303,8 +324,9 @@ Prerequisites
 .. selected:: i=pip
    :heading: Known issues
 
-   After installing ``rocm_tensorflow`` using pip, attempting to run TensorFlow
-   can result in multiple ``ImportError``\ s.
+   If you installed ROCm using pip, attempting to run TensorFlow can result in
+   multiple ``ImportError``\ s because TensorFlow can't find ROCm's shared
+   libraries.
 
    As a workaround, update ``LD_LIBRARY_PATH`` to link to the required ROCm
    libraries and system dependencies in your installation path:
@@ -312,3 +334,8 @@ Prerequisites
    .. code-block:: bash
 
       export LD_LIBRARY_PATH=$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib/rocm_sysdeps/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_libraries/lib:$LD_LIBRARY_PATH
+
+   .. selected:: rocm-ver=10.0.0 rocm-ver=7.14.1
+
+      If ROCm was installed using a different method, update this path to
+      point to your actual ROCm installation location.

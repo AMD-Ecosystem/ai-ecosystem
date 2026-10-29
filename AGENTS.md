@@ -29,7 +29,7 @@ Layout:
 ```sh
 python3 -mvenv .venv
 .venv/bin/python -m pip install -r docs/sphinx/requirements.txt
-.venv/bin/python -m sphinx -T -E -b html -d _build/doctrees -D language=en docs _build/html
+.venv/bin/python -m sphinx -j auto -T -E docs/ _build/
 ```
 
 - Open `_build/html/index.html` to review.
@@ -46,8 +46,7 @@ warnings, disable remote inventory fetching by appending
 `-D external_projects_remote_repository=""` to the build command:
 
 ```sh
-.venv/bin/python -m sphinx -T -E -b html -d _build/doctrees -D language=en \
-  -D external_projects_remote_repository="" docs _build/html
+.venv/bin/python -m sphinx -j auto -T -E -D external_projects_remote_repository="" docs _build/html
 ```
 
 Expect `unknown document` warnings for cross-project references in this mode,

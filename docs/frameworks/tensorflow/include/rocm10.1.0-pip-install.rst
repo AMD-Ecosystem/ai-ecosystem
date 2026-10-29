@@ -8,84 +8,30 @@
    .. selected:: i=pip
       :heading: Install TensorFlow using pip
 
-      For prerequisite steps and post-installation recommendations, see the `ROCm
-      installation instructions <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html>`__.
-
-      1. Set up your Python virtual environment.
+      1. Set up and activate your Python virtual environment.
 
          .. code-block:: bash
 
             python3.12 -m venv .venv
-
-      2. Activate your Python virtual environment.
-
-         .. code-block:: shell
-
             source .venv/bin/activate
 
-      3. If you don't have an existing ROCm installation, install ROCm using the
-         following command; see the `ROCm 10.1.0 installation instructions
-         <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html>`__ for
-         complete guidance.
-         Otherwise, proceed to installing TensorFlow packages.
+      2. **If you don't have an existing ROCm 10.1.0 installation**, install it
+         following the `ROCm 10.1.0 installation instructions
+         <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html>`__; on that page,
+         select your installation environment and method.
 
-         .. selected:: gfx=gfx950
+         .. important::
 
-            .. code-block:: bash
-               :substitutions:
-
-               python -m pip install --index-url |PKG_REPO_1010| \
-                   "rocm[libraries,device-gfx950]==|ROCM_VER_1010|"
-
-         .. selected:: gfx=gfx942
+            If you installed ROCm 10.1.0 using ``pip``, TensorFlow might be
+            unable to find ROCm's shared libraries. Update ``LD_LIBRARY_PATH``
+            as a :ref:`workaround <tensorflow-known-issues>` so TensorFlow can
+            discover ROCm libraries and system dependencies.
 
             .. code-block:: bash
-               :substitutions:
 
-               python -m pip install --index-url |PKG_REPO_1010| \
-                   "rocm[libraries,device-gfx942]==|ROCM_VER_1010|"
+               export LD_LIBRARY_PATH=$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib/rocm_sysdeps/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_libraries/lib:$LD_LIBRARY_PATH
 
-         .. selected:: gfx=gfx1200
-
-            .. code-block:: bash
-               :substitutions:
-
-               python -m pip install --index-url |PKG_REPO_1010| \
-                   "rocm[libraries,device-gfx1200]==|ROCM_VER_1010|"
-
-         .. selected:: gfx=gfx1201
-
-            .. code-block:: bash
-               :substitutions:
-
-               python -m pip install --index-url |PKG_REPO_1010| \
-                   "rocm[libraries,device-gfx1201]==|ROCM_VER_1010|"
-
-         .. selected:: gfx=gfx1100
-
-            .. code-block:: bash
-               :substitutions:
-
-               python -m pip install --index-url |PKG_REPO_1010| \
-                   "rocm[libraries,device-gfx1100]==|ROCM_VER_1010|"
-
-         .. selected:: gfx=gfx1101
-
-            .. code-block:: bash
-               :substitutions:
-
-               python -m pip install --index-url |PKG_REPO_1010| \
-                   "rocm[libraries,device-gfx1101]==|ROCM_VER_1010|"
-
-         .. selected:: gfx=gfx1102
-
-            .. code-block:: bash
-               :substitutions:
-
-               python -m pip install --index-url |PKG_REPO_1010| \
-                   "rocm[libraries,device-gfx1102]==|ROCM_VER_1010|"
-
-      4. Install the ROCm-enabled TensorFlow libraries.
+      3. Install the ROCm-enabled TensorFlow libraries.
 
          .. selected:: tensorflow-ver=2.21
 
@@ -103,16 +49,16 @@
                python -m pip install --extra-index-url |FW_REPO_1010| \
                    "tensorflow-rocm==2.20.0+rocm10.1.0"
 
-      5. Update ``LD_LIBRARY_PATH`` as a :ref:`workaround
-         <tensorflow-known-issues>` so TensorFlow can discover ROCm libraries and
-         system dependencies.
+      4. **If you installed ROCm using pip**, update ``LD_LIBRARY_PATH`` as a
+         :ref:`workaround <tensorflow-known-issues>` so TensorFlow can discover
+         ROCm libraries and system dependencies.
 
          .. code-block:: bash
 
             export LD_LIBRARY_PATH=$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib/rocm_sysdeps/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_libraries/lib:$LD_LIBRARY_PATH
 
-      6. Verify your TensorFlow installation.
+      5. Verify your TensorFlow installation.
 
          .. code-block:: shell
 
-            python -c "import tensorflow as tf; print('TensorFlow version: ', tf.__version__); print('GPUs:', tf.config.list_physical_devices('GPU'))"
+            python -c "import tensorflow as tf; print('Built with ROCm:', tf.test.is_built_with_rocm()); print('Visible GPUs:', tf.config.list_physical_devices('GPU'))"

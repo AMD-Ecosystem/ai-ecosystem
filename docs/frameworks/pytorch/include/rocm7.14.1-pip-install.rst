@@ -1,6 +1,6 @@
 .. selected:: rocm-ver=7.14.1
 
-   3. Install the appropriate ROCm-enabled PyTorch libraries for your operating
+   2. Install the ROCm-enabled PyTorch libraries for your operating
       system and AMD hardware architecture.
 
       .. selected:: fam=all

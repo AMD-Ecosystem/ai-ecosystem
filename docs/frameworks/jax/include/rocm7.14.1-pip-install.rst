@@ -1,7 +1,11 @@
 .. selected:: rocm-ver=7.14.1
 
-   3. If you don't have an existing ROCm installation, install ROCm using the
-      following command; otherwise, proceed to installing JAX libraries.
+   2. **If you don't have an existing ROCm 7.14.1 installation**, you can
+      install ROCm using pip as follows. See the `ROCm 7.14.1 installation
+      instructions
+      <https://rocm.docs.amd.com/en/docs-7.14.1/install/rocm.html>`__ for
+      complete guidance and other ROCm installation methods. Otherwise,
+      proceed to installing JAX libraries.
 
       .. selected:: fam=all
 
@@ -66,7 +70,7 @@
             python -m pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ \
                 "rocm[libraries,device-gfx1102]==7.14.1"
 
-   4. Install the ROCm-enabled JAX libraries.
+   3. Install the ROCm-enabled JAX libraries.
 
       .. note::
 
