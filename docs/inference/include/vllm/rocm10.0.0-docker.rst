@@ -2,7 +2,6 @@
 
 .. |VLLM027_PYT212_CP314| replace:: rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0
 
-.. |VLLM_DOC_10D| replace:: `vLLM <https://docs.vllm.ai/en/v0.27.0/>`__
 .. |VLLM_USAGE_DOC_10D| replace:: `Using vLLM <https://docs.vllm.ai/en/v0.27.0/usage/>`__
 .. |VLLM_DOCKER_INSTALL_DOC_10D| replace:: `Set up using Docker (vLLM docs) <https://docs.vllm.ai/en/v0.27.0/getting_started/installation/gpu/#amd-rocm_5>`__
 

@@ -1,7 +1,7 @@
-.. |PKG_REPO| replace:: https://stable.repo.amd.com/rocm/whl-next/
-.. |ROCM_VER| replace:: 10.0.0
+.. |PKG_REPO_1000| replace:: https://stable.repo.amd.com/rocm/whl-next/
+.. |ROCM_VER_1000| replace:: 10.0.0
 
-.. |FW_REPO| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/
+.. |FW_REPO_1000| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/
 
 .. selected:: rocm-ver=10.0.0
 
@@ -34,24 +34,24 @@
             .. code-block:: bash
                :substitutions:
 
-               python -m pip install --index-url |PKG_REPO| \
-                   "rocm[libraries,device-gfx950]==|ROCM_VER|"
+               python -m pip install --index-url |PKG_REPO_1000| \
+                   "rocm[libraries,device-gfx950]==|ROCM_VER_1000|"
 
          .. selected:: gfx=gfx942
 
             .. code-block:: bash
                :substitutions:
 
-               python -m pip install --index-url |PKG_REPO| \
-                   "rocm[libraries,device-gfx942]==|ROCM_VER|"
+               python -m pip install --index-url |PKG_REPO_1000| \
+                   "rocm[libraries,device-gfx942]==|ROCM_VER_1000|"
 
          .. selected:: gfx=gfx90a
 
             .. code-block:: bash
                :substitutions:
 
-               python -m pip install --index-url |PKG_REPO| \
-                   "rocm[libraries,device-gfx90a]==|ROCM_VER|"
+               python -m pip install --index-url |PKG_REPO_1000| \
+                   "rocm[libraries,device-gfx90a]==|ROCM_VER_1000|"
 
       4. Install the ROCm-enabled TensorFlow libraries.
 
@@ -60,7 +60,7 @@
             .. code-block:: bash
                :substitutions:
 
-               python -m pip install --extra-index-url |FW_REPO| \
+               python -m pip install --extra-index-url |FW_REPO_1000| \
                    "tensorflow-rocm==2.21.0+rocm10.0.0"
 
          .. selected:: tensorflow-ver=2.20
@@ -68,7 +68,7 @@
             .. code-block:: bash
                :substitutions:
 
-               python -m pip install --extra-index-url |FW_REPO| \
+               python -m pip install --extra-index-url |FW_REPO_1000| \
                    "tensorflow-rocm==2.20.0+rocm10.0.0"
 
          .. selected:: tensorflow-ver=2.19
@@ -76,7 +76,7 @@
             .. code-block:: bash
                :substitutions:
 
-               python -m pip install --extra-index-url |FW_REPO| \
+               python -m pip install --extra-index-url |FW_REPO_1000| \
                    "tensorflow-rocm==2.19.1+rocm10.0.0"
 
       5. Update ``LD_LIBRARY_PATH`` as a :ref:`workaround
@@ -87,7 +87,7 @@
 
             export LD_LIBRARY_PATH=$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib/rocm_sysdeps/lib:$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_libraries/lib:$LD_LIBRARY_PATH
 
-      5. Verify your TensorFlow installation.
+      6. Verify your TensorFlow installation.
 
          .. code-block:: shell
 

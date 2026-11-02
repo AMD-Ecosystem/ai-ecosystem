@@ -1,5 +1,5 @@
-.. |PKG_REPO| replace:: https://stable.repo.amd.com/rocm/migraphx/whl-next/
-.. |WHL| replace:: "migraphx==2.17.0+rocm10.0.0"
+.. |PKG_REPO_1000| replace:: https://stable.repo.amd.com/rocm/migraphx/whl-next/
+.. |WHL_1000| replace:: "migraphx==2.17.0+rocm10.0.0"
 
 .. selected:: rocm-ver=10.0.0
 
@@ -35,8 +35,8 @@
          .. code-block:: bash
             :substitutions:
 
-            python -m pip install --index-url |PKG_REPO| \
-                |WHL|
+            python -m pip install --index-url |PKG_REPO_1000| \
+                |WHL_1000|
 
       3. ONNX Runtime accelerates machine learning inference using the MIGraphX
          execution provider on ROCm-supported GPUs. See the :doc:`installation

@@ -11,6 +11,25 @@ This page guides you through installing JAX with ROCm support on AMD hardware.
 It applies to `supported AMD GPUs and platforms
 <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__.
 
+.. selector:: ROCm version
+   :key: rocm-ver
+
+   .. selector-option:: 10.1.0
+      :value: 10.1.0
+      :width: 3
+
+   .. selector-option:: 10.0.0
+      :value: 10.0.0
+      :width: 3
+
+   .. selector-option:: 7.14.1
+      :value: 7.14.1
+      :width: 3
+
+   .. selector-option:: 7.14.0
+      :value: 7.14.0
+      :width: 3
+
 .. selector:: Device family
    :key: fam
 
@@ -37,20 +56,30 @@ It applies to `supported AMD GPUs and platforms
       :value: linux
       :width: 12
 
-.. selector:: ROCm version
-   :key: rocm-ver
+.. selected:: rocm-ver=10.1.0
 
-   .. selector-option:: 10.0.0
-      :value: 10.0.0
-      :width: 4
+   .. selector:: JAX version
+      :key: jax-ver
 
-   .. selector-option:: 7.14.1
-      :value: 7.14.1
-      :width: 4
+      .. selector-option:: 0.11.1
+         :value: 0.11.1
+         :width: 4
+         :show-cond: fam=all fam=instinct
 
-   .. selector-option:: 7.14.0
-      :value: 7.14.0
-      :width: 4
+      .. selector-option:: 0.11.0
+         :value: 0.11.0
+         :width: 4
+         :show-cond: fam=all fam=instinct
+
+      .. selector-option:: 0.10.2
+         :value: 0.10.2
+         :width: 4
+         :show-cond: fam=all fam=instinct
+
+      .. selector-option:: 0.11.1
+         :value: 0.11.1
+         :width: 12
+         :show-cond: fam=radeon
 
 .. selected:: rocm-ver=10.0.0
 
@@ -60,14 +89,22 @@ It applies to `supported AMD GPUs and platforms
       .. selector-option:: 0.11.0
          :value: 0.11.0
          :width: 4
+         :show-cond: fam=all fam=instinct
 
       .. selector-option:: 0.10.2
          :value: 0.10.2
          :width: 4
+         :show-cond: fam=all fam=instinct
 
       .. selector-option:: 0.10.0
          :value: 0.10.0
          :width: 4
+         :show-cond: fam=all fam=instinct
+
+      .. selector-option:: 0.11.0
+         :value: 0.11.0
+         :width: 12
+         :show-cond: fam=radeon
 
 .. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
 
@@ -98,6 +135,15 @@ Prerequisites
 
 .. selected:: fam=instinct fam=radeon
 
+   .. selected:: rocm-ver=10.1.0
+
+      * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
+        `ROCm compatibility matrix
+        <https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>`__
+        for driver support information. For installation instructions, see the
+        `AMD GPU Driver documentation
+        <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.60.0/index.html>`__.
+
    .. selected:: rocm-ver=10.0.0
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
@@ -107,7 +153,7 @@ Prerequisites
         `AMD GPU Driver documentation
         <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
 
-   .. selected:: rocm-ver=7.14.0
+   .. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
@@ -119,7 +165,10 @@ Prerequisites
 .. selected:: i=docker
 
    * Ensure the host system has `Docker Engine
-     <https://docs.docker.com/engine/install/>`__ installed.
+     <https://docs.docker.com/engine/install/>`__ installed. For more guidance
+     on running ROCm workloads in Docker containers, see `Run ROCm Docker
+     containers
+     <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
 .. selected:: i=pip
 
@@ -129,11 +178,18 @@ Prerequisites
         <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
         installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
 
-   .. selected:: jax-ver=0.11.0
+   .. selected:: jax-ver=0.11.1 jax-ver=0.11.0
 
       * Ensure your system has a `supported Python version
         <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
         installed and accessible: **3.12, 3.13, or 3.14**.
+
+   .. selected:: rocm-ver=10.1.0
+
+      * Complete the ROCm Core SDK installation prerequisites for installing via pip. See `Prerequisites
+        (Install ROCm 10.1.0)
+        <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html#prerequisites>`__ for
+        instructions.
 
    .. selected:: rocm-ver=10.0.0
 
@@ -165,6 +221,8 @@ Prerequisites
       ROCm <https://rocm.docs.amd.com/en/latest/install/rocm.html>`__ for other
       installation methods.
 
+.. include:: ./include/rocm10.1.0-docker.rst
+
 .. include:: ./include/rocm10.0.0-docker.rst
 
 .. include:: ./include/rocm7.14.1-docker.rst
@@ -173,6 +231,11 @@ Prerequisites
 
 .. selected:: i=pip
    :heading: Install JAX using pip
+
+   .. selected:: rocm-ver=10.1.0
+
+      For prerequisite steps and post-installation recommendations, see the `ROCm
+      installation instructions <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html>`__.
 
    .. selected:: rocm-ver=10.0.0
 
@@ -191,9 +254,15 @@ Prerequisites
 
    1. Set up your Python virtual environment.
 
-      .. selected:: jax-ver=0.11.0
+      .. selected:: jax-ver=0.11.1 jax-ver=0.11.0
 
          .. tab-set::
+
+            .. tab-item:: Python 3.14
+
+               .. code-block:: bash
+
+                  python3.14 -m venv .venv
 
             .. tab-item:: Python 3.13
 
@@ -207,13 +276,7 @@ Prerequisites
 
                   python3.12 -m venv .venv
 
-            .. tab-item:: Python 3.11
-
-               .. code-block:: bash
-
-                  python3.11 -m venv .venv
-
-      .. selected:: jax-ver=0.10.2 jax-ver=0.10.0
+      .. selected:: jax-ver=0.10.2 jax-ver=0.10.0 jax-ver=0.9.1
 
          .. tab-set::
 
@@ -246,6 +309,8 @@ Prerequisites
       .. code-block:: shell
 
          source .venv/bin/activate
+
+   .. include:: ./include/rocm10.1.0-pip-install.rst
 
    .. include:: ./include/rocm10.0.0-pip-install.rst
 
