@@ -1,36 +1,37 @@
 docker:
-  pull_tag: rocm/pytorch-xdit:v26.9
-  docker_hub_url: https://hub.docker.com/layers/rocm/pytorch-xdit/v26.9
-  ROCm: 7.14.0
+  pull_tag: rocm/pytorch-xdit:v26.10
+  docker_hub_url: https://hub.docker.com/layers/rocm/pytorch-xdit/v26.10
+  ROCm: 10.1.0
   whats_new:
-    - MiniMax-H3 support
-    - LTX-2.5 (full and distilled) support with parallel VAE decoding and AITER RMSNorm
-    - Fused QK-RMSNorm + RoPE for FLUX.1, FLUX.2, Qwen Image, Wan2.X, and Z-Image
-    - Memory-efficient model loading
+    - PyTorch 2.13.0
+    - MiniMax-H3 tile-parallel VAE
+    - CFG parallelism for Wan and Qwen Image Edit
+    - Improved LTX 2.5 run-to-run variance
+    - FastH3 and Lumina-Image-2.0 support
   components:
     TheRock:
-      version: 9100ec6
+      version: ab56f1f
       url: https://github.com/ROCm/TheRock
     rocm-libraries:
-      version: 9d056e8
+      version: 962d005
       url: https://github.com/ROCm/rocm-libraries
     rocm-systems:
-      version: 1b2a555
+      version: af82d0a
       url: https://github.com/ROCm/rocm-systems
     torch:
-      version: ff65f5b
+      version: 3369fa2
       url: https://github.com/ROCm/pytorch
     torchaudio:
-      version: e3c6ee2
+      version: b3ec2af
       url: https://github.com/pytorch/audio
     torchvision:
-      version: b919bd0
+      version: 53881ee
       url: https://github.com/pytorch/vision
     triton:
-      version: a272dfa
+      version: 669b31a
       url: https://github.com/ROCm/triton
     aiter:
-      version: 0c2b0f77
+      version: e2d019f1
       url: https://github.com/ROCm/aiter
     diffusers:
       version: 9f7aee4
@@ -39,7 +40,7 @@ docker:
       version: dce4841
       url: https://github.com/xdit-project/DistVAE
     xfuser:
-      version: 3aa7b34
+      version: 4865f4e
       url: https://github.com/xdit-project/xDiT
     yunchang:
       version: 631bdfd
@@ -68,10 +69,11 @@ docker:
             - '--warmup_calls 1 \'
             - '--num_iterations 1 \'
             - '--ulysses_degree 8 \'
-            - '--enable_tiling --enable_slicing \'
+            - '--use_parallel_vae \'
             - '--guidance_scale 6.0 \'
             - '--use_torch_compile \'
             - '--attention_backend aiter \'
+            - '--memory_efficient_replicated_load \'
             - "--output_directory results"
         - model: Hunyuan Video 1.5
           model_repo: hunyuanvideo-community/HunyuanVideo-1.5-Diffusers-720p_t2v
@@ -121,6 +123,7 @@ docker:
             - '--num_inference_steps 40 \'
             - '--use_torch_compile \'
             - '--attention_backend aiter \'
+            - '--memory_efficient_replicated_load \'
             - "--output_directory results"
         - model: Wan2.2
           model_repo: Wan-AI/Wan2.2-I2V-A14B-Diffusers
@@ -144,6 +147,7 @@ docker:
             - '--num_inference_steps 40 \'
             - '--use_torch_compile \'
             - '--attention_backend aiter \'
+            - '--memory_efficient_replicated_load \'
             - "--output_directory results"
     - group: FLUX
       js_tag: flux
@@ -170,6 +174,7 @@ docker:
             - '--guidance_scale 0.0 \'
             - '--num_iterations 50 \'
             - '--attention_backend aiter \'
+            - '--memory_efficient_replicated_load \'
             - "--output_directory results"
         - model: FLUX.1 Kontext
           model_repo: black-forest-labs/FLUX.1-Kontext-dev
@@ -190,10 +195,11 @@ docker:
             - '--warmup_calls 5 \'
             - '--ulysses_degree 8 \'
             - '--use_torch_compile \'
-            - '--input_images /app/data/flux_cat.png \'
+            - '--input_images https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/diffusers/cat.png \'
             - '--guidance_scale 2.5 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
+            - '--memory_efficient_replicated_load \'
             - "--output_directory results"
         - model: FLUX.2
           model_repo: black-forest-labs/FLUX.2-dev
@@ -214,10 +220,11 @@ docker:
             - '--warmup_calls 5 \'
             - '--ulysses_degree 8 \'
             - '--use_torch_compile \'
-            - '--input_images /app/data/flux_cat.png \'
+            - '--input_images https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/diffusers/cat.png \'
             - '--guidance_scale 4.0 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
+            - '--memory_efficient_replicated_load \'
             - "--output_directory results"
         - model: FLUX.2 Klein
           model_repo: black-forest-labs/FLUX.2-klein-9B
@@ -240,6 +247,7 @@ docker:
             - '--guidance_scale 1.0 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
+            - '--memory_efficient_replicated_load \'
             - "--output_directory results"
     - group: StableDiffusion
       js_tag: stablediffusion
@@ -285,6 +293,7 @@ docker:
             - '--guidance_scale 4.0 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
+            - '--memory_efficient_replicated_load \'
             - "--output_directory results"
         - model: Z-Image-Turbo
           model_repo: Tongyi-MAI/Z-Image-Turbo
@@ -396,6 +405,7 @@ docker:
             - '--guidance_scale 0.0 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
+            - '--memory_efficient_replicated_load \'
             - "--output_directory results"
         - model: Qwen-Image-Edit
           model_repo: Qwen/Qwen-Image-Edit
@@ -410,7 +420,7 @@ docker:
             - '--seed 42 \'
             - '--prompt "Add a cool hat to the cat." \'
             - '--negative_prompt "" \'
-            - '--input_images /app/data/flux_cat.png \'
+            - '--input_images https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/diffusers/cat.png \'
             - '--height 2048 \'
             - '--width 2048 \'
             - '--num_inference_steps 50 \'
@@ -419,6 +429,7 @@ docker:
             - '--guidance_scale 4.0 \'
             - '--num_iterations 25 \'
             - '--attention_backend aiter \'
+            - '--memory_efficient_replicated_load \'
             - "--output_directory results"
     - group: Ideogram 4
       js_tag: ideogram4
@@ -485,6 +496,7 @@ docker:
             - '--num_inference_steps 50 \'
             - '--num_iterations 5 \'
             - '--ulysses_degree 8 \'
+            - '--use_parallel_vae \'
             - '--text_encoder_tp_degree 8 \'
             - '--use_torch_compile \'
             - '--attention_backend aiter \'
