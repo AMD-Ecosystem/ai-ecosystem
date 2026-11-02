@@ -137,13 +137,14 @@ Templated kernel launching consists of kernel instantiation, making arguments by
 
 :::{table} Functionalities used to implement SmoothQuant model inference.
 
-|       Functionality descriptions     |        Corresponding wrappers           |
-|:-------------------------------------|-----------------------------------------|
+| Functionality descriptions | Corresponding wrappers |
+| :--- | --- |
 | {math}`E = α \times (A \times B) + β \times (D)`, where A, B, D, E are INT8 2-D tensors; | E = Linear_ABDE_I8(A, B, D, {math}`\alpha`, {math}`\beta`) |
 | {math}`E = RELU (α \times (A \times B) + β \times (D))`, where A, B, D, E are INT8 2-D tensors; | E = Linear_ReLU_ABDE_I8(A, B, D, {math}`\alpha`, {math}`\beta`) |
 | {math}`E = α \times (A \times B) + β \times (D)`, where A, B are INT8 2-D tensors, D and E are FP32 2-D tensors; | E = Linear_AB_I8_DE_F32(A, B, D, {math}`\alpha`, {math}`\beta`) |
 | {math}`E = α \times (A \times B)`, where A, B, E are INT8 3-D tensors; | E = BMM_ABE_I8(A, B, {math}`\alpha`) |
 | {math}`E = α \times (A \times B)`, where A, B are INT8 3-D tensors, E is FP32 3-D tensor; | E = BMM_AB_I8_E_F32(A, B, {math}`\alpha`) |
+
 :::
 
 ### Operation flow analysis
@@ -468,12 +469,13 @@ For accuracy comparisons between the original FP16 and INT8 models, the evaluati
 
 :::{table} The inference accuracy comparisons of SmoothQuant quantized models on Instinct MI300X.
 
-|       Models     |    Hugging Face FP16 model accuracy     |   SmoothQuant quantized INT8 model accuracy |
-|:-----------------|----------------------------------------|---------------------------------------------|
+| Models | Hugging Face FP16 model accuracy | SmoothQuant quantized INT8 model accuracy |
+| :--- | --- | --- |
 | opt-1.3B | 0.72 | 0.70 |
 | opt-2.7B | 0.76 | 0.75 |
 | opt-6.7B | 0.80 | 0.79 |
 | opt-13B | 0.79 | 0.77 |
+
 :::
 
 ## Conclusion
