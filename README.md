@@ -16,6 +16,10 @@
       <b>GPU Systems and Infrastructure</b>
     </a>
     <span> • </span>
+    <a href="https://www.amd.com/en/products/software/rocm/rocm-ai.html#inside">
+      <b>ROCm.ai</b>
+    </a>
+    <span> • </span>
     <a href="https://rocm.blogs.amd.com/">
       <b>Blogs</b>
     </a>
@@ -42,26 +46,50 @@ runtimes (HIP), compilers, and math libraries for ROCm-accelerated workloads.
 
 ## Build the documentation
 
-This repository builds with Sphinx using the same setup as the other ROCm
-documentation projects.
+The docs are built with [Sphinx](https://www.sphinx-doc.org/).
+To build the docs locally, clone this repository, change into the cloned
+directory, and complete the following steps.
 
-### Linux and WSL
+1. Create and activate a virtual environment.
 
-```sh
-python3 -mvenv .venv
-.venv/bin/python -m pip install -r docs/sphinx/requirements.txt
-.venv/bin/python -m sphinx -T -E -b html -d _build/doctrees -D language=en docs _build/html
-```
+   <table>
+   <tr>
+   <th>Linux and WSL</th>
+   <th>Windows</th>
+   </tr>
+   <tr>
+   <td>
 
-### Windows
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
 
-```powershell
-python -mvenv .venv
-.venv\Scripts\python.exe -m pip install -r docs/sphinx/requirements.txt
-.venv\Scripts\python.exe -m sphinx -T -E -b html -d _build/doctrees -D language=en docs _build/html
-```
+   </td>
+   <td>
 
-Open `_build/html/index.html` in a web browser to view the result.
+   ```powershell
+   py -m venv .venv
+   .venv\Scripts\Activate.ps1
+   ```
+
+   </td>
+   </tr>
+   </table>
+
+2. Install Python requirements needed to build the documentation.
+
+   ```shell
+   python -m pip install -r docs/sphinx/requirements.txt
+   ```
+
+3. Build the docs.
+
+   ```shell
+   python -m sphinx -j auto -E docs/ _build/
+   ```
+
+   Open `_build/index.html` in a web browser to view the result.
 
 For further information, see [building documentation](https://rocm.docs.amd.com/en/latest/contribute/building.html).
 
