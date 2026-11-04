@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Fetch docs/data/gpus.yaml from the ROCm docs repo and replace the local copy.
 # The previous copy is saved alongside it as gpus.yaml.<timestamp>.bak.
-# Usage: utils/update-gpus-list.sh [url]
+# Usage: tools/update-gpus-list.sh [url]
 set -euo pipefail
 
 URL="${1:-https://raw.githubusercontent.com/ROCm/rocm-docs/develop/docs/data/gpus.yaml}"
