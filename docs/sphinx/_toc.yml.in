@@ -37,6 +37,10 @@ subtrees:
             title: xDiT diffusion inference
           - file: inference/comfy.rst
             title: ComfyUI image generation
+          - url: https://enterprise-ai.docs.amd.com/en/latest/aims/catalog/models.html
+            title: AIMs
+          - url: https://enterprise-ai.docs.amd.com/en/latest/workbench/overview.html
+            title: AMD AI Workbench
     - caption: Distributed inference
       entries:
           - url: https://rocm.docs.amd.com/projects/infera
@@ -73,6 +77,8 @@ subtrees:
             title: AI Playbooks
           - url: https://rocm.docs.amd.com/projects/ai-developer-hub
             title: AI Developer Hub
+          - url: https://enterprise-ai.docs.amd.com/en/latest/solution-blueprints/catalog.html
+            title: AMD Solution Blueprints
     - caption: Reference
       entries:
           - file: system-setup/index.rst
