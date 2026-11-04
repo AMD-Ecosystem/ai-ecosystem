@@ -4,9 +4,9 @@ description: >-
   Refresh docs/data/gpus.yaml, this repo's mirror of the canonical AMD GPU/APU
   catalog maintained in ROCm/rocm-docs. Use when asked to update, sync, refresh,
   or add GPUs to the supported-hardware list, or when preparing a ROCm release's
-  GPU data. Handles GitHub URL conversion, private-repo auth, timestamped
-  backups, and prints a diff. Keywords: update GPUs, sync gpus.yaml, refresh GPU
-  list, add GPU support, supported hardware, ROCm release GPUs.
+  GPU data. Handles GitHub URL conversion, timestamped backups, and prints a
+  diff. Keywords: update GPUs, sync gpus.yaml, refresh GPU list, add GPU
+  support, supported hardware, ROCm release GPUs.
 allowed-tools: Bash, Read, Edit, Grep, Glob
 ---
 
@@ -41,9 +41,8 @@ then synced here:
 3. Review the printed diff and commit the updated `docs/data/gpus.yaml` on its
    own.
 
-If the release branch isn't public yet, sync from the internal mirror
-(`AMD-ROCm-Internal/ROCm-internal@docs/<version>`) and switch to the public URL
-once published.
+If the release branch isn't published yet, sync once it is available on the
+public repository.
 
 ## Run the sync script
 
@@ -57,23 +56,18 @@ The script downloads to a temp file and validates it parses as YAML with the
 three families, copies the current file to
 `docs/data/gpus.yaml.<YYYYMMDD-HHMMSS>.bak`, replaces it, then prints the source
 URL, sha256, and a git diff against the backup. `*.bak` is gitignored. It uses
-`$VIRTUAL_ENV`'s python (falling back to `python3`) for the YAML check, and
-authenticates to `raw.githubusercontent.com` with `$GITHUB_TOKEN` or
-`gh auth token` (needed for internal refs).
+`$VIRTUAL_ENV`'s python (falling back to `python3`) for the YAML check, and can
+send an authenticated request using `$GITHUB_TOKEN` or `gh auth token` when
+available.
 
 ## Sources
 
-- Canonical (public): `ROCm/rocm-docs`, e.g.
+- Canonical: `ROCm/rocm-docs`, e.g.
   https://raw.githubusercontent.com/ROCm/rocm-docs/develop/docs/data/gpus.yaml
-- Internal / not-yet-public release line:
-  https://github.com/AMD-ROCm-Internal/ROCm-internal/tree/docs/10.2.0/docs/data
-  (authenticated via `$GITHUB_TOKEN` or `gh auth token`).
-- Local sibling checkout (offline):
-  file:///home/petepark/amd/rocm/docs/data/gpus.yaml
+- Local sibling checkout (offline): a `file://` URL to a local `gpus.yaml`.
 
 ## Verify and revert
 
-- Compare sha256 with the sibling copy: `sha256sum ../rocm/docs/data/gpus.yaml`.
 - Review the printed diff; expected changes are new SKUs / updated links.
 - To revert: `mv docs/data/gpus.yaml.<timestamp>.bak docs/data/gpus.yaml`.
 
