@@ -879,7 +879,7 @@ devices](#configure-infiniband-devices) step.
    participating node. The directory contains:
 
    | Log File | Description |
-   | :--------| :-----------|
+   | :--- | :--- |
    | `pd_sglang_bench_serving.sh_NODE${NODE_RANK}.log` | Main service log per node |
    | `decode_NODE${NODE_RANK}.log` | SGLang decode service details |
    | `prefill_NODE${NODE_RANK}.log` | SGLang prefill service details |
