@@ -414,15 +414,8 @@ Prerequisites
         <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html#prerequisites>`__ for
         instructions.
 
-.. include:: ./include/rocm10.2.0-docker.rst
-
-.. include:: ./include/rocm10.1.0-docker.rst
-
-.. include:: ./include/rocm10.0.0-docker.rst
-
-.. include:: ./include/rocm7.14.1-docker.rst
-
-.. include:: ./include/rocm7.14.0-docker.rst
+.. datatemplate:yaml:: /data/docker-tags/pytorch.yaml
+   :template: framework-version-docker.rst.jinja
 
 .. selected:: i=pip
    :heading: Install PyTorch using pip

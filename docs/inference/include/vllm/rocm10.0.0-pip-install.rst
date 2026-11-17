@@ -195,7 +195,3 @@
 
    8. After setting up your environment, follow the vLLM |VLLM_VERSION_10P| usage
       documentation to get started: |VLLM_USAGE_DOC_10P|.
-
-   .. seealso::
-
-      |VLLM_PIP_INSTALL_DOC_10P|

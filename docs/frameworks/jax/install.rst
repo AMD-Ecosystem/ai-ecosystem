@@ -256,15 +256,8 @@ Prerequisites
       ROCm <https://rocm.docs.amd.com/en/latest/install/rocm.html>`__ for other
       installation methods.
 
-.. include:: ./include/rocm10.2.0-docker.rst
-
-.. include:: ./include/rocm10.1.0-docker.rst
-
-.. include:: ./include/rocm10.0.0-docker.rst
-
-.. include:: ./include/rocm7.14.1-docker.rst
-
-.. include:: ./include/rocm7.14.0-docker.rst
+.. datatemplate:yaml:: /data/docker-tags/jax.yaml
+   :template: framework-version-docker.rst.jinja
 
 .. selected:: i=pip
    :heading: Install JAX using pip

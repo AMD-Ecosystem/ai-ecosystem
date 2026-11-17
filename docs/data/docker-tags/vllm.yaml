@@ -1,0 +1,52 @@
+# Docker pull-tag data for the vLLM inference guide (docs/inference/vllm.rst).
+#
+# Rendered by docs/templates/vllm-docker.rst.jinja via
+# `.. datatemplate:yaml:: /data/docker-tags/vllm.yaml`.
+#
+# Schema shared across docs/data/docker-tags/*.yaml:
+#   releases: a list of ROCm releases (newest first), each with a unique
+#     `rocm_ver` and a list of `variants` (framework versions -- vLLM only
+#     ever has one per release). Each variant has a `vllm_release` (the
+#     full version, used to derive doc links and prose) and a `tags` map of
+#     dimension-key -> Docker tag.
+#
+#   A variant is "unified" (one `default` tag, no fam= branching in the
+#   rendered RST) or "split" (separate `cdna` (AMD Instinct) and `rdna`
+#   (AMD Radeon/Ryzen) tags, rendering `fam=instinct` / `fam=radeon
+#   fam=ryzen` blocks).
+#
+#   `name` is the display name used in generated prose (for example,
+#   "Pull the ROCm <name> <version> Docker image.").
+name: vLLM
+releases:
+  - rocm_ver: "10.2.0"
+    variants:
+      - vllm_release: "0.32.0"
+        tags:
+          default: "rocm/vllm:rocm10.2.0_ubuntu24.04_py3.14-pytorch_2.14.0_vllm-0.32.0"
+
+  - rocm_ver: "10.1.0"
+    variants:
+      - vllm_release: "0.29.0"
+        tags:
+          default: "rocm/vllm:rocm10.1.0_ubuntu24.04_py3.14-pytorch_2.13.0_vllm-0.29.0"
+
+  - rocm_ver: "10.0.0"
+    variants:
+      - vllm_release: "0.27.0"
+        tags:
+          default: "rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0"
+
+  - rocm_ver: "7.14.1"
+    variants:
+      - vllm_release: "0.23.0"
+        tags:
+          cdna: "rocm/vllm:rocm7.14.1_cdna_ubuntu24.04_py3.14_pytorch_2.11_vllm_0.23.0"
+          rdna: "rocm/vllm:rocm7.14.1_rdna_ubuntu24.04_py3.14_pytorch_2.11_vllm_0.23.0"
+
+  - rocm_ver: "7.14.0"
+    variants:
+      - vllm_release: "0.23.0"
+        tags:
+          cdna: "rocm/vllm:rocm7.14.0_cdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0"
+          rdna: "rocm/vllm:rocm7.14.0_rdna_ubuntu24.04_py3.14_pytorch_2.11.0_vllm_0.23.0"

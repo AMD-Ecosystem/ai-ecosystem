@@ -1,0 +1,69 @@
+{#
+  Template: sglang-docker.rst.jinja
+  Renders the SGLang "Get started" Docker pull/run instructions for every
+  supported ROCm release, replacing the old per-release
+  docs/inference/include/sglang/rocm<ver>-docker.rst files.
+  Output: RST with `.. selected::` blocks, one group per release in
+  `releases`.
+
+  Data: docs/data/docker-tags/sglang.yaml (passed as `data` by the caller)
+
+  Every release always renders three `fam=` blocks (all / instinct /
+  radeon+ryzen) pulling the same tag; the radeon+ryzen block additionally
+  disables AITER and links the known-issue reference.
+
+  The SGLang doc links below are stable across releases, so they are
+  hardcoded here rather than duplicated in the data file.
+
+  Shared `docker pull` / `docker run` command-block rendering lives in
+  docker-macros.jinja.
+#}
+{%- import "docker-macros.jinja" as m %}
+{%- set docker_install_doc_url = "https://docs.sglang.io/docs/hardware-platforms/amd_gpu#install-using-docker-recommended" %}
+{%- set volume_flags = ['-v <path/to/your/models>:/app/models', '-e HF_HOME="/app/models"'] %}
+{%- set aiter_flags = volume_flags + ['-e SGLANG_USE_AITER=false', '-e SGLANG_ROCM_FUSED_DECODE_MLA=false'] %}
+{%- for r in data.releases %}
+{%- set v = r.variants[0] %}
+{%- set tag = v.tags.default %}
+.. selected:: rocm-ver={{ r.rocm_ver }}
+
+   .. selected:: i=docker
+      :heading: Get started
+
+      .. selected:: fam=all
+
+         1. Pull the ROCm {{ data.name }} {{ v.version }} Docker image.
+
+{{ m.docker_pull("            ", tag) }}
+
+         2. Start the Docker container.
+
+{{ m.docker_run("            ", tag, extra_flags=volume_flags) }}
+
+      .. selected:: fam=instinct
+
+         1. Pull the ROCm {{ data.name }} {{ v.version }} Docker image.
+
+{{ m.docker_pull("            ", tag) }}
+
+         2. Start the Docker container.
+
+{{ m.docker_run("            ", tag, extra_flags=volume_flags) }}
+
+      .. selected:: fam=radeon fam=ryzen
+
+         1. Pull the ROCm {{ data.name }} {{ v.version }} Docker image.
+
+{{ m.docker_pull("            ", tag) }}
+
+         2. Start the Docker container. On Radeon GPUs, disable AITER by unsetting
+            ``SGLANG_USE_AITER`` and ``SGLANG_ROCM_FUSED_DECODE_MLA``. See the
+            :ref:`known issue <sglang-aiter-ki>` for more information.
+
+{{ m.docker_run("            ", tag, extra_flags=aiter_flags) }}
+
+      .. seealso::
+
+         `Using Docker (SGLang docs) <{{ docker_install_doc_url }}>`__
+
+{% endfor -%}

@@ -222,7 +222,3 @@
 
    8. After setting up your environment, follow the vLLM |VLLM_VERSION_1020P| usage
       documentation to get started: |VLLM_USAGE_DOC_1020P|.
-
-   .. seealso::
-
-      |VLLM_PIP_INSTALL_DOC_1020P|

@@ -534,15 +534,8 @@ Prerequisites
      configuration. Step 2 of this guide installs ROCm core libraries using pip
      alongside PyTorch.
 
-.. include:: ./include/vllm/rocm10.2.0-docker.rst
-
-.. include:: ./include/vllm/rocm10.1.0-docker.rst
-
-.. include:: ./include/vllm/rocm10.0.0-docker.rst
-
-.. include:: ./include/vllm/rocm7.14.1-docker.rst
-
-.. include:: ./include/vllm/rocm7.14.0-docker.rst
+.. datatemplate:yaml:: /data/docker-tags/vllm.yaml
+   :template: vllm-docker.rst.jinja
 
 .. selected:: i=pip
    :heading: Install vLLM using pip

@@ -1,0 +1,141 @@
+# Docker pull-tag data for the PyTorch install guide
+# (docs/frameworks/pytorch/install.rst).
+#
+# Rendered by docs/templates/pytorch-docker.rst.jinja via
+# `.. datatemplate:yaml:: /data/docker-tags/pytorch.yaml`.
+#
+# Schema shared across docs/data/docker-tags/*.yaml:
+#   releases: a list of ROCm releases (newest first), each with a unique
+#     `rocm_ver` and a list of `variants` (PyTorch versions). Each variant
+#     has a `version` (the display string used in prose and the
+#     `pytorch-ver` selector value) and a `tags` map of dimension-key ->
+#     Docker tag. PyTorch splits by Python version (`py314` / `py313` /
+#     `py312` / `py311` / `py310`); the set of keys present determines
+#     which Python tabs render for that variant.
+#
+#   All PyTorch releases render every "Pull" step first, then a single
+#   "Start the Docker container." step with one nested
+#   `.. selected:: pytorch-ver=...` per variant, matching how these pages
+#   were originally hand-written.
+#
+#   `version_selector_key` is the `:key:` of this page's `.. selector::`
+#   block for the framework-version selector (docs/frameworks/pytorch/
+#   install.rst), used to render each variant's `.. selected:: <key>=...`.
+#
+#   `name` is the display name used in generated prose (for example,
+#   "Pull the ROCm <name> <version> Docker image.").
+#
+#   `layout` ("flat" here) and `dimensions` (the ordered Python-version
+#   tab list) are consumed by the shared
+#   docs/templates/framework-version-docker.rst.jinja template -- see
+#   that file's header comment for what each value means.
+name: PyTorch
+version_selector_key: pytorch-ver
+layout: flat
+dimensions:
+  - key: py314
+    label: "Python 3.14"
+  - key: py313
+    label: "Python 3.13"
+  - key: py312
+    label: "Python 3.12"
+  - key: py311
+    label: "Python 3.11"
+  - key: py310
+    label: "Python 3.10"
+releases:
+  - rocm_ver: "10.2.0"
+    variants:
+      - version: "2.15.0"
+        tags:
+          py314: "rocm/pytorch:rocm10.2.0_ubuntu26.04_py3.14_pytorch_release_2.15.0"
+          py312: "rocm/pytorch:rocm10.2.0_ubuntu24.04_py3.12_pytorch_release_2.15.0"
+      - version: "2.14.0"
+        tags:
+          py314: "rocm/pytorch:rocm10.2.0_ubuntu26.04_py3.14_pytorch_release_2.14.0"
+          py312: "rocm/pytorch:rocm10.2.0_ubuntu24.04_py3.12_pytorch_release_2.14.0"
+      - version: "2.13.0"
+        tags:
+          py314: "rocm/pytorch:rocm10.2.0_ubuntu26.04_py3.14_pytorch_release_2.13.0"
+          py312: "rocm/pytorch:rocm10.2.0_ubuntu24.04_py3.12_pytorch_release_2.13.0"
+
+  - rocm_ver: "10.1.0"
+    variants:
+      - version: "2.14.0"
+        tags:
+          py314: "rocm/pytorch:rocm10.1.0_ubuntu26.04_py3.14_pytorch_release_2.14.0"
+          py312: "rocm/pytorch:rocm10.1.0_ubuntu24.04_py3.12_pytorch_release_2.14.0"
+          py310: "rocm/pytorch:rocm10.1.0_ubuntu22.04_py3.10_pytorch_release_2.14.0"
+      - version: "2.13.0"
+        tags:
+          py314: "rocm/pytorch:rocm10.1.0_ubuntu26.04_py3.14_pytorch_release_2.13.0"
+          py312: "rocm/pytorch:rocm10.1.0_ubuntu24.04_py3.12_pytorch_release_2.13.0"
+          py310: "rocm/pytorch:rocm10.1.0_ubuntu22.04_py3.10_pytorch_release_2.13.0"
+      - version: "2.12.0"
+        tags:
+          py314: "rocm/pytorch:rocm10.1.0_ubuntu26.04_py3.14_pytorch_release_2.12.0"
+          py312: "rocm/pytorch:rocm10.1.0_ubuntu24.04_py3.12_pytorch_release_2.12.0"
+          py310: "rocm/pytorch:rocm10.1.0_ubuntu22.04_py3.10_pytorch_release_2.12.0"
+
+  - rocm_ver: "10.0.0"
+    variants:
+      - version: "2.13.0"
+        tags:
+          py314: "rocm/pytorch:rocm10.0_ubuntu26.04_py3.14_pytorch_release_2.13.0"
+          py313: "rocm/pytorch:rocm10.0_ubuntu24.04_py3.13_pytorch_release_2.13.0"
+          py312: "rocm/pytorch:rocm10.0_ubuntu24.04_py3.12_pytorch_release_2.13.0"
+          py311: "rocm/pytorch:rocm10.0_ubuntu24.04_py3.11_pytorch_release_2.13.0"
+      - version: "2.12.0"
+        tags:
+          py314: "rocm/pytorch:rocm10.0_ubuntu26.04_py3.14_pytorch_release_2.12.0"
+          py313: "rocm/pytorch:rocm10.0_ubuntu24.04_py3.13_pytorch_release_2.12.0"
+          py312: "rocm/pytorch:rocm10.0_ubuntu24.04_py3.12_pytorch_release_2.12.0"
+          py311: "rocm/pytorch:rocm10.0_ubuntu24.04_py3.11_pytorch_release_2.12.0"
+      - version: "2.11.0"
+        tags:
+          py314: "rocm/pytorch:rocm10.0_ubuntu26.04_py3.14_pytorch_release_2.11.0"
+          py313: "rocm/pytorch:rocm10.0_ubuntu24.04_py3.13_pytorch_release_2.11.0"
+          py312: "rocm/pytorch:rocm10.0_ubuntu24.04_py3.12_pytorch_release_2.11.0"
+          py311: "rocm/pytorch:rocm10.0_ubuntu24.04_py3.11_pytorch_release_2.11.0"
+
+  - rocm_ver: "7.14.1"
+    variants:
+      - version: "2.12.0"
+        tags:
+          py314: "rocm/pytorch:rocm7.14.1_ubuntu26.04_py3.14_pytorch_release_2.12.0"
+          py313: "rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.13_pytorch_release_2.12.0"
+          py312: "rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.12_pytorch_release_2.12.0"
+          py311: "rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.11_pytorch_release_2.12.0"
+      - version: "2.11.0"
+        tags:
+          py314: "rocm/pytorch:rocm7.14.1_ubuntu26.04_py3.14_pytorch_release_2.11.0"
+          py313: "rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.13_pytorch_release_2.11.0"
+          py312: "rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.12_pytorch_release_2.11.0"
+          py311: "rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.11_pytorch_release_2.11.0"
+      - version: "2.10.0"
+        tags:
+          py314: "rocm/pytorch:rocm7.14.1_ubuntu26.04_py3.14_pytorch_release_2.10.0"
+          py313: "rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.13_pytorch_release_2.10.0"
+          py312: "rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.12_pytorch_release_2.10.0"
+          py311: "rocm/pytorch:rocm7.14.1_ubuntu24.04_py3.11_pytorch_release_2.10.0"
+
+  - rocm_ver: "7.14.0"
+    variants:
+      - version: "2.12.0"
+        tags:
+          py314: "rocm/pytorch:rocm7.14_ubuntu26.04_py3.14_pytorch_release_2.12.0"
+          py313: "rocm/pytorch:rocm7.14_ubuntu24.04_py3.13_pytorch_release_2.12.0"
+          py312: "rocm/pytorch:rocm7.14_ubuntu24.04_py3.12_pytorch_release_2.12.0"
+          py311: "rocm/pytorch:rocm7.14_ubuntu24.04_py3.11_pytorch_release_2.12.0"
+      - version: "2.11.0"
+        tags:
+          py314: "rocm/pytorch:rocm7.14_ubuntu26.04_py3.14_pytorch_release_2.11.0"
+          py313: "rocm/pytorch:rocm7.14_ubuntu24.04_py3.13_pytorch_release_2.11.0"
+          py312: "rocm/pytorch:rocm7.14_ubuntu24.04_py3.12_pytorch_release_2.11.0"
+          py311: "rocm/pytorch:rocm7.14_ubuntu24.04_py3.11_pytorch_release_2.11.0"
+      - version: "2.10.0"
+        tags:
+          py314: "rocm/pytorch:rocm7.14_ubuntu26.04_py3.14_pytorch_release_2.10.0"
+          py313: "rocm/pytorch:rocm7.14_ubuntu24.04_py3.13_pytorch_release_2.10.0"
+          py312: "rocm/pytorch:rocm7.14_ubuntu24.04_py3.12_pytorch_release_2.10.0"
+          py311: "rocm/pytorch:rocm7.14_ubuntu24.04_py3.11_pytorch_release_2.10.0"

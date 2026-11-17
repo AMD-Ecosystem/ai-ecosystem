@@ -1,0 +1,129 @@
+# Docker pull-tag data for the JAX install guide (docs/frameworks/jax/install.rst).
+#
+# Rendered by docs/templates/jax-docker.rst.jinja via
+# `.. datatemplate:yaml:: /data/docker-tags/jax.yaml`.
+#
+# Schema shared across docs/data/docker-tags/*.yaml:
+#   releases: a list of ROCm releases (newest first), each with a unique
+#     `rocm_ver` and a list of `variants` (JAX versions). Each variant has a
+#     `version` (the display string used in prose, alias names, and the
+#     `jax-ver` selector value) and a `tags` map of dimension-key -> Docker
+#     tag. JAX splits by Python version (`py314` / `py313` / `py312` /
+#     `py311`); the set of keys present determines which Python tabs render.
+#
+#   Every release renders each variant as its own self-contained "1. Pull"
+#   / "2. Start the Docker container." sequence (the layout used by the
+#   10.x releases' original hand-written RST). The 7.14.1 and 7.14.0
+#   releases originally used a different, flatter layout (all "Pull" steps
+#   first, then all "Start" steps); this migration standardizes all
+#   releases on the nested-per-variant layout for consistency, which
+#   changes those two releases' rendered HTML structure (not just their
+#   Docker tag values) relative to the pre-migration pages.
+#
+#   `version_selector_key` is the `:key:` of this page's `.. selector::`
+#   block for the framework-version selector (docs/frameworks/jax/
+#   install.rst), used to render each variant's `.. selected:: <key>=...`.
+#
+#   `name` is the display name used in generated prose (for example,
+#   "Pull the ROCm <name> <version> Docker image.").
+#
+#   `layout` ("nested" here) and `dimensions` (the ordered Python-version
+#   tab list) are consumed by the shared
+#   docs/templates/framework-version-docker.rst.jinja template -- see
+#   that file's header comment for what each value means.
+#
+#   Docker tag values are interpolated directly via Jinja (no RST
+#   `.. |ALIAS| replace::` substitution indirection), so there is no
+#   remaining difference in rendering between releases.
+name: JAX
+version_selector_key: jax-ver
+layout: nested
+dimensions:
+  - key: py314
+    label: "Python 3.14"
+  - key: py313
+    label: "Python 3.13"
+  - key: py312
+    label: "Python 3.12"
+  - key: py311
+    label: "Python 3.11"
+releases:
+  - rocm_ver: "10.2.0"
+    variants:
+      - version: "0.11.2"
+        tags:
+          py314: "rocm/jax:rocm10.2.0_ubuntu26.04_py3.14_jax_release_0.11.2"
+          py312: "rocm/jax:rocm10.2.0_ubuntu24.04_py3.12_jax_release_0.11.2"
+      - version: "0.11.1"
+        tags:
+          py314: "rocm/jax:rocm10.2.0_ubuntu26.04_py3.14_jax_release_0.11.1"
+          py312: "rocm/jax:rocm10.2.0_ubuntu24.04_py3.12_jax_release_0.11.1"
+      - version: "0.10.2"
+        tags:
+          py314: "rocm/jax:rocm10.2.0_ubuntu26.04_py3.14_jax_release_0.10.2"
+          py312: "rocm/jax:rocm10.2.0_ubuntu24.04_py3.12_jax_release_0.10.2"
+
+  - rocm_ver: "10.1.0"
+    variants:
+      - version: "0.11.1"
+        tags:
+          py314: "rocm/jax:rocm10.1.0_ubuntu26.04_py3.14_jax_release_0.11.1"
+          py312: "rocm/jax:rocm10.1.0_ubuntu24.04_py3.12_jax_release_0.11.1"
+      - version: "0.11.0"
+        tags:
+          py314: "rocm/jax:rocm10.1.0_ubuntu26.04_py3.14_jax_release_0.11.0"
+          py312: "rocm/jax:rocm10.1.0_ubuntu24.04_py3.12_jax_release_0.11.0"
+      - version: "0.10.2"
+        tags:
+          py314: "rocm/jax:rocm10.1.0_ubuntu26.04_py3.14_jax_release_0.10.2"
+          py312: "rocm/jax:rocm10.1.0_ubuntu24.04_py3.12_jax_release_0.10.2"
+
+  - rocm_ver: "10.0.0"
+    variants:
+      - version: "0.11.0"
+        tags:
+          py314: "rocm/jax:rocm10.0-jax0.11.0-py3.14"
+          py313: "rocm/jax:rocm10.0-jax0.11.0-py3.13"
+          py312: "rocm/jax:rocm10.0-jax0.11.0-py3.12"
+      - version: "0.10.2"
+        tags:
+          py314: "rocm/jax:rocm10.0-jax0.10.2-py3.14"
+          py313: "rocm/jax:rocm10.0-jax0.10.2-py3.13"
+          py312: "rocm/jax:rocm10.0-jax0.10.2-py3.12"
+          py311: "rocm/jax:rocm10.0-jax0.10.2-py3.11"
+      - version: "0.10.0"
+        tags:
+          py314: "rocm/jax:rocm10.0-jax0.10.0-py3.14"
+          py313: "rocm/jax:rocm10.0-jax0.10.0-py3.13"
+          py312: "rocm/jax:rocm10.0-jax0.10.0-py3.12"
+          py311: "rocm/jax:rocm10.0-jax0.10.0-py3.11"
+
+  - rocm_ver: "7.14.1"
+    variants:
+      - version: "0.10.0"
+        tags:
+          py314: "rocm/jax:rocm7.14.1-jax0.10.0-py3.14"
+          py313: "rocm/jax:rocm7.14.1-jax0.10.0-py3.13"
+          py312: "rocm/jax:rocm7.14.1-jax0.10.0-py3.12"
+          py311: "rocm/jax:rocm7.14.1-jax0.10.0-py3.11"
+      - version: "0.9.1"
+        tags:
+          py314: "rocm/jax:rocm7.14.1-jax0.9.1-py3.14"
+          py313: "rocm/jax:rocm7.14.1-jax0.9.1-py3.13"
+          py312: "rocm/jax:rocm7.14.1-jax0.9.1-py3.12"
+          py311: "rocm/jax:rocm7.14.1-jax0.9.1-py3.11"
+
+  - rocm_ver: "7.14.0"
+    variants:
+      - version: "0.10.0"
+        tags:
+          py314: "rocm/jax:rocm7.14-jax0.10.0-py3.14"
+          py313: "rocm/jax:rocm7.14-jax0.10.0-py3.13"
+          py312: "rocm/jax:rocm7.14-jax0.10.0-py3.12"
+          py311: "rocm/jax:rocm7.14-jax0.10.0-py3.11"
+      - version: "0.9.1"
+        tags:
+          py314: "rocm/jax:rocm7.14-jax0.9.1-py3.14"
+          py313: "rocm/jax:rocm7.14-jax0.9.1-py3.13"
+          py312: "rocm/jax:rocm7.14-jax0.9.1-py3.12"
+          py311: "rocm/jax:rocm7.14-jax0.9.1-py3.11"

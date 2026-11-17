@@ -303,13 +303,8 @@ Prerequisites
      <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
      installed and accessible: **3.12**
 
-.. include:: ./include/rocm10.2.0-docker.rst
-
-.. include:: ./include/rocm10.1.0-docker.rst
-
-.. include:: ./include/rocm10.0.0-docker.rst
-
-.. include:: ./include/rocm7.14.1-docker.rst
+.. datatemplate:yaml:: /data/docker-tags/tensorflow.yaml
+   :template: framework-version-docker.rst.jinja
 
 .. include:: ./include/rocm10.2.0-pip-install.rst
 
