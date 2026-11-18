@@ -13,17 +13,20 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
 .. selector:: ROCm version
    :key: rocm-ver
 
+   .. selector-option:: 10.2.0
+      :width: 20%
+
    .. selector-option:: 10.1.0
-      :width: 3
+      :width: 20%
 
    .. selector-option:: 10.0.0
-      :width: 3
+      :width: 20%
 
    .. selector-option:: 7.14.1
-      :width: 3
+      :width: 20%
 
    .. selector-option:: 7.14.0
-      :width: 3
+      :width: 20%
 
 .. selector:: Device family
    :key: fam
@@ -251,14 +254,32 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Ryzen AI 5 330 (gfx1152)
          :value: ai-5-330 gfx=gfx1152
 
+      .. selector-option:: AMD Ryzen 7 PRO 253 (gfx1103)
+         :value: 7-pro-253 gfx=gfx1103
+
       .. selector-option:: AMD Ryzen 7 PRO 250 (gfx1103)
          :value: 7-pro-250 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 PRO 249 (gfx1103)
+         :value: 7-pro-249 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 PRO 217 (gfx1103)
+         :value: 7-pro-217 gfx=gfx1103
 
       .. selector-option:: AMD Ryzen 5 PRO 230 (gfx1103)
          :value: 5-pro-230 gfx=gfx1103
 
+      .. selector-option:: AMD Ryzen 5 PRO 225 (gfx1103)
+         :value: 5-pro-225 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 PRO 224 (gfx1103)
+         :value: 5-pro-224 gfx=gfx1103
+
       .. selector-option:: AMD Ryzen 5 PRO 220 (gfx1103)
          :value: 5-pro-220 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 PRO 216 (gfx1103)
+         :value: 5-pro-216 gfx=gfx1103
 
       .. selector-option:: AMD Ryzen 5 PRO 215 (gfx1103)
          :value: 5-pro-215 gfx=gfx1103
@@ -266,14 +287,26 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Ryzen 3 PRO 210 (gfx1103)
          :value: 3-pro-210 gfx=gfx1103
 
+      .. selector-option:: AMD Ryzen 3 PRO 205 (gfx1103)
+         :value: 3-pro-205 gfx=gfx1103
+
       .. selector-option:: AMD Ryzen 9 270 (gfx1103)
          :value: 9-270 gfx=gfx1103
 
       .. selector-option:: AMD Ryzen 7 260 (gfx1103)
          :value: 7-260 gfx=gfx1103
 
+      .. selector-option:: AMD Ryzen 7 253 (gfx1103)
+         :value: 7-253 gfx=gfx1103
+
       .. selector-option:: AMD Ryzen 7 250 (gfx1103)
          :value: 7-250 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 249 (gfx1103)
+         :value: 7-249 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 217 (gfx1103)
+         :value: 7-217 gfx=gfx1103
 
       .. selector-option:: AMD Ryzen 5 240 (gfx1103)
          :value: 5-240 gfx=gfx1103
@@ -281,14 +314,43 @@ APUs using either a prebuilt Docker image (recommended) or pip. It applies to
       .. selector-option:: AMD Ryzen 5 230 (gfx1103)
          :value: 5-230 gfx=gfx1103
 
+      .. selector-option:: AMD Ryzen 5 225 (gfx1103)
+         :value: 5-225 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 224 (gfx1103)
+         :value: 5-224 gfx=gfx1103
+
       .. selector-option:: AMD Ryzen 5 220 (gfx1103)
          :value: 5-220 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 216 (gfx1103)
+         :value: 5-216 gfx=gfx1103
 
       .. selector-option:: AMD Ryzen 3 210 (gfx1103)
          :value: 3-210 gfx=gfx1103
 
+      .. selector-option:: AMD Ryzen 3 205 (gfx1103)
+         :value: 3-205 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 9 180 (gfx1103)
+         :value: 9-180 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 165 (gfx1103)
+         :value: 7-165 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 7 155 (gfx1103)
+         :value: 7-155 gfx=gfx1103
+
+      .. selector-option:: AMD Ryzen 5 125 (gfx1103)
+         :value: 5-125 gfx=gfx1103
+
 .. selector:: vLLM version
    :key: vllm-ver
+
+   .. selector-option:: 0.32
+      :value: 0.32
+      :width: 12
+      :show-cond: rocm-ver=10.2.0
 
    .. selector-option:: 0.29
       :value: 0.29
@@ -322,6 +384,15 @@ Prerequisites
 .. selected:: i=docker
 
    .. selected:: fam=instinct fam=radeon
+
+      .. selected:: rocm-ver=10.2.0
+
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 10.2.0)
+           <https://rocm.docs.amd.com/en/docs-10.2.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.70.0/index.html>`__.
 
       .. selected:: rocm-ver=10.1.0
 
@@ -377,6 +448,15 @@ Prerequisites
 
    .. selected:: fam=instinct fam=radeon
 
+      .. selected:: rocm-ver=10.2.0
+
+         * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
+           See the `ROCm compatibility matrix (ROCm 10.2.0)
+           <https://rocm.docs.amd.com/en/docs-10.2.0/compatibility/compatibility-matrix.html>`__
+           for driver support information. For installation instructions, see
+           the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.70.0/index.html>`__.
+
       .. selected:: rocm-ver=10.1.0
 
          * Ensure your host system has the AMD GPU Driver (amdgpu) installed.
@@ -415,45 +495,59 @@ Prerequisites
 
    * Ensure your system has `Python 3.14
      <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
-     installed and accessible.
+     and its development package are installed and accessible, along with
+     ``libgomp``.
 
-   .. selected:: rocm-ver=10.1.0
+     .. tab-set::
 
-      * vLLM 0.29.0 requires PyTorch 2.13.0. See
-        :doc:`/frameworks/pytorch/install` for installation instructions.
+        .. tab-item:: apt
 
-   * Install `uv <https://docs.astral.sh/uv/getting-started/installation/>`__.
+           .. code-block:: bash
 
-     .. note::
+              sudo apt update && sudo apt install python3.14-dev libgomp1
 
-        It's recommended to use `uv <https://docs.astral.sh/uv/pip/>`__ to install
-        the vLLM wheel. vLLM has many transitive dependencies, and pip may
-        silently pull incompatible versions from PyPI when installing from a
-        direct wheel URL. ``uv pip`` resolves dependencies more predictably,
-        respecting the exact versions bundled with or required by the wheel.
+        .. tab-item:: dnf
 
-.. include:: ./include/vllm/rocm10.1.0-docker.rst
+           .. code-block:: bash
 
-.. include:: ./include/vllm/rocm10.0.0-docker.rst
+              sudo dnf install python3.14-devel libgomp
 
-.. include:: ./include/vllm/rocm7.14.1-docker.rst
+        .. tab-item:: zypper
 
-.. include:: ./include/vllm/rocm7.14.0-docker.rst
+           .. code-block:: bash
+
+              sudo zypper install python3-devel libgomp1
+
+   * If your system has a separate ROCm installation and you set the ``ROCM_PATH``
+     or ``LD_LIBRARY_PATH`` environment variables, for example after installing ROCm
+     via tarball, unset them before running vLLM as they can interfere with vLLM's ROCm
+     platform detection.
+
+     .. code-block:: bash
+
+        unset ROCM_PATH LD_LIBRARY_PATH
+
+     If you don't need the tarball installation, you can remove it instead. See
+     `Uninstalling ROCm
+     <https://rocm.docs.amd.com/en/latest/install/rocm.html?i=tar#uninstalling>`__,
+     which removes the installation directory and its environment
+     configuration. Step 2 of this guide installs ROCm core libraries using pip
+     alongside PyTorch.
+
+.. datatemplate:yaml:: /data/docker-tags/vllm.yaml
+   :template: vllm-docker.rst.jinja
 
 .. selected:: i=pip
    :heading: Install vLLM using pip
 
-   1. Set up your Python virtual environment.
+   1. Set up and activate your Python virtual environment.
 
       .. code-block:: shell
 
          python3.14 -m venv .venv
-
-   2. Activate your Python virtual environment.
-
-      .. code-block:: shell
-
          source .venv/bin/activate
+
+   .. include:: ./include/vllm/rocm10.2.0-pip-install.rst
 
    .. include:: ./include/vllm/rocm10.1.0-pip-install.rst
 
@@ -468,30 +562,36 @@ Prerequisites
 .. selected:: fam=instinct
 
    .. selected:: i=pip
-      :heading: Known issues
 
-      * An incompatibility with vLLM's ``tensorizer`` dependency results in
-        errors when running vLLM. As a workaround, manually bump the
-        ``tensorizer`` version in your virtual environment.
+      .. selected:: rocm-ver=10.1.0 rocm-ver=10.0.0 rocm-ver=7.14.1 rocm-ver=7.14.0
+         :heading: Known issues
 
-        .. code-block:: bash
+         * An incompatibility with vLLM's ``tensorizer`` dependency results in
+           errors when running vLLM. As a workaround, manually bump the
+           ``tensorizer`` version in your virtual environment.
 
-           python -m pip install --upgrade "tensorizer==2.12.1"
+           .. code-block:: bash
+
+              python -m pip install --upgrade "tensorizer==2.12.1"
 
 .. selected:: fam=radeon fam=ryzen
    :heading: Known issues
 
    .. selected:: i=pip
 
-      * An incompatibility with vLLM's ``tensorizer`` dependency results in
-        errors when running vLLM. As a workaround, manually bump the
-        ``tensorizer`` version in your virtual environment.
+      .. selected:: rocm-ver=10.1.0 rocm-ver=10.0.0 rocm-ver=7.14.1 rocm-ver=7.14.0
 
-        .. code-block:: bash
+         * An incompatibility with vLLM's ``tensorizer`` dependency results in
+           errors when running vLLM. As a workaround, manually bump the
+           ``tensorizer`` version in your virtual environment.
 
-           python -m pip install --upgrade "tensorizer==2.12.1"
+           .. code-block:: bash
 
-   * Significantly longer warmup times might be observed in some large language
-     model inference workloads on AMD Radeon GPUs using vLLM versions v0.21.0
-     through v0.25.0. As a workaround, use a vLLM release earlier than v0.21.0
-     or upgrade to vLLM v0.26.0 or later, which includes a fix for this issue.
+              python -m pip install --upgrade "tensorizer==2.12.1"
+
+   .. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
+
+      * Significantly longer warmup times might be observed in some large language
+        model inference workloads on AMD Radeon GPUs using vLLM versions v0.21.0
+        through v0.25.0. As a workaround, use a vLLM release earlier than v0.21.0
+        or upgrade to vLLM v0.26.0 or later, which includes a fix for this issue.

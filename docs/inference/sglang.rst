@@ -193,11 +193,8 @@ Prerequisites
   containers
   <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
-.. include:: ./include/sglang/rocm10.0.0-docker.rst
-
-.. include:: ./include/sglang/rocm7.14.1-docker.rst
-
-.. include:: ./include/sglang/rocm7.14.0-docker.rst
+.. datatemplate:yaml:: /data/docker-tags/sglang.yaml
+   :template: sglang-docker.rst.jinja
 
 .. selected:: fam=radeon
    :heading: Known issues

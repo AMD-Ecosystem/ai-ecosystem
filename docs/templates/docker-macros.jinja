@@ -1,0 +1,38 @@
+{#
+  docker-macros.jinja
+  Shared Jinja macros for rendering ROCm Docker "pull" / "run" command
+  blocks, imported by the per-framework docker templates:
+  sglang-docker.rst.jinja, vllm-docker.rst.jinja,
+  tensorflow-docker.rst.jinja, jax-docker.rst.jinja, and
+  pytorch-docker.rst.jinja.
+
+  All five frameworks render the same `docker run` invocation shape
+  (device/network/ipc/group-add/cap-add/security-opt flags, then the
+  image tag, then `bash`), differing only in whether extra flags (such as
+  sglang/vllm's model-volume mount) are present. Callers pass the already-
+  resolved Docker tag string directly (no RST `.. |ALIAS| replace::`
+  substitution indirection is needed -- Jinja already has the value).
+#}
+{%- macro docker_pull(indent, tag) -%}
+{{ indent }}.. code-block:: bash
+
+{{ indent }}   docker pull {{ tag }}
+{%- endmacro -%}
+
+{%- macro docker_run(indent, tag, extra_flags=[]) -%}
+{{ indent }}.. code-block:: bash
+
+{{ indent }}   docker run -it --rm \
+{{ indent }}      --device /dev/kfd \
+{{ indent }}      --device /dev/dri \
+{{ indent }}      --network=host \
+{{ indent }}      --ipc=host \
+{{ indent }}      --group-add=video \
+{{ indent }}      --cap-add=SYS_PTRACE \
+{{ indent }}      --security-opt seccomp=unconfined \
+{%- for flag in extra_flags %}
+{{ indent }}      {{ flag }} \
+{%- endfor %}
+{{ indent }}      {{ tag }} \
+{{ indent }}      bash
+{%- endmacro -%}

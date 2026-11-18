@@ -185,6 +185,7 @@ ki
 kv
 len
 libexec
+llamacpp
 llm
 ln
 lora

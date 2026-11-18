@@ -71,7 +71,7 @@ if os.environ.get("READTHEDOCS", "") == "True":
 myst_fence_as_directive = ["mermaid"]
 numfig = False
 substitutions_default_enabled = True
-# Generate llms.txt and llms-full.txt (requires the rocm-docs-core[llms] extra).
+# Generate llms.txt and llms-full.txt.
 rocm_docs_generate_llms = True
 
 exclude_patterns = [
@@ -82,3 +82,9 @@ exclude_patterns = [
 ]
 
 # external_projects_remote_repository = ""
+
+# Disable intersphinx inventory caching. A failed inventory fetch (for
+# example a login redirect that returns HTML) can be cached to disk and then
+# crash the next build with "invalid inventory header". Disabling the cache
+# forces a fresh fetch each build instead of reading a poisoned cache file.
+intersphinx_cache_limit = 0

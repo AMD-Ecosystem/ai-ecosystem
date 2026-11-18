@@ -1,0 +1,86 @@
+# Docker pull-tag data for the TensorFlow install guide
+# (docs/frameworks/tensorflow/install.rst).
+#
+# Rendered by docs/templates/tensorflow-docker.rst.jinja via
+# `.. datatemplate:yaml:: /data/docker-tags/tensorflow.yaml`.
+#
+# Schema shared across docs/data/docker-tags/*.yaml:
+#   releases: a list of ROCm releases (newest first), each with a unique
+#     `rocm_ver` and a list of `variants` (framework versions). Each variant
+#     has a `version` (the display string used in prose, alias names, and
+#     the `tensorflow-ver` selector value) and a `tags` map of
+#     dimension-key -> Docker tag. TensorFlow splits by Ubuntu release
+#     (`ub24` / `ub22`); a variant with only `ub24` renders a single
+#     code-block, one with both renders an Ubuntu tab-set.
+#
+#   `display_version` overrides the prose/heading version string when it
+#   differs from the `version` selector value (for example "2.19" vs. the
+#   published "2.19.1").
+#
+#   `version_selector_key` is the `:key:` of this page's `.. selector::`
+#   block for the framework-version selector (docs/frameworks/tensorflow/
+#   install.rst), used to render each variant's `.. selected:: <key>=...`.
+#
+#   `name` is the display name used in generated prose (for example,
+#   "Pull the ROCm <name> <version> Docker image.").
+#
+#   `layout` ("flat" here) and `dimensions` (the ordered Ubuntu-version
+#   tab list) are consumed by the shared
+#   docs/templates/framework-version-docker.rst.jinja template -- see
+#   that file's header comment for what each value means.
+name: TensorFlow
+version_selector_key: tensorflow-ver
+layout: flat
+dimensions:
+  - key: ub24
+    label: "Ubuntu 24.04"
+  - key: ub22
+    label: "Ubuntu 22.04"
+releases:
+  - rocm_ver: "10.2.0"
+    variants:
+      - version: "2.21"
+        tags:
+          ub24: "rocm/tensorflow:rocm10.2-ubuntu24.04-py3.12-tf2.21"
+      - version: "2.20"
+        tags:
+          ub24: "rocm/tensorflow:rocm10.2-ubuntu24.04-py3.12-tf2.20"
+
+  - rocm_ver: "10.1.0"
+    variants:
+      - version: "2.21"
+        tags:
+          ub24: "rocm/tensorflow:rocm10.1-ubuntu24.04-py3.12-tf2.21"
+          ub22: "rocm/tensorflow:rocm10.1-ubuntu22.04-py3.12-tf2.21"
+      - version: "2.20"
+        tags:
+          ub24: "rocm/tensorflow:rocm10.1-ubuntu24.04-py3.12-tf2.20"
+          ub22: "rocm/tensorflow:rocm10.1-ubuntu22.04-py3.12-tf2.20"
+
+  - rocm_ver: "10.0.0"
+    variants:
+      - version: "2.21"
+        tags:
+          ub24: "rocm/tensorflow:rocm10.0-ubuntu24.04-py3.12-tf2.21"
+      - version: "2.20"
+        tags:
+          ub24: "rocm/tensorflow:rocm10.0-ubuntu24.04-py3.12-tf2.20"
+      - version: "2.19"
+        display_version: "2.19.1"
+        tags:
+          ub24: "rocm/tensorflow:rocm10.0-ubuntu24.04-py3.12-tf2.19.1"
+          ub22: "rocm/tensorflow:rocm10.0-ubuntu22.04-py3.12-tf2.19.1"
+
+  - rocm_ver: "7.14.1"
+    variants:
+      - version: "2.21"
+        tags:
+          ub24: "rocm/tensorflow:rocm7.14.1-ubuntu24.04-py3.12-tf2.21"
+      - version: "2.20"
+        tags:
+          ub24: "rocm/tensorflow:rocm7.14.1-ubuntu24.04-py3.12-tf2.20"
+      - version: "2.19"
+        display_version: "2.19.1"
+        tags:
+          ub24: "rocm/tensorflow:rocm7.14.1-ubuntu24.04-py3.12-tf2.19.1"
+          ub22: "rocm/tensorflow:rocm7.14.1-ubuntu22.04-py3.12-tf2.19.1"

@@ -3,10 +3,12 @@
 
 .. selected:: rocm-ver=10.1.0
 
-   3. If you don't have an existing ROCm installation, install ROCm using the
-      following command; see the `ROCm 10.1.0 installation instructions
+   2. **If you don't have an existing ROCm 10.1.0 installation**, you can
+      install ROCm using pip as follows. See the `ROCm 10.1.0 installation
+      instructions
       <https://rocm.docs.amd.com/en/docs-10.1.0/install/rocm.html>`__ for
-      complete guidance. Otherwise, proceed to installing JAX libraries.
+      complete guidance and other ROCm installation methods. Otherwise,
+      proceed to installing JAX libraries.
 
       .. selected:: fam=all
 
@@ -80,7 +82,7 @@
             python -m pip install --index-url |PKG_REPO_1010| \
                 "rocm[libraries,device-gfx1102]==|ROCM_VER_1010|"
 
-   4. Install the ROCm-enabled JAX libraries.
+   3. Install the ROCm-enabled JAX libraries.
 
       .. note::
 

@@ -1,0 +1,34 @@
+# Docker pull-tag data for the SGLang inference guide (docs/inference/sglang.rst).
+#
+# Rendered by docs/templates/sglang-docker.rst.jinja via
+# `.. datatemplate:yaml:: /data/docker-tags/sglang.yaml`.
+#
+# Schema shared across docs/data/docker-tags/*.yaml:
+#   releases: a list of ROCm releases (newest first), each with a unique
+#     `rocm_ver` and a list of `variants` (framework versions -- SGLang only
+#     ever has one per release). Each variant has a `version` (the display
+#     string used in prose and alias names) and a `tags` map of
+#     dimension-key -> Docker tag. SGLang doesn't split by any dimension, so
+#     every variant has a single `default` tag.
+#
+#   `name` is the display name used in generated prose (for example,
+#   "Pull the ROCm <name> <version> Docker image.").
+name: SGLang
+releases:
+  - rocm_ver: "10.0.0"
+    variants:
+      - version: "0.5.15"
+        tags:
+          default: "rocm/sgl-dev:v0.5.15.post1-ubuntu24.04-py3.14-rocm10.0.0"
+
+  - rocm_ver: "7.14.1"
+    variants:
+      - version: "0.5.13post1"
+        tags:
+          default: "rocm/sgl-dev:v0.5.13.post1-ubuntu24.04-py3.14-rocm7.14.1"
+
+  - rocm_ver: "7.14.0"
+    variants:
+      - version: "0.5.13post1"
+        tags:
+          default: "rocm/sgl-dev:v0.5.13.post1-ubuntu24.04-py3.14-rocm7.14"

@@ -1,0 +1,73 @@
+{#
+  Template: vllm-docker.rst.jinja
+  Renders the vLLM "Get started" Docker pull/run instructions for every
+  supported ROCm release, replacing the old per-release
+  docs/inference/include/vllm/rocm<ver>-docker.rst files.
+  Output: RST with `.. selected::` blocks, one group per release in
+  `releases`.
+
+  Data: docs/data/docker-tags/vllm.yaml (passed as `data` by the caller)
+
+  Each release has one `variants` entry (vLLM doesn't offer multiple
+  versions per ROCm release). A variant is "unified" (one `tags.default`,
+  no fam= branching) if `tags.default` is defined, or "split" (separate
+  Instinct/Radeon+Ryzen tags) if `tags.cdna` / `tags.rdna` are defined
+  instead.
+
+  The vLLM doc links and the short "X.Y" version string (used in prose)
+  follow a fixed pattern keyed off `vllm_release`, so they are derived
+  here rather than duplicated in the data file.
+
+  Shared `docker pull` / `docker run` command-block rendering lives in
+  docker-macros.jinja.
+#}
+{%- import "docker-macros.jinja" as m %}
+{%- set volume_flags = ['-v <path/to/your/models>:/app/models', '-e HF_HOME="/app/models"'] %}
+{%- for r in data.releases %}
+{%- set v = r.variants[0] %}
+{%- set version = v.vllm_release.rsplit(".", 1)[0] %}
+{%- set usage_doc_url = "https://docs.vllm.ai/en/v" ~ v.vllm_release ~ "/usage/" %}
+.. selected:: rocm-ver={{ r.rocm_ver }}
+
+   .. selected:: i=docker
+      :heading: Get started
+
+{%- if v.tags.default is defined %}
+
+      1. Pull the ROCm {{ data.name }} {{ version }} Docker image.
+
+{{ m.docker_pull("         ", v.tags.default) }}
+
+      2. Start the Docker container.
+
+{{ m.docker_run("         ", v.tags.default, extra_flags=volume_flags) }}
+
+      3. After setting up your environment, follow the {{ data.name }} {{ version }} usage
+         documentation to get started: `Using vLLM <{{ usage_doc_url }}>`__.
+{%- else %}
+
+      .. selected:: fam=instinct
+
+         1. Pull the ROCm {{ data.name }} {{ version }} Docker image.
+
+{{ m.docker_pull("            ", v.tags.cdna) }}
+
+         2. Start the Docker container.
+
+{{ m.docker_run("            ", v.tags.cdna, extra_flags=volume_flags) }}
+
+      .. selected:: fam=radeon fam=ryzen
+
+         1. Pull the ROCm {{ data.name }} {{ version }} Docker image.
+
+{{ m.docker_pull("            ", v.tags.rdna) }}
+
+         2. Start the Docker container.
+
+{{ m.docker_run("            ", v.tags.rdna, extra_flags=volume_flags) }}
+
+      3. After setting up your environment, follow the {{ data.name }} {{ version }} usage
+         documentation to get started: `Using vLLM <{{ usage_doc_url }}>`__.
+{%- endif %}
+
+{% endfor -%}
