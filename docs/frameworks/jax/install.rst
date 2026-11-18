@@ -366,11 +366,29 @@ Prerequisites
 
          You should see output similar to the following with at least one GPU listed:
 
-         .. code-block:: text
+         .. selected:: jax-ver=0.11.2
 
-            JAX: 0.11.2
-            Backend: gpu
-            Devices: [RocmDevice(id=0)]
+            .. code-block:: text
+
+               JAX: 0.11.2
+               Backend: gpu
+               Devices: [RocmDevice(id=0)]
+
+         .. selected:: jax-ver=0.11.1
+
+            .. code-block:: text
+
+               JAX: 0.11.1
+               Backend: gpu
+               Devices: [RocmDevice(id=0)]
+
+         .. selected:: jax-ver=0.10.2
+
+            .. code-block:: text
+
+               JAX: 0.10.2
+               Backend: gpu
+               Devices: [RocmDevice(id=0)]
 
 .. selected:: fam=radeon
    :heading: Known issues
