@@ -359,7 +359,21 @@ Prerequisites
 
 .. selected:: i=pip
 
-   .. selected:: rocm-ver=10.2.0 rocm-ver=10.1.0
+   .. selected:: rocm-ver=10.2.0
+
+      .. selected:: os=linux
+
+         * Ensure your system has a `supported Python version
+           <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+           installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
+
+      .. selected:: os=windows
+
+         * Ensure your system has a `supported Python version
+           <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+           installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
+
+   .. selected:: rocm-ver=10.1.0
 
       .. selected:: os=linux
 
@@ -422,7 +436,39 @@ Prerequisites
 
    1. Set up and activate your Python virtual environment.
 
-      .. selected:: os=linux rocm-ver=10.2.0 rocm-ver=10.1.0
+      .. selected:: os=linux rocm-ver=10.2.0
+
+         .. tab-set::
+
+            .. tab-item:: Python 3.14
+
+               .. code-block:: bash
+
+                  python3.14 -m venv .venv
+                  source .venv/bin/activate
+
+            .. tab-item:: Python 3.13
+
+               .. code-block:: bash
+
+                  python3.13 -m venv .venv
+                  source .venv/bin/activate
+
+            .. tab-item:: Python 3.12
+
+               .. code-block:: bash
+
+                  python3.12 -m venv .venv
+                  source .venv/bin/activate
+
+            .. tab-item:: Python 3.11
+
+               .. code-block:: bash
+
+                  python3.11 -m venv .venv
+                  source .venv/bin/activate
+
+      .. selected:: os=linux rocm-ver=10.1.0
 
          .. tab-set::
 
@@ -545,12 +591,32 @@ Prerequisites
 
          You should see output similar to the following with at least one GPU listed:
 
-         .. code-block:: text
+         .. selected:: pytorch-ver=2.15.0
 
-            PyTorch: 2.14.0+rocm10.2.0
-            HIP available: True
-            HIP version: 7.17.26434
-            Devices: ['<AMD GPU name>']
+            .. code-block:: text
+
+               PyTorch: 2.15.0+rocm10.2.0
+               HIP available: True
+               HIP version: 7.17.26434
+               Devices: ['<AMD GPU name>']
+
+         .. selected:: pytorch-ver=2.14.0
+
+            .. code-block:: text
+
+               PyTorch: 2.14.0+rocm10.2.0
+               HIP available: True
+               HIP version: 7.17.26434
+               Devices: ['<AMD GPU name>']
+
+         .. selected:: pytorch-ver=2.13.0
+
+            .. code-block:: text
+
+               PyTorch: 2.13.0+rocm10.2.0
+               HIP available: True
+               HIP version: 7.17.26434
+               Devices: ['<AMD GPU name>']
 
 .. selected:: fam=instinct rocm-ver=10.2.0 rocm-ver=10.1.0 rocm-ver=10.0.0
    :heading: Known issues
