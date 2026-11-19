@@ -192,10 +192,15 @@ hardware. It applies to `supported AMD GPUs and platforms
    :key: pytorch-ver
    :show-cond: os=windows
 
+   .. selector-option:: 2.15.0
+      :value: 2.15.0
+      :width: 12
+      :show-cond: rocm-ver=10.2.0
+
    .. selector-option:: 2.14.0
       :value: 2.14.0
       :width: 12
-      :show-cond: rocm-ver=10.2.0 rocm-ver=10.1.0
+      :show-cond: rocm-ver=10.1.0
 
    .. selector-option:: 2.13.0
       :value: 2.13.0
