@@ -26,7 +26,7 @@ frameworks.
 - [SGLang](inference/sglang)
 - [ATOM](https://rocm.docs.amd.com/projects/atom)
 - [llama.cpp](inference/llamacpp)
-- [MIGraphX](inference/migraphx)
+- [MIGraphX](https://advanced-micro-devices-demo--5587.com.readthedocs.build/projects/AMDMIGraphX/en/5587/)
 - [ONNX Runtime](inference/onnxruntime)
 - [xDiT](inference/xdit)
 - [ComfyUI](inference/comfy)
