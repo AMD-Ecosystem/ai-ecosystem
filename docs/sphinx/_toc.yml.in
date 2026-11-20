@@ -31,7 +31,7 @@ subtrees:
             title: ATOM
           - file: inference/llamacpp.rst
             title: llama.cpp
-          - file: inference/migraphx.rst
+          - url: https://advanced-micro-devices-demo--5587.com.readthedocs.build/projects/AMDMIGraphX/en/5587/
             title: MIGraphX
           - file: inference/onnxruntime.rst
             title: ONNX Runtime
