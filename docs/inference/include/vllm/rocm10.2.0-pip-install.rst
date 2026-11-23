@@ -6,7 +6,7 @@
 .. |VLLM_USAGE_DOC_1020P| replace:: `Using vLLM <https://docs.vllm.ai/en/v0.32.0/usage/>`__
 .. |VLLM_PIP_INSTALL_DOC_1020P| replace:: `Set up using Python (vLLM docs) <https://docs.vllm.ai/en/v0.32.0/getting_started/installation/gpu/#amd-rocm_3>`__
 
-.. |VLLM_WHL_1020| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/vllm/vllm/vllm-0.32.1.dev0%2Bg5df63a720.d20261116.rocm102-cp314-cp314-linux_x86_64.whl
+.. |VLLM_WHL_1020| replace:: https://rocm.frameworks.amd.com/whl-multi-arch/vllm/vllm/vllm-0.32.1.dev0%2Bg5df63a720.d20261119.rocm102-cp314-cp314-linux_x86_64.whl
 
 .. selected:: rocm-ver=10.2.0
 
@@ -211,7 +211,7 @@
 
       .. code-block:: text
 
-         vLLM version: 0.32.1.dev0+g5df63a720.d20261116
+         vLLM version: 0.32.1.dev0+g5df63a720.d20261119
          vLLM platform: rocm
          Is ROCm: True
          PyTorch: 2.14.0+rocm10.2.0
