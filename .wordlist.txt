@@ -187,6 +187,7 @@ kv
 len
 libexec
 lifecycle
+llamacpp
 llm
 ln
 lora

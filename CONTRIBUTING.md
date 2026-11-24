@@ -29,7 +29,7 @@ isn't already listed.
 
 General issue guidelines:
 
-* Use your best judgement for issue creation. If your issue is already listed, upvote the issue and
+* Use your best judgment for issue creation. If your issue is already listed, upvote the issue and
   comment to provide additional details, such as the page affected and how to reproduce the problem.
 * If you're not sure whether your issue is the same, err on the side of caution and file your issue.
   You can add a comment that includes the issue number (and link) for the similar issue. If we
@@ -42,12 +42,12 @@ General issue guidelines:
 
 ### Pull requests
 
-When you create a pull request, target the **main** branch.
+When you create a pull request, target the **develop** branch.
 
 When creating a PR, use the following process:
 
 * Identify the issue you want to fix.
-* Target the **main** branch for integration.
+* Target the **develop** branch for integration.
 * Build the documentation locally and confirm it builds without errors or warnings. See
   [Build the documentation](README.md#build-the-documentation) for instructions.
 * Review the rendered HTML output to verify your changes display as intended.
@@ -73,7 +73,7 @@ provide direction and feedback before you begin work.
 Match the style and structure of the existing content. The documentation follows the
 [ROCm documentation conventions](https://rocm.docs.amd.com/en/latest/contribute/contributing.html),
 including second-person voice, sentence case headings, and language tags on all code blocks. Prefer
-evergreen wording over version-specific details.
+evergreen wording over version-specific details. See [AGENTS.md](./AGENTS.md) for more guidance.
 
 ## Future development workflow
 

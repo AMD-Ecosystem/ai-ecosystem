@@ -1,0 +1,115 @@
+{#
+  Template: framework-version-docker.rst.jinja
+  Shared "Get started" Docker pull/run template for frameworks whose
+  pages select a Docker image by ROCm release + framework version (as
+  opposed to sglang/vllm, which select by device family instead and keep
+  their own templates). Used by TensorFlow, JAX, and PyTorch:
+    docs/data/docker-tags/tensorflow.yaml
+    docs/data/docker-tags/jax.yaml
+    docs/data/docker-tags/pytorch.yaml
+  via `.. datatemplate:yaml:: /data/docker-tags/<fw>.yaml` +
+  `:template: framework-version-docker.rst.jinja`.
+
+  Output: RST with `.. selected::` blocks, one group per release in
+  `data.releases`.
+
+  Each release has one or more `variants` (framework versions). Each
+  variant's `tags` map has one entry per dimension key declared in
+  `data.dimensions` (an ordered list of `{key, label}`, for example
+  Python or Ubuntu versions); the keys actually present on a variant
+  determine which tabs render for it (a single present key renders a
+  bare code-block instead of a tab-set).
+
+  `data.layout` selects the numbered-step structure, matching how each
+  framework's pages were originally hand-written:
+    "nested" -- every variant renders its own self-contained "1. Pull" /
+      "2. Start the Docker container." sequence (JAX).
+    "flat"   -- all variants' "Pull" steps render first under one "1."
+      item, then all variants' "Start" steps render under one "2." item
+      (TensorFlow, PyTorch).
+  `data.layout` is constant for a given data file, so the two layouts are
+  rendered by two separate top-level loops (picked once via `{% if %}` /
+  `{% else %}`) rather than branching inside a shared per-release loop --
+  the two layouts need different whitespace trimming around the
+  per-variant loop, which is easiest to get right when each is its own
+  self-contained block (see docker-macros.jinja's header comment and the
+  git history of this template for the whitespace pitfalls involved).
+
+  `data.name` and `data.version_selector_key` supply the prose framework
+  name and the `.. selected:: <key>=...` selector key; `variant.
+  display_version` optionally overrides the prose/heading version string
+  (TensorFlow only).
+
+  Shared `docker pull` / `docker run` command-block rendering lives in
+  docker-macros.jinja.
+#}
+{%- import "docker-macros.jinja" as m %}
+{%- macro step(dims, tags, kind, indent) %}
+{%- if dims | length > 1 %}
+{{ indent }}.. tab-set::
+{% for key, label in dims %}
+{{ indent }}   .. tab-item:: {{ label }}
+{{ indent }}      :sync: {{ key }}
+
+{% if kind == "pull" %}{{ m.docker_pull(indent ~ "      ", tags[key]) }}{% else %}{{ m.docker_run(indent ~ "      ", tags[key]) }}{% endif %}
+{% endfor -%}
+{%- else %}
+{%- set key = dims[0][0] %}
+{% if kind == "pull" %}{{ m.docker_pull(indent, tags[key]) }}{% else %}{{ m.docker_run(indent, tags[key]) }}{% endif %}
+{%- endif %}
+{%- endmacro %}
+{%- if data.layout == "nested" %}
+{%- for r in data.releases %}
+.. selected:: rocm-ver={{ r.rocm_ver }}
+
+   .. selected:: i=docker
+      :heading: Get started
+{% for variant in r.variants %}
+{%- set dims = [] %}
+{%- for dim in data.dimensions %}
+{%- if variant.tags[dim.key] is defined %}{%- set _ = dims.append((dim.key, dim.label)) %}{%- endif %}
+{%- endfor %}
+{%- set display_version = variant.display_version if variant.display_version is defined else variant.version %}
+      .. selected:: {{ data.version_selector_key }}={{ variant.version }}
+
+         1. Pull the ROCm {{ data.name }} {{ display_version }} Docker image.
+
+{{ step(dims, variant.tags, "pull", "            ") }}
+
+         2. Start the Docker container.
+
+{{ step(dims, variant.tags, "run", "            ") }}
+{% endfor -%}
+
+{% endfor -%}
+{%- else %}
+{%- for r in data.releases %}
+.. selected:: rocm-ver={{ r.rocm_ver }}
+
+   .. selected:: i=docker
+      :heading: Get started
+{% for variant in r.variants %}
+{%- set dims = [] %}
+{%- for dim in data.dimensions %}
+{%- if variant.tags[dim.key] is defined %}{%- set _ = dims.append((dim.key, dim.label)) %}{%- endif %}
+{%- endfor %}
+{%- set display_version = variant.display_version if variant.display_version is defined else variant.version %}
+      .. selected:: {{ data.version_selector_key }}={{ variant.version }}
+
+         1. Pull the ROCm {{ data.name }} {{ display_version }} Docker image.
+
+{{ step(dims, variant.tags, "pull", "            ") }}
+{% endfor %}
+      2. Start the Docker container.
+{% for variant in r.variants %}
+{%- set dims = [] %}
+{%- for dim in data.dimensions %}
+{%- if variant.tags[dim.key] is defined %}{%- set _ = dims.append((dim.key, dim.label)) %}{%- endif %}
+{%- endfor %}
+         .. selected:: {{ data.version_selector_key }}={{ variant.version }}
+
+{{ step(dims, variant.tags, "run", "            ") }}
+{% endfor -%}
+
+{% endfor -%}
+{%- endif %}

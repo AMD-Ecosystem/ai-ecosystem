@@ -15,12 +15,20 @@ benchmarking, see the version-specific documentation.
      - Components
      - Resources
 
-   * - ``rocm/pytorch-xdit:v26.9`` (latest)
+   * - ``rocm/pytorch-xdit:v26.10`` (latest)
+     -
+       * ROCm 10.1.0
+       * TheRock ab56f1f
+     -
+       * :doc:`Documentation <../xdit>`
+       * `Docker Hub <https://hub.docker.com/layers/rocm/pytorch-xdit/v26.10>`__
+
+   * - ``rocm/pytorch-xdit:v26.9``
      -
        * ROCm 7.14.0
        * TheRock 9100ec6
      -
-       * :doc:`Documentation <../xdit>`
+       * :doc:`Documentation <xdit-v26-9>`
        * `Docker Hub <https://hub.docker.com/layers/rocm/pytorch-xdit/v26.9>`__
 
    * - ``rocm/pytorch-xdit:v26.8``

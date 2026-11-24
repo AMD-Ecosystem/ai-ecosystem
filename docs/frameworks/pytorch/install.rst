@@ -14,17 +14,20 @@ hardware. It applies to `supported AMD GPUs and platforms
 .. selector:: ROCm version
    :key: rocm-ver
 
+   .. selector-option:: 10.2.0
+      :width: 20%
+
    .. selector-option:: 10.1.0
-      :width: 3
+      :width: 20%
 
    .. selector-option:: 10.0.0
-      :width: 3
+      :width: 20%
 
    .. selector-option:: 7.14.1
-      :width: 3
+      :width: 20%
 
    .. selector-option:: 7.14.0
-      :width: 3
+      :width: 20%
 
 .. selector:: Device family
    :key: fam
@@ -70,6 +73,32 @@ hardware. It applies to `supported AMD GPUs and platforms
    .. selector-option:: Windows
       :value: windows
       :width: 6
+
+.. selected:: rocm-ver=10.2.0
+
+   .. selector:: PyTorch version
+      :key: pytorch-ver
+      :show-cond: os=linux
+
+      .. selector-option:: 2.15.0
+         :value: 2.15.0
+         :width: 4
+         :show-cond: fam=instinct fam=all
+
+      .. selector-option:: 2.14.0
+         :value: 2.14.0
+         :width: 4
+         :show-cond: fam=instinct fam=all
+
+      .. selector-option:: 2.13.0
+         :value: 2.13.0
+         :width: 4
+         :show-cond: fam=instinct fam=all
+
+      .. selector-option:: 2.15.0
+         :value: 2.15.0
+         :width: 12
+         :show-cond: fam=radeon fam=ryzen
 
 .. selected:: rocm-ver=10.1.0
 
@@ -163,6 +192,11 @@ hardware. It applies to `supported AMD GPUs and platforms
    :key: pytorch-ver
    :show-cond: os=windows
 
+   .. selector-option:: 2.15.0
+      :value: 2.15.0
+      :width: 12
+      :show-cond: rocm-ver=10.2.0
+
    .. selector-option:: 2.14.0
       :value: 2.14.0
       :width: 12
@@ -194,11 +228,20 @@ Prerequisites
 
 .. selected:: fam=instinct fam=radeon
 
+   .. selected:: rocm-ver=10.2.0
+
+      * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
+        `ROCm compatibility matrix
+        <https://rocm.docs.amd.com/en/docs-10.2.0/compatibility/compatibility-matrix.html>`__
+        for driver support information. For installation instructions, see the
+        `AMD GPU Driver documentation
+        <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.70.0/index.html>`__.
+
    .. selected:: rocm-ver=10.1.0
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
-        <https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>`__
+        <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__
         for driver support information. For installation instructions, see the
         `AMD GPU Driver documentation
         <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.60.0/index.html>`__.
@@ -207,7 +250,7 @@ Prerequisites
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
-        <https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>`__
+        <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__
         for driver support information. For installation instructions, see the
         `AMD GPU Driver documentation
         <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
@@ -216,10 +259,100 @@ Prerequisites
 
       * Ensure your system has the AMD GPU Driver (amdgpu) installed. See the
         `ROCm compatibility matrix
-        <https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>`__
+        <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__
         for driver support information. For installation instructions, see the
         `AMD GPU Driver documentation
         <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
+
+.. selected:: fam=all
+
+   .. selected:: os=linux
+
+      .. selected:: rocm-ver=10.2.0
+
+         * On supported Instinct and Radeon systems, ensure your system has
+           the AMD GPU Driver (amdgpu) installed. For installation
+           instructions, see the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.70.0/index.html>`__.
+           Supported Ryzen systems require the inbox kernel driver in a
+           supported Ubuntu version. See the `ROCm compatibility matrix
+           <https://rocm.docs.amd.com/en/docs-10.2.0/compatibility/compatibility-matrix.html>`__
+           for driver support information.
+
+      .. selected:: rocm-ver=10.1.0
+
+         * On supported Instinct and Radeon systems, ensure your system has
+           the AMD GPU Driver (amdgpu) installed. For installation
+           instructions, see the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.60.0/index.html>`__.
+           Supported Ryzen systems require the inbox kernel driver in a
+           supported Ubuntu version. See the `ROCm compatibility matrix
+           <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__
+           for driver support information.
+
+      .. selected:: rocm-ver=10.0.0
+
+         * On supported Instinct and Radeon systems, ensure your system has
+           the AMD GPU Driver (amdgpu) installed. For installation
+           instructions, see the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.50.0/index.html>`__.
+           Supported Ryzen systems require the inbox kernel driver in a
+           supported Ubuntu version. See the `ROCm compatibility matrix
+           <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__
+           for driver support information.
+
+      .. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
+
+         * On supported Instinct and Radeon systems, ensure your system has
+           the AMD GPU Driver (amdgpu) installed. For installation
+           instructions, see the `AMD GPU Driver documentation
+           <https://instinct.docs.amd.com/projects/amdgpu-docs/en/docs-31.40.1/index.html>`__.
+           Supported Ryzen systems require the inbox kernel driver in a
+           supported Ubuntu version. See the `ROCm compatibility matrix
+           <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__
+           for driver support information.
+
+   .. selected:: os=windows
+
+      .. selected:: rocm-ver=10.2.0
+
+         * Ensure your system has the AMD Software: Adrenalin Edition driver
+           installed. See the `ROCm compatibility matrix
+           <https://rocm.docs.amd.com/en/docs-10.2.0/compatibility/compatibility-matrix.html>`__
+           for driver support information, and the `Adrenalin Edition
+           release notes
+           <https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-11-2.html>`__
+           for details.
+
+      .. selected:: rocm-ver=10.1.0
+
+         * Ensure your system has the AMD Software: Adrenalin Edition driver
+           installed. See the `ROCm compatibility matrix
+           <https://rocm.docs.amd.com/en/docs-10.1.0/compatibility/compatibility-matrix.html>`__
+           for driver support information, and the `Adrenalin Edition
+           release notes
+           <https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-11-2.html>`__
+           for details.
+
+      .. selected:: rocm-ver=10.0.0
+
+         * Ensure your system has the AMD Software: Adrenalin Edition driver
+           installed. See the `ROCm compatibility matrix
+           <https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html>`__
+           for driver support information, and the `Adrenalin Edition
+           release notes
+           <https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-11-2.html>`__
+           for details.
+
+      .. selected:: rocm-ver=7.14.1 rocm-ver=7.14.0
+
+         * Ensure your system has the AMD Software: Adrenalin Edition driver
+           installed. See the `ROCm compatibility matrix
+           <https://rocm.docs.amd.com/en/docs-7.14.1/compatibility/compatibility-matrix.html>`__
+           for driver support information, and the `Adrenalin Edition
+           release notes
+           <https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-11-2.html>`__
+           for details.
 
 .. selected:: i=docker
 
@@ -230,6 +363,20 @@ Prerequisites
      <https://rocm.docs.amd.com/en/latest/install/docker-containers.html>`__.
 
 .. selected:: i=pip
+
+   .. selected:: rocm-ver=10.2.0
+
+      .. selected:: os=linux
+
+         * Ensure your system has a `supported Python version
+           <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+           installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
+
+      .. selected:: os=windows
+
+         * Ensure your system has a `supported Python version
+           <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
+           installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
 
    .. selected:: rocm-ver=10.1.0
 
@@ -250,6 +397,13 @@ Prerequisites
       * Ensure your system has a `supported Python version
         <https://rocm.docs.amd.com/en/latest/about/release-notes.html#ai-ecosystem-support>`__
         installed and accessible: **3.11, 3.12, 3.13, or 3.14**.
+
+   .. selected:: rocm-ver=10.2.0
+
+      * Complete the ROCm Core SDK installation prerequisites. See `Prerequisites
+        (Install ROCm 10.2.0)
+        <https://rocm.docs.amd.com/en/docs-10.2.0/install/rocm.html#prerequisites>`__ for
+        instructions.
 
    .. selected:: rocm-ver=10.1.0
 
@@ -279,18 +433,45 @@ Prerequisites
         <https://rocm.docs.amd.com/en/docs-7.14.0/install/rocm.html#prerequisites>`__ for
         instructions.
 
-.. include:: ./include/rocm10.1.0-docker.rst
-
-.. include:: ./include/rocm10.0.0-docker.rst
-
-.. include:: ./include/rocm7.14.1-docker.rst
-
-.. include:: ./include/rocm7.14.0-docker.rst
+.. datatemplate:yaml:: /data/docker-tags/pytorch.yaml
+   :template: framework-version-docker.rst.jinja
 
 .. selected:: i=pip
    :heading: Install PyTorch using pip
 
-   1. Set up your Python virtual environment.
+   1. Set up and activate your Python virtual environment.
+
+      .. selected:: os=linux rocm-ver=10.2.0
+
+         .. tab-set::
+
+            .. tab-item:: Python 3.14
+
+               .. code-block:: bash
+
+                  python3.14 -m venv .venv
+                  source .venv/bin/activate
+
+            .. tab-item:: Python 3.13
+
+               .. code-block:: bash
+
+                  python3.13 -m venv .venv
+                  source .venv/bin/activate
+
+            .. tab-item:: Python 3.12
+
+               .. code-block:: bash
+
+                  python3.12 -m venv .venv
+                  source .venv/bin/activate
+
+            .. tab-item:: Python 3.11
+
+               .. code-block:: bash
+
+                  python3.11 -m venv .venv
+                  source .venv/bin/activate
 
       .. selected:: os=linux rocm-ver=10.1.0
 
@@ -301,30 +482,35 @@ Prerequisites
                .. code-block:: bash
 
                   python3.14 -m venv .venv
+                  source .venv/bin/activate
 
             .. tab-item:: Python 3.13
 
                .. code-block:: bash
 
                   python3.13 -m venv .venv
+                  source .venv/bin/activate
 
             .. tab-item:: Python 3.12
 
                .. code-block:: bash
 
                   python3.12 -m venv .venv
+                  source .venv/bin/activate
 
             .. tab-item:: Python 3.11
 
                .. code-block:: bash
 
                   python3.11 -m venv .venv
+                  source .venv/bin/activate
 
             .. tab-item:: Python 3.10
 
                .. code-block:: bash
 
                   python3.10 -m venv .venv
+                  source .venv/bin/activate
 
       .. selected:: os=linux rocm-ver=10.0.0 rocm-ver=7.14.1 rocm-ver=7.14.0
 
@@ -335,24 +521,28 @@ Prerequisites
                .. code-block:: bash
 
                   python3.14 -m venv .venv
+                  source .venv/bin/activate
 
             .. tab-item:: Python 3.13
 
                .. code-block:: bash
 
                   python3.13 -m venv .venv
+                  source .venv/bin/activate
 
             .. tab-item:: Python 3.12
 
                .. code-block:: bash
 
                   python3.12 -m venv .venv
+                  source .venv/bin/activate
 
             .. tab-item:: Python 3.11
 
                .. code-block:: bash
 
                   python3.11 -m venv .venv
+                  source .venv/bin/activate
 
       .. selected:: os=windows
 
@@ -363,38 +553,30 @@ Prerequisites
                .. code-block:: bat
 
                   py -3.14 -m venv .venv
+                  .venv\Scripts\activate
 
             .. tab-item:: Python 3.13
 
                .. code-block:: bat
 
                   py -3.13 -m venv .venv
+                  .venv\Scripts\activate
 
             .. tab-item:: Python 3.12
 
                .. code-block:: bat
 
                   py -3.12 -m venv .venv
+                  .venv\Scripts\activate
 
             .. tab-item:: Python 3.11
 
                .. code-block:: bat
 
                   py -3.11 -m venv .venv
+                  .venv\Scripts\activate
 
-   2. Activate your Python virtual environment. For example:
-
-      .. selected:: os=linux
-
-         .. code-block:: bash
-
-            source .venv/bin/activate
-
-      .. selected:: os=windows
-
-         .. code-block:: bat
-
-            .venv\Scripts\activate
+   .. include:: ./include/rocm10.2.0-pip-install.rst
 
    .. include:: ./include/rocm10.1.0-pip-install.rst
 
@@ -404,16 +586,44 @@ Prerequisites
 
    .. include:: ./include/rocm7.14.0-pip-install.rst
 
-   4. Verify your PyTorch installation.
+   3. Verify your PyTorch installation.
 
       .. code-block:: shell
 
-         python -c "import torch; print(torch.cuda.is_available())"
+         python -c "import torch; print('PyTorch:', torch.__version__); print('HIP available:', torch.cuda.is_available()); print('HIP version:', torch.version.hip); print('Devices:', [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())])"
 
-      This prints ``True`` if PyTorch and ROCm are installed properly and your AMD
-      GPUs are detected.
+      .. selected:: rocm-ver=10.2.0
 
-.. selected:: fam=instinct rocm-ver=10.1.0 rocm-ver=10.0.0
+         You should see output similar to the following with at least one GPU listed:
+
+         .. selected:: pytorch-ver=2.15.0
+
+            .. code-block:: text
+
+               PyTorch: 2.15.0+rocm10.2.0
+               HIP available: True
+               HIP version: 7.17.26434
+               Devices: ['<AMD GPU name>']
+
+         .. selected:: pytorch-ver=2.14.0
+
+            .. code-block:: text
+
+               PyTorch: 2.14.0+rocm10.2.0
+               HIP available: True
+               HIP version: 7.17.26434
+               Devices: ['<AMD GPU name>']
+
+         .. selected:: pytorch-ver=2.13.0
+
+            .. code-block:: text
+
+               PyTorch: 2.13.0+rocm10.2.0
+               HIP available: True
+               HIP version: 7.17.26434
+               Devices: ['<AMD GPU name>']
+
+.. selected:: fam=instinct rocm-ver=10.2.0 rocm-ver=10.1.0 rocm-ver=10.0.0
    :heading: Known issues
 
    * Hugging Face model training workloads might see 9–25% lower training
@@ -460,7 +670,7 @@ Prerequisites
 
                  sudo zypper install libnuma-devel
 
-.. selected:: fam=radeon fam=ryzen
+.. selected:: fam=radeon fam=ryzen rocm-ver=7.14.1 rocm-ver=7.14.0
    :heading: Known issues
 
    * Lower-than-expected performance might be observed in some large language model
@@ -471,6 +681,16 @@ Prerequisites
      ``TORCH_BLAS_PREFER_HIPBLASLT=1`` environment variable to use the hipBLASLt
      backend. This setting becomes the default for these architectures in PyTorch
      2.14.
+
+   * PyTorch training and fine-tuning workloads using Llama-Factory or Unsloth
+     might experience GPU resets or application crashes on some AMD Radeon
+     graphics products, such as the Radeon RX 9070 Series and Radeon AI PRO
+     R9700. As a workaround, set the ``TORCH_BLAS_PREFER_HIPBLASLT=0``
+     environment variable to disable hipBLASLt for training and fine-tuning
+     workloads. This workaround might result in performance degradation.
+
+.. selected:: fam=radeon fam=ryzen rocm-ver=10.0.0
+   :heading: Known issues
 
    * PyTorch training and fine-tuning workloads using Llama-Factory or Unsloth
      might experience GPU resets or application crashes on some AMD Radeon

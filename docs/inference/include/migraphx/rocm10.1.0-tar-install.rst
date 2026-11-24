@@ -54,42 +54,12 @@
 
          .. tab-set::
 
-            .. tab-item:: User (~/.bashrc)
-               :sync: bashrc
-
-               .. code-block:: bash
-
-                  # MIGraphX Environment Setup
-                  tee --append ~/.bashrc << EOF
-                  # BEGIN MIGraphX environment configuration
-                  export ROCM_PATH=$ROCM_INSTALL_PATH
-                  export MIGRAPHX_PATH=$MIGRAPHX_INSTALL_PATH
-                  export PATH=\$MIGRAPHX_PATH/bin:\$PATH
-                  export LD_LIBRARY_PATH=\$MIGRAPHX_PATH/lib:\$ROCM_PATH/lib:\$LD_LIBRARY_PATH
-                  # END MIGraphX environment configuration
-                  EOF
-
-                  source ~/.bashrc
-
-            .. tab-item:: User (~/.profile)
-               :sync: profile
-
-               .. code-block:: bash
-
-                  # MIGraphX Environment Setup
-                  tee --append ~/.profile << EOF
-                  # BEGIN MIGraphX environment configuration
-                  export ROCM_PATH=$ROCM_INSTALL_PATH
-                  export MIGRAPHX_PATH=$MIGRAPHX_INSTALL_PATH
-                  export PATH=\$MIGRAPHX_PATH/bin:\$PATH
-                  export LD_LIBRARY_PATH=\$MIGRAPHX_PATH/lib:\$ROCM_PATH/lib:\$LD_LIBRARY_PATH
-                  # END MIGraphX environment configuration
-                  EOF
-
-                  source ~/.profile
-
-            .. tab-item:: System-wide
+            .. tab-item:: System-wide setup
                :sync: system
+
+               Create a profile script so that all users inherit the
+               MIGraphX environment variables when they start a shell
+               session.
 
                .. code-block:: bash
 
@@ -104,6 +74,48 @@
                   sudo chmod +x /etc/profile.d/set-migraphx-env.sh
                   source /etc/profile.d/set-migraphx-env.sh
 
+            .. tab-item:: User setup
+               :sync: user
+
+               Configure the MIGraphX environment for your user by updating
+               your shell startup configuration file.
+
+               .. tab-set::
+
+                  .. tab-item:: .bashrc
+                     :sync: bashrc
+
+                     .. code-block:: bash
+
+                        # MIGraphX Environment Setup
+                        tee --append ~/.bashrc << EOF
+                        # BEGIN MIGraphX environment configuration
+                        export ROCM_PATH=$ROCM_INSTALL_PATH
+                        export MIGRAPHX_PATH=$MIGRAPHX_INSTALL_PATH
+                        export PATH=\$MIGRAPHX_PATH/bin:\$PATH
+                        export LD_LIBRARY_PATH=\$MIGRAPHX_PATH/lib:\$ROCM_PATH/lib:\$LD_LIBRARY_PATH
+                        # END MIGraphX environment configuration
+                        EOF
+
+                        source ~/.bashrc
+
+                  .. tab-item:: .profile
+                     :sync: profile
+
+                     .. code-block:: bash
+
+                        # MIGraphX Environment Setup
+                        tee --append ~/.profile << EOF
+                        # BEGIN MIGraphX environment configuration
+                        export ROCM_PATH=$ROCM_INSTALL_PATH
+                        export MIGRAPHX_PATH=$MIGRAPHX_INSTALL_PATH
+                        export PATH=\$MIGRAPHX_PATH/bin:\$PATH
+                        export LD_LIBRARY_PATH=\$MIGRAPHX_PATH/lib:\$ROCM_PATH/lib:\$LD_LIBRARY_PATH
+                        # END MIGraphX environment configuration
+                        EOF
+
+                        source ~/.profile
+
       4. Verify your installation.
 
          Confirm that ``migraphx-driver`` is on your ``PATH`` and reports the
@@ -112,6 +124,12 @@
          .. code-block:: bash
 
             migraphx-driver --version
+
+         You should see MIGraphX 2.18.0 in the output:
+
+         .. code-block:: text
+
+            MIGraphX Version: 2.18.0
 
          .. tip::
 
@@ -143,23 +161,7 @@
 
          .. tab-set::
 
-            .. tab-item:: User (~/.bashrc)
-               :sync: bashrc
-
-               If you opted for a user-specific setup during the installation
-               process, remove the MIGraphX environment configuration block --
-               the lines between the ``BEGIN`` and ``END`` markers -- from
-               ``~/.bashrc``.
-
-            .. tab-item:: User (~/.profile)
-               :sync: profile
-
-               If you opted for a user-specific setup during the installation
-               process, remove the MIGraphX environment configuration block --
-               the lines between the ``BEGIN`` and ``END`` markers -- from
-               ``~/.profile``.
-
-            .. tab-item:: System-wide
+            .. tab-item:: System-wide setup
                :sync: system
 
                If you opted for a system-wide setup during the installation
@@ -168,3 +170,24 @@
                .. code-block:: bash
 
                   sudo rm -f /etc/profile.d/set-migraphx-env.sh
+
+            .. tab-item:: User setup
+               :sync: user
+
+               .. tab-set::
+
+                  .. tab-item:: .bashrc
+                     :sync: bashrc
+
+                     If you opted for a user-specific setup during the installation
+                     process, remove the MIGraphX environment configuration block --
+                     the lines between the ``BEGIN`` and ``END`` markers -- from
+                     ``~/.bashrc``.
+
+                  .. tab-item:: .profile
+                     :sync: profile
+
+                     If you opted for a user-specific setup during the installation
+                     process, remove the MIGraphX environment configuration block --
+                     the lines between the ``BEGIN`` and ``END`` markers -- from
+                     ``~/.profile``.
