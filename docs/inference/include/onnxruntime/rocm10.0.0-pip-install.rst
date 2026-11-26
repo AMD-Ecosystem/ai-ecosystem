@@ -34,20 +34,24 @@
          python -m pip install --extra-index-url |PKG_REPO_1000| |WHL_1000|
 
    4. As a workaround due to packaging issues, create the required soname
-      symlink and set library search paths. For example, if you installed
-      MIGraphX using pip:
+      symlink and set library search paths so ONNX Runtime, MIGraphX, and
+      ROCm shared libraries installed in your virtual environment's
+      ``site-packages`` can be found. Run the ``export`` command with the
+      virtual environment active so the paths resolve correctly.
 
       .. code-block:: bash
 
          SP=$(python -c "import site; print(site.getsitepackages()[0])")
+         ROCM_SDK_CORE=$(python -c "import _rocm_sdk_core, os; print(os.path.dirname(_rocm_sdk_core.__file__))")
+         ROCM_SDK_LIBRARIES=$(python -c "import _rocm_sdk_libraries, os; print(os.path.dirname(_rocm_sdk_libraries.__file__))")
          ln -sf $SP/onnxruntime/capi/libonnxruntime.so.1.29.0 $SP/onnxruntime/capi/libonnxruntime.so.1
-         export LD_LIBRARY_PATH=$SP/onnxruntime/capi:$SP/migraphx_libs:$LD_LIBRARY_PATH
+         export LD_LIBRARY_PATH=$ROCM_SDK_CORE/lib:$ROCM_SDK_CORE/lib/rocm_sysdeps/lib:$ROCM_SDK_LIBRARIES/lib:$SP/onnxruntime/capi:$SP/migraphx_libs:$LD_LIBRARY_PATH
 
       .. tip::
 
-         The symlink only needs to be created once. For persistence,
-         ``LD_LIBRARY_PATH`` should be set for each shell session or added to
-         your shell startup script (e.g. ``~/.bashrc``).
+         The symlink only needs to be created once. Run the ``LD_LIBRARY_PATH``
+         command again in each new shell session after activating the virtual
+         environment.
 
    5. Confirm ONNX Runtime is correctly installed and the MIGraphX execution
       provider is available.

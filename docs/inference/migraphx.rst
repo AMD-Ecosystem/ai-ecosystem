@@ -154,7 +154,7 @@ Install ROCm
 .. selected:: rocm-ver=10.2.0
 
    For instructions, see `Install AMD ROCm 10.2.0
-   <https://rocm-stg.amd.com/en/docs-10.2.0/install/rocm.html>`__. Use the
+   <https://rocm.docs.amd.com/en/docs-10.2.0/install/rocm.html>`__. Use the
    selector panel on that page to view instructions appropriate for your system
    environment.
 
