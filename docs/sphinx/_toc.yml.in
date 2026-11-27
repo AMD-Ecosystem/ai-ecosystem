@@ -31,7 +31,7 @@ subtrees:
             title: ATOM
           - file: inference/llamacpp.rst
             title: llama.cpp
-          - file: inference/migraphx.rst
+          - url: https://rocm.docs.amd.com/projects/AMDMIGraphX/en/docs-2.19.0/install/install-migraphx.html
             title: MIGraphX
           - file: inference/onnxruntime.rst
             title: ONNX Runtime
